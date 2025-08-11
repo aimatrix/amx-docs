@@ -1,0 +1,98 @@
+name: Debug S3 Configuration
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ debug-s3 ]
+
+jobs:
+  debug-s3:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_S3_DOCS_AIMATRIX_COM }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_S3_DOCS_AIMATRIX_COM }}
+        aws-region: ${{ secrets.AWS_REGION_S3_DOCS_AIMATRIX_COM }}
+
+    - name: Debug AWS Configuration
+      run: |
+        echo "🔍 Debugging AWS Configuration..."
+        echo "Region: ${{ secrets.AWS_REGION_S3_DOCS_AIMATRIX_COM }}"
+        
+        echo "Testing AWS credentials..."
+        aws sts get-caller-identity || echo "❌ AWS credentials failed"
+        
+        echo "Testing S3 access..."
+        aws s3 ls s3://docs.aimatrix.com/ --max-items 5 || echo "❌ S3 access failed"
+        
+        echo "Checking bucket region..."
+        aws s3api get-bucket-location --bucket docs.aimatrix.com || echo "❌ Get bucket location failed"
+        
+        echo "Checking public access block..."
+        aws s3api get-public-access-block --bucket docs.aimatrix.com || echo "❌ No public access block configured"
+        
+        echo "Checking bucket policy..."
+        aws s3api get-bucket-policy --bucket docs.aimatrix.com || echo "❌ No bucket policy configured"
+        
+        echo "Checking website configuration..."
+        aws s3api get-bucket-website --bucket docs.aimatrix.com || echo "❌ Website hosting not configured"
+
+    - name: Test Simple Upload
+      run: |
+        echo "🧪 Testing simple file upload..."
+        echo "This is a test file from GitHub Actions" > test-deploy.txt
+        
+        echo "Attempting upload..."
+        aws s3 cp test-deploy.txt s3://docs.aimatrix.com/test-deploy.txt || echo "❌ Upload failed"
+        
+        echo "Checking if file exists..."
+        aws s3 ls s3://docs.aimatrix.com/test-deploy.txt || echo "❌ File not found after upload"
+        
+        echo "Testing public access..."
+        curl -I https://docs.aimatrix.com/test-deploy.txt || echo "❌ Public access failed"
+        
+        echo "Cleaning up test file..."
+        aws s3 rm s3://docs.aimatrix.com/test-deploy.txt || echo "❌ Delete failed"
+
+    - name: Analyze Permissions
+      run: |
+        echo "🔒 Analyzing Permissions..."
+        
+        echo "Current IAM identity:"
+        aws sts get-caller-identity
+        
+        echo "Testing required S3 permissions..."
+        echo "1. ListBucket permission:"
+        aws s3api head-bucket --bucket docs.aimatrix.com && echo "✅ ListBucket OK" || echo "❌ ListBucket FAILED"
+        
+        echo "2. GetBucketLocation permission:"
+        aws s3api get-bucket-location --bucket docs.aimatrix.com && echo "✅ GetBucketLocation OK" || echo "❌ GetBucketLocation FAILED"
+        
+        echo "3. GetBucketWebsite permission:"
+        aws s3api get-bucket-website --bucket docs.aimatrix.com && echo "✅ GetBucketWebsite OK" || echo "❌ GetBucketWebsite FAILED"
+        
+        echo "4. PutBucketWebsite permission test (if allowed):"
+        aws s3api put-bucket-website --bucket docs.aimatrix.com --website-configuration '{
+          "IndexDocument": {"Suffix": "index.html"},
+          "ErrorDocument": {"Key": "404.html"}
+        }' && echo "✅ PutBucketWebsite OK" || echo "❌ PutBucketWebsite FAILED"
+
+    - name: Summary Report
+      run: |
+        echo "📋 DIAGNOSTIC SUMMARY"
+        echo "===================="
+        echo "Bucket: docs.aimatrix.com"
+        echo "Region: ${{ secrets.AWS_REGION_S3_DOCS_AIMATRIX_COM }}"
+        echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        echo ""
+        echo "Next steps:"
+        echo "1. Check the logs above for specific error messages"
+        echo "2. Review the S3_DEPLOYMENT_TROUBLESHOOTING.md file"
+        echo "3. Fix any permission issues identified"
+        echo "4. Re-run the main deployment workflow"
