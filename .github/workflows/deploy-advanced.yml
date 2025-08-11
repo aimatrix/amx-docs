@@ -33,7 +33,7 @@ jobs:
     - name: Install dependencies
       run: |
         if [ -f package.json ]; then
-          npm ci --production
+          npm install --production
         fi
 
     - name: Cache Hugo modules

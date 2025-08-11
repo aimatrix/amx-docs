@@ -31,7 +31,7 @@ jobs:
     - name: Install dependencies (if package.json exists)
       run: |
         if [ -f package.json ]; then
-          npm ci
+          npm install --production
         fi
 
     - name: Build Hugo site
