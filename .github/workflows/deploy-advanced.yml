@@ -84,7 +84,7 @@ jobs:
         echo "Bucket region: $BUCKET_REGION"
         
         echo "4. Testing ListBucket permission:"
-        aws s3 ls s3://docs.aimatrix.com/ --max-items 5 || exit 1
+        aws s3 ls s3://docs.aimatrix.com/ | head -5 || exit 1
         
         echo "5. Checking public access block status:"
         aws s3api get-public-access-block --bucket docs.aimatrix.com || echo "No public access block configured"
