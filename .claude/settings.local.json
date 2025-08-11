@@ -18,7 +18,13 @@
       "Bash(npm install)",
       "Bash(npm run build:*)",
       "Bash(git add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(grep:*)",
+      "Bash(aws sts get-caller-identity:*)",
+      "Bash(aws s3api put-bucket-website:*)",
+      "Bash(aws iam create-policy:*)",
+      "Bash(aws s3 ls:*)",
+      "Bash(aws s3 rm:*)"
     ],
     "deny": []
   }
