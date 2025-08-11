@@ -24,7 +24,10 @@
       "Bash(aws s3api put-bucket-website:*)",
       "Bash(aws iam create-policy:*)",
       "Bash(aws s3 ls:*)",
-      "Bash(aws s3 rm:*)"
+      "Bash(aws s3 rm:*)",
+      "Bash(aws s3 sync:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)"
     ],
     "deny": []
   }
