@@ -1,0 +1,91 @@
+baseURL = 'https://docs.aimatrix.com/'
+title = 'AIMatrix Documentation'
+theme = 'relearn'
+
+# Language settings
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+# Configure how URLs look like per section.
+[permalinks]
+posts = "/:year/:month/:title/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = "native"
+    tabWidth = 4
+
+# Language configuration
+[languages]
+[languages.en]
+languageName = 'English'
+contentDir = 'content/en'
+weight = 1
+[languages.en.params]
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/en/"
+
+[languages.zh]
+languageName = '中文'
+contentDir = 'content/zh'
+weight = 2
+[languages.zh.params]
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/zh/"
+
+[languages.ar]
+languageName = 'العربية'
+contentDir = 'content/ar'
+weight = 3
+languagedirection = 'rtl'
+[languages.ar.params]
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/ar/"
+
+[languages.ms]
+languageName = 'Bahasa Melayu'
+contentDir = 'content/ms'
+weight = 4
+[languages.ms.params]
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/ms/"
+
+[languages.id]
+languageName = 'Bahasa Indonesia'
+contentDir = 'content/id'
+weight = 5
+[languages.id.params]
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/id/"
+
+[languages.ru]
+languageName = 'Русский'
+contentDir = 'content/ru'
+weight = 6
+[languages.ru.params]
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/ru/"
+
+# Theme specific params
+[params]
+# Relearn theme configuration
+themeVariant = "blue"
+disableBreadcrumb = false
+disableNextPrev = false
+disableLandingPageButton = true
+showVisitedLinks = true
+collapsibleMenu = true
+disableInlineCopyToClipBoard = false
+disableSearch = false
+disableSearchHiddenPages = false
