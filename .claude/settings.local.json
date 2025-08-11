@@ -1,6 +1,8 @@
 {
   "permissions": {
     "allow": [
+      "Bash(git remote set-url:*)",
+      "Bash(git remote add:*)",
       "Bash(mkdir:*)",
       "Bash(hugo new:*)",
       "Bash(git submodule add:*)",
@@ -15,7 +17,17 @@
       "Bash(cat:*)",
       "Bash(npm install)",
       "Bash(npm run build:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(grep:*)",
+      "Bash(aws sts get-caller-identity:*)",
+      "Bash(aws s3api put-bucket-website:*)",
+      "Bash(aws iam create-policy:*)",
+      "Bash(aws s3 ls:*)",
+      "Bash(aws s3 rm:*)",
+      "Bash(aws s3 sync:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)"
     ],
     "deny": []
   }

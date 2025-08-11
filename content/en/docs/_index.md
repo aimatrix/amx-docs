@@ -1,7 +1,6 @@
 +++
 title = "Documentation"
 weight = 1
-chapter = true
 +++
 
 # Welcome to AIMatrix Documentation

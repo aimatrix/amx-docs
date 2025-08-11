@@ -64,42 +64,33 @@ content/
 4. **Implementation Partners**: Deployment and customization
 5. **Business Owners**: Strategic insights and ROI analysis
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
-
-- Hugo Extended v0.110.0 or later
-- Node.js v16 or later
+- Hugo Extended (latest version)
+- Node.js 18+ (optional, for additional processing)
 - Git
 
-### Installation
+### Local Development
 
+1. Clone the repository:
 ```bash
 # Clone the repository
 git clone https://github.com/aimatrix/amx-docs.git
 cd amx-docs
-
-# Initialize submodules (Docsy theme)
-git submodule update --init --recursive
-
-# Install Node dependencies
-npm install
-
-# Start local development server
-hugo server --buildDrafts
 ```
 
-The site will be available at http://localhost:1313
-
-### Building for Production
-
+2. Install dependencies (if using npm packages):
 ```bash
-# Build the site
-npm run build
-
-# Output will be in the 'public' directory
-# Deploy the 'public' directory to your web server
+npm install
 ```
+
+3. Start the Hugo development server:
+```bash
+hugo server -D
+```
+
+4. Visit `http://localhost:1313` to view the site.
 
 ## Contributing
 
@@ -158,47 +149,100 @@ Our documentation is specifically optimized for Large Language Model consumption
 | API Coverage | 100% | Partial | Limited | Basic |
 | Open Source | Partial | Yes | No | No |
 
-## Directory Structure
+## 📁 Project Structure
 
 ```
 .
-├── archetypes/          # Hugo archetypes
-├── assets/              # SCSS and other assets
-├── build/               # Build artifacts (git-ignored)
-├── content/             # Documentation content
-├── data/                # Data files for Hugo
-├── layouts/             # Custom layouts
-├── static/              # Static files (images, etc.)
-├── themes/              # Hugo themes (Docsy)
-├── tmp/                 # Temporary files (git-ignored)
+├── .github/workflows/     # GitHub Actions for CI/CD
+├── content/              # Documentation content
+│   ├── en/              # English content
+│   ├── zh/              # Chinese content
+│   ├── ar/              # Arabic content
+│   ├── ms/              # Malay content
+│   ├── id/              # Indonesian content
+│   └── ru/              # Russian content
+├── themes/relearn/       # Hugo Relearn theme
 ├── hugo.toml            # Hugo configuration
-├── package.json         # Node.js dependencies
-└── README.md            # This file
+└── package.json         # Node.js dependencies (if any)
 ```
 
-## Technology Stack
+## 🌐 Multi-Language Support
 
-- **Static Site Generator**: Hugo (Go-based)
-- **Theme**: Google Docsy
-- **Search**: Lunr.js (client-side)
-- **Analytics**: Google Analytics (optional)
-- **Version Control**: Git
-- **CI/CD**: GitHub Actions
-- **Hosting**: Netlify/Vercel/AWS S3
+The documentation supports 6 languages:
+- 🇬🇧 English (`/en/`)
+- 🇨🇳 Chinese (`/zh/`)
+- 🇸🇦 Arabic (`/ar/`)
+- 🇲🇾 Malay (`/ms/`)
+- 🇮🇩 Indonesian (`/id/`)
+- 🇷🇺 Russian (`/ru/`)
 
-## Deployment
+Each language has its own content directory and can be edited independently.
 
-### Automated Deployment
+## 🔧 Configuration
 
-The documentation automatically deploys on:
-- Push to `main` branch (production)
-- Pull request (preview deployment)
+### Hugo Configuration
+The main configuration is in `hugo.toml`. Key settings include:
+- Base URL: `https://docs.aimatrix.com/`
+- Theme: Relearn
+- Multi-language support
+- Edit URLs pointing to this GitHub repository
+
+### GitHub Actions Deployment
+
+The repository includes two GitHub Actions workflows:
+
+#### Simple Deployment (`deploy.yml`)
+- Builds Hugo site
+- Deploys to S3
+- Basic caching strategy
+
+#### Advanced Deployment (`deploy-advanced.yml`)
+- Optimized caching for different file types
+- CORS configuration
+- Website configuration
+- Deployment verification
+- Better error handling
+
+Both workflows are triggered on push to the `main` branch.
+
+### Required Secrets
+
+The following secrets must be configured in the GitHub repository settings:
+
+- `AWS_ACCESS_KEY_ID_S3_DOCS_AIMATRIX_COM` - AWS access key
+- `AWS_SECRET_ACCESS_KEY_S3_DOCS_AIMATRIX_COM` - AWS secret key
+- `AWS_REGION_S3_DOCS_AIMATRIX_COM` - AWS region (e.g., `ap-southeast-5`)
+
+The S3 bucket name is hardcoded as `docs.aimatrix.com`.
+
+## ✍️ Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test locally with `hugo server`
+5. Commit and push your changes
+6. Create a pull request
+
+### Content Guidelines
+
+- Use clear, concise language
+- Include code examples where appropriate
+- Follow the existing structure and formatting
+- Test all links and references
+- Add content to appropriate language directories
+
+## 📦 Deployment
+
+### Automatic Deployment
+- Push to `main` branch triggers automatic deployment
+- GitHub Actions builds and deploys to S3
+- Site is available at https://docs.aimatrix.com
 
 ### Manual Deployment
-
 ```bash
 # Build the site
-hugo --minify
+hugo --minify --environment production
 
 # Deploy to S3
 aws s3 sync public/ s3://docs.aimatrix.com --delete
@@ -207,16 +251,19 @@ aws s3 sync public/ s3://docs.aimatrix.com --delete
 aws cloudfront create-invalidation --distribution-id ABCD1234 --paths "/*"
 ```
 
-## Versioning
+## 🔍 Troubleshooting
 
-Documentation versions are maintained in branches:
-- `main`: Current version (v1.0)
-- `v0.9`: Previous stable version
-- `develop`: Next version (v1.1)
+### Build Issues
+- Ensure Hugo Extended is installed
+- Check for syntax errors in Markdown files
+- Verify all internal links are correct
 
-## License
+### Deployment Issues
+- Check AWS credentials in GitHub secrets
+- Verify S3 bucket exists and is accessible
+- Check GitHub Actions logs for specific errors
 
-This documentation is licensed under the Apache License 2.0. See [LICENSE](LICENSE) file for details.
+## 📞 Support
 
 ## Support
 

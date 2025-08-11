@@ -5,7 +5,7 @@ archetype = "home"
 
 # AIMatrix: The Business Operating System
 
-## Enterprise Resource Planning Reimagined for the Modern Business
+## Intelligent Solutions for Modern Enterprises
 
 AIMatrix transforms how businesses operate by providing a comprehensive, cloud-native business operating system that adapts to your needs, not the other way around.
 
@@ -13,17 +13,16 @@ Unlike traditional monolithic ERP systems, AIMatrix is built on modern microserv
 
 ## Key Features
 
-### 🚀 Modern Architecture
-Built from the ground up with stateless microservices, ensuring your business never outgrows the platform.
+### 🤖 AI-Powered Automation
+Intelligent process automation that learns from your business patterns and optimizes workflows automatically.
 
-### 🔧 Applet Ecosystem
-Extend functionality with our applet store, allowing third-party developers to create custom solutions for your industry.
+### 📊 Advanced Analytics
+Real-time data processing with predictive analytics, anomaly detection, and intelligent insights generation.
 
 ### 🌍 Multi-Language Support
 Native support for English, Chinese, Arabic, Malay, Indonesian, and Russian, with more languages coming soon.
-## Why AIMatrix?
 
-### The Shopify of Enterprise Systems
+## Why AIMatrix?
 
 While others like Odoo follow the WordPress/WooCommerce model - powerful but complex and often difficult to upgrade - AIMatrix takes inspiration from Shopify's approach: **simple, scalable, and always up-to-date**.
 
@@ -65,7 +64,9 @@ While others like Odoo follow the WordPress/WooCommerce model - powerful but com
 - 🎓 [Tutorials](/tutorials/)
 - 💬 [Community Forum](https://forum.aimatrix.com)
 
-## Open Source & Contributions
+Explore our comprehensive guides and resources to get the most out of the AIMatrix platform.
+
+## Join the Community
 
 We welcome contributions! AIMatrix follows an open-core model where the core platform is open source, while enterprise features and certain modules are commercially licensed.
 

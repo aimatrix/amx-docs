@@ -1,0 +1,188 @@
+name: Deploy Hugo site to S3 (Advanced)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  HUGO_VERSION: '0.147.9'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: ${{ env.HUGO_VERSION }}
+        extended: true
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+      
+    - name: Install dependencies
+      run: |
+        if [ -f package.json ]; then
+          npm install --production
+        fi
+
+    - name: Cache Hugo modules
+      uses: actions/cache@v3
+      with:
+        path: /tmp/hugo_cache
+        key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-hugomod-
+
+    - name: Build Hugo site
+      env:
+        HUGO_CACHEDIR: /tmp/hugo_cache
+      run: |
+        echo "Building Hugo site..."
+        hugo --minify \
+             --environment production \
+             --baseURL "https://docs.aimatrix.com" \
+             --buildFuture \
+             --cleanDestinationDir
+        
+        echo "✅ Build completed successfully"
+        echo "📊 Build statistics:"
+        find public -type f -name "*.html" | wc -l | xargs echo "HTML files:"
+        find public -type f -name "*.css" | wc -l | xargs echo "CSS files:"
+        find public -type f -name "*.js" | wc -l | xargs echo "JS files:"
+        du -sh public/ | cut -f1 | xargs echo "Total size:"
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_S3_DOCS_AIMATRIX_COM }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_S3_DOCS_AIMATRIX_COM }}
+        aws-region: ${{ secrets.AWS_REGION_S3_DOCS_AIMATRIX_COM }}
+
+    - name: Test AWS connection and permissions
+      run: |
+        echo "🔍 Testing AWS connection and permissions..."
+        
+        echo "1. Testing AWS credentials:"
+        aws sts get-caller-identity || exit 1
+        
+        echo "2. Testing S3 bucket access:"
+        aws s3api head-bucket --bucket docs.aimatrix.com || exit 1
+        
+        echo "3. Testing bucket region:"
+        BUCKET_REGION=$(aws s3api get-bucket-location --bucket docs.aimatrix.com --query 'LocationConstraint' --output text)
+        echo "Bucket region: $BUCKET_REGION"
+        
+        echo "4. Testing ListBucket permission:"
+        aws s3 ls s3://docs.aimatrix.com/ | head -5 || exit 1
+        
+        echo "5. Checking public access block status:"
+        aws s3api get-public-access-block --bucket docs.aimatrix.com || echo "No public access block configured"
+        
+        echo "6. Checking website configuration:"
+        aws s3api get-bucket-website --bucket docs.aimatrix.com || echo "Website hosting not configured - will configure during deployment"
+        
+        echo "✅ AWS connection and basic permissions verified"
+
+    - name: Deploy static files to S3
+      run: |
+        echo "🚀 Starting deployment to S3..."
+        
+        # Sync with optimized settings for different file types
+        # HTML files - short cache (1 hour)
+        aws s3 sync public/ s3://docs.aimatrix.com/ \
+          --exclude "*" --include "*.html" \
+          --cache-control "public, max-age=3600, must-revalidate" \
+          --content-type "text/html; charset=utf-8" \
+          --metadata-directive REPLACE \
+          --delete
+        
+        # CSS and JS files - long cache (1 week)
+        aws s3 sync public/ s3://docs.aimatrix.com/ \
+          --exclude "*" --include "*.css" --include "*.js" \
+          --cache-control "public, max-age=604800, immutable" \
+          --metadata-directive REPLACE
+        
+        # Images and fonts - very long cache (1 month)
+        aws s3 sync public/ s3://docs.aimatrix.com/ \
+          --exclude "*" --include "*.png" --include "*.jpg" --include "*.jpeg" --include "*.gif" --include "*.svg" --include "*.webp" --include "*.woff*" --include "*.ttf" --include "*.eot" \
+          --cache-control "public, max-age=2592000, immutable" \
+          --metadata-directive REPLACE
+        
+        # Other files - medium cache (1 day)
+        aws s3 sync public/ s3://docs.aimatrix.com/ \
+          --exclude "*.html" --exclude "*.css" --exclude "*.js" --exclude "*.png" --exclude "*.jpg" --exclude "*.jpeg" --exclude "*.gif" --exclude "*.svg" --exclude "*.webp" --exclude "*.woff*" --exclude "*.ttf" --exclude "*.eot" \
+          --cache-control "public, max-age=86400" \
+          --metadata-directive REPLACE
+        
+        echo "✅ S3 sync completed successfully"
+
+    - name: Configure S3 bucket for static website hosting
+      run: |
+        echo "⚙️ Configuring S3 bucket for static website hosting..."
+        aws s3api put-bucket-website \
+          --bucket docs.aimatrix.com \
+          --website-configuration '{
+            "IndexDocument": {"Suffix": "index.html"},
+            "ErrorDocument": {"Key": "404.html"},
+            "RoutingRules": [
+              {
+                "Condition": {"KeyPrefixEquals": "docs/"},
+                "Redirect": {"ReplaceKeyPrefixWith": "docs/"}
+              }
+            ]
+          }'
+        
+        echo "✅ S3 website configuration updated"
+
+    - name: Set CORS configuration
+      run: |
+        echo "🌐 Setting CORS configuration..."
+        aws s3api put-bucket-cors \
+          --bucket docs.aimatrix.com \
+          --cors-configuration '{
+            "CORSRules": [
+              {
+                "AllowedOrigins": ["https://docs.aimatrix.com", "https://aimatrix.com"],
+                "AllowedMethods": ["GET", "HEAD"],
+                "AllowedHeaders": ["*"],
+                "MaxAgeSeconds": 3600
+              }
+            ]
+          }'
+
+    - name: Verify deployment
+      run: |
+        echo "🔍 Verifying deployment..."
+        # Check if index.html exists and is accessible
+        aws s3api head-object --bucket docs.aimatrix.com --key index.html > /dev/null && echo "✅ index.html found" || echo "❌ index.html missing"
+        
+        # Test website endpoint
+        curl -I https://docs.aimatrix.com/ | head -5 || echo "Website not yet accessible (DNS/CloudFront may need time)"
+        
+        echo "📋 Deployment Summary:"
+        echo "🌐 Website URL: https://docs.aimatrix.com"
+        echo "📊 Files deployed: $(aws s3 ls s3://docs.aimatrix.com/ --recursive | wc -l)"
+        echo "🕒 Deployed at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        
+    - name: Post-deployment notification
+      if: success()
+      run: |
+        echo "🎉 Deployment completed successfully!"
+        echo "::notice title=Deployment Success::Hugo site deployed to https://docs.aimatrix.com"
+        
+    - name: Deployment failure notification
+      if: failure()
+      run: |
+        echo "❌ Deployment failed!"
+        echo "::error title=Deployment Failed::Check the logs above for details"
