@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(hugo new:*)",
+      "Bash(git submodule add:*)",
+      "Bash(git submodule:*)",
+      "Bash(hugo:*)",
+      "Bash(rm:*)",
+      "Bash(git rm:*)",
+      "Bash(true)",
+      "Bash(git clone:*)",
+      "Bash(pkill:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

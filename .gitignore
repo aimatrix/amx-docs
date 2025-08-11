@@ -1,0 +1,30 @@
+# Build artifacts
+build/
+/build
+
+# Temporary files
+tmp/
+/tmp
+
+# Hugo generated files
+public/
+resources/
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (if using npm packages)
+node_modules/
+
+# Environment files
+.env
+.env.local

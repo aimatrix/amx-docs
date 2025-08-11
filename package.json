@@ -1,0 +1,35 @@
+{
+  "name": "bigledger-docs",
+  "version": "1.0.0",
+  "description": "BigLedger Documentation Site",
+  "main": "index.js",
+  "scripts": {
+    "start": "hugo server --buildDrafts --buildFuture --bind 0.0.0.0",
+    "build": "hugo --minify",
+    "build:preview": "hugo --minify --buildDrafts --buildFuture",
+    "clean": "rm -rf public resources build",
+    "serve": "hugo server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigledger/docs.git"
+  },
+  "keywords": [
+    "documentation",
+    "hugo",
+    "bigledger",
+    "erp",
+    "business"
+  ],
+  "author": "BigLedger Inc.",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}

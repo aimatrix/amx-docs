@@ -1,0 +1,80 @@
+baseURL = 'https://docs.bigledger.com/'
+title = 'BigLedger Documentation'
+theme = 'relearn'
+
+# Language settings
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+# Configure how URLs look like per section.
+[permalinks]
+posts = "/:year/:month/:title/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = "native"
+    tabWidth = 4
+
+# Language configuration
+[languages]
+[languages.en]
+languageName = 'English'
+contentDir = 'content/en'
+weight = 1
+
+[languages.zh]
+languageName = '中文'
+contentDir = 'content/zh'
+weight = 2
+
+[languages.ar]
+languageName = 'العربية'
+contentDir = 'content/ar'
+weight = 3
+languagedirection = 'rtl'
+
+[languages.ms]
+languageName = 'Bahasa Melayu'
+contentDir = 'content/ms'
+weight = 4
+
+[languages.id]
+languageName = 'Bahasa Indonesia'
+contentDir = 'content/id'
+weight = 5
+
+[languages.ru]
+languageName = 'Русский'
+contentDir = 'content/ru'
+weight = 6
+
+# Theme specific params
+[params]
+# Relearn theme configuration
+themeVariant = "blue"
+disableBreadcrumb = false
+disableNextPrev = false
+disableLandingPageButton = true
+editURL = "https://github.com/bigledger/docs/edit/main/"
+showVisitedLinks = true
+collapsibleMenu = true
+disableInlineCopyToClipBoard = false
+disableSearch = false
+disableSearchHiddenPages = false
