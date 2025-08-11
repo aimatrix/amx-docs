@@ -3,14 +3,14 @@ title: "Design Philosophy"
 linkTitle: "Philosophy"
 weight: 100
 description: >
-  Understanding BigLedger's architecture, design decisions, and lessons learned from building ERP systems twice
+  Understanding AIMatrix's architecture, design decisions, and lessons learned from building ERP systems twice
 ---
 
-# BigLedger Design Philosophy
+# AIMatrix Design Philosophy
 
 ## Introduction: Learning from Experience
 
-BigLedger represents the culmination of two decades of enterprise software development, built by a team that has written ERP systems from the ground up - twice. This unique experience has taught us invaluable lessons about what works, what doesn't, and most importantly, why businesses struggle with traditional ERP systems.
+AIMatrix represents the culmination of two decades of enterprise software development, built by a team that has written ERP systems from the ground up - twice. This unique experience has taught us invaluable lessons about what works, what doesn't, and most importantly, why businesses struggle with traditional ERP systems.
 
 ## The Problem with Traditional ERP
 
@@ -131,14 +131,14 @@ class CustomSaleOrder(models.Model):
 
 **Result**: Customers get stuck on old versions because upgrades break customizations.
 
-## The BigLedger Solution
+## The AIMatrix Solution
 
 ### Microservices Architecture
 
-BigLedger adopts a true microservices architecture where each module is an independent service:
+AIMatrix adopts a true microservices architecture where each module is an independent service:
 
 ```
-BigLedger Microservices Architecture:
+AIMatrix Microservices Architecture:
 ┌─────────────────────────────────────────────┐
 │            API Gateway / Load Balancer      │
 └────────┬────────────────────────┬───────────┘
@@ -163,7 +163,7 @@ Benefits:
 
 ### Why Go?
 
-We chose Go (Golang) for BigLedger's core services for several critical reasons:
+We chose Go (Golang) for AIMatrix's core services for several critical reasons:
 
 #### 1. Performance
 
@@ -233,15 +233,15 @@ python manage.py collectstatic   # Static files
 gunicorn app:application         # WSGI server
 
 # Go deployment bliss
-./bigledger  # Single binary, done!
+./aimatrix  # Single binary, done!
 ```
 
 ### The Applet Ecosystem
 
-Instead of code customization, BigLedger uses an applet system inspired by mobile app stores:
+Instead of code customization, AIMatrix uses an applet system inspired by mobile app stores:
 
 ```javascript
-// BigLedger Applet Example
+// AIMatrix Applet Example
 export class CustomWorkflowApplet {
     metadata = {
         name: "Custom Approval Workflow",
@@ -275,21 +275,21 @@ export class CustomWorkflowApplet {
 
 ### 1. Stateless Design
 
-Every BigLedger service is stateless, enabling:
+Every AIMatrix service is stateless, enabling:
 
 ```yaml
 # Kubernetes scaling example
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bigledger-api
+  name: aimatrix-api
 spec:
   replicas: 10  # Scale horizontally with ease
   template:
     spec:
       containers:
       - name: api
-        image: bigledger/api:latest
+        image: aimatrix/api:latest
         env:
         - name: STATELESS
           value: "true"  # No session state
@@ -372,7 +372,7 @@ func (s *Service) GetTenantContext(tenantID string) *TenantContext {
 
 **First ERP (2005)**: Built on a popular framework that became obsolete.
 **Second ERP (2012)**: Tied to specific ORM that limited performance.
-**BigLedger (2020)**: Minimal framework dependencies, standard libraries preferred.
+**AIMatrix (2020)**: Minimal framework dependencies, standard libraries preferred.
 
 ### Lesson 2: Data Model Flexibility
 
@@ -385,7 +385,7 @@ CREATE TABLE invoices (
     -- Adding fields requires migration
 );
 
--- BigLedger flexible schema
+-- AIMatrix flexible schema
 CREATE TABLE documents (
     id UUID PRIMARY KEY,
     type VARCHAR(50),
@@ -403,15 +403,15 @@ CREATE TABLE documents (
 Transaction Processing Benchmark:
 Small Business (1K transactions/day):
 - Traditional ERP: Adequate
-- BigLedger: Instant
+- AIMatrix: Instant
 
 Medium Business (100K transactions/day):
 - Traditional ERP: Slow, requires optimization
-- BigLedger: Sub-second response
+- AIMatrix: Sub-second response
 
 Enterprise (10M transactions/day):
 - Traditional ERP: Requires expensive hardware
-- BigLedger: Handles on commodity hardware
+- AIMatrix: Handles on commodity hardware
 ```
 
 ### Lesson 4: Upgrades Must Be Painless
@@ -429,9 +429,9 @@ Traditional approach (failed):
 Total: 3-6 months of pain
 ```
 
-BigLedger approach (successful):
+AIMatrix approach (successful):
 ```bash
-# BigLedger upgrade
+# AIMatrix upgrade
 1. Deploy new version (blue-green, zero downtime)
 2. Automatic compatibility check for applets
 3. Gradual rollout with feature flags
@@ -441,9 +441,9 @@ Total: 15 minutes, no downtime
 
 ## Comparison: The Honest Truth
 
-### BigLedger vs Odoo
+### AIMatrix vs Odoo
 
-| Aspect | BigLedger | Odoo |
+| Aspect | AIMatrix | Odoo |
 |--------|-----------|------|
 | **Philosophy** | Platform (like Shopify) | Framework (like WordPress) |
 | **Architecture** | Microservices | Monolithic |
@@ -463,7 +463,7 @@ Total: 15 minutes, no downtime
 - You don't mind being stuck on one version
 - Your transaction volume is moderate
 
-**Choose BigLedger if:**
+**Choose AIMatrix if:**
 - You want a system that "just works"
 - You need to scale with your business
 - You want predictable costs
@@ -471,9 +471,9 @@ Total: 15 minutes, no downtime
 - You have high transaction volumes
 - You want enterprise features without complexity
 
-### BigLedger vs QuickBooks/Xero
+### AIMatrix vs QuickBooks/Xero
 
-| Aspect | BigLedger | QuickBooks/Xero |
+| Aspect | AIMatrix | QuickBooks/Xero |
 |--------|-----------|------------------|
 | **Target Market** | SMB to Enterprise | SMB only |
 | **Modules** | Complete ERP | Accounting focused |
@@ -483,9 +483,9 @@ Total: 15 minutes, no downtime
 | **Manufacturing** | Full MRP | None/Basic |
 | **Multi-entity** | Full consolidation | Basic |
 
-### BigLedger vs SAP/Oracle
+### AIMatrix vs SAP/Oracle
 
-| Aspect | BigLedger | SAP/Oracle |
+| Aspect | AIMatrix | SAP/Oracle |
 |--------|-----------|------------|
 | **Implementation Time** | Weeks | Years |
 | **Cost** | Transparent, affordable | Expensive, hidden costs |
@@ -496,10 +496,10 @@ Total: 15 minutes, no downtime
 
 ## The Business Operating System Concept
 
-BigLedger is not just an ERP - it's a Business Operating System (BOS):
+AIMatrix is not just an ERP - it's a Business Operating System (BOS):
 
 ```
-Traditional OS           Business OS (BigLedger)
+Traditional OS           Business OS (AIMatrix)
 ─────────────           ─────────────────────────
 Kernel                  → Core Business Logic
 Drivers                 → Integration APIs
@@ -513,7 +513,7 @@ App Store               → Applet Marketplace
 ### Core Services (The Kernel)
 
 ```go
-// BigLedger kernel services
+// AIMatrix kernel services
 type Kernel struct {
     Authentication  *AuthService
     Authorization   *PermissionService
@@ -539,7 +539,7 @@ Each module is like an application on an OS:
 
 ```javascript
 // What looks simple to users...
-const invoice = await bigledger.invoices.create({
+const invoice = await aimatrix.invoices.create({
     customer: "CUST001",
     items: [{product: "PROD001", quantity: 10}]
 });
@@ -566,7 +566,7 @@ const invoice = await bigledger.invoices.create({
 5. Test extensively (weeks)
 6. Deploy with fear (prayer required)
 
-# BigLedger development
+# AIMatrix development
 1. Read API docs (hours)
 2. Use familiar tools and languages (immediate)
 3. Call REST/GraphQL APIs (minutes)
@@ -580,7 +580,7 @@ const invoice = await bigledger.invoices.create({
 ### AI/ML Ready
 
 ```python
-# BigLedger data is structured for AI consumption
+# AIMatrix data is structured for AI consumption
 {
     "entity": "invoice",
     "relationships": {
@@ -611,7 +611,7 @@ type BlockchainAdapter interface {
 
 ## Conclusion: Built by Practitioners, for Practitioners
 
-BigLedger exists because we've felt the pain of:
+AIMatrix exists because we've felt the pain of:
 - Implementations that never end
 - Upgrades that break everything
 - Customizations that trap you
@@ -629,6 +629,6 @@ We've built ERP systems twice before. The third time, we got it right.
 
 ---
 
-*"The best ERP is the one you don't have to think about. It just works, scales with you, and never holds you back. That's BigLedger."*
+*"The best ERP is the one you don't have to think about. It just works, scales with you, and never holds you back. That's AIMatrix."*
 
-— The BigLedger Team (who've been there, done that, got the scars to prove it)
+— The AIMatrix Team (who've been there, done that, got the scars to prove it)

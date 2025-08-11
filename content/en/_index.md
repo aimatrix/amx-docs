@@ -1,15 +1,15 @@
 +++
-title = "BigLedger Documentation"
+title = "AIMatrix Documentation"
 archetype = "home"
 +++
 
-# BigLedger: The Business Operating System
+# AIMatrix: The Business Operating System
 
 ## Enterprise Resource Planning Reimagined for the Modern Business
 
-BigLedger transforms how businesses operate by providing a comprehensive, cloud-native business operating system that adapts to your needs, not the other way around.
+AIMatrix transforms how businesses operate by providing a comprehensive, cloud-native business operating system that adapts to your needs, not the other way around.
 
-Unlike traditional monolithic ERP systems, BigLedger is built on modern microservices architecture, ensuring scalability, flexibility, and continuous innovation.
+Unlike traditional monolithic ERP systems, AIMatrix is built on modern microservices architecture, ensuring scalability, flexibility, and continuous innovation.
 
 ## Key Features
 
@@ -21,11 +21,11 @@ Extend functionality with our applet store, allowing third-party developers to c
 
 ### 🌍 Multi-Language Support
 Native support for English, Chinese, Arabic, Malay, Indonesian, and Russian, with more languages coming soon.
-## Why BigLedger?
+## Why AIMatrix?
 
 ### The Shopify of Enterprise Systems
 
-While others like Odoo follow the WordPress/WooCommerce model - powerful but complex and often difficult to upgrade - BigLedger takes inspiration from Shopify's approach: **simple, scalable, and always up-to-date**.
+While others like Odoo follow the WordPress/WooCommerce model - powerful but complex and often difficult to upgrade - AIMatrix takes inspiration from Shopify's approach: **simple, scalable, and always up-to-date**.
 
 ### Key Differentiators
 
@@ -33,7 +33,7 @@ While others like Odoo follow the WordPress/WooCommerce model - powerful but com
 - **Always Upgradeable**: No more being stuck on old versions due to customizations
 - **API-First Design**: Every feature accessible via REST and GraphQL APIs
 - **Real-time Processing**: Built for modern real-time business operations
-- **Enterprise-Ready**: From SMBs to large enterprises, BigLedger scales with you
+- **Enterprise-Ready**: From SMBs to large enterprises, AIMatrix scales with you
 
 ### Comprehensive Module Suite
 
@@ -63,16 +63,16 @@ While others like Odoo follow the WordPress/WooCommerce model - powerful but com
 - 🚀 [Quick Start Guide](/docs/getting-started/)
 - 💻 [API Reference](/api/)
 - 🎓 [Tutorials](/tutorials/)
-- 💬 [Community Forum](https://forum.bigledger.com)
+- 💬 [Community Forum](https://forum.aimatrix.com)
 
 ## Open Source & Contributions
 
-We welcome contributions! BigLedger follows an open-core model where the core platform is open source, while enterprise features and certain modules are commercially licensed.
+We welcome contributions! AIMatrix follows an open-core model where the core platform is open source, while enterprise features and certain modules are commercially licensed.
 
-- [GitHub Repository](https://github.com/bigledger)
+- [GitHub Repository](https://github.com/aimatrix)
 - [Contributing Guide](/docs/contributing/)
 - [Developer Documentation](/docs/developer/)
 
 ---
 
-**Follow us:** [Twitter](https://twitter.com/bigledger) | [LinkedIn](https://linkedin.com/company/bigledger) | [GitHub](https://github.com/bigledger)
+**Follow us:** [Twitter](https://twitter.com/aimatrix) | [LinkedIn](https://linkedin.com/company/aimatrix) | [GitHub](https://github.com/aimatrix)

@@ -1,10 +1,10 @@
-# BigLedger Documentation
+# AIMatrix Documentation
 
-Comprehensive documentation for BigLedger - The Business Operating System for Modern Enterprises.
+Comprehensive documentation for AIMatrix - The Business Operating System for Modern Enterprises.
 
 ## Overview
 
-This repository contains the source files for the BigLedger documentation website, built with Hugo and the Docsy theme. The documentation is designed to be:
+This repository contains the source files for the AIMatrix documentation website, built with Hugo and the Docsy theme. The documentation is designed to be:
 
 - **Multi-lingual**: Supporting 6 languages (EN, ZH, AR, MS, ID, RU)
 - **Version-controlled**: Multiple versions of documentation maintained simultaneously
@@ -19,7 +19,7 @@ content/
 ├── en/                   # English (primary language)
 │   ├── docs/            # Main documentation
 │   │   ├── getting-started/
-│   │   ├── modules/     # All BigLedger modules
+│   │   ├── modules/     # All AIMatrix modules
 │   │   │   ├── pos/
 │   │   │   ├── financial-accounting/
 │   │   │   ├── inventory/
@@ -76,8 +76,8 @@ content/
 
 ```bash
 # Clone the repository
-git clone https://github.com/bigledger/docs.git
-cd docs
+git clone https://github.com/aimatrix/amx-docs.git
+cd amx-docs
 
 # Initialize submodules (Docsy theme)
 git submodule update --init --recursive
@@ -149,7 +149,7 @@ Our documentation is specifically optimized for Large Language Model consumption
 
 ### Comparison with Competitors
 
-| Feature | BigLedger | Odoo | SAP | QuickBooks |
+| Feature | AIMatrix | Odoo | SAP | QuickBooks |
 |---------|-----------|------|-----|------------|
 | Architecture | Microservices | Monolithic | Hybrid | Cloud-only |
 | Language | Go | Python | ABAP/Java | Proprietary |
@@ -201,7 +201,7 @@ The documentation automatically deploys on:
 hugo --minify
 
 # Deploy to S3
-aws s3 sync public/ s3://docs.bigledger.com --delete
+aws s3 sync public/ s3://docs.aimatrix.com --delete
 
 # Invalidate CloudFront cache
 aws cloudfront create-invalidation --distribution-id ABCD1234 --paths "/*"
@@ -220,10 +220,10 @@ This documentation is licensed under the Apache License 2.0. See [LICENSE](LICEN
 
 ## Support
 
-- **Documentation Issues**: [GitHub Issues](https://github.com/bigledger/docs/issues)
-- **Community Forum**: [forum.bigledger.com](https://forum.bigledger.com)
-- **Email**: docs@bigledger.com
-- **Slack**: [BigLedger Community](https://bigledger.slack.com)
+- **Documentation Issues**: [GitHub Issues](https://github.com/aimatrix/amx-docs/issues)
+- **Community Forum**: [forum.aimatrix.com](https://forum.aimatrix.com)
+- **Email**: docs@aimatrix.com
+- **Slack**: [AIMatrix Community](https://aimatrix.slack.com)
 
 ## Roadmap
 
@@ -254,4 +254,4 @@ This documentation is licensed under the Apache License 2.0. See [LICENSE](LICEN
 
 ---
 
-**BigLedger Documentation** - Empowering businesses with comprehensive, accessible knowledge.
+**AIMatrix Documentation** - Empowering businesses with comprehensive, accessible knowledge.

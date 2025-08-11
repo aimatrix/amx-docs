@@ -10,13 +10,13 @@ description: >
 
 ## Overview
 
-The BigLedger Financial Accounting module provides a comprehensive, standards-compliant accounting system designed for businesses of all sizes. Built with GAAP, IFRS, and local accounting standards in mind, it offers real-time financial insights while maintaining the rigor required for audit compliance.
+The AIMatrix Financial Accounting module provides a comprehensive, standards-compliant accounting system designed for businesses of all sizes. Built with GAAP, IFRS, and local accounting standards in mind, it offers real-time financial insights while maintaining the rigor required for audit compliance.
 
 ## Core Concepts
 
 ### Double-Entry Accounting
 
-BigLedger implements true double-entry bookkeeping where every transaction affects at least two accounts:
+AIMatrix implements true double-entry bookkeeping where every transaction affects at least two accounts:
 
 ```
 Debit Account A = Credit Account B
@@ -477,14 +477,14 @@ def migrate_from_quickbooks():
     qb_data = export_quickbooks_data()
     
     # Transform data
-    transformed = transform_to_bigledger_format(qb_data)
+    transformed = transform_to_aimatrix_format(qb_data)
     
     # Validate
     validation_result = validate_data(transformed)
     
     if validation_result.is_valid:
-        # Import to BigLedger
-        import_to_bigledger(transformed)
+        # Import to AIMatrix
+        import_to_aimatrix(transformed)
         
         # Verify balances
         verify_trial_balance()
@@ -566,16 +566,16 @@ def migrate_from_quickbooks():
 
 ```bash
 # Daily health check
-bigledger finance check --daily
+aimatrix finance check --daily
 
 # Validate trial balance
-bigledger finance validate-tb --date 2024-01-31
+aimatrix finance validate-tb --date 2024-01-31
 
 # Reconciliation status
-bigledger finance reconciliation-status
+aimatrix finance reconciliation-status
 
 # Audit trail verification
-bigledger finance audit-trail --verify
+aimatrix finance audit-trail --verify
 ```
 
 ## Regulatory Compliance
@@ -599,9 +599,9 @@ bigledger finance audit-trail --verify
 - 📚 [Accounting Best Practices Guide](/docs/best-practices/accounting/)
 - 🎥 [Video Tutorials](/tutorials/financial-accounting/)
 - 📊 [Report Templates Library](/templates/financial/)
-- 🤝 [Community Forum](https://forum.bigledger.com/finance)
-- 📧 [Expert Support](mailto:finance@bigledger.com)
+- 🤝 [Community Forum](https://forum.aimatrix.com/finance)
+- 📧 [Expert Support](mailto:finance@aimatrix.com)
 
 ---
 
-*BigLedger Financial Accounting - Where accuracy meets efficiency in financial management.*
+*AIMatrix Financial Accounting - Where accuracy meets efficiency in financial management.*

@@ -4,23 +4,23 @@ weight = 1
 chapter = true
 +++
 
-# Welcome to BigLedger Documentation
+# Welcome to AIMatrix Documentation
 
-Welcome to the comprehensive documentation for BigLedger - The Business Operating System for Modern Enterprises. This documentation is designed to help you understand, implement, and maximize the value of BigLedger in your organization.
+Welcome to the comprehensive documentation for AIMatrix - The Business Operating System for Modern Enterprises. This documentation is designed to help you understand, implement, and maximize the value of AIMatrix in your organization.
 
 ## Documentation Structure
 
 Our documentation is organized to serve different audiences and use cases:
 
 ### 🚀 Getting Started
-New to BigLedger? Start here to understand the platform and get up and running quickly.
-- [Introduction to BigLedger](/docs/getting-started/introduction/)
+New to AIMatrix? Start here to understand the platform and get up and running quickly.
+- [Introduction to AIMatrix](/docs/getting-started/introduction/)
 - [Quick Start Guide](/docs/getting-started/quickstart/)
 - [System Requirements](/docs/getting-started/requirements/)
 - [Installation Guide](/docs/getting-started/installation/)
 
 ### 📦 Modules
-Comprehensive guides for each BigLedger module:
+Comprehensive guides for each AIMatrix module:
 - [Point of Sales (POS)](/docs/modules/pos/)
 - [ERP Core Functions](/docs/modules/erp-core/)
 - [Financial Accounting](/docs/modules/financial-accounting/)
@@ -90,9 +90,9 @@ Available in:
 
 ## How We're Different
 
-### BigLedger vs Traditional ERP
+### AIMatrix vs Traditional ERP
 
-| Aspect | BigLedger | Traditional ERP (Odoo, SAP) |
+| Aspect | AIMatrix | Traditional ERP (Odoo, SAP) |
 |--------|-----------|----------------------------|
 | **Architecture** | Microservices, Stateless | Monolithic, Stateful |
 | **Language** | Go (Performance-focused) | Python/Java (General-purpose) |
@@ -104,22 +104,22 @@ Available in:
 
 ### The Shopify Model
 
-Think of BigLedger as the **Shopify of ERP systems**:
+Think of AIMatrix as the **Shopify of ERP systems**:
 - **Simplicity**: Easy to use, no technical expertise required
 - **Scalability**: From startup to enterprise
 - **Ecosystem**: Rich applet store for extensions
 - **Updates**: Automatic, seamless upgrades
 - **Multi-tenant**: True SaaS architecture
 
-While Odoo is like WordPress/WooCommerce - powerful but requiring technical expertise and constant maintenance - BigLedger provides enterprise capabilities with consumer-grade simplicity.
+While Odoo is like WordPress/WooCommerce - powerful but requiring technical expertise and constant maintenance - AIMatrix provides enterprise capabilities with consumer-grade simplicity.
 
 ## Quick Links
 
 - 📖 [API Documentation](/api/)
 - 🎓 [Tutorials](/tutorials/)
-- 💬 [Community Forum](https://forum.bigledger.com)
-- 🐛 [Report Issues](https://github.com/bigledger/bigledger/issues)
-- 📧 [Contact Support](mailto:support@bigledger.com)
+- 💬 [Community Forum](https://forum.aimatrix.com)
+- 🐛 [Report Issues](https://github.com/aimatrix/aimatrix/issues)
+- 📧 [Contact Support](mailto:support@aimatrix.com)
 
 ## Contributing
 

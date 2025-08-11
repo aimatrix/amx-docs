@@ -1,7 +1,7 @@
 {
-  "name": "bigledger-docs",
+  "name": "aimatrix-docs",
   "version": "1.0.0",
-  "description": "BigLedger Documentation Site",
+  "description": "AIMatrix Documentation Site",
   "main": "index.js",
   "scripts": {
     "start": "hugo server --buildDrafts --buildFuture --bind 0.0.0.0",
@@ -13,16 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bigledger/docs.git"
+    "url": "git+https://github.com/aimatrix/amx-docs.git"
   },
   "keywords": [
     "documentation",
     "hugo",
-    "bigledger",
+    "aimatrix",
     "erp",
     "business"
   ],
-  "author": "BigLedger Inc.",
+  "author": "AIMatrix Inc.",
   "license": "Apache-2.0",
   "devDependencies": {
     "autoprefixer": "^10.4.16",

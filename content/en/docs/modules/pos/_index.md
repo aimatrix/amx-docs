@@ -10,7 +10,7 @@ description: >
 
 ## Overview
 
-The BigLedger Point of Sales (POS) module is a comprehensive retail management solution designed for modern businesses. Built with speed, reliability, and user-friendliness in mind, it seamlessly integrates with all other BigLedger modules while providing standalone capabilities for retail operations.
+The AIMatrix Point of Sales (POS) module is a comprehensive retail management solution designed for modern businesses. Built with speed, reliability, and user-friendliness in mind, it seamlessly integrates with all other AIMatrix modules while providing standalone capabilities for retail operations.
 
 ## Key Features
 
@@ -510,10 +510,10 @@ POST /api/v1/pos/returns
 ## Support Resources
 
 - 📖 [Video Tutorials](/tutorials/pos/)
-- 💬 [Community Forum](https://forum.bigledger.com/pos)
-- 📧 [Email Support](mailto:pos-support@bigledger.com)
+- 💬 [Community Forum](https://forum.aimatrix.com/pos)
+- 📧 [Email Support](mailto:pos-support@aimatrix.com)
 - 📞 24/7 Support: +1-800-POS-HELP
 
 ---
 
-*The BigLedger POS module - Empowering retail excellence through technology.*
+*The AIMatrix POS module - Empowering retail excellence through technology.*

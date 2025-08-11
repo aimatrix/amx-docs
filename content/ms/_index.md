@@ -1,8 +1,8 @@
 +++
-title = "Dokumentasi BigLedger"
+title = "Dokumentasi AIMatrix"
 archetype = "home"
 +++
 
-Selamat datang ke pusat dokumentasi BigLedger.
+Selamat datang ke pusat dokumentasi AIMatrix.
 
-Terokai panduan dan sumber komprehensif kami untuk memanfaatkan sepenuhnya platform BigLedger.
+Terokai panduan dan sumber komprehensif kami untuk memanfaatkan sepenuhnya platform AIMatrix.

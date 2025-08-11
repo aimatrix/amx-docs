@@ -3,13 +3,13 @@ title = "Getting Started"
 weight = 10
 +++
 
-# Getting Started with BigLedger
+# Getting Started with AIMatrix
 
-Welcome to BigLedger! This guide will help you understand what BigLedger is, how it works, and how to get your first instance up and running.
+Welcome to AIMatrix! This guide will help you understand what AIMatrix is, how it works, and how to get your first instance up and running.
 
-## What is BigLedger?
+## What is AIMatrix?
 
-BigLedger is a comprehensive Business Operating System (BOS) that reimagines enterprise resource planning for the modern digital age. Built from the ground up with cloud-native principles, BigLedger provides:
+AIMatrix is a comprehensive Business Operating System (BOS) that reimagines enterprise resource planning for the modern digital age. Built from the ground up with cloud-native principles, AIMatrix provides:
 
 - **Unified Platform**: All business operations in one integrated system
 - **Modular Architecture**: Use only what you need, scale as you grow
@@ -22,7 +22,7 @@ BigLedger is a comprehensive Business Operating System (BOS) that reimagines ent
 
 ### Business Operating System (BOS)
 
-Unlike traditional ERP systems that focus on resource planning, BigLedger functions as a complete operating system for your business:
+Unlike traditional ERP systems that focus on resource planning, AIMatrix functions as a complete operating system for your business:
 
 1. **Core Kernel**: Essential business functions (GL, AR, AP)
 2. **Module Layer**: Specialized business modules (POS, WMS, CRM)
@@ -32,11 +32,11 @@ Unlike traditional ERP systems that focus on resource planning, BigLedger functi
 
 ### Data Hub Architecture
 
-BigLedger acts as a central data hub for your entire business ecosystem:
+AIMatrix acts as a central data hub for your entire business ecosystem:
 
 ```
 ┌─────────────────────────────────────────┐
-│          BigLedger Data Hub             │
+│          AIMatrix Data Hub             │
 ├─────────────────────────────────────────┤
 │  ┌──────────┐  ┌──────────┐  ┌──────┐  │
 │  │   POS    │  │   ERP    │  │ CRM  │  │
@@ -53,7 +53,7 @@ BigLedger acts as a central data hub for your entire business ecosystem:
 
 ### Multi-Tenant Architecture
 
-BigLedger supports true multi-tenancy:
+AIMatrix supports true multi-tenancy:
 - **Isolation**: Complete data separation between tenants
 - **Customization**: Per-tenant configurations and applets
 - **Scalability**: Automatic resource allocation
@@ -63,7 +63,7 @@ BigLedger supports true multi-tenancy:
 
 ### Prerequisites
 
-Before installing BigLedger, ensure you have:
+Before installing AIMatrix, ensure you have:
 
 1. **Hardware Requirements**:
    - Minimum: 4 CPU cores, 8GB RAM, 50GB SSD
@@ -86,8 +86,8 @@ Before installing BigLedger, ensure you have:
 
 ```bash
 # Clone the repository
-git clone https://github.com/bigledger/bigledger.git
-cd bigledger
+git clone https://github.com/aimatrix/aimatrix.git
+cd aimatrix
 
 # Copy environment template
 cp .env.example .env
@@ -101,32 +101,32 @@ docker-compose up -d
 # Check status
 docker-compose ps
 
-# Access BigLedger at http://localhost:8080
+# Access AIMatrix at http://localhost:8080
 ```
 
 #### 2. Kubernetes (Recommended for Production)
 
 ```bash
-# Add BigLedger Helm repository
-helm repo add bigledger https://charts.bigledger.com
+# Add AIMatrix Helm repository
+helm repo add aimatrix https://charts.aimatrix.com
 helm repo update
 
-# Install BigLedger
-helm install bigledger bigledger/bigledger \
-  --namespace bigledger \
+# Install AIMatrix
+helm install aimatrix aimatrix/aimatrix \
+  --namespace aimatrix \
   --create-namespace \
   --values values.yaml
 
 # Check deployment
-kubectl get pods -n bigledger
+kubectl get pods -n aimatrix
 
 # Get access URL
-kubectl get ingress -n bigledger
+kubectl get ingress -n aimatrix
 ```
 
 #### 3. Cloud Marketplace
 
-BigLedger is available on major cloud platforms:
+AIMatrix is available on major cloud platforms:
 - **AWS Marketplace**: One-click deployment on AWS
 - **Azure Marketplace**: Deploy on Azure
 - **Google Cloud Marketplace**: GCP deployment
@@ -223,33 +223,33 @@ Navigate to `https://your-domain/admin` and log in with default credentials:
 
 ### Training
 
-- **BigLedger Academy**: Online training courses
+- **AIMatrix Academy**: Online training courses
 - **Webinars**: Weekly feature demonstrations
 - **Certification**: Professional certification programs
 - **Partner Training**: Implementation partner resources
 
 ### Support
 
-- **Community Forum**: https://forum.bigledger.com
-- **Knowledge Base**: https://kb.bigledger.com
-- **Support Portal**: https://support.bigledger.com
-- **Emergency Support**: +1-800-BIGLEDGER
+- **Community Forum**: https://forum.aimatrix.com
+- **Knowledge Base**: https://kb.aimatrix.com
+- **Support Portal**: https://support.aimatrix.com
+- **Emergency Support**: +1-800-AIMATRIX
 
 ## Next Steps
 
-Now that you have BigLedger running:
+Now that you have AIMatrix running:
 
 1. 📚 **Explore Modules**: Learn about available [modules](/docs/modules/)
-2. 🎓 **Take Training**: Enroll in [BigLedger Academy](https://academy.bigledger.com)
+2. 🎓 **Take Training**: Enroll in [AIMatrix Academy](https://academy.aimatrix.com)
 3. 🔧 **Configure System**: Fine-tune [system settings](/docs/administration/)
-4. 🚀 **Deploy Applets**: Browse the [Applet Store](https://appstore.bigledger.com)
-5. 🤝 **Join Community**: Connect with other users in our [forum](https://forum.bigledger.com)
+4. 🚀 **Deploy Applets**: Browse the [Applet Store](https://appstore.aimatrix.com)
+5. 🤝 **Join Community**: Connect with other users in our [forum](https://forum.aimatrix.com)
 
 ## Frequently Asked Questions
 
-### Q: How is BigLedger different from other ERP systems?
+### Q: How is AIMatrix different from other ERP systems?
 
-BigLedger is built on modern cloud-native architecture with:
+AIMatrix is built on modern cloud-native architecture with:
 - Stateless microservices (vs monolithic architecture)
 - Go programming language (vs Python/Java)
 - API-first design (vs UI-first)
@@ -258,7 +258,7 @@ BigLedger is built on modern cloud-native architecture with:
 
 ### Q: Can I migrate from my existing ERP?
 
-Yes! BigLedger provides migration tools for:
+Yes! AIMatrix provides migration tools for:
 - QuickBooks
 - Xero
 - Odoo
@@ -268,7 +268,7 @@ Yes! BigLedger provides migration tools for:
 
 ### Q: What about data security?
 
-BigLedger implements enterprise-grade security:
+AIMatrix implements enterprise-grade security:
 - End-to-end encryption
 - Role-based access control
 - Audit trails
@@ -278,14 +278,14 @@ BigLedger implements enterprise-grade security:
 
 ### Q: How does pricing work?
 
-BigLedger offers flexible pricing:
+AIMatrix offers flexible pricing:
 - **SaaS**: Monthly/annual subscriptions
 - **On-Premise**: Perpetual license
 - **Private Cloud**: Dedicated instances
 - **Usage-Based**: Pay for what you use
 
-Contact sales for detailed pricing: sales@bigledger.com
+Contact sales for detailed pricing: sales@aimatrix.com
 
 ---
 
-*Ready to transform your business? Let's get started with BigLedger!*
+*Ready to transform your business? Let's get started with AIMatrix!*

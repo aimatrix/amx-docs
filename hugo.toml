@@ -1,5 +1,5 @@
-baseURL = 'https://docs.bigledger.com/'
-title = 'BigLedger Documentation'
+baseURL = 'https://docs.aimatrix.com/'
+title = 'AIMatrix Documentation'
 theme = 'relearn'
 
 # Language settings
@@ -39,14 +39,14 @@ languageName = 'English'
 contentDir = 'content/en'
 weight = 1
 [languages.en.params]
-editURL = "https://github.com/bigledger/blg-docs/edit/main/content/en/"
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/en/"
 
 [languages.zh]
 languageName = '中文'
 contentDir = 'content/zh'
 weight = 2
 [languages.zh.params]
-editURL = "https://github.com/bigledger/blg-docs/edit/main/content/zh/"
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/zh/"
 
 [languages.ar]
 languageName = 'العربية'
@@ -54,28 +54,28 @@ contentDir = 'content/ar'
 weight = 3
 languagedirection = 'rtl'
 [languages.ar.params]
-editURL = "https://github.com/bigledger/blg-docs/edit/main/content/ar/"
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/ar/"
 
 [languages.ms]
 languageName = 'Bahasa Melayu'
 contentDir = 'content/ms'
 weight = 4
 [languages.ms.params]
-editURL = "https://github.com/bigledger/blg-docs/edit/main/content/ms/"
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/ms/"
 
 [languages.id]
 languageName = 'Bahasa Indonesia'
 contentDir = 'content/id'
 weight = 5
 [languages.id.params]
-editURL = "https://github.com/bigledger/blg-docs/edit/main/content/id/"
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/id/"
 
 [languages.ru]
 languageName = 'Русский'
 contentDir = 'content/ru'
 weight = 6
 [languages.ru.params]
-editURL = "https://github.com/bigledger/blg-docs/edit/main/content/ru/"
+editURL = "https://github.com/aimatrix/amx-docs/edit/main/content/ru/"
 
 # Theme specific params
 [params]

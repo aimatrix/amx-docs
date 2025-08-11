@@ -6,14 +6,14 @@ menu:
   main:
     weight: 30
 description: >
-  Complete API documentation for BigLedger platform integration
+  Complete API documentation for AIMatrix platform integration
 ---
 
-# BigLedger API Reference
+# AIMatrix API Reference
 
 ## Overview
 
-The BigLedger API provides programmatic access to all platform functionality through RESTful endpoints and GraphQL queries. Built with developers in mind, our API offers comprehensive access to every feature available in the BigLedger platform.
+The AIMatrix API provides programmatic access to all platform functionality through RESTful endpoints and GraphQL queries. Built with developers in mind, our API offers comprehensive access to every feature available in the AIMatrix platform.
 
 ## Key Features
 
@@ -31,21 +31,21 @@ The BigLedger API provides programmatic access to all platform functionality thr
 ### Base URLs
 
 ```
-Production: https://api.bigledger.com/v1
-Staging:    https://api-staging.bigledger.com/v1
-Sandbox:    https://api-sandbox.bigledger.com/v1
-GraphQL:    https://graphql.bigledger.com/v1
-WebSocket:  wss://ws.bigledger.com/v1
+Production: https://api.aimatrix.com/v1
+Staging:    https://api-staging.aimatrix.com/v1
+Sandbox:    https://api-sandbox.aimatrix.com/v1
+GraphQL:    https://graphql.aimatrix.com/v1
+WebSocket:  wss://ws.aimatrix.com/v1
 ```
 
 ### Authentication
 
-BigLedger supports multiple authentication methods:
+AIMatrix supports multiple authentication methods:
 
 #### API Key Authentication
 
 ```bash
-curl -X GET https://api.bigledger.com/v1/accounts \
+curl -X GET https://api.aimatrix.com/v1/accounts \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -62,14 +62,14 @@ const oauth = {
 };
 
 // 1. Redirect user to authorize
-window.location = `https://auth.bigledger.com/oauth/authorize?
+window.location = `https://auth.aimatrix.com/oauth/authorize?
   client_id=${oauth.client_id}&
   redirect_uri=${oauth.redirect_uri}&
   response_type=code&
   scope=${oauth.scope}`;
 
 // 2. Exchange code for token
-const response = await fetch('https://auth.bigledger.com/oauth/token', {
+const response = await fetch('https://auth.aimatrix.com/oauth/token', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify({
@@ -102,7 +102,7 @@ token = jwt.encode(payload, 'YOUR_SECRET_KEY', algorithm='HS256')
 
 # Make authenticated request
 headers = {'Authorization': f'Bearer {token}'}
-response = requests.get('https://api.bigledger.com/v1/accounts', headers=headers)
+response = requests.get('https://api.aimatrix.com/v1/accounts', headers=headers)
 ```
 
 ### Rate Limits
@@ -472,20 +472,20 @@ def verify_webhook(payload, signature, secret):
 
 ### Official SDKs
 
-- **JavaScript/TypeScript**: `npm install @bigledger/sdk`
-- **Python**: `pip install bigledger`
-- **Ruby**: `gem install bigledger`
-- **PHP**: `composer require bigledger/sdk`
-- **Go**: `go get github.com/bigledger/go-sdk`
+- **JavaScript/TypeScript**: `npm install @aimatrix/sdk`
+- **Python**: `pip install aimatrix`
+- **Ruby**: `gem install aimatrix`
+- **PHP**: `composer require aimatrix/sdk`
+- **Go**: `go get github.com/aimatrix/go-sdk`
 - **Java**: Maven/Gradle available
-- **.NET**: `dotnet add package BigLedger.SDK`
+- **.NET**: `dotnet add package AIMatrix.SDK`
 
 ### JavaScript SDK Example
 
 ```javascript
-import { BigLedger } from '@bigledger/sdk';
+import { AIMatrix } from '@aimatrix/sdk';
 
-const client = new BigLedger({
+const client = new AIMatrix({
   apiKey: 'YOUR_API_KEY',
   environment: 'production'
 });
@@ -533,7 +533,7 @@ client.webhooks.on('payment.received', (event) => {
       }
     ],
     "request_id": "req_abc123",
-    "documentation_url": "https://docs.bigledger.com/api/errors#VALIDATION_ERROR"
+    "documentation_url": "https://docs.aimatrix.com/api/errors#VALIDATION_ERROR"
   }
 }
 ```
@@ -572,7 +572,7 @@ The sandbox environment provides:
 ### Postman Collection
 
 Download our Postman collection:
-[BigLedger API Collection](https://www.postman.com/bigledger/workspace/bigledger-api/collection)
+[AIMatrix API Collection](https://www.postman.com/aimatrix/workspace/aimatrix-api/collection)
 
 ## API Changelog
 
@@ -594,11 +594,11 @@ Download our Postman collection:
 
 ## Support
 
-- 📖 [API Documentation](https://docs.bigledger.com/api)
-- 💬 [Developer Forum](https://forum.bigledger.com/developers)
-- 📧 [API Support](mailto:api@bigledger.com)
-- 🐛 [Report Issues](https://github.com/bigledger/api/issues)
+- 📖 [API Documentation](https://docs.aimatrix.com/api)
+- 💬 [Developer Forum](https://forum.aimatrix.com/developers)
+- 📧 [API Support](mailto:api@aimatrix.com)
+- 🐛 [Report Issues](https://github.com/aimatrix/api/issues)
 
 ---
 
-*Build powerful integrations with the BigLedger API platform.*
+*Build powerful integrations with the AIMatrix API platform.*
