@@ -1,0 +1,13 @@
+{{/* Custom navbar title/logo for AIMatrix */}}
+<a href="{{ "/" | relLangURL }}" class="navbar-brand flex items-center">
+  {{/* Logo */}}
+  <img src="{{ "images/aimatrix_logo_02.png" | relURL }}" 
+       alt="AIMatrix" 
+       class="navbar-logo-img"
+       style="max-height: 32px; width: auto; height: auto; margin-right: 12px; filter: brightness(1.2);">
+  
+  {{/* Title (optional - can remove if logo is sufficient) */}}
+  <span class="text-xl font-semibold hidden md:inline">
+    {{ site.Title }}
+  </span>
+</a>

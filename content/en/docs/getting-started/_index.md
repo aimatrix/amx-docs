@@ -1,7 +1,7 @@
-+++
-title = "Getting Started"
-weight = 10
-+++
+---
+title: Getting Started
+weight: 10
+---
 
 # Getting Started with AIMatrix
 

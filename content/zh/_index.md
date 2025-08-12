@@ -1,7 +1,7 @@
-+++
-title = "AIMatrix 文档"
-archetype = "home"
-+++
+---
+title: AIMatrix 文档
+archetype: home
+---
 
 欢迎来到 AIMatrix 文档中心。
 

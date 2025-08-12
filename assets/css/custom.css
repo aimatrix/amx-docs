@@ -1,0 +1,494 @@
+/* Custom CSS for AIMatrix Documentation */
+
+/* Logo Styling */
+.logo-container {
+  display: inline-block;
+  position: relative;
+}
+
+/* Logo with aspect ratio preservation */
+.aimatrix-logo,
+.navbar-logo-img {
+  max-height: 32px !important;
+  height: auto !important;  /* Auto height to maintain aspect ratio */
+  width: auto !important;   /* Auto width to maintain aspect ratio */
+  object-fit: contain !important;  /* Ensures no distortion */
+  filter: brightness(1.1) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.aimatrix-logo:hover,
+.navbar-logo-img:hover {
+  filter: brightness(1.2) contrast(1.2) drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+  transform: scale(1.05);
+}
+
+/* Homepage hero logo */
+.hero-logo {
+  max-width: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 2rem auto;
+  display: block;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Ensure navbar logo maintains aspect ratio */
+nav img,
+.navbar img,
+.hx-navbar img {
+  max-height: 32px !important;
+  height: auto !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(255, 0, 0, 0.7));
+  }
+}
+
+/* Ensure logo is visible on black background */
+.navbar-logo,
+.site-logo {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2px 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-logo:hover,
+.site-logo:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Global image aspect ratio preservation */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Social icons - smaller size */
+.social-links svg,
+.social-icon,
+a[href*="github.com"] svg,
+a[href*="twitter.com"] svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Hide Hextra branding */
+[href*="hextra"],
+.powered-by,
+*:contains("Hextra"),
+*:contains("Powered by") {
+  display: none !important;
+}
+
+/* Footer styling */
+footer {
+  font-size: 0.875rem;
+}
+
+footer p {
+  margin: 0;
+  color: #888;
+}
+
+/* Hextra specific overrides */
+[data-theme="light"],
+[data-theme="dark"],
+.dark,
+.light {
+  --hx-body-bg: #000000 !important;
+  --hx-body-color: #ffffff !important;
+  --hx-primary-bg: #000000 !important;
+  --hx-secondary-bg: #0a0a0a !important;
+  --hx-tertiary-bg: #111111 !important;
+  --hx-heading-color: #ffffff !important;
+  --hx-text-color: #e0e0e0 !important;
+  --hx-muted-color: #b0b0b0 !important;
+  --hx-border-color: #1a1a1a !important;
+  --hx-code-bg: #0a0a0a !important;
+  --hx-code-color: #e0e0e0 !important;
+}
+
+/* Digital Rain Canvas - Behind content */
+#digital-rain-canvas {
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;  /* Above background, below content */
+  pointer-events: none !important;
+  opacity: 1 !important; /* Full opacity - control via canvas drawing */
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Dark theme with black background */
+:root {
+  --hx-background: #000000;
+  --hx-background-secondary: #0a0a0a;
+  --hx-text-primary: #ffffff;
+  --hx-text-secondary: #e0e0e0;
+  --hx-text-tertiary: #b0b0b0;
+  --hx-border: #1a1a1a;
+  --hx-link: #60a5fa;
+  --hx-link-hover: #93bbfc;
+}
+
+/* Force black background and white text */
+html {
+  background: #000000 !important;
+}
+
+body {
+  background: #000000 !important;
+  color: #ffffff !important;
+  position: relative !important;
+  min-height: 100vh !important;
+}
+
+/* Remove all default backgrounds from Hextra components */
+.hx-bg-white,
+.bg-white,
+.hx-bg-gray-100,
+.bg-gray-100,
+[class*="bg-"] {
+  background: transparent !important;
+}
+
+/* Main content area - Top layer with TRANSPARENT background */
+.hx-content,
+.content,
+main {
+  background: transparent !important;
+  color: #ffffff !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Article content - also transparent */
+article,
+.article-content {
+  background: transparent !important;
+  color: #ffffff !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Ensure all page content stays on top with no background */
+.page-content,
+.markdown-body,
+.prose {
+  background: transparent !important;
+  color: #ffffff !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Add subtle text shadow for better readability */
+p, h1, h2, h3, h4, h5, h6, span, a, li, td, th, div {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 
+               0 0 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Navigation bar - transparent with blur */
+.hx-navbar,
+nav {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.3) !important;
+}
+
+/* Sidebar - more transparent to show digital rain */
+.hx-sidebar,
+aside,
+.sidebar,
+[class*="sidebar"] {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(3px);
+  border-right: 1px solid rgba(26, 26, 26, 0.3) !important;
+}
+
+.hx-sidebar a,
+aside a {
+  color: #e0e0e0 !important;
+}
+
+.hx-sidebar a:hover,
+aside a:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Table of contents - more transparent to show digital rain */
+.hx-toc,
+.toc,
+[class*="toc"] {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(3px);
+  border-left: 1px solid rgba(26, 26, 26, 0.3) !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+/* Links */
+a {
+  color: #60a5fa !important;
+}
+
+a:hover {
+  color: #93bbfc !important;
+}
+
+/* Code blocks - semi-transparent for readability */
+pre {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(26, 26, 26, 0.4) !important;
+}
+
+code {
+  background: rgba(0, 0, 0, 0.4) !important;
+  color: #ffffff !important;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+pre code {
+  background: transparent !important;
+  padding: 0;
+}
+
+/* Tables */
+table {
+  border-color: #1a1a1a !important;
+}
+
+th {
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+  border-color: #1a1a1a !important;
+}
+
+td {
+  border-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 3px solid #60a5fa !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: #e0e0e0 !important;
+}
+
+/* Search */
+.hx-search,
+.search-container {
+  background: #0a0a0a !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.hx-search input,
+.search-container input {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.hx-search input:focus,
+.search-container input:focus {
+  border-color: #60a5fa !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.1) !important;
+}
+
+/* Search results */
+.search-results {
+  background: #0a0a0a !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Buttons */
+button {
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: #60a5fa !important;
+}
+
+/* Footer */
+footer {
+  background: #000000 !important;
+  border-top: 1px solid #1a1a1a !important;
+  color: #b0b0b0 !important;
+}
+
+/* Cards - transparent with subtle border */
+.card,
+.hx-card {
+  background: rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(26, 26, 26, 0.3) !important;
+  color: #ffffff !important;
+}
+
+/* Alerts/Callouts */
+.alert,
+.callout {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid #1a1a1a !important;
+  border-left-width: 3px !important;
+}
+
+.alert.alert-info,
+.callout.callout-info {
+  border-left-color: #60a5fa !important;
+}
+
+.alert.alert-warning,
+.callout.callout-warning {
+  border-left-color: #fbbf24 !important;
+}
+
+.alert.alert-danger,
+.callout.callout-danger {
+  border-left-color: #f87171 !important;
+}
+
+.alert.alert-success,
+.callout.callout-success {
+  border-left-color: #34d399 !important;
+}
+
+/* Override any theme light mode settings */
+[data-theme="light"] body,
+.light body,
+body.light {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Ensure all text remains visible */
+* {
+  color: inherit;
+}
+
+/* Make sure content is readable on black background */
+.prose {
+  color: #e0e0e0 !important;
+}
+
+.prose strong {
+  color: #ffffff !important;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: #ffffff !important;
+}
+
+/* Language selector */
+.language-selector {
+  background: #0a0a0a !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.language-selector:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  .mobile-menu {
+    background: #000000 !important;
+  }
+}
+
+/* Hextra specific classes */
+.hx-bg-gradient,
+.bg-gradient-to-b {
+  background: transparent !important;
+}
+
+.hx-hero {
+  background: transparent !important;
+}
+
+.hx-feature-card {
+  background: #0a0a0a !important;
+  border: 1px solid #1a1a1a !important;
+}
+
+.hx-feature-card:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: #60a5fa !important;
+}
+
+/* Override any Tailwind classes that might interfere */
+.bg-white {
+  background-color: transparent !important;
+}
+
+.text-black {
+  color: #ffffff !important;
+}
+
+.bg-gray-50 {
+  background-color: transparent !important;
+}
+
+.bg-gray-100 {
+  background-color: transparent !important;
+}
+
+.border-gray-200 {
+  border-color: #1a1a1a !important;
+}
+
+.text-gray-600 {
+  color: #b0b0b0 !important;
+}
+
+.text-gray-700 {
+  color: #d0d0d0 !important;
+}
+
+.text-gray-800 {
+  color: #e0e0e0 !important;
+}
+
+.text-gray-900 {
+  color: #ffffff !important;
+}

@@ -1,7 +1,7 @@
-+++
-title = "Documentation"
-weight = 1
-+++
+---
+title: Documentation
+weight: 1
+---
 
 # Welcome to AIMatrix Documentation
 

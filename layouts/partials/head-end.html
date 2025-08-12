@@ -1,0 +1,42 @@
+{{/* Custom styles and scripts for AIMatrix Documentation */}}
+
+{{/* Custom CSS */}}
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+{{/* Digital Rain Effect Script - Load after DOM is ready */}}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Load digital rain effect script
+    const script = document.createElement('script');
+    script.src = '{{ "js/digital-rain.js" | relURL }}';
+    script.async = true;
+    document.body.appendChild(script);
+  });
+</script>
+
+{{/* Force dark theme */}}
+<style>
+  /* Immediate black background to prevent white flash */
+  html, body {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+  
+  /* Override Hextra theme colors */
+  :root {
+    --primary: #60a5fa;
+    --primary-hover: #93bbfc;
+    --background: #000000;
+    --background-secondary: #0a0a0a;
+    --text: #ffffff;
+    --text-secondary: #e0e0e0;
+    --border: #1a1a1a;
+  }
+  
+  /* Dark mode overrides */
+  html.dark,
+  [data-theme="dark"] {
+    --background: #000000 !important;
+    --background-secondary: #0a0a0a !important;
+  }
+</style>

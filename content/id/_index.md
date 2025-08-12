@@ -1,7 +1,7 @@
-+++
-title = "Dokumentasi AIMatrix"
-archetype = "home"
-+++
+---
+title: Dokumentasi AIMatrix
+archetype: home
+---
 
 Selamat datang di pusat dokumentasi AIMatrix.
 

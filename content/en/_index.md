@@ -1,7 +1,11 @@
-+++
-title = "AIMatrix Documentation"
-archetype = "home"
-+++
+---
+title: AIMatrix Documentation
+layout: hextra-home
+---
+
+<div style="text-align: center; margin: 40px 0;">
+  <img src="/images/aimatrix_logo_02.png" alt="AIMatrix Logo" style="max-width: 200px; width: 100%; height: auto; margin: 0 auto; display: block;">
+</div>
 
 # AIMatrix: The Business Operating System
 
@@ -76,4 +80,4 @@ We welcome contributions! AIMatrix follows an open-core model where the core pla
 
 ---
 
-**Follow us:** [Twitter](https://twitter.com/aimatrix) | [LinkedIn](https://linkedin.com/company/aimatrix) | [GitHub](https://github.com/aimatrix)
+**Follow us:** [LinkedIn](https://linkedin.com/company/aimatrix) | [GitHub](https://github.com/aimatrix)

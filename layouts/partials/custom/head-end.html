@@ -1,0 +1,220 @@
+{{/* Custom styles and scripts for AIMatrix Documentation */}}
+
+{{/* Favicon */}}
+<link rel="icon" type="image/png" href="{{ "images/aimatrix_logo_02.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "images/aimatrix_logo_02.png" | relURL }}">
+
+{{/* Force immediate black background to prevent flash */}}
+<style>
+  html, body {
+    background: #000000 !important;
+    color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  
+  /* Digital rain canvas - behind content but above background */
+  #digital-rain-canvas {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;  /* Above background, below content */
+    pointer-events: none !important;
+  }
+  
+  /* Ensure ALL content is above canvas */
+  body > *:not(#digital-rain-canvas) {
+    position: relative;
+    z-index: 2;
+  }
+  
+  main, .content, .hx-content, article, section {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Navigation and sidebars above rain */
+  nav, aside, header, footer {
+    position: relative;
+    z-index: 100;
+  }
+  
+  /* Make sidebars more transparent to show digital rain */
+  .hx-sidebar-container,
+  .hx-toc-container,
+  nav.hx-sidebar,
+  aside.hx-toc,
+  .hx-sidebar-content,
+  .hx-toc-content,
+  div[class*="sidebar"],
+  div[class*="toc"] {
+    background: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(3px) !important;
+  }
+  
+  /* Hextra specific sidebar selectors */
+  .hx-sticky,
+  .hx-overflow-y-auto,
+  .hx-scrollbar {
+    background: transparent !important;
+  }
+  
+  /* Ensure digital rain shows through navigation sidebars */
+  .hx-w-64,
+  .hx-shrink-0,
+  .md\:hx-sticky {
+    background: rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Make all content backgrounds transparent */
+  .hx-bg-white,
+  .bg-white,
+  .hx-bg-gray-50,
+  .bg-gray-50 {
+    background: transparent !important;
+  }
+  
+  /* Logo styling with aspect ratio preservation */
+  .navbar-brand img,
+  img[alt="AIMatrix"] {
+    max-height: 32px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-brand:hover img {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+    transform: scale(1.05);
+  }
+  
+  /* Homepage logo */
+  .home-logo {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
+    }
+    to {
+      filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6));
+    }
+  }
+  
+  /* Hide Hextra branding and reduce social icon sizes */
+  a[href*="hextra"],
+  a[href*="imfing"],
+  .hx-text-xs:has-text("Powered"),
+  .hx-text-xs:has-text("Hextra") {
+    display: none !important;
+  }
+  
+  /* Smaller social icons */
+  .hx-text-gray-600 svg,
+  footer svg,
+  a[aria-label] svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  
+  /* Hide any "Powered by" text */
+  footer *:contains("Powered"),
+  footer *:contains("Hextra") {
+    display: none !important;
+  }
+</style>
+
+{{/* Custom CSS */}}
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+{{/* Digital Rain Effect - Inline for immediate execution */}}
+<script>
+(function() {
+  function initDigitalRain() {
+    // Check if canvas already exists
+    if (document.getElementById('digital-rain-canvas')) {
+      return;
+    }
+    
+    // Create canvas element
+    const canvas = document.createElement('canvas');
+    canvas.id = 'digital-rain-canvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '1';  // Above background, below content
+    canvas.style.pointerEvents = 'none';
+    
+    // Add canvas to body
+    document.body.insertBefore(canvas, document.body.firstChild);
+    
+    const context = canvas.getContext('2d');
+    
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Character sets - Greek letters and 'aimatrix.com'
+    const greekletter = 'αβγδεζηθικλμνξοπρστυφχψω';
+    const lowercaseletter = 'aimatrix.com';
+    const alphabet = greekletter + lowercaseletter;
+    
+    const fontSize = 16;
+    let columns = canvas.width / fontSize;
+    const rainDrops = [];
+    
+    // Initialize rain drops with random positions to avoid the initial vertical line
+    for (let x = 0; x < columns; x++) {
+      rainDrops[x] = Math.floor(Math.random() * -100);
+    }
+    
+    // Draw function - using original algorithm with fade
+    function draw() {
+      // Fade effect with semi-transparent black
+      context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Full brightness green for maximum visibility
+      context.fillStyle = 'rgba(0, 255, 0, 1.0)';
+      context.font = fontSize + 'px monospace';
+      
+      // Ensure we have the right number of columns after resize
+      columns = canvas.width / fontSize;
+      
+      for (let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        context.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+        
+        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+      }
+    }
+    
+    // Start animation - 200ms interval (2x slower)
+    setInterval(draw, 200);
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDigitalRain);
+  } else {
+    // If DOM is already loaded, init immediately
+    setTimeout(initDigitalRain, 100);
+  }
+})();
+</script>

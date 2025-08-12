@@ -2,9 +2,6 @@
 title: "API Reference"
 linkTitle: "API Reference"
 weight: 30
-menu:
-  main:
-    weight: 30
 description: >
   Complete API documentation for AIMatrix platform integration
 ---

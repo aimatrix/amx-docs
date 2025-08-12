@@ -27,7 +27,22 @@
       "Bash(aws s3 rm:*)",
       "Bash(aws s3 sync:*)",
       "Bash(gh run list:*)",
-      "Bash(gh run view:*)"
+      "Bash(gh run view:*)",
+      "Bash(git pull:*)",
+      "Bash(git commit:*)",
+      "Bash(gh workflow:*)",
+      "Bash(chmod:*)",
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(./venv/bin/python /Users/vincent/repo/amx-docs/scripts/test-confluence-auth.py)",
+      "Bash(./venv/bin/python:*)",
+      "WebFetch(domain:atlassian-python-api.readthedocs.io)",
+      "Bash(./venv/bin/pip install atlassian-python-api)",
+      "Bash(git push:*)",
+      "Bash(touch:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }

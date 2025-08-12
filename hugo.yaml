@@ -1,0 +1,202 @@
+# Hugo configuration for Hextra theme
+baseURL: https://docs.aimatrix.com/
+title: AIMatrix Documentation
+
+# Language settings
+languageCode: en
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+# Enable multi-language support
+languages:
+  en:
+    languageName: English
+    contentDir: content/en
+    weight: 1
+    title: AIMatrix Documentation
+    params:
+      description: Comprehensive documentation for AIMatrix - The Business Operating System for Modern Enterprises
+  zh:
+    languageName: 中文
+    contentDir: content/zh  
+    weight: 2
+    title: AIMatrix 文档
+    params:
+      description: AIMatrix 全面的文档 - 现代企业的业务操作系统
+  ar:
+    languageName: العربية
+    contentDir: content/ar
+    weight: 3
+    languageDirection: rtl
+    title: وثائق AIMatrix
+    params:
+      description: وثائق شاملة لـ AIMatrix - نظام التشغيل التجاري للمؤسسات الحديثة
+  ms:
+    languageName: Bahasa Melayu
+    contentDir: content/ms
+    weight: 4
+    title: Dokumentasi AIMatrix
+    params:
+      description: Dokumentasi komprehensif untuk AIMatrix - Sistem Operasi Perniagaan untuk Perusahaan Moden
+  id:
+    languageName: Bahasa Indonesia
+    contentDir: content/id
+    weight: 5
+    title: Dokumentasi AIMatrix
+    params:
+      description: Dokumentasi komprehensif untuk AIMatrix - Sistem Operasi Bisnis untuk Perusahaan Modern
+  ru:
+    languageName: Русский
+    contentDir: content/ru
+    weight: 6
+    title: Документация AIMatrix
+    params:
+      description: Комплексная документация для AIMatrix - Бизнес-операционная система для современных предприятий
+
+theme: hextra
+
+enableRobotsTXT: true
+enableGitInfo: true
+enableEmoji: true
+
+minify:
+  disableHTML: true
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.112.0"
+
+# Hextra theme configuration
+params:
+  description: Comprehensive documentation for AIMatrix - The Business Operating System for Modern Enterprises
+  
+  # Edit this page URL
+  editURL:
+    enable: true
+    base: "https://github.com/aimatrix/amx-docs/edit/main"
+  
+  # Navigation
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/aimatrix_logo_02.png
+      dark: images/aimatrix_logo_02.png
+      # Let CSS handle sizing to maintain aspect ratio
+      link: /
+    
+  # Footer
+  footer:
+    displayCopyright: true
+    displayPoweredBy: false
+    
+  # Search configuration
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      # index page by page
+      index: docs
+      # tokenize by word
+      tokenize: forward
+      # search result limit
+      limit: 20
+    
+  # Theme
+  theme:
+    # light | dark | auto
+    default: dark
+    displayToggle: false
+    
+  # Page configuration
+  page:
+    # full (100%), wide (90rem), normal (1280px)
+    width: normal
+    
+  # Sidebar
+  sidebar:
+    enable: true
+    # collapsed by default
+    collapsed: false
+    
+  # Table of contents
+  toc:
+    enable: true
+    # right | left
+    position: right
+    
+  # Comments
+  comments:
+    enable: false
+    
+  # Analytics
+  analytics:
+    # google:
+    #   measurementID: G-MEASUREMENT_ID
+    
+  # Social links
+  socialLinks:
+    - icon: github
+      link: https://github.com/aimatrix
+
+# Markup configuration
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    lineNos: true
+    lineNumbersInTable: true
+    codeFences: true
+    guessSyntax: true
+    tabWidth: 2
+    style: github-dark
+
+# Output formats
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# Menu configuration
+menu:
+  main:
+    - name: Documentation
+      pageRef: /docs
+      weight: 1
+    - name: API Reference
+      pageRef: /api
+      weight: 2
+    - name: Tutorials
+      pageRef: /tutorials
+      weight: 3
+    - name: Community
+      pageRef: /community
+      weight: 4
+    - name: Blog
+      pageRef: /blog
+      weight: 5
+      
+  # Documentation sidebar menu
+  sidebar:
+    - name: Getting Started
+      pageRef: /docs/getting-started
+      weight: 1
+    - name: Modules
+      pageRef: /docs/modules
+      weight: 2
+    - name: User Guides
+      pageRef: /docs/user-guides  
+      weight: 3
+    - name: Administration
+      pageRef: /docs/administration
+      weight: 4
+    - name: Developer
+      pageRef: /docs/developer
+      weight: 5
+    - name: Best Practices
+      pageRef: /docs/best-practices
+      weight: 6

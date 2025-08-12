@@ -1,6 +1,6 @@
-+++
-title = "Dokumentasi"
-weight = 1
-+++
+---
+title: Dokumentasi
+weight: 1
+---
 
 Dokumentasi komprehensif untuk platform AIMatrix.
