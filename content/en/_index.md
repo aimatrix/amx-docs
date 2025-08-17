@@ -21,14 +21,18 @@ toc: false
   box-sizing: border-box;
 }
 
-/* Container system for proper alignment */
+/* Container system for proper alignment - centered */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Hero Section with 3D Robot */
+/* Hero Section with 3D Avatar */
 .hero-section {
   background: linear-gradient(180deg, #000000 0%, #0a1a0a 100%);
   padding: 80px 20px;
@@ -37,6 +41,7 @@ toc: false
   min-height: 90vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 /* Matrix rain effect */
@@ -50,22 +55,38 @@ toc: false
   pointer-events: none;
 }
 
-/* 3D Robot Container */
+/* 3D Avatar Container - Bigger and centered */
 #robot-container {
   position: absolute;
-  right: 5%;
+  right: 50px;
   top: 50%;
   transform: translateY(-50%);
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   z-index: 10;
 }
 
-/* Hero Content */
+@media (max-width: 1200px) {
+  #robot-container {
+    width: 400px;
+    height: 400px;
+    right: 20px;
+  }
+}
+
+/* Hero Content - Better alignment */
 .hero-content {
   position: relative;
   z-index: 20;
   max-width: 600px;
+  width: 100%;
+  padding-right: 650px;
+}
+
+@media (max-width: 1200px) {
+  .hero-content {
+    padding-right: 450px;
+  }
 }
 
 .hero-title {
@@ -136,10 +157,12 @@ toc: false
   transform: translateY(-2px);
 }
 
-/* Section Styles */
+/* Section Styles - Centered content */
 .section {
   padding: 80px 20px;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .section-dark {
@@ -163,11 +186,13 @@ toc: false
   margin-right: auto;
 }
 
-/* Grid System */
+/* Grid System - Centered */
 .grid {
   display: grid;
   gap: 30px;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .grid-2 {
@@ -214,22 +239,25 @@ toc: false
   line-height: 1.6;
 }
 
-/* Feature Box */
+/* Feature Box - Centered */
 .feature-box {
   background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, transparent 100%);
   border-left: 4px solid var(--matrix-green);
   padding: 20px;
-  margin: 20px 0;
+  margin: 20px auto;
   border-radius: 0 8px 8px 0;
+  max-width: 800px;
 }
 
-/* Stats - Force horizontal layout */
+/* Stats - Centered horizontal layout */
 .stat-grid {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin: 40px 0;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px auto;
   flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -271,12 +299,17 @@ toc: false
 /* Responsive */
 @media (max-width: 768px) {
   #robot-container {
-    display: none;
+    position: static;
+    transform: none;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
   }
   
   .hero-content {
     max-width: 100%;
     text-align: center;
+    padding-right: 0;
   }
   
   .btn-group {
@@ -318,10 +351,10 @@ toc: false
     </div>
   </div>
   
-  <!-- 3D Robot Container -->
+  <!-- 3D Human Avatar Container -->
   <div id="robot-container">
     <canvas id="robot-canvas"></canvas>
-    <div id="loading-spinner" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #00ff00; font-size: 1.2em;">Loading 3D Robot...</div>
+    <div id="loading-spinner" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #00ff00; font-size: 1.2em;">Loading AI Avatar...</div>
   </div>
 </div>
 
@@ -528,28 +561,24 @@ toc: false
   });
 })();
 
-// Load Babylon.js from CDN
+// Load Babylon.js and create human avatar
 (function() {
   // First load Babylon.js
   const babylonScript = document.createElement('script');
   babylonScript.src = 'https://cdn.babylonjs.com/babylon.js';
   babylonScript.onload = function() {
-    // Then load Babylon materials
-    const materialsScript = document.createElement('script');
-    materialsScript.src = 'https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js';
-    materialsScript.onload = initBabylon3DRobot;
-    document.head.appendChild(materialsScript);
+    // Then load Babylon loaders for 3D models
+    const loadersScript = document.createElement('script');
+    loadersScript.src = 'https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js';
+    loadersScript.onload = initBabylon3DAvatar;
+    document.head.appendChild(loadersScript);
   };
   document.head.appendChild(babylonScript);
   
-  function initBabylon3DRobot() {
+  function initBabylon3DAvatar() {
     const canvas = document.getElementById('robot-canvas');
     const container = document.getElementById('robot-container');
     if (!canvas || !container) return;
-    
-    // Hide loading spinner
-    const spinner = document.getElementById('loading-spinner');
-    if (spinner) spinner.style.display = 'none';
     
     // Create Babylon.js engine
     const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
@@ -558,136 +587,288 @@ toc: false
     const scene = new BABYLON.Scene(engine);
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
     
-    // Create camera
-    const camera = new BABYLON.ArcRotateCamera('camera', -Math.PI / 2, Math.PI / 2.5, 10, BABYLON.Vector3.Zero(), scene);
-    camera.attachControl(canvas, true);
-    camera.lowerRadiusLimit = 5;
-    camera.upperRadiusLimit = 15;
+    // Create camera - closer view for avatar
+    const camera = new BABYLON.ArcRotateCamera('camera', -Math.PI / 2, Math.PI / 2, 3, new BABYLON.Vector3(0, 1, 0), scene);
+    camera.attachControl(canvas, false);
+    camera.lowerRadiusLimit = 2;
+    camera.upperRadiusLimit = 5;
+    camera.panningSensibility = 0; // Disable panning
     
-    // Create lights
+    // Create lights for avatar
     const light1 = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
-    light1.intensity = 0.7;
+    light1.intensity = 0.8;
     
-    const light2 = new BABYLON.PointLight('light2', new BABYLON.Vector3(1, 10, 1), scene);
+    const light2 = new BABYLON.DirectionalLight('light2', new BABYLON.Vector3(-1, -2, -1), scene);
+    light2.position = new BABYLON.Vector3(3, 3, 3);
     light2.intensity = 0.5;
-    light2.diffuse = new BABYLON.Color3(0, 1, 0);
     
-    // Create materials
-    const robotMaterial = new BABYLON.StandardMaterial('robotMat', scene);
-    robotMaterial.diffuseColor = new BABYLON.Color3(0.1, 0.1, 0.1);
-    robotMaterial.specularColor = new BABYLON.Color3(0, 1, 0);
-    robotMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 0);
-    robotMaterial.specularPower = 128;
+    const light3 = new BABYLON.PointLight('light3', new BABYLON.Vector3(1, 2, 2), scene);
+    light3.intensity = 0.3;
+    light3.diffuse = new BABYLON.Color3(0.2, 1, 0.2);
+    
+    // Hide loading spinner after scene is ready
+    scene.executeWhenReady(() => {
+      const spinner = document.getElementById('loading-spinner');
+      if (spinner) spinner.style.display = 'none';
+    });
+    
+    // Create materials for human avatar
+    const skinMaterial = new BABYLON.StandardMaterial('skinMat', scene);
+    skinMaterial.diffuseColor = new BABYLON.Color3(0.95, 0.8, 0.7);
+    skinMaterial.specularColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+    skinMaterial.emissiveColor = new BABYLON.Color3(0.05, 0.02, 0.01);
+    
+    const suitMaterial = new BABYLON.StandardMaterial('suitMat', scene);
+    suitMaterial.diffuseColor = new BABYLON.Color3(0.1, 0.1, 0.15);
+    suitMaterial.specularColor = new BABYLON.Color3(0.3, 0.3, 0.3);
+    suitMaterial.emissiveColor = new BABYLON.Color3(0, 0.1, 0);
+    
+    const eyeMaterial = new BABYLON.StandardMaterial('eyeMat', scene);
+    eyeMaterial.diffuseColor = new BABYLON.Color3(1, 1, 1);
+    eyeMaterial.emissiveColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+    
+    const irisMaterial = new BABYLON.StandardMaterial('irisMat', scene);
+    irisMaterial.diffuseColor = new BABYLON.Color3(0, 0.5, 0.2);
+    irisMaterial.emissiveColor = new BABYLON.Color3(0, 0.3, 0);
     
     const glowMaterial = new BABYLON.StandardMaterial('glowMat', scene);
     glowMaterial.emissiveColor = new BABYLON.Color3(0, 1, 0);
     glowMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);
     
-    // Create robot parts
-    // Head
-    const head = BABYLON.MeshBuilder.CreateSphere('head', {diameter: 2, segments: 32}, scene);
-    head.position.y = 2;
-    head.material = robotMaterial;
+    // Create human avatar parts
+    // Head - more realistic proportions
+    const head = BABYLON.MeshBuilder.CreateSphere('head', {diameter: 0.5, segments: 32}, scene);
+    head.position.y = 1.7;
+    head.scaling.y = 1.1;
+    head.material = skinMaterial;
     
+    // Face features
     // Eyes
-    const leftEye = BABYLON.MeshBuilder.CreateSphere('leftEye', {diameter: 0.3}, scene);
-    leftEye.position = new BABYLON.Vector3(-0.4, 2.2, 0.8);
-    leftEye.material = glowMaterial;
+    const leftEyeWhite = BABYLON.MeshBuilder.CreateSphere('leftEyeWhite', {diameter: 0.08, segments: 16}, scene);
+    leftEyeWhite.position = new BABYLON.Vector3(-0.1, 1.72, 0.22);
+    leftEyeWhite.material = eyeMaterial;
     
-    const rightEye = BABYLON.MeshBuilder.CreateSphere('rightEye', {diameter: 0.3}, scene);
-    rightEye.position = new BABYLON.Vector3(0.4, 2.2, 0.8);
-    rightEye.material = glowMaterial;
+    const rightEyeWhite = BABYLON.MeshBuilder.CreateSphere('rightEyeWhite', {diameter: 0.08, segments: 16}, scene);
+    rightEyeWhite.position = new BABYLON.Vector3(0.1, 1.72, 0.22);
+    rightEyeWhite.material = eyeMaterial;
     
-    // Body (torso)
-    const body = BABYLON.MeshBuilder.CreateBox('body', {height: 2.5, width: 2, depth: 1}, scene);
-    body.position.y = 0;
-    body.material = robotMaterial;
+    // Irises
+    const leftIris = BABYLON.MeshBuilder.CreateSphere('leftIris', {diameter: 0.05, segments: 8}, scene);
+    leftIris.position = new BABYLON.Vector3(-0.1, 1.72, 0.25);
+    leftIris.material = irisMaterial;
     
-    // Add body details - circuit patterns
-    const circuitPanel = BABYLON.MeshBuilder.CreatePlane('circuit', {width: 1.8, height: 2}, scene);
-    circuitPanel.position = new BABYLON.Vector3(0, 0, 0.51);
-    circuitPanel.material = glowMaterial;
+    const rightIris = BABYLON.MeshBuilder.CreateSphere('rightIris', {diameter: 0.05, segments: 8}, scene);
+    rightIris.position = new BABYLON.Vector3(0.1, 1.72, 0.25);
+    rightIris.material = irisMaterial;
+    
+    // Pupils
+    const pupilMat = new BABYLON.StandardMaterial('pupilMat', scene);
+    pupilMat.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    
+    const leftPupil = BABYLON.MeshBuilder.CreateSphere('leftPupil', {diameter: 0.02, segments: 8}, scene);
+    leftPupil.position = new BABYLON.Vector3(-0.1, 1.72, 0.27);
+    leftPupil.material = pupilMat;
+    
+    const rightPupil = BABYLON.MeshBuilder.CreateSphere('rightPupil', {diameter: 0.02, segments: 8}, scene);
+    rightPupil.position = new BABYLON.Vector3(0.1, 1.72, 0.27);
+    rightPupil.material = pupilMat;
+    
+    // Nose (simple representation)
+    const nose = BABYLON.MeshBuilder.CreateBox('nose', {width: 0.04, height: 0.06, depth: 0.05}, scene);
+    nose.position = new BABYLON.Vector3(0, 1.65, 0.24);
+    nose.material = skinMaterial;
+    
+    // Mouth
+    const mouth = BABYLON.MeshBuilder.CreateTorus('mouth', {diameter: 0.1, thickness: 0.01, tessellation: 16}, scene);
+    mouth.position = new BABYLON.Vector3(0, 1.55, 0.22);
+    mouth.rotation.x = Math.PI / 2;
+    mouth.scaling = new BABYLON.Vector3(1, 0.5, 1);
+    const mouthMat = new BABYLON.StandardMaterial('mouthMat', scene);
+    mouthMat.diffuseColor = new BABYLON.Color3(0.6, 0.3, 0.3);
+    mouth.material = mouthMat;
+    
+    // Hair
+    const hair = BABYLON.MeshBuilder.CreateSphere('hair', {diameter: 0.52, segments: 16}, scene);
+    hair.position.y = 1.75;
+    hair.scaling.y = 0.7;
+    const hairMat = new BABYLON.StandardMaterial('hairMat', scene);
+    hairMat.diffuseColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+    hairMat.specularColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+    hair.material = hairMat;
+    
+    // Neck
+    const neck = BABYLON.MeshBuilder.CreateCylinder('neck', {height: 0.2, diameter: 0.15}, scene);
+    neck.position.y = 1.35;
+    neck.material = skinMaterial;
+    
+    // Body (torso) - business suit style
+    const torso = BABYLON.MeshBuilder.CreateBox('torso', {height: 0.8, width: 0.5, depth: 0.25}, scene);
+    torso.position.y = 0.8;
+    torso.material = suitMaterial;
+    
+    // Shoulders
+    const leftShoulder = BABYLON.MeshBuilder.CreateSphere('leftShoulder', {diameter: 0.15}, scene);
+    leftShoulder.position = new BABYLON.Vector3(-0.3, 1.15, 0);
+    leftShoulder.material = suitMaterial;
+    
+    const rightShoulder = BABYLON.MeshBuilder.CreateSphere('rightShoulder', {diameter: 0.15}, scene);
+    rightShoulder.position = new BABYLON.Vector3(0.3, 1.15, 0);
+    rightShoulder.material = suitMaterial;
     
     // Arms
-    const leftArm = BABYLON.MeshBuilder.CreateCylinder('leftArm', {height: 2, diameter: 0.3}, scene);
-    leftArm.position = new BABYLON.Vector3(-1.3, 0.5, 0);
-    leftArm.rotation.z = Math.PI / 6;
-    leftArm.material = robotMaterial;
+    const leftUpperArm = BABYLON.MeshBuilder.CreateCylinder('leftUpperArm', {height: 0.4, diameter: 0.1}, scene);
+    leftUpperArm.position = new BABYLON.Vector3(-0.3, 0.9, 0);
+    leftUpperArm.material = suitMaterial;
     
-    const rightArm = BABYLON.MeshBuilder.CreateCylinder('rightArm', {height: 2, diameter: 0.3}, scene);
-    rightArm.position = new BABYLON.Vector3(1.3, 0.5, 0);
-    rightArm.rotation.z = -Math.PI / 6;
-    rightArm.material = robotMaterial;
+    const rightUpperArm = BABYLON.MeshBuilder.CreateCylinder('rightUpperArm', {height: 0.4, diameter: 0.1}, scene);
+    rightUpperArm.position = new BABYLON.Vector3(0.3, 0.9, 0);
+    rightUpperArm.material = suitMaterial;
+    
+    const leftLowerArm = BABYLON.MeshBuilder.CreateCylinder('leftLowerArm', {height: 0.4, diameter: 0.08}, scene);
+    leftLowerArm.position = new BABYLON.Vector3(-0.3, 0.5, 0);
+    leftLowerArm.material = skinMaterial;
+    
+    const rightLowerArm = BABYLON.MeshBuilder.CreateCylinder('rightLowerArm', {height: 0.4, diameter: 0.08}, scene);
+    rightLowerArm.position = new BABYLON.Vector3(0.3, 0.5, 0);
+    rightLowerArm.rotation.z = -0.2;
+    rightLowerArm.material = skinMaterial;
+    
+    // Hands
+    const leftHand = BABYLON.MeshBuilder.CreateSphere('leftHand', {diameter: 0.08}, scene);
+    leftHand.position = new BABYLON.Vector3(-0.3, 0.25, 0);
+    leftHand.material = skinMaterial;
+    
+    const rightHand = BABYLON.MeshBuilder.CreateSphere('rightHand', {diameter: 0.08}, scene);
+    rightHand.position = new BABYLON.Vector3(0.32, 0.28, 0.05);
+    rightHand.material = skinMaterial;
+    
+    // Waist/Belt area
+    const waist = BABYLON.MeshBuilder.CreateCylinder('waist', {height: 0.1, diameter: 0.35}, scene);
+    waist.position.y = 0.35;
+    const beltMat = new BABYLON.StandardMaterial('beltMat', scene);
+    beltMat.diffuseColor = new BABYLON.Color3(0.05, 0.05, 0.05);
+    waist.material = beltMat;
     
     // Legs
-    const leftLeg = BABYLON.MeshBuilder.CreateCylinder('leftLeg', {height: 2, diameter: 0.4}, scene);
-    leftLeg.position = new BABYLON.Vector3(-0.5, -2, 0);
-    leftLeg.material = robotMaterial;
+    const leftUpperLeg = BABYLON.MeshBuilder.CreateCylinder('leftUpperLeg', {height: 0.5, diameter: 0.12}, scene);
+    leftUpperLeg.position = new BABYLON.Vector3(-0.12, 0, 0);
+    leftUpperLeg.material = suitMaterial;
     
-    const rightLeg = BABYLON.MeshBuilder.CreateCylinder('rightLeg', {height: 2, diameter: 0.4}, scene);
-    rightLeg.position = new BABYLON.Vector3(0.5, -2, 0);
-    rightLeg.material = robotMaterial;
+    const rightUpperLeg = BABYLON.MeshBuilder.CreateCylinder('rightUpperLeg', {height: 0.5, diameter: 0.12}, scene);
+    rightUpperLeg.position = new BABYLON.Vector3(0.12, 0, 0);
+    rightUpperLeg.material = suitMaterial;
     
-    // Antenna
-    const antenna = BABYLON.MeshBuilder.CreateCylinder('antenna', {height: 1, diameter: 0.1}, scene);
-    antenna.position = new BABYLON.Vector3(0, 3.2, 0);
-    antenna.material = robotMaterial;
+    const leftLowerLeg = BABYLON.MeshBuilder.CreateCylinder('leftLowerLeg', {height: 0.5, diameter: 0.1}, scene);
+    leftLowerLeg.position = new BABYLON.Vector3(-0.12, -0.5, 0);
+    leftLowerLeg.material = suitMaterial;
     
-    const antennaTip = BABYLON.MeshBuilder.CreateSphere('antennaTip', {diameter: 0.2}, scene);
-    antennaTip.position = new BABYLON.Vector3(0, 3.7, 0);
-    antennaTip.material = glowMaterial;
+    const rightLowerLeg = BABYLON.MeshBuilder.CreateCylinder('rightLowerLeg', {height: 0.5, diameter: 0.1}, scene);
+    rightLowerLeg.position = new BABYLON.Vector3(0.12, -0.5, 0);
+    rightLowerLeg.material = suitMaterial;
     
-    // Create particle system for energy effect
-    const particleSystem = new BABYLON.ParticleSystem('particles', 2000, scene);
+    // Shoes
+    const leftShoe = BABYLON.MeshBuilder.CreateBox('leftShoe', {width: 0.1, height: 0.05, depth: 0.15}, scene);
+    leftShoe.position = new BABYLON.Vector3(-0.12, -0.77, 0.02);
+    const shoeMat = new BABYLON.StandardMaterial('shoeMat', scene);
+    shoeMat.diffuseColor = new BABYLON.Color3(0.05, 0.05, 0.05);
+    leftShoe.material = shoeMat;
+    
+    const rightShoe = BABYLON.MeshBuilder.CreateBox('rightShoe', {width: 0.1, height: 0.05, depth: 0.15}, scene);
+    rightShoe.position = new BABYLON.Vector3(0.12, -0.77, 0.02);
+    rightShoe.material = shoeMat;
+    
+    // Add a tie
+    const tie = BABYLON.MeshBuilder.CreateBox('tie', {width: 0.05, height: 0.4, depth: 0.01}, scene);
+    tie.position = new BABYLON.Vector3(0, 0.95, 0.13);
+    const tieMat = new BABYLON.StandardMaterial('tieMat', scene);
+    tieMat.diffuseColor = new BABYLON.Color3(0, 0.5, 0);
+    tieMat.emissiveColor = new BABYLON.Color3(0, 0.2, 0);
+    tie.material = tieMat;
+    
+    // Create holographic particle system around avatar
+    const particleSystem = new BABYLON.ParticleSystem('particles', 1000, scene);
     particleSystem.particleTexture = new BABYLON.Texture('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==', scene);
     
-    particleSystem.emitter = head;
-    particleSystem.minEmitBox = new BABYLON.Vector3(-1, -1, -1);
-    particleSystem.maxEmitBox = new BABYLON.Vector3(1, 1, 1);
+    // Create an invisible emitter that orbits around the avatar
+    const emitter = BABYLON.MeshBuilder.CreateBox('emitter', {size: 0.01}, scene);
+    emitter.visibility = 0;
+    emitter.position.y = 1;
+    particleSystem.emitter = emitter;
     
-    particleSystem.color1 = new BABYLON.Color4(0, 1, 0, 1);
-    particleSystem.color2 = new BABYLON.Color4(0, 0.5, 0, 0.5);
+    particleSystem.minEmitBox = new BABYLON.Vector3(-0.5, -1, -0.5);
+    particleSystem.maxEmitBox = new BABYLON.Vector3(0.5, 1, 0.5);
+    
+    particleSystem.color1 = new BABYLON.Color4(0, 1, 0, 0.8);
+    particleSystem.color2 = new BABYLON.Color4(0, 0.8, 0.2, 0.5);
     particleSystem.colorDead = new BABYLON.Color4(0, 0, 0, 0);
     
-    particleSystem.minSize = 0.05;
-    particleSystem.maxSize = 0.1;
+    particleSystem.minSize = 0.01;
+    particleSystem.maxSize = 0.03;
     
-    particleSystem.minLifeTime = 0.3;
-    particleSystem.maxLifeTime = 1.5;
+    particleSystem.minLifeTime = 1;
+    particleSystem.maxLifeTime = 2;
     
-    particleSystem.emitRate = 100;
+    particleSystem.emitRate = 50;
     
-    particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_ONEONE;
+    particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_ADD;
     
-    particleSystem.gravity = new BABYLON.Vector3(0, -1, 0);
+    particleSystem.gravity = new BABYLON.Vector3(0, 0.1, 0);
     
-    particleSystem.direction1 = new BABYLON.Vector3(-1, 1, -1);
-    particleSystem.direction2 = new BABYLON.Vector3(1, 1, 1);
+    particleSystem.direction1 = new BABYLON.Vector3(-0.5, 1, -0.5);
+    particleSystem.direction2 = new BABYLON.Vector3(0.5, 1, 0.5);
     
-    particleSystem.minEmitPower = 0.5;
-    particleSystem.maxEmitPower = 1;
+    particleSystem.minEmitPower = 0.1;
+    particleSystem.maxEmitPower = 0.3;
     particleSystem.updateSpeed = 0.01;
     
     particleSystem.start();
     
-    // Animation - rotate the robot
+    // Animation - subtle human movements
+    let time = 0;
     scene.registerBeforeRender(function () {
-      head.rotation.y += 0.005;
-      body.rotation.y += 0.003;
-      antennaTip.rotation.y -= 0.02;
+      time += 0.01;
       
-      // Pulse effect for eyes
-      const pulse = Math.sin(Date.now() * 0.003) * 0.5 + 0.5;
-      leftEye.scaling = new BABYLON.Vector3(1 + pulse * 0.2, 1 + pulse * 0.2, 1 + pulse * 0.2);
-      rightEye.scaling = new BABYLON.Vector3(1 + pulse * 0.2, 1 + pulse * 0.2, 1 + pulse * 0.2);
+      // Subtle head movement (looking around)
+      head.rotation.y = Math.sin(time * 0.5) * 0.1;
+      head.rotation.x = Math.sin(time * 0.3) * 0.05;
       
-      // Floating animation
-      const float = Math.sin(Date.now() * 0.001) * 0.1;
-      head.position.y = 2 + float;
-      leftEye.position.y = 2.2 + float;
-      rightEye.position.y = 2.2 + float;
-      antenna.position.y = 3.2 + float;
-      antennaTip.position.y = 3.7 + float;
+      // Blinking effect
+      const blink = Math.sin(time * 3) > 0.98;
+      if (blink) {
+        leftEyeWhite.scaling.y = 0.1;
+        rightEyeWhite.scaling.y = 0.1;
+        leftIris.scaling.y = 0.1;
+        rightIris.scaling.y = 0.1;
+      } else {
+        leftEyeWhite.scaling.y = 1;
+        rightEyeWhite.scaling.y = 1;
+        leftIris.scaling.y = 1;
+        rightIris.scaling.y = 1;
+      }
+      
+      // Eye movement (following invisible target)
+      const eyeMovement = 0.01;
+      leftIris.position.x = -0.1 + Math.sin(time * 0.7) * eyeMovement;
+      rightIris.position.x = 0.1 + Math.sin(time * 0.7) * eyeMovement;
+      leftPupil.position.x = -0.1 + Math.sin(time * 0.7) * eyeMovement;
+      rightPupil.position.x = 0.1 + Math.sin(time * 0.7) * eyeMovement;
+      
+      // Breathing effect (chest movement)
+      const breathe = Math.sin(time * 0.8) * 0.02;
+      torso.scaling.z = 1 + breathe;
+      torso.position.y = 0.8 + breathe * 0.5;
+      
+      // Subtle hand gesture
+      rightLowerArm.rotation.z = -0.2 + Math.sin(time * 0.6) * 0.1;
+      rightHand.position.y = 0.28 + Math.sin(time * 0.6) * 0.02;
+      
+      // Particle emitter orbit
+      emitter.position.x = Math.sin(time * 0.5) * 1.5;
+      emitter.position.z = Math.cos(time * 0.5) * 1.5;
+      
+      // Tie glow pulse
+      const pulse = Math.sin(time * 2) * 0.5 + 0.5;
+      tie.material.emissiveColor = new BABYLON.Color3(0, 0.2 * pulse, 0);
     });
     
     // Handle window resize

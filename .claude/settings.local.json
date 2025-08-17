@@ -47,7 +47,9 @@
       "WebFetch(domain:docs.aimatrix.com)",
       "Bash(aws s3api get-bucket-website:*)",
       "Bash(aws cloudfront get-distribution:*)",
-      "Bash(aws s3api get-bucket-location:*)"
+      "Bash(aws s3api get-bucket-location:*)",
+      "Bash(aws cloudfront create-invalidation:*)",
+      "Bash(aws cloudfront list-distributions:*)"
     ],
     "deny": []
   }
