@@ -8,6 +8,24 @@ weight: 1
 
 Stop clicking through endless screens. Start having conversations with your systems.
 
+## Quick Navigation
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+  <a href="/solutions/business/use-cases" style="text-decoration: none;">
+    <div style="border: 2px solid #00ff00; padding: 20px; border-radius: 8px; background: rgba(0, 255, 0, 0.1);">
+      <h3 style="color: #00ff00; margin: 0;">📊 Use Cases & Value</h3>
+      <p style="color: #ccc; margin: 10px 0 0 0;">Detailed department-by-department transformation guide</p>
+    </div>
+  </a>
+  
+  <a href="/solutions/business/roi-calculator" style="text-decoration: none;">
+    <div style="border: 2px solid #00ff00; padding: 20px; border-radius: 8px; background: rgba(0, 255, 0, 0.1);">
+      <h3 style="color: #00ff00; margin: 0;">💰 ROI Calculator</h3>
+      <p style="color: #ccc; margin: 10px 0 0 0;">Calculate your 940% average ROI with 1.2 month payback</p>
+    </div>
+  </a>
+</div>
+
 ## The Problem You Face Every Day
 
 ### You're drowning in software
