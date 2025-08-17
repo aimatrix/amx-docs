@@ -354,25 +354,32 @@ footer {
   padding: 20px 0 !important;
 }
 
-/* Hide duplicate footer text and Hextra default footer */
+/* Hide all footers first */
+footer,
 .hx-footer,
-footer .hx-text-xs,
-footer .hx-text-gray-600,
-footer > div > div > span:contains("2025"),
-footer > div > div > span:contains("AIMatrix"),
-footer > div > div > span:contains("All rights reserved") {
+.page-footer {
   display: none !important;
 }
 
-/* Hide any paragraph that contains duplicate copyright */
-footer p:contains("2025 AIMatrix"),
-footer p:contains("All rights reserved") {
-  display: none !important;
-}
-
-/* Only show our custom footer */
-footer > p:last-child {
+/* Show only the last footer */
+footer:last-of-type,
+.page:last-child footer,
+body > footer:last-child {
   display: block !important;
+}
+
+/* Hide duplicate text patterns */
+footer span:contains("2025 AIMatrix"),
+footer p:contains("All rights reserved") + p:contains("All rights reserved") {
+  display: none !important;
+}
+
+/* Clean footer styling */
+footer p {
+  color: #888 !important;
+  font-size: 0.9em !important;
+  margin: 0 !important;
+  text-align: center !important;
 }
 
 /* Cards - transparent with subtle border */

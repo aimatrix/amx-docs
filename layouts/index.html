@@ -304,6 +304,38 @@
   pointer-events: none;
   opacity: 0.1;
 }
+
+/* Fix footer duplication */
+footer {
+  display: none !important;
+}
+
+/* Show only one clean footer */
+.page-footer,
+.hx-footer,
+footer:last-of-type {
+  display: block !important;
+  text-align: center !important;
+  padding: 40px 20px !important;
+  border-top: 1px solid rgba(0, 255, 0, 0.2) !important;
+  background: #000000 !important;
+  color: #888 !important;
+}
+
+/* Hide duplicate content */
+.page-footer > *:not(:last-child),
+.hx-footer > *:not(:last-child) {
+  display: none !important;
+}
+
+/* Style the final footer text */
+.page-footer p,
+.hx-footer p,
+footer p {
+  color: #888 !important;
+  font-size: 0.9em !important;
+  margin: 0 !important;
+}
 </style>
 
 <!-- Hero Section -->
@@ -582,8 +614,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 </script>
 
-<footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(0, 255, 0, 0.2); margin-top: 60px;">
-  <p style="color: #888; font-size: 0.9em;">© 2025 AIMatrix. All rights reserved. | <a href="/privacy" style="color: #00ff00;">Privacy Policy</a> | <a href="/terms" style="color: #00ff00;">Terms of Service</a></p>
-</footer>
 
 {{ end }}

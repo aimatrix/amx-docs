@@ -88,7 +88,7 @@ params:
     
   # Footer
   footer:
-    displayCopyright: true
+    displayCopyright: false
     displayPoweredBy: false
     
   # Search configuration
