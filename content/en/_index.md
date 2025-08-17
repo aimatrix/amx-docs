@@ -223,20 +223,36 @@ toc: false
   border-radius: 0 8px 8px 0;
 }
 
-/* Stats */
+/* Stats - Force horizontal layout */
 .stat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
   margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .stat-grid {
+    flex-wrap: nowrap;
+  }
 }
 
 .stat-card {
+  flex: 1;
+  min-width: 150px;
   text-align: center;
   padding: 30px 20px;
   background: rgba(0, 255, 0, 0.05);
   border-radius: 12px;
   border: 1px solid rgba(0, 255, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
 }
 
 .stat-number {
@@ -305,6 +321,7 @@ toc: false
   <!-- 3D Robot Container -->
   <div id="robot-container">
     <canvas id="robot-canvas"></canvas>
+    <div id="loading-spinner" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #00ff00; font-size: 1.2em;">Loading 3D Robot...</div>
   </div>
 </div>
 
@@ -511,163 +528,183 @@ toc: false
   });
 })();
 
-// 3D Robot with Eye Tracking
+// Load Babylon.js from CDN
 (function() {
-  const container = document.getElementById('robot-container');
-  const canvas = document.getElementById('robot-canvas');
-  if (!canvas || !container) return;
+  // First load Babylon.js
+  const babylonScript = document.createElement('script');
+  babylonScript.src = 'https://cdn.babylonjs.com/babylon.js';
+  babylonScript.onload = function() {
+    // Then load Babylon materials
+    const materialsScript = document.createElement('script');
+    materialsScript.src = 'https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js';
+    materialsScript.onload = initBabylon3DRobot;
+    document.head.appendChild(materialsScript);
+  };
+  document.head.appendChild(babylonScript);
   
-  const ctx = canvas.getContext('2d');
-  canvas.width = 400;
-  canvas.height = 400;
-  
-  let mouseX = 0;
-  let mouseY = 0;
-  
-  // Robot drawing function
-  function drawRobot() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function initBabylon3DRobot() {
+    const canvas = document.getElementById('robot-canvas');
+    const container = document.getElementById('robot-container');
+    if (!canvas || !container) return;
     
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
+    // Hide loading spinner
+    const spinner = document.getElementById('loading-spinner');
+    if (spinner) spinner.style.display = 'none';
     
-    // Calculate eye direction based on mouse position
-    const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
-    const distance = Math.min(15, Math.hypot(mouseX - centerX, mouseY - centerY) / 10);
+    // Create Babylon.js engine
+    const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
     
-    // Robot head (main circle)
-    ctx.strokeStyle = '#00ff00';
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.arc(centerX, centerY - 50, 80, 0, Math.PI * 2);
-    ctx.stroke();
+    // Create scene
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
     
-    // Robot face outline
-    ctx.beginPath();
-    ctx.moveTo(centerX - 60, centerY - 50);
-    ctx.lineTo(centerX - 60, centerY - 20);
-    ctx.lineTo(centerX - 40, centerY);
-    ctx.lineTo(centerX + 40, centerY);
-    ctx.lineTo(centerX + 60, centerY - 20);
-    ctx.lineTo(centerX + 60, centerY - 50);
-    ctx.stroke();
+    // Create camera
+    const camera = new BABYLON.ArcRotateCamera('camera', -Math.PI / 2, Math.PI / 2.5, 10, BABYLON.Vector3.Zero(), scene);
+    camera.attachControl(canvas, true);
+    camera.lowerRadiusLimit = 5;
+    camera.upperRadiusLimit = 15;
     
-    // Left eye socket
-    ctx.beginPath();
-    ctx.arc(centerX - 25, centerY - 50, 20, 0, Math.PI * 2);
-    ctx.stroke();
+    // Create lights
+    const light1 = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0, 1, 0), scene);
+    light1.intensity = 0.7;
     
-    // Right eye socket
-    ctx.beginPath();
-    ctx.arc(centerX + 25, centerY - 50, 20, 0, Math.PI * 2);
-    ctx.stroke();
+    const light2 = new BABYLON.PointLight('light2', new BABYLON.Vector3(1, 10, 1), scene);
+    light2.intensity = 0.5;
+    light2.diffuse = new BABYLON.Color3(0, 1, 0);
     
-    // Left eye pupil (follows mouse)
-    ctx.fillStyle = '#00ff00';
-    ctx.beginPath();
-    ctx.arc(
-      centerX - 25 + Math.cos(angle) * distance,
-      centerY - 50 + Math.sin(angle) * distance,
-      8, 0, Math.PI * 2
-    );
-    ctx.fill();
+    // Create materials
+    const robotMaterial = new BABYLON.StandardMaterial('robotMat', scene);
+    robotMaterial.diffuseColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+    robotMaterial.specularColor = new BABYLON.Color3(0, 1, 0);
+    robotMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 0);
+    robotMaterial.specularPower = 128;
     
-    // Right eye pupil (follows mouse)
-    ctx.beginPath();
-    ctx.arc(
-      centerX + 25 + Math.cos(angle) * distance,
-      centerY - 50 + Math.sin(angle) * distance,
-      8, 0, Math.PI * 2
-    );
-    ctx.fill();
+    const glowMaterial = new BABYLON.StandardMaterial('glowMat', scene);
+    glowMaterial.emissiveColor = new BABYLON.Color3(0, 1, 0);
+    glowMaterial.diffuseColor = new BABYLON.Color3(0, 1, 0);
     
-    // Antenna
-    ctx.strokeStyle = '#00ff00';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(centerX, centerY - 130);
-    ctx.lineTo(centerX, centerY - 150);
-    ctx.stroke();
+    // Create robot parts
+    // Head
+    const head = BABYLON.MeshBuilder.CreateSphere('head', {diameter: 2, segments: 32}, scene);
+    head.position.y = 2;
+    head.material = robotMaterial;
     
-    // Antenna tip
-    ctx.beginPath();
-    ctx.arc(centerX, centerY - 155, 5, 0, Math.PI * 2);
-    ctx.fill();
+    // Eyes
+    const leftEye = BABYLON.MeshBuilder.CreateSphere('leftEye', {diameter: 0.3}, scene);
+    leftEye.position = new BABYLON.Vector3(-0.4, 2.2, 0.8);
+    leftEye.material = glowMaterial;
     
-    // Mouth (subtle smile)
-    ctx.beginPath();
-    ctx.arc(centerX, centerY - 30, 25, 0.2 * Math.PI, 0.8 * Math.PI);
-    ctx.stroke();
+    const rightEye = BABYLON.MeshBuilder.CreateSphere('rightEye', {diameter: 0.3}, scene);
+    rightEye.position = new BABYLON.Vector3(0.4, 2.2, 0.8);
+    rightEye.material = glowMaterial;
     
-    // Body
-    ctx.lineWidth = 3;
-    ctx.strokeRect(centerX - 60, centerY + 20, 120, 100);
+    // Body (torso)
+    const body = BABYLON.MeshBuilder.CreateBox('body', {height: 2.5, width: 2, depth: 1}, scene);
+    body.position.y = 0;
+    body.material = robotMaterial;
     
-    // Body details
-    ctx.lineWidth = 1;
-    for (let i = 0; i < 3; i++) {
-      ctx.beginPath();
-      ctx.moveTo(centerX - 50, centerY + 40 + i * 25);
-      ctx.lineTo(centerX + 50, centerY + 40 + i * 25);
-      ctx.stroke();
-    }
+    // Add body details - circuit patterns
+    const circuitPanel = BABYLON.MeshBuilder.CreatePlane('circuit', {width: 1.8, height: 2}, scene);
+    circuitPanel.position = new BABYLON.Vector3(0, 0, 0.51);
+    circuitPanel.material = glowMaterial;
     
     // Arms
-    ctx.lineWidth = 3;
-    // Left arm
-    ctx.beginPath();
-    ctx.moveTo(centerX - 60, centerY + 40);
-    ctx.lineTo(centerX - 90, centerY + 70);
-    ctx.lineTo(centerX - 85, centerY + 110);
-    ctx.stroke();
+    const leftArm = BABYLON.MeshBuilder.CreateCylinder('leftArm', {height: 2, diameter: 0.3}, scene);
+    leftArm.position = new BABYLON.Vector3(-1.3, 0.5, 0);
+    leftArm.rotation.z = Math.PI / 6;
+    leftArm.material = robotMaterial;
     
-    // Right arm
-    ctx.beginPath();
-    ctx.moveTo(centerX + 60, centerY + 40);
-    ctx.lineTo(centerX + 90, centerY + 70);
-    ctx.lineTo(centerX + 85, centerY + 110);
-    ctx.stroke();
+    const rightArm = BABYLON.MeshBuilder.CreateCylinder('rightArm', {height: 2, diameter: 0.3}, scene);
+    rightArm.position = new BABYLON.Vector3(1.3, 0.5, 0);
+    rightArm.rotation.z = -Math.PI / 6;
+    rightArm.material = robotMaterial;
     
     // Legs
-    // Left leg
-    ctx.beginPath();
-    ctx.moveTo(centerX - 30, centerY + 120);
-    ctx.lineTo(centerX - 30, centerY + 170);
-    ctx.lineTo(centerX - 40, centerY + 180);
-    ctx.stroke();
+    const leftLeg = BABYLON.MeshBuilder.CreateCylinder('leftLeg', {height: 2, diameter: 0.4}, scene);
+    leftLeg.position = new BABYLON.Vector3(-0.5, -2, 0);
+    leftLeg.material = robotMaterial;
     
-    // Right leg
-    ctx.beginPath();
-    ctx.moveTo(centerX + 30, centerY + 120);
-    ctx.lineTo(centerX + 30, centerY + 170);
-    ctx.lineTo(centerX + 40, centerY + 180);
-    ctx.stroke();
+    const rightLeg = BABYLON.MeshBuilder.CreateCylinder('rightLeg', {height: 2, diameter: 0.4}, scene);
+    rightLeg.position = new BABYLON.Vector3(0.5, -2, 0);
+    rightLeg.material = robotMaterial;
     
-    // Add glow effect
-    ctx.shadowBlur = 20;
-    ctx.shadowColor = '#00ff00';
-    ctx.strokeStyle = 'rgba(0, 255, 0, 0.3)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.arc(centerX, centerY - 50, 85, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.shadowBlur = 0;
+    // Antenna
+    const antenna = BABYLON.MeshBuilder.CreateCylinder('antenna', {height: 1, diameter: 0.1}, scene);
+    antenna.position = new BABYLON.Vector3(0, 3.2, 0);
+    antenna.material = robotMaterial;
+    
+    const antennaTip = BABYLON.MeshBuilder.CreateSphere('antennaTip', {diameter: 0.2}, scene);
+    antennaTip.position = new BABYLON.Vector3(0, 3.7, 0);
+    antennaTip.material = glowMaterial;
+    
+    // Create particle system for energy effect
+    const particleSystem = new BABYLON.ParticleSystem('particles', 2000, scene);
+    particleSystem.particleTexture = new BABYLON.Texture('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==', scene);
+    
+    particleSystem.emitter = head;
+    particleSystem.minEmitBox = new BABYLON.Vector3(-1, -1, -1);
+    particleSystem.maxEmitBox = new BABYLON.Vector3(1, 1, 1);
+    
+    particleSystem.color1 = new BABYLON.Color4(0, 1, 0, 1);
+    particleSystem.color2 = new BABYLON.Color4(0, 0.5, 0, 0.5);
+    particleSystem.colorDead = new BABYLON.Color4(0, 0, 0, 0);
+    
+    particleSystem.minSize = 0.05;
+    particleSystem.maxSize = 0.1;
+    
+    particleSystem.minLifeTime = 0.3;
+    particleSystem.maxLifeTime = 1.5;
+    
+    particleSystem.emitRate = 100;
+    
+    particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_ONEONE;
+    
+    particleSystem.gravity = new BABYLON.Vector3(0, -1, 0);
+    
+    particleSystem.direction1 = new BABYLON.Vector3(-1, 1, -1);
+    particleSystem.direction2 = new BABYLON.Vector3(1, 1, 1);
+    
+    particleSystem.minEmitPower = 0.5;
+    particleSystem.maxEmitPower = 1;
+    particleSystem.updateSpeed = 0.01;
+    
+    particleSystem.start();
+    
+    // Animation - rotate the robot
+    scene.registerBeforeRender(function () {
+      head.rotation.y += 0.005;
+      body.rotation.y += 0.003;
+      antennaTip.rotation.y -= 0.02;
+      
+      // Pulse effect for eyes
+      const pulse = Math.sin(Date.now() * 0.003) * 0.5 + 0.5;
+      leftEye.scaling = new BABYLON.Vector3(1 + pulse * 0.2, 1 + pulse * 0.2, 1 + pulse * 0.2);
+      rightEye.scaling = new BABYLON.Vector3(1 + pulse * 0.2, 1 + pulse * 0.2, 1 + pulse * 0.2);
+      
+      // Floating animation
+      const float = Math.sin(Date.now() * 0.001) * 0.1;
+      head.position.y = 2 + float;
+      leftEye.position.y = 2.2 + float;
+      rightEye.position.y = 2.2 + float;
+      antenna.position.y = 3.2 + float;
+      antennaTip.position.y = 3.7 + float;
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function () {
+      engine.resize();
+    });
+    
+    // Run render loop
+    engine.runRenderLoop(function () {
+      scene.render();
+    });
+    
+    // Clean up on page unload
+    window.addEventListener('beforeunload', function() {
+      engine.dispose();
+    });
   }
-  
-  // Mouse tracking
-  document.addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
-  });
-  
-  // Animation loop
-  function animate() {
-    drawRobot();
-    requestAnimationFrame(animate);
-  }
-  
-  animate();
 })();
 
 // Smooth scroll for navigation
@@ -684,4 +721,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 ---
 
-*AIMatrix - Enter the Business Matrix*
+<footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(0, 255, 0, 0.2); margin-top: 60px;">
+  <p style="color: #888; font-size: 0.9em;">© 2025 AIMatrix. All rights reserved. | <a href="/privacy" style="color: #00ff00;">Privacy Policy</a> | <a href="/terms" style="color: #00ff00;">Terms of Service</a></p>
+</footer>

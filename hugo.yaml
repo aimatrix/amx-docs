@@ -1,6 +1,6 @@
 # Hugo configuration for Hextra theme
 baseURL: https://docs.aimatrix.com/
-title: AIMatrix Documentation
+title: docs@aimatrix
 
 # Language settings
 languageCode: en
@@ -13,7 +13,7 @@ languages:
     languageName: English
     contentDir: content/en
     weight: 1
-    title: AIMatrix Documentation
+    title: docs@aimatrix
     params:
       description: Comprehensive documentation for AIMatrix - The Business Operating System for Modern Enterprises
   zh:
