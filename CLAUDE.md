@@ -39,7 +39,8 @@ AIMatrix Documentation site built with Hugo and Hextra theme, featuring a Matrix
    - Invalidate CloudFront cache
 4. Monitor deployment: `gh run list --limit=1`
 
-**Known Issue**: S3/CloudFront requires index.html suffix for directory URLs
-- Works: https://docs.aimatrix.com/docs/index.html
-- Doesn't work: https://docs.aimatrix.com/docs/
-- Solution: CloudFront function needed for URL rewriting
+**✅ FIXED**: Clean URLs now work correctly
+- ✅ Works: https://docs.aimatrix.com/developers/
+- ✅ Works: https://docs.aimatrix.com/investors/
+- ✅ Works: https://docs.aimatrix.com/products/
+- Solution: Updated CloudFront to use S3 static website endpoint

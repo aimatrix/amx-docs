@@ -46,7 +46,8 @@
       "Bash(gh run watch:*)",
       "WebFetch(domain:docs.aimatrix.com)",
       "Bash(aws s3api get-bucket-website:*)",
-      "Bash(aws cloudfront get-distribution:*)"
+      "Bash(aws cloudfront get-distribution:*)",
+      "Bash(aws s3api get-bucket-location:*)"
     ],
     "deny": []
   }
