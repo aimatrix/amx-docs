@@ -26,3 +26,20 @@ AIMatrix Documentation site built with Hugo and Hextra theme, featuring a Matrix
 - Digital rain effect is implemented in `layouts/partials/custom/head-end.html`
 - Custom styles in `assets/css/custom.css`
 - Homepage layout override in `layouts/hextra-home.html`
+
+## Deployment
+
+**IMPORTANT**: Always deploy through GitHub Actions, NEVER directly from local machine to AWS S3
+
+1. Commit changes: `git add -A && git commit -m "Your message"`
+2. Push to GitHub: `git push origin main`
+3. GitHub Actions will automatically:
+   - Build the Hugo site
+   - Deploy to S3 bucket
+   - Invalidate CloudFront cache
+4. Monitor deployment: `gh run list --limit=1`
+
+**Known Issue**: S3/CloudFront requires index.html suffix for directory URLs
+- Works: https://docs.aimatrix.com/docs/index.html
+- Doesn't work: https://docs.aimatrix.com/docs/
+- Solution: CloudFront function needed for URL rewriting

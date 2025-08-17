@@ -42,7 +42,10 @@
       "Bash(./venv/bin/pip install atlassian-python-api)",
       "Bash(git push:*)",
       "Bash(touch:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(gh run watch:*)",
+      "WebFetch(domain:docs.aimatrix.com)",
+      "Bash(aws s3api get-bucket-website:*)"
     ],
     "deny": []
   }
