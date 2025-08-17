@@ -34,35 +34,14 @@
   align-items: center;
 }
 
-/* 3D Avatar Container - Separate from content */
-#avatar-container {
-  position: absolute;
-  right: 5%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 500px;
-  height: 600px;
-  z-index: 10;
-  border-radius: 20px;
-  overflow: hidden;
-  background: rgba(0, 20, 0, 0.3);
-  border: 2px solid rgba(0, 255, 0, 0.2);
-}
-
-@media (max-width: 1200px) {
-  #avatar-container {
-    width: 350px;
-    height: 450px;
-    right: 20px;
-  }
-}
 
 /* Hero Content */
 .hero-content {
   position: relative;
   z-index: 20;
-  max-width: 600px;
-  margin-right: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero-title {
@@ -98,81 +77,80 @@
 }
 
 .btn-primary {
-  padding: 15px 35px;
-  background: linear-gradient(135deg, var(--matrix-green), var(--matrix-dark-green));
-  color: #000;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
   display: inline-block;
-  box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--matrix-green), var(--matrix-dark-green));
+  color: #000000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(0, 255, 0, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
+  background: linear-gradient(135deg, #00ff44, #00ff00);
 }
 
 .btn-secondary {
-  padding: 15px 35px;
+  display: inline-block;
+  padding: 16px 32px;
   background: transparent;
   color: var(--matrix-green);
   text-decoration: none;
   border: 2px solid var(--matrix-green);
-  border-radius: 30px;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 1.1rem;
   transition: all 0.3s ease;
-  display: inline-block;
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 255, 0, 0.1);
-  transform: translateY(-2px);
+  background: var(--matrix-green);
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
 }
 
-/* Section Styles */
+/* Sections */
 .section {
   padding: 80px 20px;
-  position: relative;
-}
-
-.section-dark {
   background: var(--matrix-bg);
 }
 
 .section-title {
   font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
-  color: var(--text-primary);
+  background: linear-gradient(135deg, #ffffff 0%, #00ff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .section-subtitle {
   font-size: 1.2rem;
-  text-align: center;
   color: var(--text-secondary);
+  text-align: center;
   margin-bottom: 60px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
-/* Grid System */
+/* Grid Systems */
 .grid {
   display: grid;
   gap: 30px;
-  margin-bottom: 40px;
-}
-
-.grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 60px 0;
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .grid-4 {
@@ -184,52 +162,41 @@
   background: var(--matrix-card);
   border: 1px solid rgba(0, 255, 0, 0.2);
   border-radius: 12px;
-  padding: 30px;
+  padding: 40px;
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   border-color: var(--matrix-green);
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 255, 0, 0.1);
 }
 
 .card-icon {
   font-size: 3rem;
   margin-bottom: 20px;
-  display: block;
+  color: var(--matrix-green);
 }
 
 .card-title {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 15px;
   color: var(--text-primary);
 }
 
-.card-text {
+.card-description {
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
-/* Feature Box - Centered */
-.feature-box {
-  background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, transparent 100%);
-  border-left: 4px solid var(--matrix-green);
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 0 8px 8px 0;
-  max-width: 800px;
-}
-
-/* Stats - Centered horizontal layout */
+/* Stats */
 .stat-grid {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 40px auto;
+  justify-content: space-around;
   flex-wrap: wrap;
-  max-width: 1200px;
-  width: 100%;
+  gap: 40px;
+  margin: 60px 0;
 }
 
 @media (min-width: 768px) {
@@ -239,20 +206,12 @@
 }
 
 .stat-card {
-  flex: 1;
-  min-width: 150px;
   text-align: center;
-  padding: 30px 20px;
+  padding: 30px;
   background: rgba(0, 255, 0, 0.05);
   border-radius: 12px;
   border: 1px solid rgba(0, 255, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-  background: rgba(0, 255, 0, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+  min-width: 200px;
 }
 
 .stat-number {
@@ -268,17 +227,8 @@
   font-size: 1rem;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
-  #avatar-container {
-    display: none;
-  }
-  
-  .hero-content {
-    max-width: 100%;
-    text-align: center;
-  }
-  
   .btn-group {
     justify-content: center;
   }
@@ -295,45 +245,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  opacity: 0.1;
-}
-
-/* Fix footer duplication */
-footer {
-  display: none !important;
-}
-
-/* Show only one clean footer */
-.page-footer,
-.hx-footer,
-footer:last-of-type {
-  display: block !important;
-  text-align: center !important;
-  padding: 40px 20px !important;
-  border-top: 1px solid rgba(0, 255, 0, 0.2) !important;
-  background: #000000 !important;
-  color: #888 !important;
-}
-
-/* Hide duplicate content */
-.page-footer > *:not(:last-child),
-.hx-footer > *:not(:last-child) {
-  display: none !important;
-}
-
-/* Style the final footer text */
-.page-footer p,
-.hx-footer p,
-footer p {
-  color: #888 !important;
-  font-size: 0.9em !important;
-  margin: 0 !important;
+  z-index: 1;
+  opacity: 0.4;
 }
 </style>
 
-<!-- Hero Section -->
-<div class="hero-section">
+<!-- Hero Section with Matrix Background -->
+<section class="hero-section">
   <canvas id="matrix-canvas"></canvas>
   
   <div class="container">
@@ -341,7 +259,7 @@ footer p {
       <h1 class="hero-title">Enter the Business Matrix</h1>
       <p class="hero-subtitle">Where Reality Meets Infinite Possibility</p>
       <p class="hero-description">
-        Step into a parallel digital universe where AI agents don't just automate—they simulate, predict, and reshape your business reality.
+        Harness the power of AI agents to transform your business operations, automate complex workflows, and unlock unprecedented efficiency in the digital age.
       </p>
       <div class="btn-group">
         <a href="/demo" class="btn-primary">Enter the Matrix</a>
@@ -350,174 +268,187 @@ footer p {
     </div>
   </div>
   
-  <!-- 3D Avatar Container -->
-  <div id="avatar-container">
-    <canvas id="avatar-canvas" style="width: 100%; height: 100%;"></canvas>
-    <div id="avatar-fallback" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #00ff00; font-family: monospace;">
-      <div style="font-size: 4em; margin-bottom: 10px;">🤖</div>
-      <div>AI Agent</div>
-      <div style="font-size: 0.8em; color: #888; margin-top: 5px;">Interactive Avatar</div>
-    </div>
-  </div>
-</div>
+</section>
 
 <!-- Vision Section -->
 <section id="vision" class="section">
   <div class="container">
     <h2 class="section-title">The Dawn of Business AI</h2>
     <p class="section-subtitle">
-      We're at the beginning of an unprecedented transformation. AIMatrix isn't just another tool—it's a gateway to a new dimension of business operation.
+      We stand at the threshold of a new era where artificial intelligence doesn't just assist business—it becomes the neural network that powers every decision, every process, and every breakthrough.
     </p>
-    
-    <div class="grid grid-3">
-      <div class="card">
-        <span class="card-icon">🌌</span>
-        <h3 class="card-title">Parallel Simulation</h3>
-        <p class="card-text">Run thousands of business scenarios simultaneously in a virtual environment before committing to real-world changes.</p>
-      </div>
-      
-      <div class="card">
-        <span class="card-icon">🔮</span>
-        <h3 class="card-title">Predictive Reality</h3>
-        <p class="card-text">AI agents that see patterns invisible to humans, predicting outcomes with quantum-like probability calculations.</p>
-      </div>
-      
-      <div class="card">
-        <span class="card-icon">♾️</span>
-        <h3 class="card-title">Infinite Optimization</h3>
-        <p class="card-text">Continuously evolving systems that learn, adapt, and optimize without human intervention.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Matrix Capabilities -->
-<section class="section section-dark">
-  <div class="container">
-    <h2 class="section-title">Your Business, Reimagined</h2>
-    <p class="section-subtitle">What becomes possible when you operate in multiple dimensions?</p>
-    
-    <div class="grid grid-2">
-      <div class="feature-box">
-        <h3>🤖 Autonomous Agents</h3>
-        <p>Deploy thousands of AI agents that work 24/7, learning from each interaction and sharing knowledge instantly across your entire digital ecosystem.</p>
-      </div>
-      
-      <div class="feature-box">
-        <h3>⚡ Quantum Decision Making</h3>
-        <p>Evaluate millions of possibilities in seconds, choosing optimal paths through complex business landscapes.</p>
-      </div>
-      
-      <div class="feature-box">
-        <h3>🧬 Self-Evolving Systems</h3>
-        <p>Business processes that rewrite themselves, continuously improving without human intervention.</p>
-      </div>
-      
-      <div class="feature-box">
-        <h3>🌐 Reality Bridge</h3>
-        <p>Seamlessly connect your virtual simulations to real-world systems, implementing tested strategies instantly.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Performance Metrics -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Beyond Human Limits</h2>
     
     <div class="stat-grid">
       <div class="stat-card">
-        <span class="stat-number">∞</span>
-        <span class="stat-label">Parallel Simulations</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">1ms</span>
-        <span class="stat-label">Decision Latency</span>
+        <span class="stat-number">500%</span>
+        <span class="stat-label">Productivity Increase</span>
       </div>
       <div class="stat-card">
         <span class="stat-number">24/7</span>
-        <span class="stat-label">Autonomous Operation</span>
+        <span class="stat-label">Autonomous Operations</span>
       </div>
       <div class="stat-card">
-        <span class="stat-number">10^6</span>
-        <span class="stat-label">Scenarios per Second</span>
+        <span class="stat-number">0.1s</span>
+        <span class="stat-label">Decision Speed</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">Scale Potential</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Use Cases -->
-<section class="section section-dark">
+<!-- Core Capabilities -->
+<section class="section">
   <div class="container">
-    <h2 class="section-title">Reality Transformation</h2>
-    <p class="section-subtitle">See how businesses are already living in the future</p>
+    <h2 class="section-title">Core Matrix Capabilities</h2>
+    <p class="section-subtitle">
+      Every agent is a specialized intelligence, designed to excel in specific domains while seamlessly integrating with the broader AI ecosystem.
+    </p>
     
     <div class="grid grid-3">
       <div class="card">
-        <h3 class="card-title">Supply Chain Oracle</h3>
-        <p class="card-text">Predict disruptions 30 days before they happen. Automatically reroute, reorder, and optimize without human intervention.</p>
-        <p style="color: var(--matrix-green); margin-top: 15px;">↗ 99.9% availability achieved</p>
+        <div class="card-icon">🧠</div>
+        <h3 class="card-title">Cognitive Automation</h3>
+        <p class="card-description">
+          AI agents that think, learn, and adapt. Handle complex reasoning tasks that traditionally required human intelligence and decision-making capabilities.
+        </p>
       </div>
       
       <div class="card">
-        <h3 class="card-title">Customer Mind Reading</h3>
-        <p class="card-text">AI that knows what customers want before they do, personalizing experiences at a quantum level.</p>
-        <p style="color: var(--matrix-green); margin-top: 15px;">↗ 5x conversion rate</p>
+        <div class="card-icon">🔄</div>
+        <h3 class="card-title">Process Intelligence</h3>
+        <p class="card-description">
+          Transform workflows into intelligent systems that self-optimize, predict bottlenecks, and automatically route work to the most efficient pathways.
+        </p>
       </div>
       
       <div class="card">
-        <h3 class="card-title">Financial Time Travel</h3>
-        <p class="card-text">See your financial future across thousands of market scenarios, optimizing for any possible outcome.</p>
-        <p style="color: var(--matrix-green); margin-top: 15px;">↗ 40% risk reduction</p>
+        <div class="card-icon">📊</div>
+        <h3 class="card-title">Predictive Analytics</h3>
+        <p class="card-description">
+          See around corners with AI that analyzes patterns across vast datasets, predicting market trends, customer behavior, and operational needs.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h3 class="card-title">Multi-Agent Orchestration</h3>
+        <p class="card-description">
+          Deploy teams of specialized AI agents that collaborate seamlessly, each contributing unique capabilities to solve complex business challenges.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3 class="card-title">Real-Time Processing</h3>
+        <p class="card-description">
+          Lightning-fast response times with AI that processes information and makes decisions at machine speed, scaling instantly with demand.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3 class="card-title">Adaptive Security</h3>
+        <p class="card-description">
+          AI-powered security that learns from threats, adapts to new attack vectors, and protects your digital infrastructure autonomously.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Technology Stack -->
+<!-- Agent Showcase -->
 <section class="section">
   <div class="container">
-    <h2 class="section-title">The Architecture of Tomorrow</h2>
+    <h2 class="section-title">Meet Your AI Workforce</h2>
+    <p class="section-subtitle">
+      Each agent brings specialized expertise, working together to create an intelligent business ecosystem that evolves with your needs.
+    </p>
     
     <div class="grid grid-4">
       <div class="card">
-        <span class="card-icon">🧠</span>
-        <h4 class="card-title">Neural Orchestration</h4>
-        <p class="card-text">Multi-model AI coordination</p>
+        <div class="card-icon">💼</div>
+        <h3 class="card-title">Executive Assistant</h3>
+        <p class="card-description">
+          Manages schedules, analyzes reports, and provides strategic insights. Your AI-powered chief of staff.
+        </p>
       </div>
       
       <div class="card">
-        <span class="card-icon">⚛️</span>
-        <h4 class="card-title">Quantum Logic</h4>
-        <p class="card-text">Probability-based decisions</p>
+        <div class="card-icon">📈</div>
+        <h3 class="card-title">Sales Optimizer</h3>
+        <p class="card-description">
+          Identifies leads, personalizes outreach, and optimizes conversion paths with data-driven precision.
+        </p>
       </div>
       
       <div class="card">
-        <span class="card-icon">🔄</span>
-        <h4 class="card-title">Self-Learning</h4>
-        <p class="card-text">Continuous evolution</p>
+        <div class="card-icon">🛠️</div>
+        <h3 class="card-title">Operations Manager</h3>
+        <p class="card-description">
+          Monitors systems, predicts maintenance needs, and optimizes resource allocation across operations.
+        </p>
       </div>
       
       <div class="card">
-        <span class="card-icon">🌊</span>
-        <h4 class="card-title">Reality Synthesis</h4>
-        <p class="card-text">Virtual-physical bridge</p>
+        <div class="card-icon">💰</div>
+        <h3 class="card-title">Financial Analyst</h3>
+        <p class="card-description">
+          Tracks expenses, forecasts budgets, and identifies cost optimization opportunities in real-time.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3 class="card-title">Marketing Strategist</h3>
+        <p class="card-description">
+          Creates campaigns, analyzes performance, and adapts strategies based on customer engagement data.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <h3 class="card-title">HR Coordinator</h3>
+        <p class="card-description">
+          Manages recruitment, tracks performance, and enhances employee experience through intelligent insights.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3 class="card-title">Tech Support</h3>
+        <p class="card-description">
+          Provides 24/7 technical assistance, resolves issues automatically, and maintains system health.
+        </p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3 class="card-title">Compliance Monitor</h3>
+        <p class="card-description">
+          Ensures regulatory compliance, monitors policy adherence, and flags potential risks proactively.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="section section-dark" style="text-align: center; padding: 100px 20px;">
+<!-- Call to Action -->
+<section class="section">
   <div class="container">
-    <h2 class="section-title">Ready to Transcend Reality?</h2>
-    <p class="section-subtitle" style="margin-bottom: 40px;">
-      The future isn't coming—it's here. Join the businesses already operating in the next dimension.
-    </p>
-    <div class="btn-group" style="justify-content: center;">
-      <a href="/demo" class="btn-primary">Experience the Matrix</a>
-      <a href="/contact" class="btn-secondary">Talk to an Agent</a>
+    <div style="text-align: center; background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 100, 0, 0.1)); padding: 80px 40px; border-radius: 20px; border: 2px solid rgba(0, 255, 0, 0.3);">
+      <h2 style="font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(135deg, #ffffff, #00ff00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Ready to Enter the Matrix?
+      </h2>
+      <p style="font-size: 1.2rem; color: #b0b0b0; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Join the revolution of intelligent business automation. Your AI agents are waiting.
+      </p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="/demo" class="btn-primary" style="font-size: 1.2rem; padding: 20px 40px;">Start Your Journey</a>
+        <a href="/contact" class="btn-secondary">Talk to an Agent</a>
+      </div>
     </div>
   </div>
 </section>
@@ -556,7 +487,7 @@ footer p {
     }
   }
   
-  setInterval(draw, 33);
+  setInterval(draw, 100); // Slower animation - was 33ms, now 100ms
   
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
@@ -564,1053 +495,6 @@ footer p {
   });
 })();
 
-// Create Realistic Human Avatar using Babylon.js
-window.addEventListener('DOMContentLoaded', function() {
-  const canvas = document.getElementById('avatar-canvas');
-  const fallback = document.getElementById('avatar-fallback');
-  
-  if (!canvas) return;
-  
-  // Load Babylon.js for realistic human avatar
-  const babylonScript = document.createElement('script');
-  babylonScript.src = 'https://cdn.babylonjs.com/babylon.js';
-  babylonScript.onload = function() {
-    try {
-      createRealisticHumanAvatar();
-      fallback.style.display = 'none';
-    } catch (error) {
-      console.log('3D avatar failed, using fallback');
-      canvas.style.display = 'none';
-    }
-  };
-  babylonScript.onerror = function() {
-    console.log('Babylon.js failed to load, using fallback');
-    canvas.style.display = 'none';
-  };
-  document.head.appendChild(babylonScript);
-  
-  function createRealisticHumanAvatar() {
-    // Create Babylon.js engine and scene
-    const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
-    const scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
-    
-    // Create camera positioned for 80% box occupancy and professional portrait view
-    const camera = new BABYLON.ArcRotateCamera('camera', Math.PI / 2, Math.PI / 2.1, 2.2, new BABYLON.Vector3(0, 0.8, 0), scene);
-    camera.attachControl(canvas, false);
-    camera.lowerRadiusLimit = 1.8;
-    camera.upperRadiusLimit = 3.0;
-    
-    // Position for optimal avatar size - 80% of container
-    camera.setTarget(new BABYLON.Vector3(0, 0.8, 0)); // Focus on upper torso/face
-    
-    // Advanced lighting setup
-    const ambientLight = new BABYLON.HemisphericLight('ambientLight', new BABYLON.Vector3(0, 1, 0), scene);
-    ambientLight.intensity = 0.7;
-    
-    const keyLight = new BABYLON.DirectionalLight('keyLight', new BABYLON.Vector3(-1, -2, -1), scene);
-    keyLight.position = new BABYLON.Vector3(2, 3, 2);
-    keyLight.intensity = 0.8;
-    
-    const fillLight = new BABYLON.PointLight('fillLight', new BABYLON.Vector3(1, 2, 1), scene);
-    fillLight.intensity = 0.3;
-    fillLight.diffuse = new BABYLON.Color3(0.2, 1, 0.2);
-    
-    // Create high-quality realistic materials with PBR
-    const skinMaterial = new BABYLON.PBRMaterial('skinMat', scene);
-    skinMaterial.baseColor = new BABYLON.Color3(0.93, 0.78, 0.68);
-    skinMaterial.roughness = 0.7;
-    skinMaterial.metallic = 0.0;
-    skinMaterial.emissiveColor = new BABYLON.Color3(0.02, 0.01, 0.01);
-    skinMaterial.subSurface.isScatteringEnabled = true;
-    skinMaterial.subSurface.scatteringStrength = 0.4;
-    
-    // Ultra-realistic skin properties for photorealism
-    skinMaterial.clearCoat.isEnabled = true;
-    skinMaterial.clearCoat.intensity = 0.1;
-    skinMaterial.clearCoat.roughness = 0.3;
-    skinMaterial.iridescence.isEnabled = true;
-    skinMaterial.iridescence.intensity = 0.05;
-    
-    // Skin micro-details for extreme realism
-    skinMaterial.microSurface = 0.8;
-    skinMaterial.specularIntensity = 0.2;
-    
-    const hairMaterial = new BABYLON.PBRMaterial('hairMat', scene);
-    hairMaterial.baseColor = new BABYLON.Color3(0.15, 0.1, 0.05);
-    hairMaterial.roughness = 0.8;
-    hairMaterial.metallic = 0.1;
-    
-    const suitMaterial = new BABYLON.PBRMaterial('suitMat', scene);
-    suitMaterial.baseColor = new BABYLON.Color3(0.08, 0.08, 0.12);
-    suitMaterial.roughness = 0.3;
-    suitMaterial.metallic = 0.1;
-    suitMaterial.emissiveColor = new BABYLON.Color3(0, 0.02, 0);
-    
-    const shirtMaterial = new BABYLON.PBRMaterial('shirtMat', scene);
-    shirtMaterial.baseColor = new BABYLON.Color3(0.95, 0.95, 0.98);
-    shirtMaterial.roughness = 0.9;
-    shirtMaterial.metallic = 0.0;
-    
-    const eyeMaterial = new BABYLON.PBRMaterial('eyeMat', scene);
-    eyeMaterial.baseColor = new BABYLON.Color3(1, 1, 1);
-    eyeMaterial.roughness = 0.1;
-    eyeMaterial.metallic = 0.0;
-    eyeMaterial.clearCoat.isEnabled = true;
-    eyeMaterial.clearCoat.intensity = 0.8;
-    
-    const irisMaterial = new BABYLON.PBRMaterial('irisMat', scene);
-    irisMaterial.baseColor = new BABYLON.Color3(0.12, 0.18, 0.08); // Keanu's distinctive dark hazel-brown eyes
-    irisMaterial.roughness = 0.2;
-    irisMaterial.metallic = 0.0;
-    irisMaterial.emissiveColor = new BABYLON.Color3(0, 0.15, 0.08);
-    
-    const pupilMaterial = new BABYLON.PBRMaterial('pupilMat', scene);
-    pupilMaterial.baseColor = new BABYLON.Color3(0, 0, 0);
-    pupilMaterial.roughness = 0.0;
-    pupilMaterial.metallic = 0.0;
-    pupilMaterial.emissiveColor = new BABYLON.Color3(0, 0.05, 0);
-    
-    // Create human avatar group - positioned and scaled for 80% box occupancy
-    const avatarGroup = new BABYLON.TransformNode('avatarGroup', scene);
-    avatarGroup.rotation.y = Math.PI; // Face the viewer
-    avatarGroup.position.y = -0.4; // Move up to occupy 80% of box
-    avatarGroup.scaling = new BABYLON.Vector3(1.3, 1.3, 1.3); // Scale up for better presence
-    
-    // HEAD - ULTRA-HIGH-RESOLUTION Keanu Reeves head (photogrammetry-level detail)
-    // Base head with extreme detail - AAA game standard
-    const head = BABYLON.MeshBuilder.CreateSphere('head', {diameter: 0.45, segments: 512}, scene); // 100x more polygons
-    head.position.y = 1.75;
-    head.scaling = new BABYLON.Vector3(0.88, 1.05, 0.92); // Keanu's distinctive face proportions
-    head.material = skinMaterial;
-    head.parent = avatarGroup;
-    
-    // Keanu's distinctive facial topology - based on reference photos
-    const headDetailLayer = BABYLON.MeshBuilder.CreateSphere('headDetail', {diameter: 0.44, segments: 256}, scene);
-    headDetailLayer.position.y = 1.75;
-    headDetailLayer.scaling = new BABYLON.Vector3(0.87, 1.04, 0.91);
-    headDetailLayer.material = skinMaterial;
-    headDetailLayer.parent = avatarGroup;
-    
-    // KEANU'S DISTINCTIVE FACIAL ARCHITECTURE - Ultra-detailed bone structure
-    // High cheekbones - Keanu's most recognizable feature
-    const cheekBoneL = BABYLON.MeshBuilder.CreateSphere('cheekBoneL', {diameter: 0.08, segments: 128}, scene);
-    cheekBoneL.position = new BABYLON.Vector3(-0.155, 1.735, 0.18);
-    cheekBoneL.scaling = new BABYLON.Vector3(1.1, 0.45, 2.0); // Prominent, angular cheekbones
-    cheekBoneL.material = skinMaterial;
-    cheekBoneL.parent = avatarGroup;
-    
-    const cheekBoneR = BABYLON.MeshBuilder.CreateSphere('cheekBoneR', {diameter: 0.08, segments: 128}, scene);
-    cheekBoneR.position = new BABYLON.Vector3(0.155, 1.735, 0.18);
-    cheekBoneR.scaling = new BABYLON.Vector3(1.1, 0.45, 2.0);
-    cheekBoneR.material = skinMaterial;
-    cheekBoneR.parent = avatarGroup;
-    
-    // Temporal bone structure (temples)
-    const templeL = BABYLON.MeshBuilder.CreateSphere('templeL', {diameter: 0.06, segments: 64}, scene);
-    templeL.position = new BABYLON.Vector3(-0.19, 1.78, 0.1);
-    templeL.scaling = new BABYLON.Vector3(0.8, 1.2, 1.0);
-    templeL.material = skinMaterial;
-    templeL.parent = avatarGroup;
-    
-    const templeR = BABYLON.MeshBuilder.CreateSphere('templeR', {diameter: 0.06, segments: 64}, scene);
-    templeR.position = new BABYLON.Vector3(0.19, 1.78, 0.1);
-    templeR.scaling = new BABYLON.Vector3(0.8, 1.2, 1.0);
-    templeR.material = skinMaterial;
-    templeR.parent = avatarGroup;
-    
-    // KEANU'S LEGENDARY JAWLINE - Ultra-precise modeling based on photos
-    // Strong, angular jawline - his most iconic feature
-    const jawlineBase = BABYLON.MeshBuilder.CreateBox('jawlineBase', {width: 0.38, height: 0.09, depth: 0.3}, scene);
-    jawlineBase.position = new BABYLON.Vector3(0, 1.615, 0.13);
-    jawlineBase.material = skinMaterial;
-    jawlineBase.parent = avatarGroup;
-    
-    // Left jaw angle
-    const jawAngleL = BABYLON.MeshBuilder.CreateSphere('jawAngleL', {diameter: 0.08, segments: 64}, scene);
-    jawAngleL.position = new BABYLON.Vector3(-0.17, 1.62, 0.08);
-    jawAngleL.scaling = new BABYLON.Vector3(1.3, 0.8, 1.1);
-    jawAngleL.material = skinMaterial;
-    jawAngleL.parent = avatarGroup;
-    
-    // Right jaw angle
-    const jawAngleR = BABYLON.MeshBuilder.CreateSphere('jawAngleR', {diameter: 0.08, segments: 64}, scene);
-    jawAngleR.position = new BABYLON.Vector3(0.17, 1.62, 0.08);
-    jawAngleR.scaling = new BABYLON.Vector3(1.3, 0.8, 1.1);
-    jawAngleR.material = skinMaterial;
-    jawAngleR.parent = avatarGroup;
-    
-    // Keanu's distinctive square, strong chin
-    const chin = BABYLON.MeshBuilder.CreateBox('chin', {width: 0.13, height: 0.09, depth: 0.12}, scene);
-    chin.position = new BABYLON.Vector3(0, 1.565, 0.22);
-    chin.material = skinMaterial;
-    chin.parent = avatarGroup;
-    
-    // Subtle chin cleft (characteristic Keanu feature)
-    const chinCleft = BABYLON.MeshBuilder.CreateCylinder('chinCleft', {height: 0.04, diameter: 0.008, tessellation: 16}, scene);
-    chinCleft.position = new BABYLON.Vector3(0, 1.555, 0.225);
-    const cleftMaterial = new BABYLON.PBRMaterial('cleftMat', scene);
-    cleftMaterial.baseColor = new BABYLON.Color3(0.88, 0.72, 0.63);
-    cleftMaterial.roughness = 0.8;
-    chinCleft.material = cleftMaterial;
-    chinCleft.parent = avatarGroup;
-    
-    // Forehead with realistic curve
-    const forehead = BABYLON.MeshBuilder.CreateSphere('forehead', {diameter: 0.4, segments: 64}, scene);
-    forehead.position = new BABYLON.Vector3(0, 1.85, 0.05);
-    forehead.scaling = new BABYLON.Vector3(0.9, 0.3, 1.1);
-    forehead.material = skinMaterial;
-    forehead.parent = avatarGroup;
-    
-    // HAIR - Keanu Reeves style dark shoulder-length hair
-    const hairMaterialKeanu = new BABYLON.PBRMaterial('hairMatKeanu', scene);
-    hairMaterialKeanu.baseColor = new BABYLON.Color3(0.05, 0.02, 0.01); // Very dark brown/black
-    hairMaterialKeanu.roughness = 0.9;
-    hairMaterialKeanu.metallic = 0.0;
-    
-    const hairBase = BABYLON.MeshBuilder.CreateSphere('hairBase', {diameter: 0.48, segments: 96}, scene);
-    hairBase.position.y = 1.82;
-    hairBase.scaling = new BABYLON.Vector3(0.95, 0.8, 0.95); // Fuller hair like Keanu
-    hairBase.material = hairMaterialKeanu;
-    hairBase.parent = avatarGroup;
-    
-    // Hair layers for Keanu's layered look
-    const hairLayer1 = BABYLON.MeshBuilder.CreateSphere('hairLayer1', {diameter: 0.46, segments: 64}, scene);
-    hairLayer1.position.y = 1.83;
-    hairLayer1.scaling = new BABYLON.Vector3(0.9, 0.75, 0.9);
-    hairLayer1.material = hairMaterialKeanu;
-    hairLayer1.parent = avatarGroup;
-    
-    // Longer hair sections (Keanu's signature look)
-    const hairBack = BABYLON.MeshBuilder.CreateBox('hairBack', {width: 0.4, height: 0.3, depth: 0.15}, scene);
-    hairBack.position = new BABYLON.Vector3(0, 1.7, -0.15);
-    hairBack.material = hairMaterialKeanu;
-    hairBack.parent = avatarGroup;
-    
-    const hairSideL = BABYLON.MeshBuilder.CreateBox('hairSideL', {width: 0.12, height: 0.25, depth: 0.08}, scene);
-    hairSideL.position = new BABYLON.Vector3(-0.22, 1.72, 0.05);
-    hairSideL.material = hairMaterialKeanu;
-    hairSideL.parent = avatarGroup;
-    
-    const hairSideR = BABYLON.MeshBuilder.CreateBox('hairSideR', {width: 0.12, height: 0.25, depth: 0.08}, scene);
-    hairSideR.position = new BABYLON.Vector3(0.22, 1.72, 0.05);
-    hairSideR.material = hairMaterialKeanu;
-    hairSideR.parent = avatarGroup;
-    
-    // ULTRA-DETAILED HAIR SYSTEM - Thousands of individual strands (photogrammetry level)
-    // Front hair layers (Keanu's signature look)
-    for (let layer = 0; layer < 5; layer++) {
-      for (let i = 0; i < 80; i++) {
-        const hairStrand = BABYLON.MeshBuilder.CreateCylinder('hairStrand_L' + layer + '_' + i, {
-          height: 0.15 + Math.random() * 0.1, 
-          diameter: 0.0008 + Math.random() * 0.0004, 
-          tessellation: 8
-        }, scene);
-        
-        const angle = (i / 80) * Math.PI * 2;
-        const radius = 0.16 + (layer * 0.01) + Math.random() * 0.03;
-        const height = 1.82 + (layer * 0.005) + Math.random() * 0.08;
-        
-        hairStrand.position = new BABYLON.Vector3(
-          Math.cos(angle) * radius,
-          height,
-          Math.sin(angle) * radius
-        );
-        
-        // Natural hair flow and movement
-        hairStrand.rotation.x = Math.random() * 0.3 - 0.15;
-        hairStrand.rotation.z = Math.random() * 0.6 - 0.3;
-        hairStrand.rotation.y = angle + Math.random() * 0.2 - 0.1;
-        
-        hairStrand.material = hairMaterialKeanu;
-        hairStrand.parent = avatarGroup;
-      }
-    }
-    
-    // Keanu's distinctive longer hair strands (shoulder-length)
-    for (let i = 0; i < 150; i++) {
-      const longStrand = BABYLON.MeshBuilder.CreateCylinder('longHair' + i, {
-        height: 0.25 + Math.random() * 0.15,
-        diameter: 0.001,
-        tessellation: 12
-      }, scene);
-      
-      const angle = Math.random() * Math.PI * 2;
-      const radius = 0.18 + Math.random() * 0.05;
-      
-      longStrand.position = new BABYLON.Vector3(
-        Math.cos(angle) * radius,
-        1.75 + Math.random() * 0.1,
-        Math.sin(angle) * radius
-      );
-      
-      longStrand.rotation.x = Math.random() * 0.4 - 0.2;
-      longStrand.rotation.z = Math.random() * 1.0 - 0.5;
-      
-      longStrand.material = hairMaterialKeanu;
-      longStrand.parent = avatarGroup;
-    }
-    
-    // KEANU'S SIGNATURE FACIAL HAIR - Ultra-detailed stubble/beard simulation
-    const facialHairMaterial = new BABYLON.PBRMaterial('facialHairMat', scene);
-    facialHairMaterial.baseColor = new BABYLON.Color3(0.06, 0.04, 0.02); // Darker for realism
-    facialHairMaterial.roughness = 0.98;
-    facialHairMaterial.metallic = 0.0;
-    
-    // Individual beard/stubble hairs for photorealism
-    for (let i = 0; i < 200; i++) {
-      const stubbleHair = BABYLON.MeshBuilder.CreateCylinder('stubble' + i, {
-        height: 0.003 + Math.random() * 0.004,
-        diameter: 0.0002,
-        tessellation: 4
-      }, scene);
-      
-      // Random positioning across jaw and chin area
-      const angle = Math.random() * Math.PI * 2;
-      const radius = 0.08 + Math.random() * 0.12;
-      const heightVariation = Math.random() * 0.08;
-      
-      stubbleHair.position = new BABYLON.Vector3(
-        Math.cos(angle) * radius,
-        1.56 + heightVariation,
-        0.18 + Math.sin(angle) * 0.05 + Math.random() * 0.04
-      );
-      
-      stubbleHair.rotation.x = Math.random() * 0.3 - 0.15;
-      stubbleHair.rotation.z = Math.random() * 0.4 - 0.2;
-      
-      stubbleHair.material = facialHairMaterial;
-      stubbleHair.parent = avatarGroup;
-    }
-    
-    // Mustache area with individual hairs
-    for (let i = 0; i < 80; i++) {
-      const mustacheHair = BABYLON.MeshBuilder.CreateCylinder('mustacheHair' + i, {
-        height: 0.005 + Math.random() * 0.003,
-        diameter: 0.0003,
-        tessellation: 4
-      }, scene);
-      
-      const x = (Math.random() - 0.5) * 0.08;
-      const y = 1.64 + Math.random() * 0.02;
-      const z = 0.235 + Math.random() * 0.01;
-      
-      mustacheHair.position = new BABYLON.Vector3(x, y, z);
-      mustacheHair.rotation.x = Math.random() * 0.2 - 0.1;
-      mustacheHair.rotation.z = Math.random() * 0.3 - 0.15;
-      
-      mustacheHair.material = facialHairMaterial;
-      mustacheHair.parent = avatarGroup;
-    }
-    
-    // Soul patch area (Keanu's characteristic)
-    for (let i = 0; i < 25; i++) {
-      const soulPatchHair = BABYLON.MeshBuilder.CreateCylinder('soulPatch' + i, {
-        height: 0.004 + Math.random() * 0.003,
-        diameter: 0.0003,
-        tessellation: 4
-      }, scene);
-      
-      soulPatchHair.position = new BABYLON.Vector3(
-        (Math.random() - 0.5) * 0.02,
-        1.555 + Math.random() * 0.015,
-        0.22 + Math.random() * 0.005
-      );
-      
-      soulPatchHair.material = facialHairMaterial;
-      soulPatchHair.parent = avatarGroup;
-    }
-    
-    // Sideburns with high detail
-    const sideburnL = BABYLON.MeshBuilder.CreateBox('sideburnL', {width: 0.04, height: 0.15, depth: 0.08}, scene);
-    sideburnL.position = new BABYLON.Vector3(-0.19, 1.73, 0.12);
-    sideburnL.material = hairMaterial;
-    sideburnL.parent = avatarGroup;
-    
-    const sideburnR = BABYLON.MeshBuilder.CreateBox('sideburnR', {width: 0.04, height: 0.15, depth: 0.08}, scene);
-    sideburnR.position = new BABYLON.Vector3(0.19, 1.73, 0.12);
-    sideburnR.material = hairMaterial;
-    sideburnR.parent = avatarGroup;
-    
-    // KEANU'S DISTINCTIVE EYES - Photorealistic detail (1000x more polygons)
-    // Keanu has deep-set, expressive eyes with a slight downward tilt
-    const leftEyeSocket = BABYLON.MeshBuilder.CreateSphere('leftEyeSocket', {diameter: 0.115, segments: 256}, scene);
-    leftEyeSocket.position = new BABYLON.Vector3(-0.115, 1.79, 0.205);
-    leftEyeSocket.scaling = new BABYLON.Vector3(1.0, 0.85, 0.95); // Keanu's eye shape
-    leftEyeSocket.material = eyeMaterial;
-    leftEyeSocket.parent = avatarGroup;
-    
-    const rightEyeSocket = BABYLON.MeshBuilder.CreateSphere('rightEyeSocket', {diameter: 0.115, segments: 256}, scene);
-    rightEyeSocket.position = new BABYLON.Vector3(0.115, 1.79, 0.205);
-    rightEyeSocket.scaling = new BABYLON.Vector3(1.0, 0.85, 0.95);
-    rightEyeSocket.material = eyeMaterial;
-    rightEyeSocket.parent = avatarGroup;
-    
-    // Eye socket bone structure - orbital ridge
-    const leftOrbitalRidge = BABYLON.MeshBuilder.CreateTorus('leftOrbitalRidge', {diameter: 0.13, thickness: 0.012, tessellation: 64}, scene);
-    leftOrbitalRidge.position = new BABYLON.Vector3(-0.115, 1.795, 0.21);
-    leftOrbitalRidge.material = skinMaterial;
-    leftOrbitalRidge.parent = avatarGroup;
-    
-    const rightOrbitalRidge = BABYLON.MeshBuilder.CreateTorus('rightOrbitalRidge', {diameter: 0.13, thickness: 0.012, tessellation: 64}, scene);
-    rightOrbitalRidge.position = new BABYLON.Vector3(0.115, 1.795, 0.21);
-    rightOrbitalRidge.material = skinMaterial;
-    rightOrbitalRidge.parent = avatarGroup;
-    
-    // Eye socket rims for depth
-    const leftSocketRim = BABYLON.MeshBuilder.CreateTorus('leftSocketRim', {diameter: 0.12, thickness: 0.008, tessellation: 48}, scene);
-    leftSocketRim.position = new BABYLON.Vector3(-0.11, 1.785, 0.22);
-    leftSocketRim.material = skinMaterial;
-    leftSocketRim.parent = avatarGroup;
-    
-    const rightSocketRim = BABYLON.MeshBuilder.CreateTorus('rightSocketRim', {diameter: 0.12, thickness: 0.008, tessellation: 48}, scene);
-    rightSocketRim.position = new BABYLON.Vector3(0.11, 1.785, 0.22);
-    rightSocketRim.material = skinMaterial;
-    rightSocketRim.parent = avatarGroup;
-    
-    // Ultra-detailed eyelids with realistic curves
-    const leftUpperEyelid = BABYLON.MeshBuilder.CreateSphere('leftUpperEyelid', {diameter: 0.12, segments: 32}, scene);
-    leftUpperEyelid.position = new BABYLON.Vector3(-0.11, 1.795, 0.24);
-    leftUpperEyelid.scaling = new BABYLON.Vector3(1.0, 0.15, 0.6);
-    leftUpperEyelid.material = skinMaterial;
-    leftUpperEyelid.parent = avatarGroup;
-    
-    const rightUpperEyelid = BABYLON.MeshBuilder.CreateSphere('rightUpperEyelid', {diameter: 0.12, segments: 32}, scene);
-    rightUpperEyelid.position = new BABYLON.Vector3(0.11, 1.795, 0.24);
-    rightUpperEyelid.scaling = new BABYLON.Vector3(1.0, 0.15, 0.6);
-    rightUpperEyelid.material = skinMaterial;
-    rightUpperEyelid.parent = avatarGroup;
-    
-    const leftLowerEyelid = BABYLON.MeshBuilder.CreateSphere('leftLowerEyelid', {diameter: 0.11, segments: 32}, scene);
-    leftLowerEyelid.position = new BABYLON.Vector3(-0.11, 1.775, 0.24);
-    leftLowerEyelid.scaling = new BABYLON.Vector3(1.0, 0.1, 0.5);
-    leftLowerEyelid.material = skinMaterial;
-    leftLowerEyelid.parent = avatarGroup;
-    
-    const rightLowerEyelid = BABYLON.MeshBuilder.CreateSphere('rightLowerEyelid', {diameter: 0.11, segments: 32}, scene);
-    rightLowerEyelid.position = new BABYLON.Vector3(0.11, 1.775, 0.24);
-    rightLowerEyelid.scaling = new BABYLON.Vector3(1.0, 0.1, 0.5);
-    rightLowerEyelid.material = skinMaterial;
-    rightLowerEyelid.parent = avatarGroup;
-    
-    // ULTRA-REALISTIC EYELASHES - Individual lash modeling
-    // Upper lashes
-    for (let i = 0; i < 35; i++) {
-      // Left upper lashes
-      const leftLash = BABYLON.MeshBuilder.CreateCylinder('leftUpperLash' + i, {
-        height: 0.012 + Math.random() * 0.008,
-        diameter: 0.0004,
-        tessellation: 6
-      }, scene);
-      
-      const angle = (i / 35) * Math.PI;
-      const radius = 0.058;
-      
-      leftLash.position = new BABYLON.Vector3(
-        -0.115 + Math.cos(angle + Math.PI) * radius,
-        1.8 + Math.sin(angle + Math.PI) * 0.015,
-        0.25 + Math.random() * 0.005
-      );
-      
-      leftLash.rotation.z = angle - Math.PI/2 + Math.random() * 0.2 - 0.1;
-      leftLash.rotation.x = 0.3 + Math.random() * 0.2;
-      leftLash.material = hairMaterialKeanu;
-      leftLash.parent = avatarGroup;
-      
-      // Right upper lashes
-      const rightLash = BABYLON.MeshBuilder.CreateCylinder('rightUpperLash' + i, {
-        height: 0.012 + Math.random() * 0.008,
-        diameter: 0.0004,
-        tessellation: 6
-      }, scene);
-      
-      rightLash.position = new BABYLON.Vector3(
-        0.115 + Math.cos(angle + Math.PI) * radius,
-        1.8 + Math.sin(angle + Math.PI) * 0.015,
-        0.25 + Math.random() * 0.005
-      );
-      
-      rightLash.rotation.z = -(angle - Math.PI/2) - Math.random() * 0.2 + 0.1;
-      rightLash.rotation.x = 0.3 + Math.random() * 0.2;
-      rightLash.material = hairMaterialKeanu;
-      rightLash.parent = avatarGroup;
-    }
-    
-    // Lower lashes (shorter)
-    for (let i = 0; i < 20; i++) {
-      const leftLowerLash = BABYLON.MeshBuilder.CreateCylinder('leftLowerLash' + i, {
-        height: 0.006 + Math.random() * 0.004,
-        diameter: 0.0003,
-        tessellation: 4
-      }, scene);
-      
-      const angle = (i / 20) * Math.PI * 0.6 + Math.PI * 0.2;
-      const radius = 0.055;
-      
-      leftLowerLash.position = new BABYLON.Vector3(
-        -0.115 + Math.cos(angle + Math.PI) * radius,
-        1.775 + Math.sin(angle + Math.PI) * 0.01,
-        0.248
-      );
-      
-      leftLowerLash.rotation.z = angle - Math.PI/2;
-      leftLowerLash.rotation.x = -0.2;
-      leftLowerLash.material = hairMaterialKeanu;
-      leftLowerLash.parent = avatarGroup;
-      
-      const rightLowerLash = BABYLON.MeshBuilder.CreateCylinder('rightLowerLash' + i, {
-        height: 0.006 + Math.random() * 0.004,
-        diameter: 0.0003,
-        tessellation: 4
-      }, scene);
-      
-      rightLowerLash.position = new BABYLON.Vector3(
-        0.115 + Math.cos(angle + Math.PI) * radius,
-        1.775 + Math.sin(angle + Math.PI) * 0.01,
-        0.248
-      );
-      
-      rightLowerLash.rotation.z = -(angle - Math.PI/2);
-      rightLowerLash.rotation.x = -0.2;
-      rightLowerLash.material = hairMaterialKeanu;
-      rightLowerLash.parent = avatarGroup;
-    }
-    
-    // KEANU'S DISTINCTIVE EYEBROWS - Ultra-detailed individual hairs
-    // Left eyebrow with Keanu's characteristic arch
-    for (let i = 0; i < 45; i++) {
-      const browHair = BABYLON.MeshBuilder.CreateCylinder('leftBrowHair' + i, {
-        height: 0.015 + Math.random() * 0.01, 
-        diameter: 0.0006, 
-        tessellation: 8
-      }, scene);
-      
-      const progress = i / 45;
-      const archHeight = Math.sin(progress * Math.PI) * 0.01; // Natural eyebrow arch
-      
-      browHair.position = new BABYLON.Vector3(
-        -0.17 + progress * 0.12,
-        1.825 + archHeight,
-        0.225 + Math.random() * 0.008
-      );
-      
-      // Natural hair direction following brow shape
-      browHair.rotation.z = 0.2 + progress * 0.4 + Math.random() * 0.3;
-      browHair.rotation.x = Math.random() * 0.2 - 0.1;
-      
-      browHair.material = hairMaterialKeanu;
-      browHair.parent = avatarGroup;
-    }
-    
-    // Right eyebrow (mirrored)
-    for (let i = 0; i < 45; i++) {
-      const browHair = BABYLON.MeshBuilder.CreateCylinder('rightBrowHair' + i, {
-        height: 0.015 + Math.random() * 0.01,
-        diameter: 0.0006,
-        tessellation: 8
-      }, scene);
-      
-      const progress = i / 45;
-      const archHeight = Math.sin(progress * Math.PI) * 0.01;
-      
-      browHair.position = new BABYLON.Vector3(
-        0.05 + progress * 0.12,
-        1.825 + archHeight,
-        0.225 + Math.random() * 0.008
-      );
-      
-      browHair.rotation.z = -0.2 - progress * 0.4 - Math.random() * 0.3;
-      browHair.rotation.x = Math.random() * 0.2 - 0.1;
-      
-      browHair.material = hairMaterialKeanu;
-      browHair.parent = avatarGroup;
-    }
-    
-    // PHOTOREALISTIC IRIS - Keanu's distinctive eye color and patterns
-    const leftIris = BABYLON.MeshBuilder.CreateSphere('leftIris', {diameter: 0.068, segments: 128}, scene);
-    leftIris.position = new BABYLON.Vector3(-0.115, 1.79, 0.26);
-    leftIris.material = irisMaterial;
-    leftIris.parent = avatarGroup;
-    
-    const rightIris = BABYLON.MeshBuilder.CreateSphere('rightIris', {diameter: 0.068, segments: 128}, scene);
-    rightIris.position = new BABYLON.Vector3(0.115, 1.79, 0.26);
-    rightIris.material = irisMaterial;
-    rightIris.parent = avatarGroup;
-    
-    // Iris texture rings for photorealism
-    for (let i = 0; i < 3; i++) {
-      const leftRing = BABYLON.MeshBuilder.CreateTorus('leftIrisRing' + i, {diameter: 0.05 - (i * 0.01), thickness: 0.001, tessellation: 32}, scene);
-      leftRing.position = new BABYLON.Vector3(-0.115, 1.79, 0.262);
-      leftRing.material = irisMaterial;
-      leftRing.parent = avatarGroup;
-      
-      const rightRing = BABYLON.MeshBuilder.CreateTorus('rightIrisRing' + i, {diameter: 0.05 - (i * 0.01), thickness: 0.001, tessellation: 32}, scene);
-      rightRing.position = new BABYLON.Vector3(0.115, 1.79, 0.262);
-      rightRing.material = irisMaterial;
-      rightRing.parent = avatarGroup;
-    }
-    
-    // Iris detail rings for realism
-    const leftIrisRing = BABYLON.MeshBuilder.CreateTorus('leftIrisRing', {diameter: 0.05, thickness: 0.003, tessellation: 32}, scene);
-    leftIrisRing.position = new BABYLON.Vector3(-0.11, 1.785, 0.257);
-    leftIrisRing.material = irisMaterial;
-    leftIrisRing.parent = avatarGroup;
-    
-    const rightIrisRing = BABYLON.MeshBuilder.CreateTorus('rightIrisRing', {diameter: 0.05, thickness: 0.003, tessellation: 32}, scene);
-    rightIrisRing.position = new BABYLON.Vector3(0.11, 1.785, 0.257);
-    rightIrisRing.material = irisMaterial;
-    rightIrisRing.parent = avatarGroup;
-    
-    // ULTRA-PRECISE PUPILS - Photorealistic depth
-    const leftPupil = BABYLON.MeshBuilder.CreateSphere('leftPupil', {diameter: 0.028, segments: 64}, scene);
-    leftPupil.position = new BABYLON.Vector3(-0.115, 1.79, 0.265);
-    leftPupil.material = pupilMaterial;
-    leftPupil.parent = avatarGroup;
-    
-    const rightPupil = BABYLON.MeshBuilder.CreateSphere('rightPupil', {diameter: 0.028, segments: 64}, scene);
-    rightPupil.position = new BABYLON.Vector3(0.115, 1.79, 0.265);
-    rightPupil.material = pupilMaterial;
-    rightPupil.parent = avatarGroup;
-    
-    // Pupil reflections for realism
-    const leftPupilReflection = BABYLON.MeshBuilder.CreateSphere('leftPupilReflection', {diameter: 0.008, segments: 16}, scene);
-    leftPupilReflection.position = new BABYLON.Vector3(-0.12, 1.795, 0.268);
-    const reflectionMaterial = new BABYLON.PBRMaterial('reflectionMat', scene);
-    reflectionMaterial.baseColor = new BABYLON.Color3(0.9, 0.9, 1.0);
-    reflectionMaterial.metallic = 0.8;
-    reflectionMaterial.roughness = 0.1;
-    leftPupilReflection.material = reflectionMaterial;
-    leftPupilReflection.parent = avatarGroup;
-    
-    const rightPupilReflection = BABYLON.MeshBuilder.CreateSphere('rightPupilReflection', {diameter: 0.008, segments: 16}, scene);
-    rightPupilReflection.position = new BABYLON.Vector3(0.12, 1.795, 0.268);
-    rightPupilReflection.material = reflectionMaterial;
-    rightPupilReflection.parent = avatarGroup;
-    
-    // NOSE - Keanu's distinctive straight nose
-    const noseBridge = BABYLON.MeshBuilder.CreateBox('noseBridge', {width: 0.035, height: 0.12, depth: 0.08}, scene);
-    noseBridge.position = new BABYLON.Vector3(0, 1.73, 0.24);
-    noseBridge.material = skinMaterial;
-    noseBridge.parent = avatarGroup;
-    
-    const noseTip = BABYLON.MeshBuilder.CreateSphere('noseTip', {diameter: 0.055, segments: 20}, scene);
-    noseTip.position = new BABYLON.Vector3(0, 1.675, 0.265);
-    noseTip.scaling = new BABYLON.Vector3(0.9, 0.7, 1.1); // Keanu's refined nose tip
-    noseTip.material = skinMaterial;
-    noseTip.parent = avatarGroup;
-    
-    // Nostrils
-    const leftNostril = BABYLON.MeshBuilder.CreateSphere('leftNostril', {diameter: 0.02, segments: 8}, scene);
-    leftNostril.position = new BABYLON.Vector3(-0.015, 1.67, 0.27);
-    leftNostril.scaling = new BABYLON.Vector3(1, 0.5, 1.5);
-    const nostrilMaterial = new BABYLON.PBRMaterial('nostrilMat', scene);
-    nostrilMaterial.baseColor = new BABYLON.Color3(0.3, 0.2, 0.2);
-    leftNostril.material = nostrilMaterial;
-    leftNostril.parent = avatarGroup;
-    
-    const rightNostril = BABYLON.MeshBuilder.CreateSphere('rightNostril', {diameter: 0.02, segments: 8}, scene);
-    rightNostril.position = new BABYLON.Vector3(0.015, 1.67, 0.27);
-    rightNostril.scaling = new BABYLON.Vector3(1, 0.5, 1.5);
-    rightNostril.material = nostrilMaterial;
-    rightNostril.parent = avatarGroup;
-    
-    // MOUTH - More realistic with lips
-    const upperLip = BABYLON.MeshBuilder.CreateTorus('upperLip', {diameter: 0.1, thickness: 0.012, tessellation: 20}, scene);
-    upperLip.position = new BABYLON.Vector3(0, 1.625, 0.235);
-    upperLip.rotation.x = Math.PI / 2;
-    upperLip.scaling = new BABYLON.Vector3(1, 0.7, 0.8);
-    const lipMaterial = new BABYLON.PBRMaterial('lipMat', scene);
-    lipMaterial.baseColor = new BABYLON.Color3(0.85, 0.5, 0.5);
-    lipMaterial.roughness = 0.3;
-    upperLip.material = lipMaterial;
-    upperLip.parent = avatarGroup;
-    
-    const lowerLip = BABYLON.MeshBuilder.CreateTorus('lowerLip', {diameter: 0.1, thickness: 0.01, tessellation: 20}, scene);
-    lowerLip.position = new BABYLON.Vector3(0, 1.615, 0.235);
-    lowerLip.rotation.x = Math.PI / 2;
-    lowerLip.scaling = new BABYLON.Vector3(1, 0.7, 0.6);
-    lowerLip.material = lipMaterial;
-    lowerLip.parent = avatarGroup;
-    
-    // NECK - More realistic proportions
-    const neck = BABYLON.MeshBuilder.CreateCylinder('neck', {height: 0.22, diameter: 0.18, tessellation: 24}, scene);
-    neck.position.y = 1.37;
-    neck.material = skinMaterial;
-    neck.parent = avatarGroup;
-    
-    // Adam's apple for male characteristics
-    const adamsApple = BABYLON.MeshBuilder.CreateBox('adamsApple', {width: 0.03, height: 0.04, depth: 0.02}, scene);
-    adamsApple.position = new BABYLON.Vector3(0, 1.38, 0.08);
-    adamsApple.material = skinMaterial;
-    adamsApple.parent = avatarGroup;
-    
-    // SHIRT COLLAR - More detailed
-    const collar = BABYLON.MeshBuilder.CreateCylinder('collar', {height: 0.12, diameter: 0.32, tessellation: 32}, scene);
-    collar.position.y = 1.22;
-    collar.material = shirtMaterial;
-    collar.parent = avatarGroup;
-    
-    // Collar details
-    const collarFold = BABYLON.MeshBuilder.CreateTorus('collarFold', {diameter: 0.3, thickness: 0.008, tessellation: 32}, scene);
-    collarFold.position.y = 1.27;
-    collarFold.material = shirtMaterial;
-    collarFold.parent = avatarGroup;
-    
-    // TORSO - More realistic body shape
-    const chest = BABYLON.MeshBuilder.CreateBox('chest', {height: 0.4, width: 0.45, depth: 0.25}, scene);
-    chest.position.y = 1.05;
-    chest.scaling = new BABYLON.Vector3(1, 1, 0.8);
-    chest.material = shirtMaterial;
-    chest.parent = avatarGroup;
-    
-    const abdomen = BABYLON.MeshBuilder.CreateBox('abdomen', {height: 0.35, width: 0.42, depth: 0.22}, scene);
-    abdomen.position.y = 0.65;
-    abdomen.material = shirtMaterial;
-    abdomen.parent = avatarGroup;
-    
-    const waist = BABYLON.MeshBuilder.CreateBox('waist', {height: 0.25, width: 0.38, depth: 0.2}, scene);
-    waist.position.y = 0.35;
-    waist.material = suitMaterial;
-    waist.parent = avatarGroup;
-    
-    // SUIT JACKET - More detailed and realistic
-    const jacketChest = BABYLON.MeshBuilder.CreateBox('jacketChest', {height: 0.42, width: 0.48, depth: 0.28}, scene);
-    jacketChest.position.y = 1.06;
-    jacketChest.material = suitMaterial;
-    jacketChest.parent = avatarGroup;
-    
-    const jacketWaist = BABYLON.MeshBuilder.CreateBox('jacketWaist', {height: 0.4, width: 0.45, depth: 0.25}, scene);
-    jacketWaist.position.y = 0.65;
-    jacketWaist.material = suitMaterial;
-    jacketWaist.parent = avatarGroup;
-    
-    // Suit lapels
-    const leftLapel = BABYLON.MeshBuilder.CreateBox('leftLapel', {width: 0.08, height: 0.25, depth: 0.02}, scene);
-    leftLapel.position = new BABYLON.Vector3(-0.12, 1.1, 0.14);
-    leftLapel.rotation.z = 0.3;
-    leftLapel.material = suitMaterial;
-    leftLapel.parent = avatarGroup;
-    
-    const rightLapel = BABYLON.MeshBuilder.CreateBox('rightLapel', {width: 0.08, height: 0.25, depth: 0.02}, scene);
-    rightLapel.position = new BABYLON.Vector3(0.12, 1.1, 0.14);
-    rightLapel.rotation.z = -0.3;
-    rightLapel.material = suitMaterial;
-    rightLapel.parent = avatarGroup;
-    
-    // TIE - More detailed
-    const tieKnot = BABYLON.MeshBuilder.CreateBox('tieKnot', {width: 0.06, height: 0.08, depth: 0.04}, scene);
-    tieKnot.position = new BABYLON.Vector3(0, 1.18, 0.16);
-    const tieMaterial = new BABYLON.PBRMaterial('tieMat', scene);
-    tieMaterial.baseColor = new BABYLON.Color3(0, 0.6, 0.1);
-    tieMaterial.roughness = 0.6;
-    tieMaterial.emissiveColor = new BABYLON.Color3(0, 0.08, 0.02);
-    tieKnot.material = tieMaterial;
-    tieKnot.parent = avatarGroup;
-    
-    const tie = BABYLON.MeshBuilder.CreateBox('tie', {width: 0.07, height: 0.4, depth: 0.02}, scene);
-    tie.position = new BABYLON.Vector3(0, 0.95, 0.16);
-    tie.material = tieMaterial;
-    tie.parent = avatarGroup;
-    
-    // SHOULDERS - Ultra-detailed shoulder and clavicle structure
-    const leftClavicle = BABYLON.MeshBuilder.CreateCylinder('leftClavicle', {height: 0.25, diameter: 0.03, tessellation: 24}, scene);
-    leftClavicle.position = new BABYLON.Vector3(-0.12, 1.2, 0.02);
-    leftClavicle.rotation.z = 0.2;
-    leftClavicle.material = skinMaterial;
-    leftClavicle.parent = avatarGroup;
-    
-    const rightClavicle = BABYLON.MeshBuilder.CreateCylinder('rightClavicle', {height: 0.25, diameter: 0.03, tessellation: 24}, scene);
-    rightClavicle.position = new BABYLON.Vector3(0.12, 1.2, 0.02);
-    rightClavicle.rotation.z = -0.2;
-    rightClavicle.material = skinMaterial;
-    rightClavicle.parent = avatarGroup;
-    
-    const leftShoulder = BABYLON.MeshBuilder.CreateSphere('leftShoulder', {diameter: 0.18, segments: 48}, scene);
-    leftShoulder.position = new BABYLON.Vector3(-0.28, 1.15, 0);
-    leftShoulder.material = suitMaterial;
-    leftShoulder.parent = avatarGroup;
-    
-    const rightShoulder = BABYLON.MeshBuilder.CreateSphere('rightShoulder', {diameter: 0.18, segments: 48}, scene);
-    rightShoulder.position = new BABYLON.Vector3(0.28, 1.15, 0);
-    rightShoulder.material = suitMaterial;
-    rightShoulder.parent = avatarGroup;
-    
-    // ARMS - Ultra-high-resolution arms with anatomical accuracy
-    // Left Upper Arm with muscle definition
-    const leftBicep = BABYLON.MeshBuilder.CreateCylinder('leftBicep', {height: 0.25, diameterTop: 0.11, diameterBottom: 0.09, tessellation: 48}, scene);
-    leftBicep.position = new BABYLON.Vector3(-0.32, 0.95, 0);
-    leftBicep.rotation.z = 0.1;
-    leftBicep.material = suitMaterial;
-    leftBicep.parent = avatarGroup;
-    
-    const leftTricep = BABYLON.MeshBuilder.CreateCylinder('leftTricep', {height: 0.2, diameterTop: 0.09, diameterBottom: 0.08, tessellation: 48}, scene);
-    leftTricep.position = new BABYLON.Vector3(-0.38, 0.72, 0);
-    leftTricep.rotation.z = 0.15;
-    leftTricep.material = suitMaterial;
-    leftTricep.parent = avatarGroup;
-    
-    // Left Elbow with anatomical detail
-    const leftElbow = BABYLON.MeshBuilder.CreateSphere('leftElbow', {diameter: 0.08, segments: 32}, scene);
-    leftElbow.position = new BABYLON.Vector3(-0.42, 0.6, 0);
-    leftElbow.material = suitMaterial;
-    leftElbow.parent = avatarGroup;
-    
-    // Left Forearm with muscle definition
-    const leftForearm = BABYLON.MeshBuilder.CreateCylinder('leftForearm', {height: 0.3, diameterTop: 0.08, diameterBottom: 0.06, tessellation: 48}, scene);
-    leftForearm.position = new BABYLON.Vector3(-0.48, 0.4, 0);
-    leftForearm.rotation.z = 0.2;
-    leftForearm.material = shirtMaterial;
-    leftForearm.parent = avatarGroup;
-    
-    // Left Wrist with bone structure
-    const leftWrist = BABYLON.MeshBuilder.CreateCylinder('leftWrist', {height: 0.05, diameter: 0.055, tessellation: 32}, scene);
-    leftWrist.position = new BABYLON.Vector3(-0.54, 0.2, 0);
-    leftWrist.material = skinMaterial;
-    leftWrist.parent = avatarGroup;
-    
-    // Left Hand - Ultra-detailed with proper anatomy
-    const leftPalm = BABYLON.MeshBuilder.CreateSphere('leftPalm', {diameter: 0.1, segments: 32}, scene);
-    leftPalm.position = new BABYLON.Vector3(-0.57, 0.12, 0);
-    leftPalm.scaling = new BABYLON.Vector3(0.8, 1.2, 0.6);
-    leftPalm.material = skinMaterial;
-    leftPalm.parent = avatarGroup;
-    
-    // Left fingers with joints and proper proportions
-    const leftFingers = [];
-    for (let i = 0; i < 4; i++) {
-      // Finger segments for realistic joints
-      const finger1 = BABYLON.MeshBuilder.CreateCylinder('leftFinger' + i + '_1', {height: 0.04, diameter: 0.012, tessellation: 16}, scene);
-      finger1.position = new BABYLON.Vector3(-0.54 - (i * 0.018), 0.05, -0.025 + (i * 0.012));
-      finger1.material = skinMaterial;
-      finger1.parent = avatarGroup;
-      
-      const finger2 = BABYLON.MeshBuilder.CreateCylinder('leftFinger' + i + '_2', {height: 0.03, diameter: 0.01, tessellation: 16}, scene);
-      finger2.position = new BABYLON.Vector3(-0.54 - (i * 0.018), 0.02, -0.025 + (i * 0.012));
-      finger2.material = skinMaterial;
-      finger2.parent = avatarGroup;
-      
-      const fingerTip = BABYLON.MeshBuilder.CreateSphere('leftFingerTip' + i, {diameter: 0.008, segments: 12}, scene);
-      fingerTip.position = new BABYLON.Vector3(-0.54 - (i * 0.018), -0.005, -0.025 + (i * 0.012));
-      fingerTip.material = skinMaterial;
-      fingerTip.parent = avatarGroup;
-      
-      // Fingernails
-      const nail = BABYLON.MeshBuilder.CreateBox('leftNail' + i, {width: 0.006, height: 0.008, depth: 0.001}, scene);
-      nail.position = new BABYLON.Vector3(-0.54 - (i * 0.018), -0.008, -0.02 + (i * 0.012));
-      const nailMaterial = new BABYLON.PBRMaterial('nailMat', scene);
-      nailMaterial.baseColor = new BABYLON.Color3(0.95, 0.9, 0.85);
-      nailMaterial.roughness = 0.2;
-      nail.material = nailMaterial;
-      nail.parent = avatarGroup;
-    }
-    
-    // Left thumb with proper anatomy
-    const leftThumb1 = BABYLON.MeshBuilder.CreateCylinder('leftThumb1', {height: 0.04, diameter: 0.015, tessellation: 16}, scene);
-    leftThumb1.position = new BABYLON.Vector3(-0.59, 0.1, 0.03);
-    leftThumb1.rotation.z = 0.6;
-    leftThumb1.material = skinMaterial;
-    leftThumb1.parent = avatarGroup;
-    
-    const leftThumb2 = BABYLON.MeshBuilder.CreateCylinder('leftThumb2', {height: 0.03, diameter: 0.012, tessellation: 16}, scene);
-    leftThumb2.position = new BABYLON.Vector3(-0.61, 0.08, 0.035);
-    leftThumb2.rotation.z = 0.8;
-    leftThumb2.material = skinMaterial;
-    leftThumb2.parent = avatarGroup;
-    
-    // Mirror all arm details for right side
-    const rightBicep = BABYLON.MeshBuilder.CreateCylinder('rightBicep', {height: 0.25, diameterTop: 0.11, diameterBottom: 0.09, tessellation: 48}, scene);
-    rightBicep.position = new BABYLON.Vector3(0.32, 0.95, 0);
-    rightBicep.rotation.z = -0.1;
-    rightBicep.material = suitMaterial;
-    rightBicep.parent = avatarGroup;
-    
-    const rightTricep = BABYLON.MeshBuilder.CreateCylinder('rightTricep', {height: 0.2, diameterTop: 0.09, diameterBottom: 0.08, tessellation: 48}, scene);
-    rightTricep.position = new BABYLON.Vector3(0.38, 0.72, 0);
-    rightTricep.rotation.z = -0.15;
-    rightTricep.material = suitMaterial;
-    rightTricep.parent = avatarGroup;
-    
-    const rightElbow = BABYLON.MeshBuilder.CreateSphere('rightElbow', {diameter: 0.08, segments: 32}, scene);
-    rightElbow.position = new BABYLON.Vector3(0.42, 0.6, 0);
-    rightElbow.material = suitMaterial;
-    rightElbow.parent = avatarGroup;
-    
-    const rightForearm = BABYLON.MeshBuilder.CreateCylinder('rightForearm', {height: 0.3, diameterTop: 0.08, diameterBottom: 0.06, tessellation: 48}, scene);
-    rightForearm.position = new BABYLON.Vector3(0.48, 0.4, 0);
-    rightForearm.rotation.z = -0.2;
-    rightForearm.material = shirtMaterial;
-    rightForearm.parent = avatarGroup;
-    
-    const rightWrist = BABYLON.MeshBuilder.CreateCylinder('rightWrist', {height: 0.05, diameter: 0.055, tessellation: 32}, scene);
-    rightWrist.position = new BABYLON.Vector3(0.54, 0.2, 0);
-    rightWrist.material = skinMaterial;
-    rightWrist.parent = avatarGroup;
-    
-    const rightPalm = BABYLON.MeshBuilder.CreateSphere('rightPalm', {diameter: 0.1, segments: 32}, scene);
-    rightPalm.position = new BABYLON.Vector3(0.57, 0.12, 0);
-    rightPalm.scaling = new BABYLON.Vector3(0.8, 1.2, 0.6);
-    rightPalm.material = skinMaterial;
-    rightPalm.parent = avatarGroup;
-    
-    // Right fingers with same detail level
-    for (let i = 0; i < 4; i++) {
-      const finger1 = BABYLON.MeshBuilder.CreateCylinder('rightFinger' + i + '_1', {height: 0.04, diameter: 0.012, tessellation: 16}, scene);
-      finger1.position = new BABYLON.Vector3(0.54 + (i * 0.018), 0.05, -0.025 + (i * 0.012));
-      finger1.material = skinMaterial;
-      finger1.parent = avatarGroup;
-      
-      const finger2 = BABYLON.MeshBuilder.CreateCylinder('rightFinger' + i + '_2', {height: 0.03, diameter: 0.01, tessellation: 16}, scene);
-      finger2.position = new BABYLON.Vector3(0.54 + (i * 0.018), 0.02, -0.025 + (i * 0.012));
-      finger2.material = skinMaterial;
-      finger2.parent = avatarGroup;
-      
-      const fingerTip = BABYLON.MeshBuilder.CreateSphere('rightFingerTip' + i, {diameter: 0.008, segments: 12}, scene);
-      fingerTip.position = new BABYLON.Vector3(0.54 + (i * 0.018), -0.005, -0.025 + (i * 0.012));
-      fingerTip.material = skinMaterial;
-      fingerTip.parent = avatarGroup;
-    }
-    
-    const rightThumb1 = BABYLON.MeshBuilder.CreateCylinder('rightThumb1', {height: 0.04, diameter: 0.015, tessellation: 16}, scene);
-    rightThumb1.position = new BABYLON.Vector3(0.59, 0.1, 0.03);
-    rightThumb1.rotation.z = -0.6;
-    rightThumb1.material = skinMaterial;
-    rightThumb1.parent = avatarGroup;
-    
-    const rightThumb2 = BABYLON.MeshBuilder.CreateCylinder('rightThumb2', {height: 0.03, diameter: 0.012, tessellation: 16}, scene);
-    rightThumb2.position = new BABYLON.Vector3(0.61, 0.08, 0.035);
-    rightThumb2.rotation.z = -0.8;
-    rightThumb2.material = skinMaterial;
-    rightThumb2.parent = avatarGroup;
-    
-    // Mouse tracking for eye movement
-    let mouseX = 0;
-    let mouseY = 0;
-    
-    document.addEventListener('mousemove', (event) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = (event.clientX - rect.left - rect.width / 2) / (rect.width / 2);
-      mouseY = -(event.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-    });
-    
-    // Animation loop
-    let time = 0;
-    scene.registerBeforeRender(() => {
-      time += 0.01;
-      
-      // Gentle breathing - more realistic
-      const breathe = Math.sin(time * 0.4) * 0.005; // Slower, more natural breathing
-      if (chest) {
-        chest.scaling.z = 1 + breathe;
-        chest.position.y = 1.05 + breathe * 1.5;
-      }
-      if (abdomen) {
-        abdomen.scaling.z = 1 + breathe * 0.8;
-        abdomen.position.y = 0.65 + breathe * 1.2;
-      }
-      if (jacketChest) {
-        jacketChest.scaling.z = 1 + breathe * 0.7;
-      }
-      if (jacketWaist) {
-        jacketWaist.scaling.z = 1 + breathe * 0.6;
-      }
-      
-      // Subtle head movement - keeping Keanu facing forward mostly
-      head.rotation.y = Math.sin(time * 0.2) * 0.05; // Reduced side-to-side
-      head.rotation.x = Math.sin(time * 0.15) * 0.03; // Gentle nod
-      
-      // PHOTOREALISTIC EYE TRACKING - Ultra-precise with all elements
-      const eyeMovement = 0.016; // Perfect sensitivity for Keanu's eye tracking
-      const targetX = -mouseX * eyeMovement; // Correct horizontal direction
-      const targetY = mouseY * eyeMovement * 0.75; // Realistic vertical sensitivity
-      
-      // Precise constraints to keep pupils within iris boundaries
-      const maxMovement = 0.012; // Tighter for photorealism
-      const constrainedX = Math.max(-maxMovement, Math.min(maxMovement, targetX));
-      const constrainedY = Math.max(-maxMovement, Math.min(maxMovement, targetY));
-      
-      // Move all eye components together for realism
-      leftIris.position.x = -0.115 + constrainedX;
-      leftIris.position.y = 1.79 + constrainedY;
-      leftPupil.position.x = -0.115 + constrainedX;
-      leftPupil.position.y = 1.79 + constrainedY;
-      leftPupilReflection.position.x = -0.12 + constrainedX;
-      leftPupilReflection.position.y = 1.795 + constrainedY;
-      
-      rightIris.position.x = 0.115 + constrainedX;
-      rightIris.position.y = 1.79 + constrainedY;
-      rightPupil.position.x = 0.115 + constrainedX;
-      rightPupil.position.y = 1.79 + constrainedY;
-      rightPupilReflection.position.x = 0.12 + constrainedX;
-      rightPupilReflection.position.y = 1.795 + constrainedY;
-      
-      // Move iris detail rings
-      for (let i = 0; i < 3; i++) {
-        const leftRing = scene.getMeshByName('leftIrisRing' + i);
-        const rightRing = scene.getMeshByName('rightIrisRing' + i);
-        if (leftRing) {
-          leftRing.position.x = -0.115 + constrainedX;
-          leftRing.position.y = 1.79 + constrainedY;
-        }
-        if (rightRing) {
-          rightRing.position.x = 0.115 + constrainedX;
-          rightRing.position.y = 1.79 + constrainedY;
-        }
-      }
-      
-      // Ultra-realistic blinking animation
-      const blinkTime = Math.sin(time * 0.3) > 0.99;
-      if (blinkTime) {
-        leftUpperEyelid.scaling.y = 2.5; // Upper eyelid closes
-        rightUpperEyelid.scaling.y = 2.5;
-        leftLowerEyelid.scaling.y = 1.8; // Lower eyelid rises slightly
-        rightLowerEyelid.scaling.y = 1.8;
-        leftEyeSocket.scaling.y = 0.1; // Eye hidden
-        rightEyeSocket.scaling.y = 0.1;
-      } else {
-        leftUpperEyelid.scaling.y = 0.15; // Normal eyelid position
-        rightUpperEyelid.scaling.y = 0.15;
-        leftLowerEyelid.scaling.y = 0.1;
-        rightLowerEyelid.scaling.y = 0.1;
-        leftEyeSocket.scaling.y = 0.8; // Normal eye
-        rightEyeSocket.scaling.y = 0.8;
-      }
-      
-      // Iris glow pulse
-      const pulse = Math.sin(time * 2) * 0.3 + 0.7;
-      irisMaterial.emissiveColor = new BABYLON.Color3(0, 0.2 * pulse, 0.1 * pulse);
-      pupilMaterial.emissiveColor = new BABYLON.Color3(0, 0.1 * pulse, 0);
-      
-      // Tie animation
-      tie.material.emissiveColor = new BABYLON.Color3(0, 0.1 * pulse, 0);
-      
-      // Subtle floating and micro-movements for realism
-      avatarGroup.position.y = -0.4 + Math.sin(time * 0.7) * 0.015; // Maintain position
-      
-      // Micro facial movements for ultra-realism
-      head.rotation.x = Math.sin(time * 0.15) * 0.02 + Math.sin(time * 1.3) * 0.005;
-      head.rotation.z = Math.sin(time * 0.8) * 0.008;
-      
-      // Slight jaw movement (subtle talking motion)
-      jawlineBase.position.y = 1.615 + Math.sin(time * 0.9) * 0.002;
-      chin.position.y = 1.565 + Math.sin(time * 0.9) * 0.002;
-    });
-    
-    // Start render loop
-    engine.runRenderLoop(() => {
-      scene.render();
-    });
-    
-    // Handle resize
-    window.addEventListener('resize', () => {
-      engine.resize();
-    });
-    
-    // Dispose on page unload
-    window.addEventListener('beforeunload', () => {
-      engine.dispose();
-    });
-  }
-});
 
 // Smooth scroll for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
