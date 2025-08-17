@@ -1,7 +1,4 @@
 {{ define "main" }}
-<!-- Load model-viewer for 3D avatar -->
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/@google/model-viewer/dist/model-viewer.css">
 
 <style>
 /* Clean, modern design system */
@@ -50,9 +47,6 @@
   overflow: hidden;
   background: rgba(0, 20, 0, 0.3);
   border: 2px solid rgba(0, 255, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media (max-width: 1200px) {
@@ -358,19 +352,12 @@ footer p {
   
   <!-- 3D Avatar Container -->
   <div id="avatar-container">
-    <!-- Using Ready Player Me embedded avatar viewer -->
-    <model-viewer 
-      id="avatar-model"
-      src="https://models.readyplayer.me/6395e5d89dfd8dd280c1c999.glb"
-      alt="AI Business Avatar"
-      auto-rotate
-      camera-controls
-      shadow-intensity="1"
-      style="width: 100%; height: 100%;"
-      exposure="0.5"
-      environment-image="neutral"
-      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='%2300ff00' font-family='monospace'%3ELoading...%3C/text%3E%3C/svg%3E">
-    </model-viewer>
+    <canvas id="avatar-canvas" style="width: 100%; height: 100%;"></canvas>
+    <div id="avatar-fallback" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #00ff00; font-family: monospace;">
+      <div style="font-size: 4em; margin-bottom: 10px;">🤖</div>
+      <div>AI Agent</div>
+      <div style="font-size: 0.8em; color: #888; margin-top: 5px;">Interactive Avatar</div>
+    </div>
   </div>
 </div>
 
@@ -577,28 +564,152 @@ footer p {
   });
 })();
 
-// Configure model-viewer for better appearance
+// Create 3D Avatar using Three.js
 window.addEventListener('DOMContentLoaded', function() {
-  const modelViewer = document.querySelector('#avatar-model');
-  if (modelViewer) {
-    // Add some custom styling
-    modelViewer.style.backgroundColor = 'transparent';
+  const canvas = document.getElementById('avatar-canvas');
+  const fallback = document.getElementById('avatar-fallback');
+  
+  if (!canvas) return;
+  
+  // Try to load Three.js and create 3D avatar
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  script.onload = function() {
+    try {
+      createThreeJSAvatar();
+      fallback.style.display = 'none';
+    } catch (error) {
+      console.log('3D avatar failed, using fallback');
+      canvas.style.display = 'none';
+    }
+  };
+  script.onerror = function() {
+    console.log('Three.js failed to load, using fallback');
+    canvas.style.display = 'none';
+  };
+  document.head.appendChild(script);
+  
+  function createThreeJSAvatar() {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
     
-    // Set camera orbit
-    modelViewer.cameraOrbit = '0deg 75deg 2.5m';
-    modelViewer.fieldOfView = '30deg';
+    renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+    renderer.setClearColor(0x000000, 0);
     
-    // Add glow effect
-    const style = document.createElement('style');
-    style.textContent = `
-      #avatar-model {
-        --poster-color: transparent;
-      }
-      #avatar-container model-viewer {
-        filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.3));
-      }
-    `;
-    document.head.appendChild(style);
+    // Create avatar parts with better proportions
+    const avatarGroup = new THREE.Group();
+    
+    // Head
+    const headGeometry = new THREE.SphereGeometry(0.4, 32, 16);
+    const headMaterial = new THREE.MeshPhongMaterial({ 
+      color: 0xfdbcb4,
+      shininess: 10,
+      transparent: true,
+      opacity: 0.9
+    });
+    const head = new THREE.Mesh(headGeometry, headMaterial);
+    head.position.y = 1.5;
+    avatarGroup.add(head);
+    
+    // Eyes
+    const eyeGeometry = new THREE.SphereGeometry(0.05, 8, 8);
+    const eyeMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00, emissive: 0x004400 });
+    
+    const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+    leftEye.position.set(-0.15, 1.6, 0.3);
+    avatarGroup.add(leftEye);
+    
+    const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
+    rightEye.position.set(0.15, 1.6, 0.3);
+    avatarGroup.add(rightEye);
+    
+    // Body
+    const bodyGeometry = new THREE.CylinderGeometry(0.3, 0.4, 1.2, 8);
+    const bodyMaterial = new THREE.MeshPhongMaterial({ 
+      color: 0x2a2a2a,
+      shininess: 30
+    });
+    const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+    body.position.y = 0.3;
+    avatarGroup.add(body);
+    
+    // Arms
+    const armGeometry = new THREE.CylinderGeometry(0.08, 0.08, 0.8, 8);
+    const armMaterial = new THREE.MeshPhongMaterial({ color: 0xfdbcb4 });
+    
+    const leftArm = new THREE.Mesh(armGeometry, armMaterial);
+    leftArm.position.set(-0.5, 0.5, 0);
+    leftArm.rotation.z = 0.3;
+    avatarGroup.add(leftArm);
+    
+    const rightArm = new THREE.Mesh(armGeometry, armMaterial);
+    rightArm.position.set(0.5, 0.5, 0);
+    rightArm.rotation.z = -0.3;
+    avatarGroup.add(rightArm);
+    
+    // Add subtle glow effect
+    const glowGeometry = new THREE.SphereGeometry(0.45, 32, 16);
+    const glowMaterial = new THREE.MeshBasicMaterial({ 
+      color: 0x00ff00,
+      transparent: true,
+      opacity: 0.1,
+      side: THREE.BackSide
+    });
+    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+    glow.position.y = 1.5;
+    avatarGroup.add(glow);
+    
+    scene.add(avatarGroup);
+    
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
+    
+    const greenLight = new THREE.PointLight(0x00ff00, 0.5, 10);
+    greenLight.position.set(0, 2, 2);
+    scene.add(greenLight);
+    
+    camera.position.z = 3;
+    camera.position.y = 1;
+    
+    // Animation
+    let time = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      time += 0.01;
+      
+      // Rotate avatar
+      avatarGroup.rotation.y = Math.sin(time * 0.5) * 0.3;
+      
+      // Floating animation
+      avatarGroup.position.y = Math.sin(time) * 0.1;
+      
+      // Eye glow pulse
+      const pulse = Math.sin(time * 3) * 0.5 + 0.5;
+      leftEye.material.emissive.setHex(0x004400 + Math.floor(pulse * 0x004400));
+      rightEye.material.emissive.setHex(0x004400 + Math.floor(pulse * 0x004400));
+      
+      // Glow pulse
+      glow.material.opacity = 0.05 + pulse * 0.1;
+      
+      renderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    });
   }
 });
 
