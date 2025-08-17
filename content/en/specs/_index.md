@@ -15,6 +15,7 @@ Comprehensive technical documentation covering every aspect of the AIMatrix plat
   <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
     <h3>📐 Architecture</h3>
     <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/specs/architecture/super-agent">Super Agent Architecture</a></li>
       <li>→ <a href="/specs/architecture/system-design">System Design</a></li>
       <li>→ <a href="/specs/architecture/microservices">Microservices</a></li>
       <li>→ <a href="/specs/architecture/event-driven">Event Architecture</a></li>
