@@ -5,16 +5,19 @@ function handler(event) {
     var request = event.request;
     var uri = request.uri;
     
-    // Check if the URI ends with a slash (directory request)
-    if (uri.endsWith('/')) {
-        request.uri += 'index.html';
-    } 
-    // Check if the URI doesn't have a file extension (likely a directory)
-    else if (!uri.includes('.')) {
-        // Check if we should append /index.html
-        // Don't modify if it's likely an API endpoint or special path
+    // If URI is just '/', append index.html
+    if (uri === '/') {
+        request.uri = '/index.html';
+    }
+    // If URI ends with '/', append index.html
+    else if (uri.endsWith('/')) {
+        request.uri = uri + 'index.html';
+    }
+    // If URI doesn't have a file extension, append /index.html
+    else if (uri.lastIndexOf('.') < uri.lastIndexOf('/') || uri.lastIndexOf('.') === -1) {
+        // Don't modify API or special paths
         if (!uri.startsWith('/api/') && !uri.startsWith('/_')) {
-            request.uri += '/index.html';
+            request.uri = uri + '/index.html';
         }
     }
     
