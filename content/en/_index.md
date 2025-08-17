@@ -1,83 +1,193 @@
 ---
-title: AIMatrix Documentation
+title: AIMatrix - The AI Agent Platform for Business Transformation
+description: End-to-end AI platform that lets businesses talk to their systems. Build intelligent agents that understand context, automate workflows, and transform how work gets done.
+keywords: AI agents, business automation, MCP servers, conversational AI, intelligent automation, AI platform, MLOps, AIops, enterprise AI, business intelligence
 layout: hextra-home
+toc: false
 ---
 
 <div style="text-align: center; margin: 40px 0;">
   <img src="/images/aimatrix_logo_02.png" alt="AIMatrix Logo" style="max-width: 200px; width: 100%; height: auto; margin: 0 auto; display: block;">
 </div>
 
-# AIMatrix: The Business Operating System
+# AIMatrix: Where Businesses Talk to Their Systems
 
-## Intelligent Solutions for Modern Enterprises
+## The Complete AI Agent Platform for Enterprise
 
-AIMatrix transforms how businesses operate by providing a comprehensive, cloud-native business operating system that adapts to your needs, not the other way around.
+Imagine if every employee had an AI assistant that understood your entire business context. Not just another chatbot, but intelligent agents that can see, understand, and act across all your systems. That's AIMatrix.
 
-Unlike traditional monolithic ERP systems, AIMatrix is built on modern microservices architecture, ensuring scalability, flexibility, and continuous innovation.
+## What if you could just... talk to your business?
 
-## Key Features
+### The Current Reality
+- 📊 **"Generate last month's sales report"** → Hours of Excel manipulation
+- 📸 **"Process this expense receipt"** → Manual data entry into 3 systems  
+- 📱 **"Book this customer order"** → Navigate complex forms and screens
+- 💰 **"Reconcile today's transactions"** → Hours of manual matching
 
-### 🤖 AI-Powered Automation
-Intelligent process automation that learns from your business patterns and optimizes workflows automatically.
+### The AIMatrix Reality
+- 🗣️ **Just talk** - Tell the system what you need in natural language
+- 📸 **Just show** - Take a photo, the AI understands and processes it
+- 🤖 **Just happens** - Agents work 24/7 handling routine tasks
+- 🧠 **Just knows** - Context-aware AI that understands your business
 
-### 📊 Advanced Analytics
-Real-time data processing with predictive analytics, anomaly detection, and intelligent insights generation.
+## The AIMatrix Platform
 
-### 🌍 Multi-Language Support
-Native support for English, Chinese, Arabic, Malay, Indonesian, and Russian, with more languages coming soon.
+### 🌉 MCP Bridge Layer
+**Connect AI to Your Business Reality**
+- REST API to AI agent translation
+- BigLedger and third-party system integration  
+- Real-time context synchronization
+- Secure data orchestration
+
+### 🤖 Intelligent Agents Everywhere
+**Desktop, Mobile, Web - AI Where You Work**
+- **Desktop Agents**: Screen capture, automation, co-worker mode
+- **Mobile Agents**: iOS/Android apps with camera vision, voice interaction
+- **Web Agents**: Browser automation, form filling, data extraction
+- **Conversational Interfaces**: Natural language for everything
+
+### 🧠 Context Is King
+**Your Business Brain in the Cloud**
+- Connect Google Drive, emails, calendars, databases
+- Integrate with any ERP, CRM, accounting software
+- Build comprehensive knowledge graphs
+- RAG and GraphRAG for intelligent retrieval
+- Fine-tune models on your business data
+
+### 🎭 AI Studio & Orchestration
+**Configure, Deploy, and Manage Your AI Workforce**
+- Visual agent builder and workflow designer
+- AutoGen, Semantic Kernel, Claude CLI integration
+- Model selection and optimization (GPT, Claude, Gemini, Llama)
+- MLOps and AIOps in one platform
+- GitHub-like collaboration for AI configurations
+
+## Transform Every Role
+
+### 👔 For Executives
+*"Show me why revenue dropped last week"*
+- Natural language business intelligence
+- Real-time insights and alerts
+- Strategic decision support
+
+### 💼 For Sales Teams  
+*"Book this order from our WhatsApp conversation"*
+- Voice-to-order processing
+- Automatic CRM updates
+- Intelligent lead scoring
+
+### 📊 For Accountants
+*"Reconcile all pending transactions"*
+- Automated invoice processing
+- Intelligent GL coding
+- One-click reconciliation
+
+### 🏪 For Retail Staff
+*"This customer wants to return this item"*
+- Visual product recognition
+- Conversational POS
+- Automatic inventory updates
+
+### 👷 For Operations
+*"Schedule next week's production based on orders"*
+- Predictive planning
+- Resource optimization
+- Automated scheduling
+
+## Real Use Cases, Real Impact
+
+### 📸 Receipt to Report
+Employee snaps a receipt → AI extracts data → Classifies expense → Routes for approval → Updates accounting → No forms needed
+
+### 🎥 Camera That Sells
+Point camera at product → AI recognizes item → Suggests upsells → Processes payment → Updates inventory → Pure conversation
+
+### 📝 Meeting to Action
+Desktop agent listens → Captures decisions → Creates tasks → Updates projects → Sends summaries → Work happens automatically
+
+### 🏦 Intelligent Reconciliation
+Bank statement arrives → AI matches transactions → Identifies discrepancies → Suggests corrections → Learns patterns → Accounting automated
 
 ## Why AIMatrix?
 
-While others like Odoo follow the WordPress/WooCommerce model - powerful but complex and often difficult to upgrade - AIMatrix takes inspiration from Shopify's approach: **simple, scalable, and always up-to-date**.
+### 🚀 Complete Platform
+Not just another AI tool - a complete ecosystem for business AI transformation
 
-### Key Differentiators
+### 🔐 Your Data, Your Control
+On-premise or cloud deployment with complete data sovereignty
 
-- **Stateless Architecture**: Unlike monolithic Python-based systems, our Go-based microservices ensure horizontal scalability
-- **Always Upgradeable**: No more being stuck on old versions due to customizations
-- **API-First Design**: Every feature accessible via REST and GraphQL APIs
-- **Real-time Processing**: Built for modern real-time business operations
-- **Enterprise-Ready**: From SMBs to large enterprises, AIMatrix scales with you
+### 🌍 Built for Real Business
+Handles multi-currency, tax compliance, regional requirements
 
-### Comprehensive Module Suite
+### ⚡ Start Small, Scale Big
+Begin with one use case, expand to enterprise-wide transformation
 
-- **Point of Sales (POS)** - Complete retail and hospitality solution
-- **ERP Core Functions** - General Ledger, AR/AP, Financial Reporting
-- **Procure to Pay (P2P)** - Purchase requisition to payment
-- **Order to Cash (O2C)** - Sales order to cash collection
-- **E-Commerce Integration** - Unified online/offline commerce
-- **Payment Gateway Integration** - Multiple payment providers
-- **Warehouse Management System (WMS)** - Advanced inventory control
-- **Manufacturing Resource Planning (MRP)** - Production planning
-- **Inventory Management** - Real-time stock tracking
-- **Warranty & After-Sales Service** - Customer service management
-- **Financial Accounting** - Complete accounting suite
-- **Fixed Asset Register** - Asset lifecycle management
-- **Membership Programs** - Loyalty and rewards
-- **Unified Contact Center** - Omnichannel customer support
-- **Mobile Applications** - iOS and Android apps
-- **Malaysia E-Invoice with Peppol** - Compliance ready
-- **Customer Relationship Management (CRM)** - 360° customer view
-- **B2B Portal** - Business partner collaboration
-- **And many more...**
+### 🤝 No Lock-in
+Open architecture, standard protocols, your choice of AI models
 
-## Get Started
+## The Technology Stack
 
-- 📖 [Read the Documentation](/docs/)
-- 🚀 [Quick Start Guide](/docs/getting-started/)
-- 💻 [API Reference](/api/)
-- 🎓 [Tutorials](/tutorials/)
-- 💬 [Community Forum](https://forum.aimatrix.com)
+<details>
+<summary><strong>For Technical Teams →</strong></summary>
 
-Explore our comprehensive guides and resources to get the most out of the AIMatrix platform.
+### Architecture Components
+- **MCP Servers**: Protocol bridge for BigLedger REST APIs
+- **Agent Framework**: AutoGen, Semantic Kernel, LangChain
+- **Model Integration**: OpenAI, Anthropic, Google, Local LLMs
+- **Knowledge Layer**: Vector DBs, Graph DBs, RAG/GraphRAG
+- **Orchestration**: Kubernetes, Docker, Microservices
+- **Security**: End-to-end encryption, RBAC, audit logging
 
-## Join the Community
+### Developer Tools
+- SDKs for Python, JavaScript, Go
+- REST and GraphQL APIs
+- Webhook integrations
+- CLI tools for local development
+- Extensive documentation and examples
 
-We welcome contributions! AIMatrix follows an open-core model where the core platform is open source, while enterprise features and certain modules are commercially licensed.
+</details>
 
-- [GitHub Repository](https://github.com/aimatrix)
-- [Contributing Guide](/docs/contributing/)
-- [Developer Documentation](/docs/developer/)
+## Three Ways to Get Started
+
+### 🎯 For Businesses
+**Transform How You Work**
+- Free pilot program for qualified businesses
+- Full implementation support
+- Success-based pricing available
+[Start Your Transformation →](/solutions/business)
+
+### 🛠️ For Developers
+**Build the Future of Work**
+- Open source components
+- Comprehensive documentation
+- Active developer community
+[Access Documentation →](/developers)
+
+### 💰 For Investors
+**The Next Frontier in Enterprise AI**
+- Massive market opportunity
+- Proven technology stack
+- Clear monetization path
+[View Investment Deck →](/investors)
+
+## Join the AI Revolution
+
+Every business will eventually talk to their systems. The question is: will you lead or follow?
+
+<div style="display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
+  <a href="/solutions/business" style="padding: 12px 24px; background: #00ff00; color: #000; text-decoration: none; border-radius: 6px; font-weight: bold;">
+    For Businesses →
+  </a>
+  <a href="/developers" style="padding: 12px 24px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 6px; font-weight: bold;">
+    For Developers →
+  </a>
+  <a href="/investors" style="padding: 12px 24px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 6px; font-weight: bold;">
+    For Investors →
+  </a>
+</div>
 
 ---
 
-**Follow us:** [LinkedIn](https://linkedin.com/company/aimatrix) | [GitHub](https://github.com/aimatrix)
+**AIMatrix** - *Where Businesses Talk to Their Systems*
+
+[GitHub](https://github.com/aimatrix) | [Blog](/blog) | [Contact](mailto:vincent@aimatrix.com)

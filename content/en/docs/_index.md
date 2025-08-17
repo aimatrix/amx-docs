@@ -1,129 +1,285 @@
 ---
-title: Documentation
+title: AIMatrix Documentation
 weight: 1
 ---
 
-# Welcome to AIMatrix Documentation
+# AIMatrix Technical Documentation
 
-Welcome to the comprehensive documentation for AIMatrix - The Business Operating System for Modern Enterprises. This documentation is designed to help you understand, implement, and maximize the value of AIMatrix in your organization.
+Build intelligent AI agents that transform how businesses interact with their systems. From MCP servers to production deployment.
 
-## Documentation Structure
+## Quick Navigation
 
-Our documentation is organized to serve different audiences and use cases:
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+  
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🚀 Getting Started</h3>
+    <p>New to AIMatrix? Start here</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/docs/getting-started/quickstart/">Quick Start Guide</a></li>
+      <li>→ <a href="/docs/getting-started/concepts/">Core Concepts</a></li>
+      <li>→ <a href="/docs/getting-started/first-agent/">Build First Agent</a></li>
+    </ul>
+  </div>
 
-### 🚀 Getting Started
-New to AIMatrix? Start here to understand the platform and get up and running quickly.
-- [Introduction to AIMatrix](/docs/getting-started/introduction/)
-- [Quick Start Guide](/docs/getting-started/quickstart/)
-- [System Requirements](/docs/getting-started/requirements/)
-- [Installation Guide](/docs/getting-started/installation/)
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🤖 AI Agents</h3>
+    <p>Create intelligent agents</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/docs/ai-core/agents/">Agent Framework</a></li>
+      <li>→ <a href="/docs/ai-core/context/">Context Management</a></li>
+      <li>→ <a href="/docs/ai-core/tools/">Building Tools</a></li>
+    </ul>
+  </div>
 
-### 📦 Modules
-Comprehensive guides for each AIMatrix module:
-- [Point of Sales (POS)](/docs/modules/pos/)
-- [ERP Core Functions](/docs/modules/erp-core/)
-- [Financial Accounting](/docs/modules/financial-accounting/)
-- [Inventory Management](/docs/modules/inventory/)
-- [And many more...](/docs/modules/)
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🌉 MCP Servers</h3>
+    <p>Bridge APIs to AI</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/docs/mcp/overview/">MCP Protocol</a></li>
+      <li>→ <a href="/docs/mcp/building/">Building Servers</a></li>
+      <li>→ <a href="/docs/mcp/security/">Security</a></li>
+    </ul>
+  </div>
 
-### 👥 User Guides by Role
-Role-specific documentation tailored to your responsibilities:
-- [Business Owner](/docs/user-guides/business-owner/)
-- [Accountant](/docs/user-guides/accountant/)
-- [Sales Manager](/docs/user-guides/sales-manager/)
-- [IT Administrator](/docs/user-guides/it-administrator/)
-- [Developer](/docs/user-guides/developer/)
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🧠 Knowledge & RAG</h3>
+    <p>Context and memory systems</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/docs/knowledge/rag/">RAG Setup</a></li>
+      <li>→ <a href="/docs/knowledge/graphrag/">GraphRAG</a></li>
+      <li>→ <a href="/docs/knowledge/vectors/">Vector DBs</a></li>
+    </ul>
+  </div>
 
-### 🏭 Industry Solutions
-Industry-specific implementations and best practices:
-- [Retail](/docs/industry-solutions/retail/)
-- [Manufacturing](/docs/industry-solutions/manufacturing/)
-- [Healthcare](/docs/industry-solutions/healthcare/)
-- [Education](/docs/industry-solutions/education/)
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🔧 Integration</h3>
+    <p>Connect to business systems</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/docs/integration/bigledger/">BigLedger API</a></li>
+      <li>→ <a href="/docs/integration/third-party/">Third-party Systems</a></li>
+      <li>→ <a href="/docs/integration/webhooks/">Webhooks</a></li>
+    </ul>
+  </div>
 
-### 🔧 Administration
-System administration and configuration:
-- [User Management](/docs/administration/user-management/)
-- [Security & Permissions](/docs/administration/security/)
-- [System Configuration](/docs/administration/configuration/)
-- [Backup & Recovery](/docs/administration/backup/)
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🚢 Deployment</h3>
+    <p>Production deployment</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/docs/deployment/docker/">Docker</a></li>
+      <li>→ <a href="/docs/deployment/kubernetes/">Kubernetes</a></li>
+      <li>→ <a href="/docs/deployment/scaling/">Scaling</a></li>
+    </ul>
+  </div>
 
-### 💻 Developer Resources
-Technical documentation for developers:
-- [API Reference](/api/)
-- [SDK Documentation](/docs/developer/sdk/)
-- [Applet Development](/docs/developer/applets/)
-- [Integration Guide](/docs/developer/integration/)
+</div>
 
-### 📚 Best Practices
-Learn from experience and industry standards:
-- [Implementation Strategy](/docs/best-practices/implementation/)
-- [Data Migration](/docs/best-practices/migration/)
-- [Performance Optimization](/docs/best-practices/performance/)
-- [Security Best Practices](/docs/best-practices/security/)
+## Platform Architecture
 
-## Documentation Philosophy
+```
+┌──────────────────────────────────────────────┐
+│          User Interfaces                     │
+│   Desktop | Mobile | Web | Voice | Vision    │
+└─────────────────┬────────────────────────────┘
+                  │
+┌─────────────────▼────────────────────────────┐
+│          AI Agent Layer                      │
+│   AutoGen | Semantic Kernel | LangChain      │
+└─────────────────┬────────────────────────────┘
+                  │
+┌─────────────────▼────────────────────────────┐
+│          MCP Bridge Layer                    │
+│   Protocol Translation | Context | Security  │
+└─────────────────┬────────────────────────────┘
+                  │
+┌─────────────────▼────────────────────────────┐
+│          Business Systems                    │
+│   BigLedger | ERP | CRM | Custom APIs       │
+└──────────────────────────────────────────────┘
+```
 
-This documentation is optimized for:
+## Core Components
 
-### 🤖 AI/LLM Consumption
-- **Structured Content**: Hierarchical organization with clear metadata
-- **Rich Context**: Comprehensive explanations with examples
-- **Semantic Markup**: Consistent formatting for machine parsing
-- **RAG-Optimized**: Designed for Retrieval-Augmented Generation
-- **GraphRAG Ready**: Interconnected content with clear relationships
+### 🤖 AI Agent Framework
+Build agents that understand context and execute complex tasks
+- **Multi-modal Input**: Text, voice, vision
+- **Tool Calling**: Connect to any API or system
+- **Memory Systems**: Short-term and long-term memory
+- **Planning & Reasoning**: Complex multi-step execution
 
-### 🌍 Multi-Language Support
-Available in:
-- 🇬🇧 English (Primary)
-- 🇨🇳 中文 (Chinese)
-- 🇸🇦 العربية (Arabic)
-- 🇲🇾 Bahasa Melayu (Malay)
-- 🇮🇩 Bahasa Indonesia (Indonesian)
-- 🇷🇺 Русский (Russian)
+### 🌉 MCP (Model Context Protocol)
+Transform REST APIs into AI-understandable interfaces
+- **Protocol Translation**: REST to AI function calls
+- **State Management**: Maintain context across sessions
+- **Security Layer**: Authentication and authorization
+- **Rate Limiting**: Protect backend systems
 
-### 📊 Version Management
-- Current Version: v1.0
-- [Version History](/docs/release-notes/)
-- [Migration Guides](/docs/release-notes/migration/)
+### 🧠 Knowledge Management
+Give agents perfect understanding of your business
+- **Document Processing**: PDFs, emails, databases
+- **Knowledge Graphs**: Relationship mapping
+- **RAG Pipeline**: Retrieval-augmented generation
+- **Fine-tuning**: Domain-specific model adaptation
 
-## How We're Different
+### 🎭 Orchestration Studio
+Visual tools for building and managing agents
+- **Agent Builder**: Drag-and-drop agent creation
+- **Workflow Designer**: Complex automation flows
+- **Testing Suite**: Debug and optimize agents
+- **Monitoring Dashboard**: Real-time performance
 
-### AIMatrix vs Traditional ERP
+## Integration Capabilities
 
-| Aspect | AIMatrix | Traditional ERP (Odoo, SAP) |
-|--------|-----------|----------------------------|
-| **Architecture** | Microservices, Stateless | Monolithic, Stateful |
-| **Language** | Go (Performance-focused) | Python/Java (General-purpose) |
-| **Upgrades** | Seamless, Always Current | Complex, Often Stuck on Old Versions |
-| **Customization** | Applet-based, Modular | Code Modifications, Hard to Maintain |
-| **Scaling** | Horizontal, Cloud-Native | Vertical, Limited |
-| **API** | API-First, REST & GraphQL | API as Afterthought |
-| **Deployment** | Container-based, K8s Ready | Traditional Server-based |
+### Supported AI Models
+- **OpenAI**: GPT-4, GPT-4V, Whisper, DALL-E
+- **Anthropic**: Claude 3, Claude Vision
+- **Google**: Gemini Pro, PaLM, Vertex AI
+- **Open Source**: Llama 3, Mistral, Phi
+- **Custom Models**: Fine-tuned and private models
 
-### The Shopify Model
+### Business System Connectors
+- **ERP Systems**: SAP, Oracle, Microsoft Dynamics
+- **CRM Platforms**: Salesforce, HubSpot, Zoho
+- **Accounting**: QuickBooks, Xero, Wave
+- **E-commerce**: Shopify, WooCommerce, Magento
+- **Custom APIs**: REST, GraphQL, SOAP
 
-Think of AIMatrix as the **Shopify of ERP systems**:
-- **Simplicity**: Easy to use, no technical expertise required
-- **Scalability**: From startup to enterprise
-- **Ecosystem**: Rich applet store for extensions
-- **Updates**: Automatic, seamless upgrades
-- **Multi-tenant**: True SaaS architecture
+### Data Sources
+- **Cloud Storage**: Google Drive, Dropbox, OneDrive
+- **Databases**: PostgreSQL, MySQL, MongoDB
+- **Communication**: Email, Slack, Teams
+- **Documents**: PDFs, Excel, Word
 
-While Odoo is like WordPress/WooCommerce - powerful but requiring technical expertise and constant maintenance - AIMatrix provides enterprise capabilities with consumer-grade simplicity.
+## Development Workflow
 
-## Quick Links
+### 1. Design Your Agent
+```python
+from aimatrix import Agent, Tool
 
-- 📖 [API Documentation](/api/)
-- 🎓 [Tutorials](/tutorials/)
-- 💬 [Community Forum](https://forum.aimatrix.com)
-- 🐛 [Report Issues](https://github.com/aimatrix/aimatrix/issues)
-- 📧 [Contact Support](mailto:support@aimatrix.com)
+class SalesAgent(Agent):
+    name = "sales-assistant"
+    description = "Helps with sales inquiries and order processing"
+    
+    @Tool("Get product information")
+    async def get_product(self, name: str):
+        # Implementation
+        pass
+```
 
-## Contributing
+### 2. Create MCP Server
+```javascript
+import { MCPServer } from '@aimatrix/mcp';
 
-We welcome contributions to our documentation! Please see our [Contributing Guide](/docs/contributing/) for details on how to help improve these docs.
+const server = new MCPServer({
+  functions: {
+    getInventory: async (params) => {
+      // Bridge to your inventory API
+    }
+  }
+});
+```
+
+### 3. Deploy & Scale
+```yaml
+# aimatrix.yaml
+agents:
+  sales-assistant:
+    model: gpt-4
+    memory: redis
+    scaling:
+      min: 2
+      max: 10
+```
+
+## Use Case Examples
+
+### 📸 Receipt Processing
+Transform receipts into structured data
+- Computer vision for data extraction
+- Automatic GL code classification
+- Multi-currency support
+- Approval workflow integration
+
+### 🎤 Voice Commerce
+Natural language order processing
+- Speech-to-text transcription
+- Intent recognition
+- Inventory checking
+- Order confirmation
+
+### 🤖 Customer Support
+Intelligent support automation
+- Multi-channel support
+- Context-aware responses
+- Ticket routing
+- Sentiment analysis
+
+### 📊 Business Intelligence
+Natural language analytics
+- Query databases conversationally
+- Generate reports automatically
+- Predictive analytics
+- Anomaly detection
+
+## Best Practices
+
+### Agent Design
+- Start simple, iterate frequently
+- Design for specific tasks
+- Include error handling
+- Test with edge cases
+
+### Security
+- Never expose credentials in code
+- Use environment variables
+- Implement rate limiting
+- Audit all agent actions
+
+### Performance
+- Cache frequently used data
+- Optimize token usage
+- Use appropriate models
+- Monitor response times
+
+### Cost Management
+- Choose right model for task
+- Implement token limits
+- Use caching strategically
+- Monitor usage patterns
+
+## Resources
+
+### 📚 Learning Path
+1. [Quick Start Tutorial](/tutorials/quickstart) - 30 min
+2. [Building Your First Agent](/tutorials/first-agent) - 1 hour
+3. [MCP Server Development](/tutorials/mcp-server) - 2 hours
+4. [Production Deployment](/tutorials/deployment) - 2 hours
+
+### 🛠️ Developer Tools
+- [AIMatrix CLI](/docs/tools/cli)
+- [Python SDK](/docs/sdk/python)
+- [JavaScript SDK](/docs/sdk/javascript)
+- [Testing Framework](/docs/tools/testing)
+
+### 💬 Community
+- [GitHub Discussions](https://github.com/aimatrix/discussions)
+- [Discord Server](https://discord.gg/aimatrix)
+- [Stack Overflow](https://stackoverflow.com/tags/aimatrix)
+- [Blog](/blog)
+
+### 🆘 Support
+- [Documentation Search](/search)
+- [FAQ](/docs/faq)
+- [Troubleshooting](/docs/troubleshooting)
+- [Enterprise Support](mailto:enterprise@aimatrix.com)
+
+## Version Information
+
+- **Current Version**: 2.0.0
+- **API Version**: v2
+- **Last Updated**: January 2025
+- [Changelog](/docs/changelog)
+- [Migration Guide](/docs/migration)
 
 ---
 
-*This documentation is continuously updated. Last updated: v1.0*
+*AIMatrix Documentation - Building the future of business automation with AI*

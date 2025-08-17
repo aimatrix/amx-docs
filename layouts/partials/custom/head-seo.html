@@ -1,0 +1,128 @@
+{{/* SEO and Structured Data for AIMatrix */}}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+<meta property="og:image" content="{{ "images/aimatrix_logo_02.png" | absURL }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ .Permalink }}">
+<meta property="twitter:title" content="{{ .Title }}">
+<meta property="twitter:description" content="{{ .Description | default .Site.Params.description }}">
+<meta property="twitter:image" content="{{ "images/aimatrix_logo_02.png" | absURL }}">
+
+<!-- Structured Data for Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AIMatrix",
+  "alternateName": "AIMatrix Business Intelligence Platform",
+  "url": "https://aimatrix.com",
+  "logo": "{{ "images/aimatrix_logo_02.png" | absURL }}",
+  "description": "AIMatrix is a unified business intelligence platform that connects all your business systems - POS, inventory, e-commerce, accounting - with AI-powered automation. Built specifically for Southeast Asian businesses.",
+  "foundingDate": "2002",
+  "founder": {
+    "@type": "Person",
+    "name": "Vincent"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "MY",
+    "addressRegion": "Southeast Asia"
+  },
+  "sameAs": [
+    "https://github.com/aimatrix"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "vincent@aimatrix.com",
+    "contactType": "sales",
+    "availableLanguage": ["English", "Chinese", "Malay"]
+  },
+  "knowsAbout": [
+    "ERP Systems",
+    "Business Automation",
+    "AI Integration",
+    "POS Systems",
+    "Inventory Management",
+    "E-commerce Integration",
+    "Accounting Software",
+    "Business Intelligence",
+    "API Integration",
+    "Cloud Computing"
+  ]
+}
+</script>
+
+<!-- Software Application Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AIMatrix Platform",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2025-12-31",
+    "description": "Free trial available"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "200"
+  },
+  "featureList": [
+    "AI-Powered Automation",
+    "Real-time Integration",
+    "Multi-language Support",
+    "Cloud-based",
+    "API-first Architecture",
+    "POS System",
+    "Inventory Management",
+    "E-commerce Integration",
+    "Accounting",
+    "CRM"
+  ]
+}
+</script>
+
+<!-- FAQ Schema for better LLM understanding -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is AIMatrix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AIMatrix is a unified business intelligence platform that connects all your disconnected business systems (POS, inventory, e-commerce, accounting) into one intelligent platform using AI-powered automation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does AIMatrix integrate with existing systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AIMatrix uses an intelligent integration engine that automatically discovers and connects to your existing systems, with over 500+ pre-built integrations including Shopee, Lazada, and major accounting software."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AIMatrix suitable for small businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, AIMatrix is designed to scale from small businesses to large enterprises. Start with what you need and add modules as you grow, with affordable monthly subscriptions and no huge upfront investment."
+      }
+    }
+  ]
+}
+</script>

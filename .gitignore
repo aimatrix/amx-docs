@@ -24,3 +24,26 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Temporary files
+tmp/
+*.tmp
+*.temp
+
+# Ideas and todos (not for public)
+ideas/
+todos/
+
+# Local settings
+.claude/settings.local.json
+
+# Backup files
+*.backup
+*.bak
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.local
