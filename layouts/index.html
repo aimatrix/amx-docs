@@ -564,151 +564,311 @@ footer p {
   });
 })();
 
-// Create 3D Avatar using Three.js
+// Create Realistic Human Avatar using Babylon.js
 window.addEventListener('DOMContentLoaded', function() {
   const canvas = document.getElementById('avatar-canvas');
   const fallback = document.getElementById('avatar-fallback');
   
   if (!canvas) return;
   
-  // Try to load Three.js and create 3D avatar
-  const script = document.createElement('script');
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-  script.onload = function() {
+  // Load Babylon.js for realistic human avatar
+  const babylonScript = document.createElement('script');
+  babylonScript.src = 'https://cdn.babylonjs.com/babylon.js';
+  babylonScript.onload = function() {
     try {
-      createThreeJSAvatar();
+      createRealisticHumanAvatar();
       fallback.style.display = 'none';
     } catch (error) {
       console.log('3D avatar failed, using fallback');
       canvas.style.display = 'none';
     }
   };
-  script.onerror = function() {
-    console.log('Three.js failed to load, using fallback');
+  babylonScript.onerror = function() {
+    console.log('Babylon.js failed to load, using fallback');
     canvas.style.display = 'none';
   };
-  document.head.appendChild(script);
+  document.head.appendChild(babylonScript);
   
-  function createThreeJSAvatar() {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  function createRealisticHumanAvatar() {
+    // Create Babylon.js engine and scene
+    const engine = new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true });
+    const scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
     
-    renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-    renderer.setClearColor(0x000000, 0);
+    // Create camera with better positioning for human avatar
+    const camera = new BABYLON.ArcRotateCamera('camera', -Math.PI / 2, Math.PI / 2.2, 4, new BABYLON.Vector3(0, 1, 0), scene);
+    camera.attachControl(canvas, false);
+    camera.lowerRadiusLimit = 3;
+    camera.upperRadiusLimit = 6;
     
-    // Create avatar parts with better proportions
-    const avatarGroup = new THREE.Group();
+    // Advanced lighting setup
+    const ambientLight = new BABYLON.HemisphericLight('ambientLight', new BABYLON.Vector3(0, 1, 0), scene);
+    ambientLight.intensity = 0.7;
     
-    // Head
-    const headGeometry = new THREE.SphereGeometry(0.4, 32, 16);
-    const headMaterial = new THREE.MeshPhongMaterial({ 
-      color: 0xfdbcb4,
-      shininess: 10,
-      transparent: true,
-      opacity: 0.9
+    const keyLight = new BABYLON.DirectionalLight('keyLight', new BABYLON.Vector3(-1, -2, -1), scene);
+    keyLight.position = new BABYLON.Vector3(2, 3, 2);
+    keyLight.intensity = 0.8;
+    
+    const fillLight = new BABYLON.PointLight('fillLight', new BABYLON.Vector3(1, 2, 1), scene);
+    fillLight.intensity = 0.3;
+    fillLight.diffuse = new BABYLON.Color3(0.2, 1, 0.2);
+    
+    // Create realistic materials
+    const skinMaterial = new BABYLON.StandardMaterial('skinMat', scene);
+    skinMaterial.diffuseColor = new BABYLON.Color3(0.95, 0.8, 0.7);
+    skinMaterial.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+    skinMaterial.emissiveColor = new BABYLON.Color3(0.02, 0.01, 0.01);
+    skinMaterial.specularPower = 32;
+    
+    const hairMaterial = new BABYLON.StandardMaterial('hairMat', scene);
+    hairMaterial.diffuseColor = new BABYLON.Color3(0.15, 0.1, 0.05);
+    hairMaterial.specularColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+    hairMaterial.emissiveColor = new BABYLON.Color3(0.01, 0.01, 0.01);
+    
+    const suitMaterial = new BABYLON.StandardMaterial('suitMat', scene);
+    suitMaterial.diffuseColor = new BABYLON.Color3(0.1, 0.1, 0.15);
+    suitMaterial.specularColor = new BABYLON.Color3(0.3, 0.3, 0.3);
+    suitMaterial.emissiveColor = new BABYLON.Color3(0, 0.05, 0);
+    
+    const shirtMaterial = new BABYLON.StandardMaterial('shirtMat', scene);
+    shirtMaterial.diffuseColor = new BABYLON.Color3(0.9, 0.9, 0.95);
+    shirtMaterial.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+    
+    const eyeMaterial = new BABYLON.StandardMaterial('eyeMat', scene);
+    eyeMaterial.diffuseColor = new BABYLON.Color3(1, 1, 1);
+    eyeMaterial.specularColor = new BABYLON.Color3(0.8, 0.8, 0.8);
+    eyeMaterial.specularPower = 128;
+    
+    const irisMaterial = new BABYLON.StandardMaterial('irisMat', scene);
+    irisMaterial.diffuseColor = new BABYLON.Color3(0, 0.6, 0.2);
+    irisMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 0.1);
+    irisMaterial.specularPower = 256;
+    
+    const pupilMaterial = new BABYLON.StandardMaterial('pupilMat', scene);
+    pupilMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    pupilMaterial.emissiveColor = new BABYLON.Color3(0, 0.1, 0);
+    
+    // Create human avatar group
+    const avatarGroup = new BABYLON.TransformNode('avatarGroup', scene);
+    
+    // HEAD - More realistic proportions
+    const head = BABYLON.MeshBuilder.CreateSphere('head', {diameter: 0.5, segments: 32}, scene);
+    head.position.y = 1.75;
+    head.scaling = new BABYLON.Vector3(0.9, 1.1, 0.8);
+    head.material = skinMaterial;
+    head.parent = avatarGroup;
+    
+    // HAIR - Realistic hair shape
+    const hair = BABYLON.MeshBuilder.CreateSphere('hair', {diameter: 0.52, segments: 24}, scene);
+    hair.position.y = 1.85;
+    hair.scaling = new BABYLON.Vector3(0.95, 0.8, 0.85);
+    hair.material = hairMaterial;
+    hair.parent = avatarGroup;
+    
+    // EYES - Detailed eye structure
+    // Left Eye Socket
+    const leftEyeSocket = BABYLON.MeshBuilder.CreateSphere('leftEyeSocket', {diameter: 0.12, segments: 16}, scene);
+    leftEyeSocket.position = new BABYLON.Vector3(-0.12, 1.78, 0.22);
+    leftEyeSocket.scaling = new BABYLON.Vector3(1, 0.7, 0.8);
+    leftEyeSocket.material = eyeMaterial;
+    leftEyeSocket.parent = avatarGroup;
+    
+    // Right Eye Socket
+    const rightEyeSocket = BABYLON.MeshBuilder.CreateSphere('rightEyeSocket', {diameter: 0.12, segments: 16}, scene);
+    rightEyeSocket.position = new BABYLON.Vector3(0.12, 1.78, 0.22);
+    rightEyeSocket.scaling = new BABYLON.Vector3(1, 0.7, 0.8);
+    rightEyeSocket.material = eyeMaterial;
+    rightEyeSocket.parent = avatarGroup;
+    
+    // Left Iris
+    const leftIris = BABYLON.MeshBuilder.CreateSphere('leftIris', {diameter: 0.08, segments: 16}, scene);
+    leftIris.position = new BABYLON.Vector3(-0.12, 1.78, 0.27);
+    leftIris.material = irisMaterial;
+    leftIris.parent = avatarGroup;
+    
+    // Right Iris
+    const rightIris = BABYLON.MeshBuilder.CreateSphere('rightIris', {diameter: 0.08, segments: 16}, scene);
+    rightIris.position = new BABYLON.Vector3(0.12, 1.78, 0.27);
+    rightIris.material = irisMaterial;
+    rightIris.parent = avatarGroup;
+    
+    // Left Pupil
+    const leftPupil = BABYLON.MeshBuilder.CreateSphere('leftPupil', {diameter: 0.03, segments: 8}, scene);
+    leftPupil.position = new BABYLON.Vector3(-0.12, 1.78, 0.29);
+    leftPupil.material = pupilMaterial;
+    leftPupil.parent = avatarGroup;
+    
+    // Right Pupil
+    const rightPupil = BABYLON.MeshBuilder.CreateSphere('rightPupil', {diameter: 0.03, segments: 8}, scene);
+    rightPupil.position = new BABYLON.Vector3(0.12, 1.78, 0.29);
+    rightPupil.material = pupilMaterial;
+    rightPupil.parent = avatarGroup;
+    
+    // NOSE - Simple but defined
+    const nose = BABYLON.MeshBuilder.CreateBox('nose', {width: 0.06, height: 0.12, depth: 0.08}, scene);
+    nose.position = new BABYLON.Vector3(0, 1.7, 0.24);
+    nose.scaling = new BABYLON.Vector3(1, 1, 0.8);
+    nose.material = skinMaterial;
+    nose.parent = avatarGroup;
+    
+    // MOUTH - More realistic
+    const mouth = BABYLON.MeshBuilder.CreateTorus('mouth', {diameter: 0.12, thickness: 0.015, tessellation: 16}, scene);
+    mouth.position = new BABYLON.Vector3(0, 1.6, 0.22);
+    mouth.rotation.x = Math.PI / 2;
+    mouth.scaling = new BABYLON.Vector3(1, 0.6, 1);
+    const mouthMaterial = new BABYLON.StandardMaterial('mouthMat', scene);
+    mouthMaterial.diffuseColor = new BABYLON.Color3(0.8, 0.4, 0.4);
+    mouth.material = mouthMaterial;
+    mouth.parent = avatarGroup;
+    
+    // NECK
+    const neck = BABYLON.MeshBuilder.CreateCylinder('neck', {height: 0.25, diameter: 0.2}, scene);
+    neck.position.y = 1.35;
+    neck.material = skinMaterial;
+    neck.parent = avatarGroup;
+    
+    // SHIRT COLLAR
+    const collar = BABYLON.MeshBuilder.CreateCylinder('collar', {height: 0.15, diameter: 0.35}, scene);
+    collar.position.y = 1.2;
+    collar.material = shirtMaterial;
+    collar.parent = avatarGroup;
+    
+    // TORSO - Business suit
+    const torso = BABYLON.MeshBuilder.CreateBox('torso', {height: 1.0, width: 0.6, depth: 0.3}, scene);
+    torso.position.y = 0.7;
+    torso.material = suitMaterial;
+    torso.parent = avatarGroup;
+    
+    // SUIT JACKET DETAILS
+    const jacket = BABYLON.MeshBuilder.CreateBox('jacket', {height: 1.05, width: 0.62, depth: 0.32}, scene);
+    jacket.position.y = 0.7;
+    jacket.material = suitMaterial;
+    jacket.parent = avatarGroup;
+    
+    // TIE
+    const tie = BABYLON.MeshBuilder.CreateBox('tie', {width: 0.08, height: 0.5, depth: 0.02}, scene);
+    tie.position = new BABYLON.Vector3(0, 1.0, 0.16);
+    const tieMaterial = new BABYLON.StandardMaterial('tieMat', scene);
+    tieMaterial.diffuseColor = new BABYLON.Color3(0, 0.7, 0);
+    tieMaterial.emissiveColor = new BABYLON.Color3(0, 0.1, 0);
+    tie.material = tieMaterial;
+    tie.parent = avatarGroup;
+    
+    // ARMS - More realistic with joints
+    // Left Upper Arm
+    const leftUpperArm = BABYLON.MeshBuilder.CreateCylinder('leftUpperArm', {height: 0.5, diameter: 0.15}, scene);
+    leftUpperArm.position = new BABYLON.Vector3(-0.4, 1.0, 0);
+    leftUpperArm.rotation.z = 0.2;
+    leftUpperArm.material = suitMaterial;
+    leftUpperArm.parent = avatarGroup;
+    
+    // Left Lower Arm
+    const leftLowerArm = BABYLON.MeshBuilder.CreateCylinder('leftLowerArm', {height: 0.45, diameter: 0.12}, scene);
+    leftLowerArm.position = new BABYLON.Vector3(-0.5, 0.5, 0);
+    leftLowerArm.rotation.z = 0.3;
+    leftLowerArm.material = skinMaterial;
+    leftLowerArm.parent = avatarGroup;
+    
+    // Left Hand
+    const leftHand = BABYLON.MeshBuilder.CreateSphere('leftHand', {diameter: 0.12}, scene);
+    leftHand.position = new BABYLON.Vector3(-0.6, 0.25, 0);
+    leftHand.material = skinMaterial;
+    leftHand.parent = avatarGroup;
+    
+    // Right Upper Arm
+    const rightUpperArm = BABYLON.MeshBuilder.CreateCylinder('rightUpperArm', {height: 0.5, diameter: 0.15}, scene);
+    rightUpperArm.position = new BABYLON.Vector3(0.4, 1.0, 0);
+    rightUpperArm.rotation.z = -0.2;
+    rightUpperArm.material = suitMaterial;
+    rightUpperArm.parent = avatarGroup;
+    
+    // Right Lower Arm
+    const rightLowerArm = BABYLON.MeshBuilder.CreateCylinder('rightLowerArm', {height: 0.45, diameter: 0.12}, scene);
+    rightLowerArm.position = new BABYLON.Vector3(0.5, 0.5, 0);
+    rightLowerArm.rotation.z = -0.3;
+    rightLowerArm.material = skinMaterial;
+    rightLowerArm.parent = avatarGroup;
+    
+    // Right Hand
+    const rightHand = BABYLON.MeshBuilder.CreateSphere('rightHand', {diameter: 0.12}, scene);
+    rightHand.position = new BABYLON.Vector3(0.6, 0.25, 0);
+    rightHand.material = skinMaterial;
+    rightHand.parent = avatarGroup;
+    
+    // Mouse tracking for eye movement
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    document.addEventListener('mousemove', (event) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = (event.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+      mouseY = -(event.clientY - rect.top - rect.height / 2) / (rect.height / 2);
     });
-    const head = new THREE.Mesh(headGeometry, headMaterial);
-    head.position.y = 1.5;
-    avatarGroup.add(head);
     
-    // Eyes
-    const eyeGeometry = new THREE.SphereGeometry(0.05, 8, 8);
-    const eyeMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00, emissive: 0x004400 });
-    
-    const leftEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
-    leftEye.position.set(-0.15, 1.6, 0.3);
-    avatarGroup.add(leftEye);
-    
-    const rightEye = new THREE.Mesh(eyeGeometry, eyeMaterial);
-    rightEye.position.set(0.15, 1.6, 0.3);
-    avatarGroup.add(rightEye);
-    
-    // Body
-    const bodyGeometry = new THREE.CylinderGeometry(0.3, 0.4, 1.2, 8);
-    const bodyMaterial = new THREE.MeshPhongMaterial({ 
-      color: 0x2a2a2a,
-      shininess: 30
-    });
-    const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
-    body.position.y = 0.3;
-    avatarGroup.add(body);
-    
-    // Arms
-    const armGeometry = new THREE.CylinderGeometry(0.08, 0.08, 0.8, 8);
-    const armMaterial = new THREE.MeshPhongMaterial({ color: 0xfdbcb4 });
-    
-    const leftArm = new THREE.Mesh(armGeometry, armMaterial);
-    leftArm.position.set(-0.5, 0.5, 0);
-    leftArm.rotation.z = 0.3;
-    avatarGroup.add(leftArm);
-    
-    const rightArm = new THREE.Mesh(armGeometry, armMaterial);
-    rightArm.position.set(0.5, 0.5, 0);
-    rightArm.rotation.z = -0.3;
-    avatarGroup.add(rightArm);
-    
-    // Add subtle glow effect
-    const glowGeometry = new THREE.SphereGeometry(0.45, 32, 16);
-    const glowMaterial = new THREE.MeshBasicMaterial({ 
-      color: 0x00ff00,
-      transparent: true,
-      opacity: 0.1,
-      side: THREE.BackSide
-    });
-    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-    glow.position.y = 1.5;
-    avatarGroup.add(glow);
-    
-    scene.add(avatarGroup);
-    
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
-    scene.add(ambientLight);
-    
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-    directionalLight.position.set(1, 1, 1);
-    scene.add(directionalLight);
-    
-    const greenLight = new THREE.PointLight(0x00ff00, 0.5, 10);
-    greenLight.position.set(0, 2, 2);
-    scene.add(greenLight);
-    
-    camera.position.z = 3;
-    camera.position.y = 1;
-    
-    // Animation
+    // Animation loop
     let time = 0;
-    function animate() {
-      requestAnimationFrame(animate);
+    scene.registerBeforeRender(() => {
       time += 0.01;
       
-      // Rotate avatar
-      avatarGroup.rotation.y = Math.sin(time * 0.5) * 0.3;
+      // Gentle breathing
+      const breathe = Math.sin(time * 0.8) * 0.01;
+      torso.scaling.z = 1 + breathe;
+      jacket.scaling.z = 1 + breathe;
       
-      // Floating animation
-      avatarGroup.position.y = Math.sin(time) * 0.1;
+      // Subtle head movement
+      head.rotation.y = Math.sin(time * 0.3) * 0.1;
+      head.rotation.x = Math.sin(time * 0.2) * 0.05;
       
-      // Eye glow pulse
-      const pulse = Math.sin(time * 3) * 0.5 + 0.5;
-      leftEye.material.emissive.setHex(0x004400 + Math.floor(pulse * 0x004400));
-      rightEye.material.emissive.setHex(0x004400 + Math.floor(pulse * 0x004400));
+      // Eye tracking - follow mouse
+      const eyeMovement = 0.15;
+      const targetX = mouseX * eyeMovement;
+      const targetY = mouseY * eyeMovement * 0.5;
       
-      // Glow pulse
-      glow.material.opacity = 0.05 + pulse * 0.1;
+      leftIris.position.x = -0.12 + targetX;
+      leftIris.position.y = 1.78 + targetY;
+      rightIris.position.x = 0.12 + targetX;
+      rightIris.position.y = 1.78 + targetY;
       
-      renderer.render(scene, camera);
-    }
+      leftPupil.position.x = -0.12 + targetX;
+      leftPupil.position.y = 1.78 + targetY;
+      rightPupil.position.x = 0.12 + targetX;
+      rightPupil.position.y = 1.78 + targetY;
+      
+      // Blinking
+      const blinkTime = Math.sin(time * 0.5) > 0.98;
+      if (blinkTime) {
+        leftEyeSocket.scaling.y = 0.1;
+        rightEyeSocket.scaling.y = 0.1;
+      } else {
+        leftEyeSocket.scaling.y = 0.7;
+        rightEyeSocket.scaling.y = 0.7;
+      }
+      
+      // Iris glow pulse
+      const pulse = Math.sin(time * 2) * 0.3 + 0.7;
+      irisMaterial.emissiveColor = new BABYLON.Color3(0, 0.2 * pulse, 0.1 * pulse);
+      pupilMaterial.emissiveColor = new BABYLON.Color3(0, 0.1 * pulse, 0);
+      
+      // Tie animation
+      tie.material.emissiveColor = new BABYLON.Color3(0, 0.1 * pulse, 0);
+      
+      // Subtle floating
+      avatarGroup.position.y = Math.sin(time * 0.7) * 0.02;
+    });
     
-    animate();
+    // Start render loop
+    engine.runRenderLoop(() => {
+      scene.render();
+    });
     
     // Handle resize
     window.addEventListener('resize', () => {
-      const width = canvas.offsetWidth;
-      const height = canvas.offsetHeight;
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
+      engine.resize();
+    });
+    
+    // Dispose on page unload
+    window.addEventListener('beforeunload', () => {
+      engine.dispose();
     });
   }
 });
