@@ -595,11 +595,14 @@ window.addEventListener('DOMContentLoaded', function() {
     const scene = new BABYLON.Scene(engine);
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
     
-    // Create camera with better positioning for human avatar
-    const camera = new BABYLON.ArcRotateCamera('camera', -Math.PI / 2, Math.PI / 2.2, 4, new BABYLON.Vector3(0, 1, 0), scene);
+    // Create camera positioned to show the avatar facing forward
+    const camera = new BABYLON.ArcRotateCamera('camera', Math.PI / 2, Math.PI / 2.2, 3.5, new BABYLON.Vector3(0, 1, 0), scene);
     camera.attachControl(canvas, false);
-    camera.lowerRadiusLimit = 3;
-    camera.upperRadiusLimit = 6;
+    camera.lowerRadiusLimit = 2.5;
+    camera.upperRadiusLimit = 5.5;
+    
+    // Disable camera controls for a fixed professional view
+    camera.setTarget(new BABYLON.Vector3(0, 1.7, 0)); // Focus on face level
     
     // Advanced lighting setup
     const ambientLight = new BABYLON.HemisphericLight('ambientLight', new BABYLON.Vector3(0, 1, 0), scene);
@@ -613,187 +616,602 @@ window.addEventListener('DOMContentLoaded', function() {
     fillLight.intensity = 0.3;
     fillLight.diffuse = new BABYLON.Color3(0.2, 1, 0.2);
     
-    // Create realistic materials
-    const skinMaterial = new BABYLON.StandardMaterial('skinMat', scene);
-    skinMaterial.diffuseColor = new BABYLON.Color3(0.95, 0.8, 0.7);
-    skinMaterial.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+    // Create high-quality realistic materials with PBR
+    const skinMaterial = new BABYLON.PBRMaterial('skinMat', scene);
+    skinMaterial.baseColor = new BABYLON.Color3(0.93, 0.78, 0.68);
+    skinMaterial.roughness = 0.7;
+    skinMaterial.metallic = 0.0;
     skinMaterial.emissiveColor = new BABYLON.Color3(0.02, 0.01, 0.01);
-    skinMaterial.specularPower = 32;
+    skinMaterial.subSurface.isScatteringEnabled = true;
+    skinMaterial.subSurface.scatteringStrength = 0.3;
     
-    const hairMaterial = new BABYLON.StandardMaterial('hairMat', scene);
-    hairMaterial.diffuseColor = new BABYLON.Color3(0.15, 0.1, 0.05);
-    hairMaterial.specularColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-    hairMaterial.emissiveColor = new BABYLON.Color3(0.01, 0.01, 0.01);
+    const hairMaterial = new BABYLON.PBRMaterial('hairMat', scene);
+    hairMaterial.baseColor = new BABYLON.Color3(0.15, 0.1, 0.05);
+    hairMaterial.roughness = 0.8;
+    hairMaterial.metallic = 0.1;
     
-    const suitMaterial = new BABYLON.StandardMaterial('suitMat', scene);
-    suitMaterial.diffuseColor = new BABYLON.Color3(0.1, 0.1, 0.15);
-    suitMaterial.specularColor = new BABYLON.Color3(0.3, 0.3, 0.3);
-    suitMaterial.emissiveColor = new BABYLON.Color3(0, 0.05, 0);
+    const suitMaterial = new BABYLON.PBRMaterial('suitMat', scene);
+    suitMaterial.baseColor = new BABYLON.Color3(0.08, 0.08, 0.12);
+    suitMaterial.roughness = 0.3;
+    suitMaterial.metallic = 0.1;
+    suitMaterial.emissiveColor = new BABYLON.Color3(0, 0.02, 0);
     
-    const shirtMaterial = new BABYLON.StandardMaterial('shirtMat', scene);
-    shirtMaterial.diffuseColor = new BABYLON.Color3(0.9, 0.9, 0.95);
-    shirtMaterial.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+    const shirtMaterial = new BABYLON.PBRMaterial('shirtMat', scene);
+    shirtMaterial.baseColor = new BABYLON.Color3(0.95, 0.95, 0.98);
+    shirtMaterial.roughness = 0.9;
+    shirtMaterial.metallic = 0.0;
     
-    const eyeMaterial = new BABYLON.StandardMaterial('eyeMat', scene);
-    eyeMaterial.diffuseColor = new BABYLON.Color3(1, 1, 1);
-    eyeMaterial.specularColor = new BABYLON.Color3(0.8, 0.8, 0.8);
-    eyeMaterial.specularPower = 128;
+    const eyeMaterial = new BABYLON.PBRMaterial('eyeMat', scene);
+    eyeMaterial.baseColor = new BABYLON.Color3(1, 1, 1);
+    eyeMaterial.roughness = 0.1;
+    eyeMaterial.metallic = 0.0;
+    eyeMaterial.clearCoat.isEnabled = true;
+    eyeMaterial.clearCoat.intensity = 0.8;
     
-    const irisMaterial = new BABYLON.StandardMaterial('irisMat', scene);
-    irisMaterial.diffuseColor = new BABYLON.Color3(0, 0.6, 0.2);
-    irisMaterial.emissiveColor = new BABYLON.Color3(0, 0.2, 0.1);
-    irisMaterial.specularPower = 256;
+    const irisMaterial = new BABYLON.PBRMaterial('irisMat', scene);
+    irisMaterial.baseColor = new BABYLON.Color3(0.15, 0.25, 0.1); // Keanu's dark brown/green eyes
+    irisMaterial.roughness = 0.2;
+    irisMaterial.metallic = 0.0;
+    irisMaterial.emissiveColor = new BABYLON.Color3(0, 0.15, 0.08);
     
-    const pupilMaterial = new BABYLON.StandardMaterial('pupilMat', scene);
-    pupilMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
-    pupilMaterial.emissiveColor = new BABYLON.Color3(0, 0.1, 0);
+    const pupilMaterial = new BABYLON.PBRMaterial('pupilMat', scene);
+    pupilMaterial.baseColor = new BABYLON.Color3(0, 0, 0);
+    pupilMaterial.roughness = 0.0;
+    pupilMaterial.metallic = 0.0;
+    pupilMaterial.emissiveColor = new BABYLON.Color3(0, 0.05, 0);
     
-    // Create human avatar group
+    // Create human avatar group - positioned to face the viewer
     const avatarGroup = new BABYLON.TransformNode('avatarGroup', scene);
+    avatarGroup.rotation.y = Math.PI; // Face the viewer
     
-    // HEAD - More realistic proportions
-    const head = BABYLON.MeshBuilder.CreateSphere('head', {diameter: 0.5, segments: 32}, scene);
+    // HEAD - Ultra-high-resolution Keanu Reeves-inspired head
+    const head = BABYLON.MeshBuilder.CreateSphere('head', {diameter: 0.45, segments: 128}, scene);
     head.position.y = 1.75;
-    head.scaling = new BABYLON.Vector3(0.9, 1.1, 0.8);
+    head.scaling = new BABYLON.Vector3(0.88, 1.05, 0.92); // Keanu's longer face shape
     head.material = skinMaterial;
     head.parent = avatarGroup;
     
-    // HAIR - Realistic hair shape
-    const hair = BABYLON.MeshBuilder.CreateSphere('hair', {diameter: 0.52, segments: 24}, scene);
-    hair.position.y = 1.85;
-    hair.scaling = new BABYLON.Vector3(0.95, 0.8, 0.85);
-    hair.material = hairMaterial;
-    hair.parent = avatarGroup;
+    // Face topology - Keanu Reeves facial structure
+    const cheekBoneL = BABYLON.MeshBuilder.CreateSphere('cheekBoneL', {diameter: 0.07, segments: 32}, scene);
+    cheekBoneL.position = new BABYLON.Vector3(-0.16, 1.72, 0.16);
+    cheekBoneL.scaling = new BABYLON.Vector3(1.0, 0.5, 1.8); // Keanu's defined cheekbones
+    cheekBoneL.material = skinMaterial;
+    cheekBoneL.parent = avatarGroup;
     
-    // EYES - Detailed eye structure
-    // Left Eye Socket
-    const leftEyeSocket = BABYLON.MeshBuilder.CreateSphere('leftEyeSocket', {diameter: 0.12, segments: 16}, scene);
-    leftEyeSocket.position = new BABYLON.Vector3(-0.12, 1.78, 0.22);
-    leftEyeSocket.scaling = new BABYLON.Vector3(1, 0.7, 0.8);
+    const cheekBoneR = BABYLON.MeshBuilder.CreateSphere('cheekBoneR', {diameter: 0.07, segments: 32}, scene);
+    cheekBoneR.position = new BABYLON.Vector3(0.16, 1.72, 0.16);
+    cheekBoneR.scaling = new BABYLON.Vector3(1.0, 0.5, 1.8);
+    cheekBoneR.material = skinMaterial;
+    cheekBoneR.parent = avatarGroup;
+    
+    // Keanu's distinctive strong jawline
+    const jawline = BABYLON.MeshBuilder.CreateBox('jawline', {width: 0.37, height: 0.1, depth: 0.28}, scene);
+    jawline.position = new BABYLON.Vector3(0, 1.62, 0.12);
+    jawline.material = skinMaterial;
+    jawline.parent = avatarGroup;
+    
+    // Keanu's square chin
+    const chin = BABYLON.MeshBuilder.CreateBox('chin', {width: 0.12, height: 0.08, depth: 0.1}, scene);
+    chin.position = new BABYLON.Vector3(0, 1.57, 0.21);
+    chin.material = skinMaterial;
+    chin.parent = avatarGroup;
+    
+    // Chin dimple (Keanu's characteristic)
+    const chinDimple = BABYLON.MeshBuilder.CreateSphere('chinDimple', {diameter: 0.02, segments: 16}, scene);
+    chinDimple.position = new BABYLON.Vector3(0, 1.56, 0.22);
+    chinDimple.scaling = new BABYLON.Vector3(0.5, 1.0, 0.3);
+    const dimpleMaterial = new BABYLON.PBRMaterial('dimpleMat', scene);
+    dimpleMaterial.baseColor = new BABYLON.Color3(0.85, 0.7, 0.6);
+    chinDimple.material = dimpleMaterial;
+    chinDimple.parent = avatarGroup;
+    
+    // Forehead with realistic curve
+    const forehead = BABYLON.MeshBuilder.CreateSphere('forehead', {diameter: 0.4, segments: 64}, scene);
+    forehead.position = new BABYLON.Vector3(0, 1.85, 0.05);
+    forehead.scaling = new BABYLON.Vector3(0.9, 0.3, 1.1);
+    forehead.material = skinMaterial;
+    forehead.parent = avatarGroup;
+    
+    // HAIR - Keanu Reeves style dark shoulder-length hair
+    const hairMaterialKeanu = new BABYLON.PBRMaterial('hairMatKeanu', scene);
+    hairMaterialKeanu.baseColor = new BABYLON.Color3(0.05, 0.02, 0.01); // Very dark brown/black
+    hairMaterialKeanu.roughness = 0.9;
+    hairMaterialKeanu.metallic = 0.0;
+    
+    const hairBase = BABYLON.MeshBuilder.CreateSphere('hairBase', {diameter: 0.48, segments: 96}, scene);
+    hairBase.position.y = 1.82;
+    hairBase.scaling = new BABYLON.Vector3(0.95, 0.8, 0.95); // Fuller hair like Keanu
+    hairBase.material = hairMaterialKeanu;
+    hairBase.parent = avatarGroup;
+    
+    // Hair layers for Keanu's layered look
+    const hairLayer1 = BABYLON.MeshBuilder.CreateSphere('hairLayer1', {diameter: 0.46, segments: 64}, scene);
+    hairLayer1.position.y = 1.83;
+    hairLayer1.scaling = new BABYLON.Vector3(0.9, 0.75, 0.9);
+    hairLayer1.material = hairMaterialKeanu;
+    hairLayer1.parent = avatarGroup;
+    
+    // Longer hair sections (Keanu's signature look)
+    const hairBack = BABYLON.MeshBuilder.CreateBox('hairBack', {width: 0.4, height: 0.3, depth: 0.15}, scene);
+    hairBack.position = new BABYLON.Vector3(0, 1.7, -0.15);
+    hairBack.material = hairMaterialKeanu;
+    hairBack.parent = avatarGroup;
+    
+    const hairSideL = BABYLON.MeshBuilder.CreateBox('hairSideL', {width: 0.12, height: 0.25, depth: 0.08}, scene);
+    hairSideL.position = new BABYLON.Vector3(-0.22, 1.72, 0.05);
+    hairSideL.material = hairMaterialKeanu;
+    hairSideL.parent = avatarGroup;
+    
+    const hairSideR = BABYLON.MeshBuilder.CreateBox('hairSideR', {width: 0.12, height: 0.25, depth: 0.08}, scene);
+    hairSideR.position = new BABYLON.Vector3(0.22, 1.72, 0.05);
+    hairSideR.material = hairMaterialKeanu;
+    hairSideR.parent = avatarGroup;
+    
+    // Individual hair strands for Keanu's textured look
+    for (let i = 0; i < 25; i++) {
+      const hairStrand = BABYLON.MeshBuilder.CreateCylinder('hairStrand' + i, {height: 0.2, diameter: 0.002, tessellation: 6}, scene);
+      const angle = (i / 25) * Math.PI * 2;
+      const radius = 0.18 + Math.random() * 0.07;
+      hairStrand.position = new BABYLON.Vector3(
+        Math.cos(angle) * radius,
+        1.85 + Math.random() * 0.12,
+        Math.sin(angle) * radius
+      );
+      hairStrand.rotation.z = Math.random() * 0.8 - 0.4; // More natural flow
+      hairStrand.material = hairMaterialKeanu;
+      hairStrand.parent = avatarGroup;
+    }
+    
+    // Keanu's distinctive facial hair - goatee/beard stubble
+    const goatee = BABYLON.MeshBuilder.CreateBox('goatee', {width: 0.08, height: 0.06, depth: 0.02}, scene);
+    goatee.position = new BABYLON.Vector3(0, 1.58, 0.22);
+    const facialHairMaterial = new BABYLON.PBRMaterial('facialHairMat', scene);
+    facialHairMaterial.baseColor = new BABYLON.Color3(0.08, 0.05, 0.03);
+    facialHairMaterial.roughness = 0.95;
+    goatee.material = facialHairMaterial;
+    goatee.parent = avatarGroup;
+    
+    // Mustache area
+    const mustache = BABYLON.MeshBuilder.CreateBox('mustache', {width: 0.06, height: 0.02, depth: 0.015}, scene);
+    mustache.position = new BABYLON.Vector3(0, 1.64, 0.24);
+    mustache.material = facialHairMaterial;
+    mustache.parent = avatarGroup;
+    
+    // Sideburns with high detail
+    const sideburnL = BABYLON.MeshBuilder.CreateBox('sideburnL', {width: 0.04, height: 0.15, depth: 0.08}, scene);
+    sideburnL.position = new BABYLON.Vector3(-0.19, 1.73, 0.12);
+    sideburnL.material = hairMaterial;
+    sideburnL.parent = avatarGroup;
+    
+    const sideburnR = BABYLON.MeshBuilder.CreateBox('sideburnR', {width: 0.04, height: 0.15, depth: 0.08}, scene);
+    sideburnR.position = new BABYLON.Vector3(0.19, 1.73, 0.12);
+    sideburnR.material = hairMaterial;
+    sideburnR.parent = avatarGroup;
+    
+    // EYES - Ultra-high-detail realistic eye structure (AAA game quality)
+    // Eye sockets with bone structure
+    const leftEyeSocket = BABYLON.MeshBuilder.CreateSphere('leftEyeSocket', {diameter: 0.11, segments: 64}, scene);
+    leftEyeSocket.position = new BABYLON.Vector3(-0.11, 1.785, 0.21);
+    leftEyeSocket.scaling = new BABYLON.Vector3(1.1, 0.8, 0.9);
     leftEyeSocket.material = eyeMaterial;
     leftEyeSocket.parent = avatarGroup;
     
-    // Right Eye Socket
-    const rightEyeSocket = BABYLON.MeshBuilder.CreateSphere('rightEyeSocket', {diameter: 0.12, segments: 16}, scene);
-    rightEyeSocket.position = new BABYLON.Vector3(0.12, 1.78, 0.22);
-    rightEyeSocket.scaling = new BABYLON.Vector3(1, 0.7, 0.8);
+    const rightEyeSocket = BABYLON.MeshBuilder.CreateSphere('rightEyeSocket', {diameter: 0.11, segments: 64}, scene);
+    rightEyeSocket.position = new BABYLON.Vector3(0.11, 1.785, 0.21);
+    rightEyeSocket.scaling = new BABYLON.Vector3(1.1, 0.8, 0.9);
     rightEyeSocket.material = eyeMaterial;
     rightEyeSocket.parent = avatarGroup;
     
-    // Left Iris
-    const leftIris = BABYLON.MeshBuilder.CreateSphere('leftIris', {diameter: 0.08, segments: 16}, scene);
-    leftIris.position = new BABYLON.Vector3(-0.12, 1.78, 0.27);
+    // Eye socket rims for depth
+    const leftSocketRim = BABYLON.MeshBuilder.CreateTorus('leftSocketRim', {diameter: 0.12, thickness: 0.008, tessellation: 48}, scene);
+    leftSocketRim.position = new BABYLON.Vector3(-0.11, 1.785, 0.22);
+    leftSocketRim.material = skinMaterial;
+    leftSocketRim.parent = avatarGroup;
+    
+    const rightSocketRim = BABYLON.MeshBuilder.CreateTorus('rightSocketRim', {diameter: 0.12, thickness: 0.008, tessellation: 48}, scene);
+    rightSocketRim.position = new BABYLON.Vector3(0.11, 1.785, 0.22);
+    rightSocketRim.material = skinMaterial;
+    rightSocketRim.parent = avatarGroup;
+    
+    // Ultra-detailed eyelids with realistic curves
+    const leftUpperEyelid = BABYLON.MeshBuilder.CreateSphere('leftUpperEyelid', {diameter: 0.12, segments: 32}, scene);
+    leftUpperEyelid.position = new BABYLON.Vector3(-0.11, 1.795, 0.24);
+    leftUpperEyelid.scaling = new BABYLON.Vector3(1.0, 0.15, 0.6);
+    leftUpperEyelid.material = skinMaterial;
+    leftUpperEyelid.parent = avatarGroup;
+    
+    const rightUpperEyelid = BABYLON.MeshBuilder.CreateSphere('rightUpperEyelid', {diameter: 0.12, segments: 32}, scene);
+    rightUpperEyelid.position = new BABYLON.Vector3(0.11, 1.795, 0.24);
+    rightUpperEyelid.scaling = new BABYLON.Vector3(1.0, 0.15, 0.6);
+    rightUpperEyelid.material = skinMaterial;
+    rightUpperEyelid.parent = avatarGroup;
+    
+    const leftLowerEyelid = BABYLON.MeshBuilder.CreateSphere('leftLowerEyelid', {diameter: 0.11, segments: 32}, scene);
+    leftLowerEyelid.position = new BABYLON.Vector3(-0.11, 1.775, 0.24);
+    leftLowerEyelid.scaling = new BABYLON.Vector3(1.0, 0.1, 0.5);
+    leftLowerEyelid.material = skinMaterial;
+    leftLowerEyelid.parent = avatarGroup;
+    
+    const rightLowerEyelid = BABYLON.MeshBuilder.CreateSphere('rightLowerEyelid', {diameter: 0.11, segments: 32}, scene);
+    rightLowerEyelid.position = new BABYLON.Vector3(0.11, 1.775, 0.24);
+    rightLowerEyelid.scaling = new BABYLON.Vector3(1.0, 0.1, 0.5);
+    rightLowerEyelid.material = skinMaterial;
+    rightLowerEyelid.parent = avatarGroup;
+    
+    // Eyelashes for ultra-realism
+    for (let i = 0; i < 12; i++) {
+      const lash = BABYLON.MeshBuilder.CreateCylinder('leftLash' + i, {height: 0.015, diameter: 0.0008, tessellation: 6}, scene);
+      const angle = (i / 12) * Math.PI;
+      lash.position = new BABYLON.Vector3(
+        -0.11 + Math.cos(angle + Math.PI) * 0.055,
+        1.795 + Math.sin(angle + Math.PI) * 0.02,
+        0.25
+      );
+      lash.rotation.z = angle - Math.PI/2;
+      lash.material = hairMaterial;
+      lash.parent = avatarGroup;
+      
+      const rightLash = BABYLON.MeshBuilder.CreateCylinder('rightLash' + i, {height: 0.015, diameter: 0.0008, tessellation: 6}, scene);
+      rightLash.position = new BABYLON.Vector3(
+        0.11 + Math.cos(angle + Math.PI) * 0.055,
+        1.795 + Math.sin(angle + Math.PI) * 0.02,
+        0.25
+      );
+      rightLash.rotation.z = -(angle - Math.PI/2);
+      rightLash.material = hairMaterial;
+      rightLash.parent = avatarGroup;
+    }
+    
+    // Eyebrows with individual hairs
+    for (let i = 0; i < 15; i++) {
+      const browHair = BABYLON.MeshBuilder.CreateCylinder('leftBrowHair' + i, {height: 0.02, diameter: 0.001, tessellation: 6}, scene);
+      browHair.position = new BABYLON.Vector3(
+        -0.16 + (i / 15) * 0.1,
+        1.82,
+        0.22 + Math.random() * 0.01
+      );
+      browHair.rotation.z = 0.3 + Math.random() * 0.4;
+      browHair.material = hairMaterial;
+      browHair.parent = avatarGroup;
+      
+      const rightBrowHair = BABYLON.MeshBuilder.CreateCylinder('rightBrowHair' + i, {height: 0.02, diameter: 0.001, tessellation: 6}, scene);
+      rightBrowHair.position = new BABYLON.Vector3(
+        0.06 + (i / 15) * 0.1,
+        1.82,
+        0.22 + Math.random() * 0.01
+      );
+      rightBrowHair.rotation.z = -0.3 - Math.random() * 0.4;
+      rightBrowHair.material = hairMaterial;
+      rightBrowHair.parent = avatarGroup;
+    }
+    
+    // Ultra-high-resolution iris with detailed patterns
+    const leftIris = BABYLON.MeshBuilder.CreateSphere('leftIris', {diameter: 0.065, segments: 64}, scene);
+    leftIris.position = new BABYLON.Vector3(-0.11, 1.785, 0.255);
     leftIris.material = irisMaterial;
     leftIris.parent = avatarGroup;
     
-    // Right Iris
-    const rightIris = BABYLON.MeshBuilder.CreateSphere('rightIris', {diameter: 0.08, segments: 16}, scene);
-    rightIris.position = new BABYLON.Vector3(0.12, 1.78, 0.27);
+    const rightIris = BABYLON.MeshBuilder.CreateSphere('rightIris', {diameter: 0.065, segments: 64}, scene);
+    rightIris.position = new BABYLON.Vector3(0.11, 1.785, 0.255);
     rightIris.material = irisMaterial;
     rightIris.parent = avatarGroup;
     
-    // Left Pupil
-    const leftPupil = BABYLON.MeshBuilder.CreateSphere('leftPupil', {diameter: 0.03, segments: 8}, scene);
-    leftPupil.position = new BABYLON.Vector3(-0.12, 1.78, 0.29);
+    // Iris detail rings for realism
+    const leftIrisRing = BABYLON.MeshBuilder.CreateTorus('leftIrisRing', {diameter: 0.05, thickness: 0.003, tessellation: 32}, scene);
+    leftIrisRing.position = new BABYLON.Vector3(-0.11, 1.785, 0.257);
+    leftIrisRing.material = irisMaterial;
+    leftIrisRing.parent = avatarGroup;
+    
+    const rightIrisRing = BABYLON.MeshBuilder.CreateTorus('rightIrisRing', {diameter: 0.05, thickness: 0.003, tessellation: 32}, scene);
+    rightIrisRing.position = new BABYLON.Vector3(0.11, 1.785, 0.257);
+    rightIrisRing.material = irisMaterial;
+    rightIrisRing.parent = avatarGroup;
+    
+    // Ultra-precise pupils
+    const leftPupil = BABYLON.MeshBuilder.CreateSphere('leftPupil', {diameter: 0.025, segments: 32}, scene);
+    leftPupil.position = new BABYLON.Vector3(-0.11, 1.785, 0.26);
     leftPupil.material = pupilMaterial;
     leftPupil.parent = avatarGroup;
     
-    // Right Pupil
-    const rightPupil = BABYLON.MeshBuilder.CreateSphere('rightPupil', {diameter: 0.03, segments: 8}, scene);
-    rightPupil.position = new BABYLON.Vector3(0.12, 1.78, 0.29);
+    const rightPupil = BABYLON.MeshBuilder.CreateSphere('rightPupil', {diameter: 0.025, segments: 32}, scene);
+    rightPupil.position = new BABYLON.Vector3(0.11, 1.785, 0.26);
     rightPupil.material = pupilMaterial;
     rightPupil.parent = avatarGroup;
     
-    // NOSE - Simple but defined
-    const nose = BABYLON.MeshBuilder.CreateBox('nose', {width: 0.06, height: 0.12, depth: 0.08}, scene);
-    nose.position = new BABYLON.Vector3(0, 1.7, 0.24);
-    nose.scaling = new BABYLON.Vector3(1, 1, 0.8);
-    nose.material = skinMaterial;
-    nose.parent = avatarGroup;
+    // NOSE - Keanu's distinctive straight nose
+    const noseBridge = BABYLON.MeshBuilder.CreateBox('noseBridge', {width: 0.035, height: 0.12, depth: 0.08}, scene);
+    noseBridge.position = new BABYLON.Vector3(0, 1.73, 0.24);
+    noseBridge.material = skinMaterial;
+    noseBridge.parent = avatarGroup;
     
-    // MOUTH - More realistic
-    const mouth = BABYLON.MeshBuilder.CreateTorus('mouth', {diameter: 0.12, thickness: 0.015, tessellation: 16}, scene);
-    mouth.position = new BABYLON.Vector3(0, 1.6, 0.22);
-    mouth.rotation.x = Math.PI / 2;
-    mouth.scaling = new BABYLON.Vector3(1, 0.6, 1);
-    const mouthMaterial = new BABYLON.StandardMaterial('mouthMat', scene);
-    mouthMaterial.diffuseColor = new BABYLON.Color3(0.8, 0.4, 0.4);
-    mouth.material = mouthMaterial;
-    mouth.parent = avatarGroup;
+    const noseTip = BABYLON.MeshBuilder.CreateSphere('noseTip', {diameter: 0.055, segments: 20}, scene);
+    noseTip.position = new BABYLON.Vector3(0, 1.675, 0.265);
+    noseTip.scaling = new BABYLON.Vector3(0.9, 0.7, 1.1); // Keanu's refined nose tip
+    noseTip.material = skinMaterial;
+    noseTip.parent = avatarGroup;
     
-    // NECK
-    const neck = BABYLON.MeshBuilder.CreateCylinder('neck', {height: 0.25, diameter: 0.2}, scene);
-    neck.position.y = 1.35;
+    // Nostrils
+    const leftNostril = BABYLON.MeshBuilder.CreateSphere('leftNostril', {diameter: 0.02, segments: 8}, scene);
+    leftNostril.position = new BABYLON.Vector3(-0.015, 1.67, 0.27);
+    leftNostril.scaling = new BABYLON.Vector3(1, 0.5, 1.5);
+    const nostrilMaterial = new BABYLON.PBRMaterial('nostrilMat', scene);
+    nostrilMaterial.baseColor = new BABYLON.Color3(0.3, 0.2, 0.2);
+    leftNostril.material = nostrilMaterial;
+    leftNostril.parent = avatarGroup;
+    
+    const rightNostril = BABYLON.MeshBuilder.CreateSphere('rightNostril', {diameter: 0.02, segments: 8}, scene);
+    rightNostril.position = new BABYLON.Vector3(0.015, 1.67, 0.27);
+    rightNostril.scaling = new BABYLON.Vector3(1, 0.5, 1.5);
+    rightNostril.material = nostrilMaterial;
+    rightNostril.parent = avatarGroup;
+    
+    // MOUTH - More realistic with lips
+    const upperLip = BABYLON.MeshBuilder.CreateTorus('upperLip', {diameter: 0.1, thickness: 0.012, tessellation: 20}, scene);
+    upperLip.position = new BABYLON.Vector3(0, 1.625, 0.235);
+    upperLip.rotation.x = Math.PI / 2;
+    upperLip.scaling = new BABYLON.Vector3(1, 0.7, 0.8);
+    const lipMaterial = new BABYLON.PBRMaterial('lipMat', scene);
+    lipMaterial.baseColor = new BABYLON.Color3(0.85, 0.5, 0.5);
+    lipMaterial.roughness = 0.3;
+    upperLip.material = lipMaterial;
+    upperLip.parent = avatarGroup;
+    
+    const lowerLip = BABYLON.MeshBuilder.CreateTorus('lowerLip', {diameter: 0.1, thickness: 0.01, tessellation: 20}, scene);
+    lowerLip.position = new BABYLON.Vector3(0, 1.615, 0.235);
+    lowerLip.rotation.x = Math.PI / 2;
+    lowerLip.scaling = new BABYLON.Vector3(1, 0.7, 0.6);
+    lowerLip.material = lipMaterial;
+    lowerLip.parent = avatarGroup;
+    
+    // NECK - More realistic proportions
+    const neck = BABYLON.MeshBuilder.CreateCylinder('neck', {height: 0.22, diameter: 0.18, tessellation: 24}, scene);
+    neck.position.y = 1.37;
     neck.material = skinMaterial;
     neck.parent = avatarGroup;
     
-    // SHIRT COLLAR
-    const collar = BABYLON.MeshBuilder.CreateCylinder('collar', {height: 0.15, diameter: 0.35}, scene);
-    collar.position.y = 1.2;
+    // Adam's apple for male characteristics
+    const adamsApple = BABYLON.MeshBuilder.CreateBox('adamsApple', {width: 0.03, height: 0.04, depth: 0.02}, scene);
+    adamsApple.position = new BABYLON.Vector3(0, 1.38, 0.08);
+    adamsApple.material = skinMaterial;
+    adamsApple.parent = avatarGroup;
+    
+    // SHIRT COLLAR - More detailed
+    const collar = BABYLON.MeshBuilder.CreateCylinder('collar', {height: 0.12, diameter: 0.32, tessellation: 32}, scene);
+    collar.position.y = 1.22;
     collar.material = shirtMaterial;
     collar.parent = avatarGroup;
     
-    // TORSO - Business suit
-    const torso = BABYLON.MeshBuilder.CreateBox('torso', {height: 1.0, width: 0.6, depth: 0.3}, scene);
-    torso.position.y = 0.7;
-    torso.material = suitMaterial;
-    torso.parent = avatarGroup;
+    // Collar details
+    const collarFold = BABYLON.MeshBuilder.CreateTorus('collarFold', {diameter: 0.3, thickness: 0.008, tessellation: 32}, scene);
+    collarFold.position.y = 1.27;
+    collarFold.material = shirtMaterial;
+    collarFold.parent = avatarGroup;
     
-    // SUIT JACKET DETAILS
-    const jacket = BABYLON.MeshBuilder.CreateBox('jacket', {height: 1.05, width: 0.62, depth: 0.32}, scene);
-    jacket.position.y = 0.7;
-    jacket.material = suitMaterial;
-    jacket.parent = avatarGroup;
+    // TORSO - More realistic body shape
+    const chest = BABYLON.MeshBuilder.CreateBox('chest', {height: 0.4, width: 0.45, depth: 0.25}, scene);
+    chest.position.y = 1.05;
+    chest.scaling = new BABYLON.Vector3(1, 1, 0.8);
+    chest.material = shirtMaterial;
+    chest.parent = avatarGroup;
     
-    // TIE
-    const tie = BABYLON.MeshBuilder.CreateBox('tie', {width: 0.08, height: 0.5, depth: 0.02}, scene);
-    tie.position = new BABYLON.Vector3(0, 1.0, 0.16);
-    const tieMaterial = new BABYLON.StandardMaterial('tieMat', scene);
-    tieMaterial.diffuseColor = new BABYLON.Color3(0, 0.7, 0);
-    tieMaterial.emissiveColor = new BABYLON.Color3(0, 0.1, 0);
+    const abdomen = BABYLON.MeshBuilder.CreateBox('abdomen', {height: 0.35, width: 0.42, depth: 0.22}, scene);
+    abdomen.position.y = 0.65;
+    abdomen.material = shirtMaterial;
+    abdomen.parent = avatarGroup;
+    
+    const waist = BABYLON.MeshBuilder.CreateBox('waist', {height: 0.25, width: 0.38, depth: 0.2}, scene);
+    waist.position.y = 0.35;
+    waist.material = suitMaterial;
+    waist.parent = avatarGroup;
+    
+    // SUIT JACKET - More detailed and realistic
+    const jacketChest = BABYLON.MeshBuilder.CreateBox('jacketChest', {height: 0.42, width: 0.48, depth: 0.28}, scene);
+    jacketChest.position.y = 1.06;
+    jacketChest.material = suitMaterial;
+    jacketChest.parent = avatarGroup;
+    
+    const jacketWaist = BABYLON.MeshBuilder.CreateBox('jacketWaist', {height: 0.4, width: 0.45, depth: 0.25}, scene);
+    jacketWaist.position.y = 0.65;
+    jacketWaist.material = suitMaterial;
+    jacketWaist.parent = avatarGroup;
+    
+    // Suit lapels
+    const leftLapel = BABYLON.MeshBuilder.CreateBox('leftLapel', {width: 0.08, height: 0.25, depth: 0.02}, scene);
+    leftLapel.position = new BABYLON.Vector3(-0.12, 1.1, 0.14);
+    leftLapel.rotation.z = 0.3;
+    leftLapel.material = suitMaterial;
+    leftLapel.parent = avatarGroup;
+    
+    const rightLapel = BABYLON.MeshBuilder.CreateBox('rightLapel', {width: 0.08, height: 0.25, depth: 0.02}, scene);
+    rightLapel.position = new BABYLON.Vector3(0.12, 1.1, 0.14);
+    rightLapel.rotation.z = -0.3;
+    rightLapel.material = suitMaterial;
+    rightLapel.parent = avatarGroup;
+    
+    // TIE - More detailed
+    const tieKnot = BABYLON.MeshBuilder.CreateBox('tieKnot', {width: 0.06, height: 0.08, depth: 0.04}, scene);
+    tieKnot.position = new BABYLON.Vector3(0, 1.18, 0.16);
+    const tieMaterial = new BABYLON.PBRMaterial('tieMat', scene);
+    tieMaterial.baseColor = new BABYLON.Color3(0, 0.6, 0.1);
+    tieMaterial.roughness = 0.6;
+    tieMaterial.emissiveColor = new BABYLON.Color3(0, 0.08, 0.02);
+    tieKnot.material = tieMaterial;
+    tieKnot.parent = avatarGroup;
+    
+    const tie = BABYLON.MeshBuilder.CreateBox('tie', {width: 0.07, height: 0.4, depth: 0.02}, scene);
+    tie.position = new BABYLON.Vector3(0, 0.95, 0.16);
     tie.material = tieMaterial;
     tie.parent = avatarGroup;
     
-    // ARMS - More realistic with joints
-    // Left Upper Arm
-    const leftUpperArm = BABYLON.MeshBuilder.CreateCylinder('leftUpperArm', {height: 0.5, diameter: 0.15}, scene);
-    leftUpperArm.position = new BABYLON.Vector3(-0.4, 1.0, 0);
-    leftUpperArm.rotation.z = 0.2;
-    leftUpperArm.material = suitMaterial;
-    leftUpperArm.parent = avatarGroup;
+    // SHOULDERS - Ultra-detailed shoulder and clavicle structure
+    const leftClavicle = BABYLON.MeshBuilder.CreateCylinder('leftClavicle', {height: 0.25, diameter: 0.03, tessellation: 24}, scene);
+    leftClavicle.position = new BABYLON.Vector3(-0.12, 1.2, 0.02);
+    leftClavicle.rotation.z = 0.2;
+    leftClavicle.material = skinMaterial;
+    leftClavicle.parent = avatarGroup;
     
-    // Left Lower Arm
-    const leftLowerArm = BABYLON.MeshBuilder.CreateCylinder('leftLowerArm', {height: 0.45, diameter: 0.12}, scene);
-    leftLowerArm.position = new BABYLON.Vector3(-0.5, 0.5, 0);
-    leftLowerArm.rotation.z = 0.3;
-    leftLowerArm.material = skinMaterial;
-    leftLowerArm.parent = avatarGroup;
+    const rightClavicle = BABYLON.MeshBuilder.CreateCylinder('rightClavicle', {height: 0.25, diameter: 0.03, tessellation: 24}, scene);
+    rightClavicle.position = new BABYLON.Vector3(0.12, 1.2, 0.02);
+    rightClavicle.rotation.z = -0.2;
+    rightClavicle.material = skinMaterial;
+    rightClavicle.parent = avatarGroup;
     
-    // Left Hand
-    const leftHand = BABYLON.MeshBuilder.CreateSphere('leftHand', {diameter: 0.12}, scene);
-    leftHand.position = new BABYLON.Vector3(-0.6, 0.25, 0);
-    leftHand.material = skinMaterial;
-    leftHand.parent = avatarGroup;
+    const leftShoulder = BABYLON.MeshBuilder.CreateSphere('leftShoulder', {diameter: 0.18, segments: 48}, scene);
+    leftShoulder.position = new BABYLON.Vector3(-0.28, 1.15, 0);
+    leftShoulder.material = suitMaterial;
+    leftShoulder.parent = avatarGroup;
     
-    // Right Upper Arm
-    const rightUpperArm = BABYLON.MeshBuilder.CreateCylinder('rightUpperArm', {height: 0.5, diameter: 0.15}, scene);
-    rightUpperArm.position = new BABYLON.Vector3(0.4, 1.0, 0);
-    rightUpperArm.rotation.z = -0.2;
-    rightUpperArm.material = suitMaterial;
-    rightUpperArm.parent = avatarGroup;
+    const rightShoulder = BABYLON.MeshBuilder.CreateSphere('rightShoulder', {diameter: 0.18, segments: 48}, scene);
+    rightShoulder.position = new BABYLON.Vector3(0.28, 1.15, 0);
+    rightShoulder.material = suitMaterial;
+    rightShoulder.parent = avatarGroup;
     
-    // Right Lower Arm
-    const rightLowerArm = BABYLON.MeshBuilder.CreateCylinder('rightLowerArm', {height: 0.45, diameter: 0.12}, scene);
-    rightLowerArm.position = new BABYLON.Vector3(0.5, 0.5, 0);
-    rightLowerArm.rotation.z = -0.3;
-    rightLowerArm.material = skinMaterial;
-    rightLowerArm.parent = avatarGroup;
+    // ARMS - Ultra-high-resolution arms with anatomical accuracy
+    // Left Upper Arm with muscle definition
+    const leftBicep = BABYLON.MeshBuilder.CreateCylinder('leftBicep', {height: 0.25, diameterTop: 0.11, diameterBottom: 0.09, tessellation: 48}, scene);
+    leftBicep.position = new BABYLON.Vector3(-0.32, 0.95, 0);
+    leftBicep.rotation.z = 0.1;
+    leftBicep.material = suitMaterial;
+    leftBicep.parent = avatarGroup;
     
-    // Right Hand
-    const rightHand = BABYLON.MeshBuilder.CreateSphere('rightHand', {diameter: 0.12}, scene);
-    rightHand.position = new BABYLON.Vector3(0.6, 0.25, 0);
-    rightHand.material = skinMaterial;
-    rightHand.parent = avatarGroup;
+    const leftTricep = BABYLON.MeshBuilder.CreateCylinder('leftTricep', {height: 0.2, diameterTop: 0.09, diameterBottom: 0.08, tessellation: 48}, scene);
+    leftTricep.position = new BABYLON.Vector3(-0.38, 0.72, 0);
+    leftTricep.rotation.z = 0.15;
+    leftTricep.material = suitMaterial;
+    leftTricep.parent = avatarGroup;
+    
+    // Left Elbow with anatomical detail
+    const leftElbow = BABYLON.MeshBuilder.CreateSphere('leftElbow', {diameter: 0.08, segments: 32}, scene);
+    leftElbow.position = new BABYLON.Vector3(-0.42, 0.6, 0);
+    leftElbow.material = suitMaterial;
+    leftElbow.parent = avatarGroup;
+    
+    // Left Forearm with muscle definition
+    const leftForearm = BABYLON.MeshBuilder.CreateCylinder('leftForearm', {height: 0.3, diameterTop: 0.08, diameterBottom: 0.06, tessellation: 48}, scene);
+    leftForearm.position = new BABYLON.Vector3(-0.48, 0.4, 0);
+    leftForearm.rotation.z = 0.2;
+    leftForearm.material = shirtMaterial;
+    leftForearm.parent = avatarGroup;
+    
+    // Left Wrist with bone structure
+    const leftWrist = BABYLON.MeshBuilder.CreateCylinder('leftWrist', {height: 0.05, diameter: 0.055, tessellation: 32}, scene);
+    leftWrist.position = new BABYLON.Vector3(-0.54, 0.2, 0);
+    leftWrist.material = skinMaterial;
+    leftWrist.parent = avatarGroup;
+    
+    // Left Hand - Ultra-detailed with proper anatomy
+    const leftPalm = BABYLON.MeshBuilder.CreateSphere('leftPalm', {diameter: 0.1, segments: 32}, scene);
+    leftPalm.position = new BABYLON.Vector3(-0.57, 0.12, 0);
+    leftPalm.scaling = new BABYLON.Vector3(0.8, 1.2, 0.6);
+    leftPalm.material = skinMaterial;
+    leftPalm.parent = avatarGroup;
+    
+    // Left fingers with joints and proper proportions
+    const leftFingers = [];
+    for (let i = 0; i < 4; i++) {
+      // Finger segments for realistic joints
+      const finger1 = BABYLON.MeshBuilder.CreateCylinder('leftFinger' + i + '_1', {height: 0.04, diameter: 0.012, tessellation: 16}, scene);
+      finger1.position = new BABYLON.Vector3(-0.54 - (i * 0.018), 0.05, -0.025 + (i * 0.012));
+      finger1.material = skinMaterial;
+      finger1.parent = avatarGroup;
+      
+      const finger2 = BABYLON.MeshBuilder.CreateCylinder('leftFinger' + i + '_2', {height: 0.03, diameter: 0.01, tessellation: 16}, scene);
+      finger2.position = new BABYLON.Vector3(-0.54 - (i * 0.018), 0.02, -0.025 + (i * 0.012));
+      finger2.material = skinMaterial;
+      finger2.parent = avatarGroup;
+      
+      const fingerTip = BABYLON.MeshBuilder.CreateSphere('leftFingerTip' + i, {diameter: 0.008, segments: 12}, scene);
+      fingerTip.position = new BABYLON.Vector3(-0.54 - (i * 0.018), -0.005, -0.025 + (i * 0.012));
+      fingerTip.material = skinMaterial;
+      fingerTip.parent = avatarGroup;
+      
+      // Fingernails
+      const nail = BABYLON.MeshBuilder.CreateBox('leftNail' + i, {width: 0.006, height: 0.008, depth: 0.001}, scene);
+      nail.position = new BABYLON.Vector3(-0.54 - (i * 0.018), -0.008, -0.02 + (i * 0.012));
+      const nailMaterial = new BABYLON.PBRMaterial('nailMat', scene);
+      nailMaterial.baseColor = new BABYLON.Color3(0.95, 0.9, 0.85);
+      nailMaterial.roughness = 0.2;
+      nail.material = nailMaterial;
+      nail.parent = avatarGroup;
+    }
+    
+    // Left thumb with proper anatomy
+    const leftThumb1 = BABYLON.MeshBuilder.CreateCylinder('leftThumb1', {height: 0.04, diameter: 0.015, tessellation: 16}, scene);
+    leftThumb1.position = new BABYLON.Vector3(-0.59, 0.1, 0.03);
+    leftThumb1.rotation.z = 0.6;
+    leftThumb1.material = skinMaterial;
+    leftThumb1.parent = avatarGroup;
+    
+    const leftThumb2 = BABYLON.MeshBuilder.CreateCylinder('leftThumb2', {height: 0.03, diameter: 0.012, tessellation: 16}, scene);
+    leftThumb2.position = new BABYLON.Vector3(-0.61, 0.08, 0.035);
+    leftThumb2.rotation.z = 0.8;
+    leftThumb2.material = skinMaterial;
+    leftThumb2.parent = avatarGroup;
+    
+    // Mirror all arm details for right side
+    const rightBicep = BABYLON.MeshBuilder.CreateCylinder('rightBicep', {height: 0.25, diameterTop: 0.11, diameterBottom: 0.09, tessellation: 48}, scene);
+    rightBicep.position = new BABYLON.Vector3(0.32, 0.95, 0);
+    rightBicep.rotation.z = -0.1;
+    rightBicep.material = suitMaterial;
+    rightBicep.parent = avatarGroup;
+    
+    const rightTricep = BABYLON.MeshBuilder.CreateCylinder('rightTricep', {height: 0.2, diameterTop: 0.09, diameterBottom: 0.08, tessellation: 48}, scene);
+    rightTricep.position = new BABYLON.Vector3(0.38, 0.72, 0);
+    rightTricep.rotation.z = -0.15;
+    rightTricep.material = suitMaterial;
+    rightTricep.parent = avatarGroup;
+    
+    const rightElbow = BABYLON.MeshBuilder.CreateSphere('rightElbow', {diameter: 0.08, segments: 32}, scene);
+    rightElbow.position = new BABYLON.Vector3(0.42, 0.6, 0);
+    rightElbow.material = suitMaterial;
+    rightElbow.parent = avatarGroup;
+    
+    const rightForearm = BABYLON.MeshBuilder.CreateCylinder('rightForearm', {height: 0.3, diameterTop: 0.08, diameterBottom: 0.06, tessellation: 48}, scene);
+    rightForearm.position = new BABYLON.Vector3(0.48, 0.4, 0);
+    rightForearm.rotation.z = -0.2;
+    rightForearm.material = shirtMaterial;
+    rightForearm.parent = avatarGroup;
+    
+    const rightWrist = BABYLON.MeshBuilder.CreateCylinder('rightWrist', {height: 0.05, diameter: 0.055, tessellation: 32}, scene);
+    rightWrist.position = new BABYLON.Vector3(0.54, 0.2, 0);
+    rightWrist.material = skinMaterial;
+    rightWrist.parent = avatarGroup;
+    
+    const rightPalm = BABYLON.MeshBuilder.CreateSphere('rightPalm', {diameter: 0.1, segments: 32}, scene);
+    rightPalm.position = new BABYLON.Vector3(0.57, 0.12, 0);
+    rightPalm.scaling = new BABYLON.Vector3(0.8, 1.2, 0.6);
+    rightPalm.material = skinMaterial;
+    rightPalm.parent = avatarGroup;
+    
+    // Right fingers with same detail level
+    for (let i = 0; i < 4; i++) {
+      const finger1 = BABYLON.MeshBuilder.CreateCylinder('rightFinger' + i + '_1', {height: 0.04, diameter: 0.012, tessellation: 16}, scene);
+      finger1.position = new BABYLON.Vector3(0.54 + (i * 0.018), 0.05, -0.025 + (i * 0.012));
+      finger1.material = skinMaterial;
+      finger1.parent = avatarGroup;
+      
+      const finger2 = BABYLON.MeshBuilder.CreateCylinder('rightFinger' + i + '_2', {height: 0.03, diameter: 0.01, tessellation: 16}, scene);
+      finger2.position = new BABYLON.Vector3(0.54 + (i * 0.018), 0.02, -0.025 + (i * 0.012));
+      finger2.material = skinMaterial;
+      finger2.parent = avatarGroup;
+      
+      const fingerTip = BABYLON.MeshBuilder.CreateSphere('rightFingerTip' + i, {diameter: 0.008, segments: 12}, scene);
+      fingerTip.position = new BABYLON.Vector3(0.54 + (i * 0.018), -0.005, -0.025 + (i * 0.012));
+      fingerTip.material = skinMaterial;
+      fingerTip.parent = avatarGroup;
+    }
+    
+    const rightThumb1 = BABYLON.MeshBuilder.CreateCylinder('rightThumb1', {height: 0.04, diameter: 0.015, tessellation: 16}, scene);
+    rightThumb1.position = new BABYLON.Vector3(0.59, 0.1, 0.03);
+    rightThumb1.rotation.z = -0.6;
+    rightThumb1.material = skinMaterial;
+    rightThumb1.parent = avatarGroup;
+    
+    const rightThumb2 = BABYLON.MeshBuilder.CreateCylinder('rightThumb2', {height: 0.03, diameter: 0.012, tessellation: 16}, scene);
+    rightThumb2.position = new BABYLON.Vector3(0.61, 0.08, 0.035);
+    rightThumb2.rotation.z = -0.8;
+    rightThumb2.material = skinMaterial;
+    rightThumb2.parent = avatarGroup;
     
     // Mouse tracking for eye movement
     let mouseX = 0;
@@ -810,38 +1228,62 @@ window.addEventListener('DOMContentLoaded', function() {
     scene.registerBeforeRender(() => {
       time += 0.01;
       
-      // Gentle breathing
-      const breathe = Math.sin(time * 0.8) * 0.01;
-      torso.scaling.z = 1 + breathe;
-      jacket.scaling.z = 1 + breathe;
+      // Gentle breathing - more realistic
+      const breathe = Math.sin(time * 0.5) * 0.006;
+      chest.scaling.z = 1 + breathe;
+      abdomen.scaling.z = 1 + breathe * 0.9;
+      jacketChest.scaling.z = 1 + breathe * 0.8;
+      jacketWaist.scaling.z = 1 + breathe * 0.7;
       
-      // Subtle head movement
-      head.rotation.y = Math.sin(time * 0.3) * 0.1;
-      head.rotation.x = Math.sin(time * 0.2) * 0.05;
+      // Subtle chest rise and fall
+      chest.position.y = 1.05 + breathe * 2;
+      abdomen.position.y = 0.65 + breathe * 1.5;
       
-      // Eye tracking - follow mouse
-      const eyeMovement = 0.15;
-      const targetX = mouseX * eyeMovement;
-      const targetY = mouseY * eyeMovement * 0.5;
+      // Subtle head movement - keeping Keanu facing forward mostly
+      head.rotation.y = Math.sin(time * 0.2) * 0.05; // Reduced side-to-side
+      head.rotation.x = Math.sin(time * 0.15) * 0.03; // Gentle nod
       
-      leftIris.position.x = -0.12 + targetX;
-      leftIris.position.y = 1.78 + targetY;
-      rightIris.position.x = 0.12 + targetX;
-      rightIris.position.y = 1.78 + targetY;
+      // Ultra-precise eye tracking with realistic constraints
+      const eyeMovement = 0.018; // Fine-tuned for realistic movement
+      const targetX = -mouseX * eyeMovement; // Correct horizontal direction
+      const targetY = mouseY * eyeMovement * 0.7; // Realistic vertical sensitivity
       
-      leftPupil.position.x = -0.12 + targetX;
-      leftPupil.position.y = 1.78 + targetY;
-      rightPupil.position.x = 0.12 + targetX;
-      rightPupil.position.y = 1.78 + targetY;
+      // Strict eye movement constraints to keep pupils inside eyeballs
+      const maxMovement = 0.015; // Tighter constraint for realism
+      const constrainedX = Math.max(-maxMovement, Math.min(maxMovement, targetX));
+      const constrainedY = Math.max(-maxMovement, Math.min(maxMovement, targetY));
       
-      // Blinking
-      const blinkTime = Math.sin(time * 0.5) > 0.98;
+      // Iris and pupil movement (stay together)
+      leftIris.position.x = -0.11 + constrainedX;
+      leftIris.position.y = 1.785 + constrainedY;
+      leftPupil.position.x = -0.11 + constrainedX;
+      leftPupil.position.y = 1.785 + constrainedY;
+      leftIrisRing.position.x = -0.11 + constrainedX;
+      leftIrisRing.position.y = 1.785 + constrainedY;
+      
+      rightIris.position.x = 0.11 + constrainedX;
+      rightIris.position.y = 1.785 + constrainedY;
+      rightPupil.position.x = 0.11 + constrainedX;
+      rightPupil.position.y = 1.785 + constrainedY;
+      rightIrisRing.position.x = 0.11 + constrainedX;
+      rightIrisRing.position.y = 1.785 + constrainedY;
+      
+      // Ultra-realistic blinking animation
+      const blinkTime = Math.sin(time * 0.3) > 0.99;
       if (blinkTime) {
-        leftEyeSocket.scaling.y = 0.1;
+        leftUpperEyelid.scaling.y = 2.5; // Upper eyelid closes
+        rightUpperEyelid.scaling.y = 2.5;
+        leftLowerEyelid.scaling.y = 1.8; // Lower eyelid rises slightly
+        rightLowerEyelid.scaling.y = 1.8;
+        leftEyeSocket.scaling.y = 0.1; // Eye hidden
         rightEyeSocket.scaling.y = 0.1;
       } else {
-        leftEyeSocket.scaling.y = 0.7;
-        rightEyeSocket.scaling.y = 0.7;
+        leftUpperEyelid.scaling.y = 0.15; // Normal eyelid position
+        rightUpperEyelid.scaling.y = 0.15;
+        leftLowerEyelid.scaling.y = 0.1;
+        rightLowerEyelid.scaling.y = 0.1;
+        leftEyeSocket.scaling.y = 0.8; // Normal eye
+        rightEyeSocket.scaling.y = 0.8;
       }
       
       // Iris glow pulse
