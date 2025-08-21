@@ -50,7 +50,9 @@
       "Bash(aws s3api get-bucket-location:*)",
       "Bash(aws cloudfront create-invalidation:*)",
       "Bash(aws cloudfront list-distributions:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(mv:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }
