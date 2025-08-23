@@ -3,7 +3,6 @@ title: Complete AI Ecosystem
 weight: 7
 ---
 
-# The Complete AIMatrix Ecosystem: Everything Works Together, Nothing Reinvented
 
 We don't reinvent wheels. We connect all the best AI technologies into one seamless platform that actually works.
 

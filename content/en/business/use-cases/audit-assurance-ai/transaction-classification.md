@@ -4,7 +4,6 @@ description: "Advanced OCR, NLP, and machine learning for 99.7% accurate transac
 weight: 1
 ---
 
-# AI Transaction Classification: Superhuman Accuracy at Scale
 
 AIMatrix's AI Transaction Classification system represents the pinnacle of financial document processing technology, combining cutting-edge Optical Character Recognition (OCR), Natural Language Processing (NLP), and custom machine learning models to achieve 99.7% accuracy in transaction classification while seamlessly adapting to your organization's unique Chart of Accounts structure.
 

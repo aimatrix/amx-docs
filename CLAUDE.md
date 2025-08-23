@@ -8,6 +8,33 @@ This file provides guidance to Claude Code when working with this repository.
 - **NEVER** add "Generated with Claude Code" or similar attribution in commits
 - Keep commit messages professional and focused on the changes made
 
+## Critical: Prevent Duplicate Headers
+
+**NEVER create markdown files with duplicate headers!**
+
+The Hextra theme automatically displays the `title` from front matter as the page heading. 
+Adding an H1 (`#`) with the same text creates an ugly duplicate.
+
+### ❌ WRONG (Creates Duplicate):
+```markdown
+---
+title: "Project Management AI (PMAI)"
+---
+
+# Project Management AI (PMAI)  ← This creates a duplicate!
+```
+
+### ✅ CORRECT:
+```markdown
+---
+title: "Project Management AI (PMAI)"
+---
+
+AIMatrix Project Management AI revolutionizes...  ← Start with content directly
+```
+
+**Rule**: If a file has a `title` in front matter, NEVER start the content with an H1 that matches it.
+
 ## Project Overview
 
 AIMatrix Documentation site built with Hugo and Hextra theme, featuring a Matrix-style digital rain effect.

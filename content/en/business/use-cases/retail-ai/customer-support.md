@@ -4,7 +4,6 @@ description: "Telegram/WhatsApp bots with multimodal query processing for 24/7 i
 weight: 1
 ---
 
-# Omnichannel Customer Support AI: 24/7 Intelligent Service
 
 AIMatrix's Omnichannel Customer Support AI transforms customer service into an intelligent, automated experience that operates seamlessly across Telegram, WhatsApp, web chat, voice, and email. Our multimodal AI understands text, voice, images, and documents, providing customers with instant, accurate support while dramatically reducing operational costs.
 

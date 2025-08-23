@@ -1,0 +1,46 @@
+#!/bin/bash
+# Pre-commit hook to check for duplicate headers in markdown files
+
+echo "Checking for duplicate headers in markdown files..."
+
+# Get list of staged markdown files
+files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$')
+
+error_found=0
+
+for file in $files; do
+    if [ -f "$file" ]; then
+        # Extract title from front matter
+        title=$(awk '/^---$/,/^---$/ {if (/^title:/) print}' "$file" | sed 's/title: *//; s/"//g; s/'"'"'//g' | sed 's/^ *//; s/ *$//')
+        
+        # Check for matching H1
+        if [ ! -z "$title" ]; then
+            # Get first H1 after front matter
+            h1=$(awk '/^---$/ {count++} count==2 {fm_ended=1} fm_ended && /^# / {print; exit}' "$file" | sed 's/^# *//; s/ *$//')
+            
+            # Compare title and H1 (case-insensitive)
+            if [ ! -z "$h1" ]; then
+                title_lower=$(echo "$title" | tr '[:upper:]' '[:lower:]')
+                h1_lower=$(echo "$h1" | tr '[:upper:]' '[:lower:]')
+                
+                if [ "$title_lower" = "$h1_lower" ]; then
+                    echo "❌ ERROR: Duplicate header found in $file"
+                    echo "   Front matter title: '$title'"
+                    echo "   H1 heading: '$h1'"
+                    echo "   Fix: Remove the H1 heading line from the content"
+                    error_found=1
+                fi
+            fi
+        fi
+    fi
+done
+
+if [ $error_found -eq 1 ]; then
+    echo ""
+    echo "⚠️  Commit aborted due to duplicate headers!"
+    echo "📖 See CONTRIBUTING.md for guidelines on proper header usage"
+    exit 1
+fi
+
+echo "✅ No duplicate headers found"
+exit 0

@@ -4,7 +4,6 @@ description: "Conversational interface for guided business operations with natur
 weight: 10
 ---
 
-# ERP Copilot: Your AI Business Operations Assistant
 
 AIMatrix ERP Copilot revolutionizes business management by providing a conversational interface that allows users to control all ERP functions through natural language. This intelligent assistant guides users through complex business processes, provides real-time insights, and automates routine operations while learning from each interaction to improve performance.
 

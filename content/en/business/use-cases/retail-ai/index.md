@@ -6,7 +6,6 @@ cascade:
   type: docs
 ---
 
-# Retail AI (RAI): Intelligent Retail Management
 
 AIMatrix ERP/POS AI Solutions represent a revolutionary transformation in business management systems, integrating artificial intelligence at every layer to create autonomous, adaptive, and intelligent enterprise operations. Our AI-first architecture delivers unprecedented automation, real-time insights, and continuous optimization across all business functions.
 

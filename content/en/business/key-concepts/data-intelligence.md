@@ -3,7 +3,6 @@ title: Data Intelligence
 weight: 3
 ---
 
-# Data Intelligence: Turn Information into Business Gold
 
 Your business generates tons of data every day - customer interactions, sales figures, website visits, inventory levels. Most businesses only scratch the surface of what this information can tell them. AIMatrix's data intelligence turns your raw data into actionable business insights.
 
