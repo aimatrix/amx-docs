@@ -20,34 +20,34 @@ AIMatrix is a comprehensive Business Operating System (BOS) that reimagines ente
 
 ## Core Concepts
 
-### Business Operating System (BOS)
+### AI-Powered Business Platform
 
-Unlike traditional ERP systems that focus on resource planning, AIMatrix functions as a complete operating system for your business:
+AIMatrix is an AI-first platform that transforms how businesses operate through intelligent automation:
 
-1. **Core Kernel**: Essential business functions (GL, AR, AP)
-2. **Module Layer**: Specialized business modules (POS, WMS, CRM)
-3. **Applet Layer**: Custom and third-party extensions
-4. **API Layer**: Integration and automation capabilities
-5. **UI Layer**: Web, mobile, and terminal interfaces
+1. **AI Core**: Advanced language models and reasoning engines
+2. **Agent Layer**: Specialized AI agents for different business functions
+3. **Integration Layer**: MCP servers connecting to any business system
+4. **Knowledge Layer**: Vector databases and RAG for context-aware decisions
+5. **Interface Layer**: Natural language interfaces across all platforms
 
-### Data Hub Architecture
+### Intelligent Architecture
 
-AIMatrix acts as a central data hub for your entire business ecosystem:
+AIMatrix creates an intelligent layer over your existing business systems:
 
 ```
 ┌─────────────────────────────────────────┐
-│          AIMatrix Data Hub             │
+│       AIMatrix Intelligence Layer       │
 ├─────────────────────────────────────────┤
 │  ┌──────────┐  ┌──────────┐  ┌──────┐  │
-│  │   POS    │  │   ERP    │  │ CRM  │  │
+│  │  Agents  │  │   LLMs   │  │ RAG  │  │
 │  └──────────┘  └──────────┘  └──────┘  │
 │  ┌──────────┐  ┌──────────┐  ┌──────┐  │
-│  │   WMS    │  │ E-Comm   │  │ B2B  │  │
+│  │   MCP    │  │ Vectors  │  │ APIs │  │
 │  └──────────┘  └──────────┘  └──────┘  │
 ├─────────────────────────────────────────┤
-│         Unified Data Model              │
+│      Business System Integration        │
 ├─────────────────────────────────────────┤
-│      Analytics & Intelligence           │
+│      Analytics & Predictions            │
 └─────────────────────────────────────────┘
 ```
 
@@ -171,7 +171,7 @@ Navigate to `https://your-domain/admin` and log in with default credentials:
 1. Navigate to **Modules**
 2. Activate the modules you need:
    - Start with core modules (GL, AR, AP)
-   - Add operational modules (POS, Inventory)
+   - Deploy specialized AI agents
    - Enable specialized modules as needed
 
 #### Step 5: Data Import

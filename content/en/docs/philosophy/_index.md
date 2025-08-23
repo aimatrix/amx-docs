@@ -29,7 +29,7 @@ Traditional Monolithic ERP:
 │  │  │ GL │→│ AP │→│ AR │       │  │
 │  │  └────┘ └────┘ └────┘      │  │
 │  │  ┌────┐ ┌────┐ ┌────┐      │  │
-│  │  │INV │→│POS │→│CRM │       │  │
+│  │  │API │→│Data│→│UI  │       │  │
 │  │  └────┘ └────┘ └────┘      │  │
 │  └──────────────────────────────┘  │
 │         Single Database            │
@@ -144,12 +144,12 @@ AIMatrix Microservices Architecture:
 └────────┬────────────────────────┬───────────┘
          │                        │
     ┌────▼────┐              ┌───▼────┐
-    │   GL    │              │  POS   │
+    │   Core  │              │  Apps  │
     │ Service │              │Service │
     └────┬────┘              └───┬────┘
          │                        │
     ┌────▼────┐              ┌───▼────┐
-    │   GL    │              │  POS   │
+    │   Core  │              │  Apps  │
     │Database │              │Database│
     └─────────┘              └────────┘
     
