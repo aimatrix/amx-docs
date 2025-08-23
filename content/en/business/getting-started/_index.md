@@ -3,7 +3,7 @@ title: Getting Started
 weight: 10
 ---
 
-# Getting Started with AIMatrix
+# Your First Steps with AIMatrix
 
 Welcome to AIMatrix! This guide will help you understand what AIMatrix is, how it works, and how to get your first instance up and running.
 

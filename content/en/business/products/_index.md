@@ -1,394 +1,521 @@
 ---
 title: AIMatrix Products
-description: Complete AI platform offering solutions, platforms, and digital twin services for business transformation
+description: Complete AI platform with CLI tools, console applications, simulation engine, and collaboration hub
 weight: 2
 ---
 
-# The AIMatrix Product Portfolio
+# The AIMatrix Product Suite
 
-A comprehensive suite of products and services designed to automate your entire business operations through AI.
+Four integrated products that create a complete AI ecosystem for businesses, developers, and end users.
 
-## Product Categories
+## Product Overview
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
 
   <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
-    <h2>🏢 Business Solutions</h2>
-    <p><strong>Complete Business Automation</strong></p>
-    <p>End-to-end AI solutions for specific industries and business functions</p>
+    <h2>🖥️ AIMatrix CLI</h2>
+    <p><strong>Free Developer Tools</strong></p>
+    <p>Command-line application for setting up and managing AIMatrix environments</p>
     <ul>
-      <li>Vertical industry solutions</li>
-      <li>Department-specific automation</li>
-      <li>Custom AI implementations</li>
-      <li>Managed AI services</li>
+      <li>Local environment setup</li>
+      <li>Desktop app launcher</li>
+      <li>Engine installation & updates</li>
+      <li>User account management</li>
+      <li>Built with Kotlin + Clikt</li>
     </ul>
-    <a href="#business-solutions" style="color: #00ff00;">Learn More →</a>
+    <a href="#aimatrix-cli" style="color: #00ff00;">Learn More →</a>
   </div>
 
   <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
-    <h2>🚀 Platform Products</h2>
-    <p><strong>Build Your Own AI Ecosystem</strong></p>
-    <p>Tools and platforms for developing, deploying, and managing AI agents</p>
+    <h2>💬 AMX Console</h2>
+    <p><strong>Universal User Interface</strong></p>
+    <p>Native apps for all platforms with conversational and graphical UI</p>
     <ul>
-      <li>AIMatrix CLI (Developer Tools)</li>
-      <li>Studio.AIMatrix.com (Cloud Platform)</li>
-      <li>AIMatrix Console (User Interface)</li>
-      <li>White-label platform licensing</li>
+      <li>iOS, Android, Windows, Mac, Linux</li>
+      <li>Conversational + graphical UI</li>
+      <li>Todo lists & conversations</li>
+      <li>Multi-channel agent monitoring</li>
+      <li>Compose Multiplatform</li>
     </ul>
-    <a href="#platform-products" style="color: #00ff00;">Learn More →</a>
+    <a href="#amx-console" style="color: #00ff00;">Learn More →</a>
   </div>
 
   <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
-    <h2>🎮 Digital Twin Services</h2>
-    <p><strong>Business Simulation & Prediction</strong></p>
-    <p>Revolutionary simulation engine for business operations and predictive intelligence</p>
+    <h2>⚙️ AMX Engine</h2>
+    <p><strong>AI & Simulation Core</strong></p>
+    <p>The digital twin factory and agent orchestration engine</p>
     <ul>
-      <li>Business process simulation</li>
-      <li>Predictive operations modeling</li>
-      <li>What-if scenario testing</li>
-      <li>Proactive automation</li>
+      <li>Digital twin simulations</li>
+      <li>Agent design & workflows</li>
+      <li>MCP & A2A servers</li>
+      <li>Kalasim simulation engine</li>
+      <li>Built with Ktor</li>
     </ul>
-    <a href="#digital-twin-services" style="color: #00ff00;">Learn More →</a>
+    <a href="#amx-engine" style="color: #00ff00;">Learn More →</a>
+  </div>
+
+  <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
+    <h2>🌐 AMX Hub</h2>
+    <p><strong>Collaboration Platform</strong></p>
+    <p>GitHub-like platform for hosting workspaces and orchestrating engines</p>
+    <ul>
+      <li>Workspace hosting</li>
+      <li>Webhook integrations</li>
+      <li>Engine orchestration</li>
+      <li>License & subscriptions</li>
+      <li>Spring Cloud + Angular</li>
+    </ul>
+    <a href="#amx-hub" style="color: #00ff00;">Learn More →</a>
   </div>
 
 </div>
 
 ---
 
-## Business Solutions
+## AIMatrix CLI
 
-### Industry-Specific AI Platforms
+### Free Command-Line Tools for Everyone
 
-We provide complete AI solutions tailored for specific industries, enabling niche and vertical players to launch their own AI platforms.
+AIMatrix CLI is your starting point - a free command-line application that anyone can download and use. Think of it as the Swiss Army knife for AIMatrix, similar to how `git` manages repositories or `ng` manages Angular projects.
 
-#### 🏪 Retail & E-commerce AI Platform
-**Complete automation for retail operations:**
-- Inventory management AI
-- Dynamic pricing optimization
-- Customer service automation
-- Visual merchandising AI
-- Demand forecasting
-- Supply chain optimization
+### Core Functions
 
-#### 🏭 Manufacturing AI Platform
-**End-to-end factory automation:**
-- Production planning AI
-- Quality control vision systems
-- Predictive maintenance
-- Supply chain orchestration
-- Compliance automation
-- Worker safety monitoring
-
-#### 🏥 Healthcare AI Platform
-**Intelligent healthcare operations:**
-- Patient care coordination
-- Medical records automation
-- Appointment optimization
-- Insurance processing AI
-- Clinical decision support
-- Resource allocation
-
-#### 💼 Professional Services AI Platform
-**Automate knowledge work:**
-- Document generation AI
-- Research automation
-- Client communication
-- Project management AI
-- Billing automation
-- Knowledge management
-
-### Custom Solutions
-
-#### White-Label AI Platforms
-**Launch your own AI platform:**
-- Fully branded solution
-- Custom domain and branding
-- Industry-specific features
-- Complete infrastructure
-- Ongoing support and updates
-
-#### Managed AI Services
-**We run your AI operations:**
-- Full implementation
-- 24/7 monitoring
-- Continuous optimization
-- Performance guarantees
-- Zero maintenance burden
-
----
-
-## Platform Products
-
-### Developer Tools & Infrastructure
-
-#### 🖥️ AIMatrix CLI
-**Command-line powerhouse for AI development:**
-
-##### Core Capabilities
+#### 🏗️ Environment Management
 ```bash
-# Initialize AI workspace
-aimatrix init my-project
+# Initialize AIMatrix in your project
+aimatrix init
 
-# Create and test agents locally
-aimatrix agent create sales-bot
-aimatrix test --scenario=customer-inquiry
+# Set up your local development environment
+aimatrix setup
 
-# Deploy to production
-aimatrix deploy --env=production
+# Check system status
+aimatrix status
 ```
 
-##### Key Features
-- **Local Development**: Build and test without cloud costs
-- **Agent Orchestration**: Manage multiple AI models
-- **P2P Compute Network**: Share resources, earn credits
-- **Credential Management**: Secure API key handling
-- **Integration Tools**: Connect to any system
+#### 🚀 Application Launcher
+```bash
+# Launch the desktop version of AMX Console
+aimatrix console
 
-#### ☁️ Studio.AIMatrix.com
-**Enterprise cloud platform for AI operations:**
+# Start the local AMX Engine
+aimatrix engine start
 
-##### Revolutionary Architecture
-Unlike traditional workflow tools (n8n, Zapier, Make), Studio uses **Zero-Workflow Orchestration**:
-- No visual workflow building needed
-- AI automatically determines execution flow
-- Self-optimizing with reinforcement learning
-- Outperforms AutoGen, LangChain, CrewAI
+# Run in development mode
+aimatrix dev
+```
 
-##### Platform Features
-- **Knowledge Capsules**: Plug-and-play AI capabilities
-- **Multi-Cloud Deployment**: AWS, GCP, Azure, Alibaba
-- **Team Collaboration**: GitHub-like for AI projects
-- **Auto-Scaling Runtime**: Handle any workload
-- **Marketplace**: Thousands of pre-built solutions
+#### ⚙️ Engine Management
+```bash
+# Install AMX Engine locally
+aimatrix engine install
 
-#### 💬 AIMatrix Console
-**Beautiful chat interface for everyone:**
+# Update to latest version
+aimatrix engine update
 
-##### One App, Every Platform
-Built with Compose Multiplatform for native performance:
-- **Mobile**: iOS & Android apps
-- **Desktop**: Windows, macOS, Linux
-- **Web**: Browser-based access
-- **Consistent**: Same experience everywhere
+# Configure engine settings
+aimatrix engine config
+```
 
-##### User Experience
-- Natural language interaction
-- Voice and vision capabilities
-- Rich media support
-- Real-time responses
-- Offline functionality
+#### 👤 Account Management
+```bash
+# Register new account
+aimatrix auth register
+
+# Sign in to your account
+aimatrix auth login
+
+# Connect to AMX Hub
+aimatrix hub connect
+```
+
+### Technical Architecture
+- **Language**: Kotlin
+- **Framework**: Clikt (Command Line Interface for Kotlin)
+- **Platform**: Cross-platform (Windows, macOS, Linux)
+- **Distribution**: Free download from aimatrix.com
+
+### Why Free CLI?
+- Lower barrier to entry for developers
+- Community-driven adoption
+- Local development without cloud costs
+- Foundation for desktop applications
 
 ---
 
-## Digital Twin Services
+## AMX Console
 
-### Not Manufacturing - Business Simulation
+### The Universal Interface for Everyone
 
-We're applying digital twin technology to business operations, not machinery. Think of it as a **game simulation engine for your business**.
+AMX Console is the user-facing application that employees, customers, and suppliers use to interact with AIMatrix. It combines conversational UI with traditional graphical interfaces, available natively on every platform.
 
-### What Are Business Digital Twins?
+### Key Features
 
-#### Traditional Digital Twin (Manufacturing)
-- Models physical machines
-- Monitors equipment health
-- Predicts maintenance needs
-- Optimizes production lines
+#### 💬 Hybrid Interface
+**Conversational UI**: Chat naturally with AI agents
+**Graphical UI**: Traditional interface for structured tasks
+**Seamless Integration**: Switch between modes effortlessly
 
-#### AIMatrix Digital Twin (Business Operations)
+#### 📱 True Multi-Platform
+Using **Compose Multiplatform**, one codebase delivers:
+- **Mobile**: Native iOS and Android apps
+- **Desktop**: Native Windows, macOS, Linux applications
+- **Performance**: True native performance, not web wrappers
+
+#### 🎯 Core Capabilities
+
+**Todo Management**:
+- View and manage task lists
+- AI-generated todos from conversations
+- Priority and deadline tracking
+- Team collaboration
+
+**Conversation Hub**:
+- All AI conversations in one place
+- Multi-channel view (email, chat, voice)
+- Context preservation across sessions
+- Conversation history and search
+
+**Agent Monitoring**:
+- See AI agents responding to customers
+- Monitor agent performance
+- Override or intervene when needed
+- Training feedback loop
+
+**Multi-Channel Integration**:
+- WhatsApp, Telegram, Email
+- Voice calls and SMS
+- Social media channels
+- Custom integrations
+
+### User Scenarios
+
+#### For Employees
+- Morning: Check AI-prioritized todo list
+- Communicate: Natural language commands
+- Monitor: Watch AI handle routine tasks
+- Intervene: Take over complex situations
+
+#### For Customers
+- Support: 24/7 intelligent assistance
+- Orders: Voice or text ordering
+- Tracking: Real-time updates
+- Feedback: Direct communication channel
+
+#### For Suppliers
+- Orders: Automated purchase orders
+- Updates: Inventory level notifications
+- Coordination: Delivery scheduling
+- Payments: Invoice management
+
+### Technical Stack
+- **Framework**: Compose Multiplatform
+- **Language**: Kotlin
+- **Platforms**: iOS, Android, Windows, macOS, Linux
+- **Architecture**: MVVM with reactive streams
+
+---
+
+## AMX Engine
+
+### The Brain Behind Everything
+
+AMX Engine is where the magic happens - it's the digital twin factory and agent orchestration platform that runs simulations, manages agents, and handles all the heavy lifting. Think of it as the engine room of a ship.
+
+### Core Components
+
+#### 🎮 Digital Twin Factory
+**What It Does**: Creates virtual copies of your business
+**How It Works**: 
 - Models business processes
-- Simulates market conditions
-- Predicts business outcomes
-- Automates proactive decisions
+- Runs predictive simulations
+- Tests scenarios risk-free
+- Optimizes operations
 
-### Core Capabilities
+**Powered By**: Kalasim simulation engine
+- Discrete event simulation
+- Process modeling
+- What-if analysis
+- Monte Carlo simulations
 
-#### 🎮 Business Process Simulation
-**Run your business in "practice mode":**
-- Test strategies without risk
-- Simulate customer behavior
-- Model market reactions
-- Predict competition moves
+#### 🤖 Agent Orchestration
+**Agent Design Studio**:
+- Visual agent builder
+- Behavior programming
+- Skill assignment
+- Performance tuning
 
-**Example**: Before launching a promotion, simulate 1000 scenarios to predict:
-- Customer response rates
-- Inventory requirements
-- Staff needs
-- Profit impact
+**Workflow Specification**:
+- Define agent interactions
+- Set trigger conditions
+- Configure automation rules
+- Manage escalations
 
-#### 🔮 Predictive Operations
-**See the future, act today:**
-- Predict demand spikes before they happen
-- Anticipate supply chain disruptions
-- Forecast cash flow issues
-- Identify emerging opportunities
+#### 🔌 Integration Servers
 
-**Example**: AI detects pattern → Predicts shortage in 2 weeks → Orders inventory today → Avoids stockout
+**MCP Servers** (Model Context Protocol):
+- Universal translators for business systems
+- Connect any ERP, CRM, database
+- Real-time data synchronization
+- Protocol translation
 
-#### 🎯 What-If Scenario Testing
-**Test every decision virtually first:**
-- "What if we raise prices 10%?"
-- "What if we open a new location?"
-- "What if supplier X fails?"
-- "What if demand doubles?"
+**A2A Servers** (Agent-to-Agent):
+- Inter-agent communication
+- Coordination protocols
+- Knowledge sharing
+- Collective intelligence
 
-**Example**: Test hiring 10 salespeople virtually:
-- See revenue impact
-- Calculate ROI
-- Optimize territories
-- All before spending a dollar
+#### 🏃 Runtime Modes
 
-#### 🤖 Proactive Automation
-**AI acts before problems occur:**
-- Automatic inventory ordering
-- Dynamic pricing adjustments
-- Preventive customer retention
-- Predictive resource allocation
+**Cloud Deployment**:
+- Fully managed service
+- Auto-scaling capabilities
+- High availability
+- Global distribution
 
-**Example**: AI sees competitor lowering prices → Simulates impact → Adjusts strategy → Implements changes → All automatically
+**On-Premise Installation**:
+- Run on your servers
+- Complete data control
+- Compliance friendly
+- Air-gapped options
 
-### Digital Twin Use Cases
+**Background Daemon**:
+- Runs as system service
+- Always-on availability
+- Resource efficient
+- Auto-start on boot
 
-#### Retail Digital Twin
-- Simulate store layouts virtually
-- Test pricing strategies risk-free
-- Predict seasonal demand
-- Optimize staff scheduling
-- Model customer journeys
+### Deployment Options
 
-#### Supply Chain Digital Twin
-- Simulate entire supply network
-- Predict disruption impacts
-- Optimize routing dynamically
-- Test contingency plans
-- Balance inventory levels
+#### For Development
+```bash
+# Install locally via CLI
+aimatrix engine install
 
-#### Financial Digital Twin
-- Model cash flow scenarios
-- Simulate investment outcomes
-- Predict payment defaults
-- Optimize working capital
-- Test growth strategies
+# Run in development mode
+aimatrix engine dev
 
-#### Workforce Digital Twin
-- Simulate organizational changes
-- Predict skill gaps
-- Optimize team structures
-- Model productivity impacts
-- Plan succession scenarios
-
-### Implementation Approach
-
-#### Phase 1: Digital Mirror (Month 1)
-Create real-time digital copy of operations:
-- Connect data sources
-- Build initial models
-- Establish baselines
-- Validate accuracy
-
-#### Phase 2: Predictive Twin (Months 2-3)
-Add predictive capabilities:
-- Train prediction models
-- Implement forecasting
-- Enable what-if analysis
-- Start simulations
-
-#### Phase 3: Prescriptive Twin (Months 3-6)
-Enable autonomous optimization:
-- Activate auto-recommendations
-- Implement decision automation
-- Enable self-optimization
-- Scale across operations
-
-#### Phase 4: Cognitive Twin (Months 6+)
-Achieve full intelligence:
-- Self-learning systems
-- Autonomous operations
-- Continuous improvement
-- Strategic augmentation
-
-### Why Digital Twins Matter
-
-#### Without Digital Twins
-- Decisions based on past data
-- Learn from expensive mistakes
-- React to problems after they happen
-- Linear, slow improvement
-
-#### With Digital Twins
-- Decisions based on future simulations
-- Learn from virtual experiments
-- Prevent problems before they occur
-- Exponential, rapid optimization
-
----
-
-## Integrated Product Ecosystem
-
-### How Our Products Work Together
-
-```
-Business Solutions
-    ↓
-Provide complete automation using
-    ↓
-Platform Products (CLI + Studio + Console)
-    ↓
-Enhanced with predictive intelligence from
-    ↓
-Digital Twin Services
-    ↓
-Resulting in: Complete Business Automation
+# Access at http://localhost:8080
 ```
 
-### Example: Retail Chain Implementation
+#### For Production
+- **Cloud**: Hosted on AMX Hub
+- **Private Cloud**: Your AWS/Azure/GCP
+- **On-Premise**: Your data center
+- **Hybrid**: Mix of cloud and local
 
-1. **Business Solution**: Complete retail automation package
-2. **Platform Products**: 
-   - CLI for custom agent development
-   - Studio for cloud deployment
-   - Console for staff interaction
-3. **Digital Twin**: Simulate store operations and predict demand
-4. **Result**: 70% operational cost reduction
-
----
-
-## Pricing Models
-
-### Business Solutions
-**Industry Platforms**: Custom pricing based on scale
-- Starting from $5,000/month
-- Includes platform, support, updates
-- Revenue sharing options available
-
-### Platform Products
-**Developer Tools**:
-- CLI: Free and open source
-- Studio Pro: $49/user/month
-- Studio Enterprise: Custom pricing
-- Console: Free for end users
-
-### Digital Twin Services
-**Simulation & Prediction**:
-- Starter: $2,000/month (1 process)
-- Business: $5,000/month (5 processes)
-- Enterprise: Custom (unlimited)
+### Technical Architecture
+- **Framework**: Ktor (Kotlin async web framework)
+- **Simulation**: Kalasim engine
+- **Database**: PostgreSQL with Supabase
+- **Message Queue**: Kafka/RabbitMQ
+- **Container**: Docker/Kubernetes ready
 
 ---
 
-## Get Started Today
+## AMX Hub
 
-<div style="display: flex; gap: 20px; margin: 40px 0; flex-wrap: wrap; justify-content: center;">
-  <a href="/business/demo" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
-    Schedule Demo →
-  </a>
-  <a href="/business/contact" style="padding: 15px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 8px; font-weight: bold;">
-    Contact Sales →
-  </a>
-  <a href="/technical/developers" style="padding: 15px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 8px; font-weight: bold;">
-    Try CLI Free →
-  </a>
-</div>
+### Your GitHub for AI Workspaces
+
+AMX Hub (hub.aimatrix.com) is the collaboration and orchestration platform where businesses host their AI workspaces, similar to how GitHub hosts code repositories. It's the central nervous system for the AIMatrix ecosystem.
+
+### Core Functions
+
+#### 📦 Workspace Hosting
+**Like GitHub Repositories**:
+- Host multiple workspaces
+- Version control for configurations
+- Branching and merging
+- Collaboration tools
+
+**Workspace Contains**:
+- Agent definitions
+- Workflow configurations
+- Integration settings
+- Simulation models
+
+#### 🔗 Integration Gateway
+**Webhook Reservoir**:
+- Centralized webhook endpoints
+- Third-party integrations (Telegram, WhatsApp)
+- Event routing and processing
+- Secure credential storage
+
+**API Gateway**:
+- Unified API endpoint
+- Rate limiting and throttling
+- Authentication and authorization
+- Request routing
+
+#### 🚀 Engine Orchestration
+**Like GitHub Actions**:
+- Spin up AMX Engines on-demand
+- Run simulations in the cloud
+- Execute batch processes
+- Scheduled automation
+
+**Compute Resources**:
+- Elastic scaling
+- Resource allocation
+- Cost optimization
+- Performance monitoring
+
+#### 💼 Business Services
+
+**User Management**:
+- Registration and authentication
+- Team and organization management
+- Role-based access control
+- SSO integration
+
+**Subscription & Licensing**:
+- Software license management
+- Subscription billing
+- Usage tracking
+- Payment processing
+
+**Backup & Recovery**:
+- Automatic workspace backups
+- Point-in-time recovery
+- Disaster recovery
+- Data redundancy
+
+### Hub Features
+
+#### For Individuals
+- Free tier with basic workspace
+- Community sharing
+- Public templates
+- Learning resources
+
+#### For Teams
+- Private workspaces
+- Team collaboration
+- Shared resources
+- Activity tracking
+
+#### For Enterprises
+- Unlimited workspaces
+- Dedicated resources
+- SLA guarantees
+- Priority support
+
+### Technical Stack
+- **Backend**: Spring Cloud Gateway (Reactive Kotlin)
+- **Frontend**: Angular (only component using Angular)
+- **Database**: PostgreSQL
+- **Cache**: Redis
+- **Storage**: S3-compatible object storage
+
+### Integration Ecosystem
+
+**Supported Integrations**:
+- Communication: Telegram, WhatsApp, Slack
+- ERP: BigLedger, SAP, Oracle
+- CRM: Salesforce, HubSpot
+- Email: Gmail, Outlook
+- Custom: Any REST API
 
 ---
 
-*AIMatrix - Complete AI Platform for Business Transformation*
+## How Products Work Together
+
+### The Complete Flow
+
+```
+1. Developer downloads AIMatrix CLI (free)
+   ↓
+2. CLI installs and configures AMX Engine locally
+   ↓
+3. Users download AMX Console on their devices
+   ↓
+4. Console connects to local or cloud Engine
+   ↓
+5. Workspaces are synced with AMX Hub
+   ↓
+6. Hub orchestrates cloud Engines as needed
+```
+
+### Typical Deployment Scenarios
+
+#### Small Business (Local)
+- AIMatrix CLI on owner's computer
+- AMX Engine running locally
+- AMX Console on employee phones
+- Backup to AMX Hub (free tier)
+
+#### Medium Business (Hybrid)
+- AIMatrix CLI for development
+- AMX Engine on company server
+- AMX Console for all staff
+- AMX Hub for cloud burst capacity
+
+#### Enterprise (Full Cloud)
+- AIMatrix CLI for developers
+- AMX Engine cluster in cloud
+- AMX Console company-wide
+- AMX Hub for orchestration
+
+### Product Synergy
+
+**CLI + Engine**: CLI manages Engine lifecycle
+**Console + Engine**: Console is the UI for Engine
+**Engine + Hub**: Hub orchestrates multiple Engines
+**Hub + CLI**: CLI deploys workspaces to Hub
+
+---
+
+## Pricing Strategy
+
+### AIMatrix CLI
+**Free Forever**
+- Full functionality
+- No limitations
+- Community support
+- Regular updates
+
+### AMX Console
+**Free for End Users**
+- Employees: Free
+- Customers: Free
+- Suppliers: Free
+- Premium features for businesses
+
+### AMX Engine
+**Flexible Licensing**
+- Community: Free (limited resources)
+- Professional: $99/month per instance
+- Enterprise: Custom pricing
+- On-premise: One-time license
+
+### AMX Hub
+**Usage-Based Pricing**
+- Free: 1 workspace, 100 runs/month
+- Starter: $29/month, 5 workspaces
+- Business: $99/month, unlimited workspaces
+- Enterprise: Custom pricing
+
+---
+
+## Getting Started
+
+### For Developers
+1. Download AIMatrix CLI
+2. Run `aimatrix init`
+3. Install local Engine
+4. Start building
+
+### For Businesses
+1. Contact sales for demo
+2. Pilot deployment
+3. Train team on Console
+4. Scale gradually
+
+### For Enterprises
+1. Architecture review
+2. Security assessment
+3. Pilot program
+4. Full deployment
+
+---
+
+*AIMatrix - Four Products, One Vision: Complete Business Automation*

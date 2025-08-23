@@ -5,7 +5,7 @@ cascade:
   type: docs
 ---
 
-# How AIMatrix Works - In Simple Terms
+# Understanding the Technology - Made Simple
 
 Understanding AIMatrix doesn't require a computer science degree. Think of it as your business getting a team of incredibly smart digital assistants that never sleep, never make mistakes, and get smarter every day.
 

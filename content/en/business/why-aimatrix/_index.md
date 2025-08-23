@@ -6,7 +6,7 @@ cascade:
   type: docs
 ---
 
-# Why Organizations Need AIMatrix Platform
+# The Platform Your Organization Needs
 
 Even though modern AI capabilities like ChatGPT, Claude, and other LLMs are incredibly powerful and multi-modal, and AI agents can already help book flights, perform OCR, and automate various tasks, organizations need much more to fully benefit from artificial intelligence.
 

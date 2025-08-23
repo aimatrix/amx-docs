@@ -4,9 +4,7 @@ description: Join the vibrant AIMatrix community - developers, businesses, and A
 weight: 4
 ---
 
-# AIMatrix Community
-
-## Join 50,000+ Innovators
+# Join 50,000+ Innovators
 
 Connect, learn, and build the future of AI automation together.
 

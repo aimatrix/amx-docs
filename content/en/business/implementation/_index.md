@@ -5,7 +5,7 @@ cascade:
   type: docs
 ---
 
-# Implementation Guide: Your Journey to AI-Powered Business
+# Your Journey to AI-Powered Business
 
 Getting started with AIMatrix doesn't have to be overwhelming. Think of it like renovating your office - you plan it carefully, do it in phases, and keep your business running throughout the process.
 

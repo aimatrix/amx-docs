@@ -70,35 +70,29 @@ MCP servers translate between them all so:
 
 We provide everything from the initial business simulation to the final user experience:
 
-#### 1. Intelligent Digital Twin (The Practice Mode)
-**What It Is**: A virtual copy of your business for testing ideas
-**Like**: A flight simulator for your business
-**You Get**: Risk-free testing before real implementation
+#### 1. AIMatrix CLI (The Foundation)
+**What It Is**: Free command-line tools for setup and management
+**Like**: The Swiss Army knife for AIMatrix
+**You Get**: Complete control over your AI environment
+**Technology**: Kotlin + Clikt
 
-#### 2. Super Agent Framework (The Brain)
-**What It Is**: AI that manages other AI agents automatically
-**Like**: A manager who coordinates your entire team
-**You Get**: Complex tasks handled without manual coordination
-
-#### 3. AI Workspace (The Office)
-**What It Is**: Where all your AI agents work together
-**Like**: A digital office where AI employees collaborate
-**You Get**: Organized, efficient AI operations
-
-#### 4. Studio (The Control Center)
-**What It Is**: Cloud platform for managing everything
-**Like**: Mission control for your business AI
-**You Get**: Complete visibility and control
-
-#### 5. Runtime CLI (The Engine Room)
-**What It Is**: Developer tools for building and testing
-**Like**: The workshop where custom solutions are built
-**You Get**: Ability to create exactly what you need
-
-#### 6. AIMatrix Console (The User Interface)
-**What It Is**: Beautiful apps for everyday users
+#### 2. AMX Console (The Interface)
+**What It Is**: Native apps for all devices - mobile and desktop
 **Like**: The steering wheel and dashboard of your car
-**You Get**: Simple, intuitive AI interaction for everyone
+**You Get**: Conversational + graphical UI for everyone
+**Technology**: Compose Multiplatform
+
+#### 3. AMX Engine (The Brain)
+**What It Is**: Digital twin factory and agent orchestration
+**Like**: The engine room of a ship
+**You Get**: Simulations, workflows, and integrations
+**Technology**: Ktor + Kalasim
+
+#### 4. AMX Hub (The Cloud)
+**What It Is**: GitHub-like platform for workspaces
+**Like**: Mission control for your business AI
+**You Get**: Collaboration, webhooks, and cloud orchestration
+**Technology**: Spring Cloud Gateway + Angular
 
 ## Agent-to-Agent Communication: AI Teams That Actually Work
 
