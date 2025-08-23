@@ -48,6 +48,16 @@ Discover how AIMatrix transforms businesses with intelligent automation and AI-p
   </div>
 
   <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🤝 Partnership</h3>
+    <p>Risk-free engagement model</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/business/partnership-model/">Partnership Model</a></li>
+      <li>→ <a href="/business/partnership-model/#pricing-models">Pricing Options</a></li>
+      <li>→ <a href="/business/partnership-model/#getting-started">Get Assessment</a></li>
+    </ul>
+  </div>
+
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
     <h3>📞 Get Started</h3>
     <p>Connect with our team</p>
     <ul style="list-style: none; padding: 0;">
