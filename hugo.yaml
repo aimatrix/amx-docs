@@ -8,6 +8,11 @@ languageCode: en
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 
+# URL management - ensures consistent URLs
+disablePathToLower: false
+relativeURLs: false
+canonifyURLs: true
+
 # Enable multi-language support
 languages:
   en:
@@ -201,3 +206,15 @@ menu:
     - name: Best Practices
       pageRef: /docs/best-practices
       weight: 6
+
+# Deployment configuration
+deployment:
+  targets:
+    - name: production
+      URL: s3://docs.aimatrix.com?region=ap-southeast-5
+      cloudFrontDistributionID: E18XNULEWFKQ3P
+
+# Permalink configuration to ensure consistent URLs
+permalinks:
+  pages: /:slug/
+  posts: /:slug/
