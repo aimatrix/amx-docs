@@ -373,7 +373,7 @@ weight: 3
   <div class="tutorial-card">
     <h3>📖 Documentation</h3>
     <ul style="list-style: none; padding: 0;">
-      <li style="margin: 10px 0;">📄 <a href="/docs" style="color: #00ff00;">Technical Documentation</a></li>
+      <li style="margin: 10px 0;">📄 <a href="/docs/" style="color: #00ff00;">Technical Documentation</a></li>
       <li style="margin: 10px 0;">📄 <a href="/api" style="color: #00ff00;">API Reference</a></li>
       <li style="margin: 10px 0;">📄 <a href="/specs" style="color: #00ff00;">Specifications</a></li>
     </ul>

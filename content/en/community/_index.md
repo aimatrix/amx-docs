@@ -273,7 +273,7 @@ weight: 4
     <h3>📚 Documentation</h3>
     <p style="color: #ccc;">Comprehensive guides and references</p>
     <ul style="list-style: none; padding: 0;">
-      <li style="margin: 10px 0;">📖 <a href="/docs" style="color: #00ff00;">Technical Docs</a></li>
+      <li style="margin: 10px 0;">📖 <a href="/docs/" style="color: #00ff00;">Technical Docs</a></li>
       <li style="margin: 10px 0;">🎯 <a href="/tutorials" style="color: #00ff00;">Tutorials</a></li>
       <li style="margin: 10px 0;">🔧 <a href="/api" style="color: #00ff00;">API Reference</a></li>
     </ul>
@@ -468,7 +468,7 @@ weight: 4
     <div style="text-align: center;">
       <div style="font-size: 2em; margin-bottom: 10px;">📖</div>
       <h4>Documentation</h4>
-      <a href="/docs" style="color: #00ff00;">Browse Docs →</a>
+      <a href="/docs/" style="color: #00ff00;">Browse Docs →</a>
     </div>
     
     <div style="text-align: center;">

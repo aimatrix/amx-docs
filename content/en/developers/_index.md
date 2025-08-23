@@ -293,7 +293,7 @@ Multi-channel support automation
 ## Start Building Today
 
 <div style="display: flex; gap: 20px; margin: 30px 0;">
-  <a href="/docs/getting-started" style="padding: 12px 24px; background: #00ff00; color: #000; text-decoration: none; border-radius: 6px; font-weight: bold;">
+  <a href="/docs/getting-started/" style="padding: 12px 24px; background: #00ff00; color: #000; text-decoration: none; border-radius: 6px; font-weight: bold;">
     Get Started →
   </a>
   <a href="https://github.com/aimatrix/examples" style="padding: 12px 24px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 6px; font-weight: bold;">

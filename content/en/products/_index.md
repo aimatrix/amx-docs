@@ -538,7 +538,7 @@ aimatrix deploy --studio=company/customer-service
 ## Start Your Journey
 
 <div style="display: flex; gap: 20px; margin: 40px 0; flex-wrap: wrap; justify-content: center;">
-  <a href="/docs/cli/quickstart" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
+  <a href="/developers/" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
     Install CLI →
   </a>
   <a href="https://studio.aimatrix.com/signup" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">

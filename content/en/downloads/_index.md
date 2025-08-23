@@ -255,9 +255,9 @@ weight: 18
     <h3>📖 User Guides</h3>
     <p style="color: #ccc;">Comprehensive documentation</p>
     <ul style="list-style: none; padding: 0; margin: 20px 0;">
-      <li style="margin: 10px 0;">📄 <a href="/docs/AIMatrix-User-Guide.pdf" style="color: #00ff00;">User Guide (PDF)</a></li>
-      <li style="margin: 10px 0;">📄 <a href="/docs/AIMatrix-Quick-Start.pdf" style="color: #00ff00;">Quick Start (PDF)</a></li>
-      <li style="margin: 10px 0;">📄 <a href="/docs/AIMatrix-API-Reference.pdf" style="color: #00ff00;">API Reference (PDF)</a></li>
+      <li style="margin: 10px 0;">📄 <a href="/docs/" style="color: #00ff00;">User Guide</a></li>
+      <li style="margin: 10px 0;">📄 <a href="/docs/getting-started/" style="color: #00ff00;">Quick Start Guide</a></li>
+      <li style="margin: 10px 0;">📄 <a href="/developers/" style="color: #00ff00;">API Reference</a></li>
     </ul>
   </div>
   
@@ -381,10 +381,10 @@ weight: 18
   <p style="color: #ccc; margin: 20px 0;">Check out our installation guides and troubleshooting resources</p>
   
   <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 30px 0;">
-    <a href="/docs/installation" class="download-button">
+    <a href="/docs/getting-started/" class="download-button">
       📚 Installation Guide
     </a>
-    <a href="/docs/troubleshooting" class="download-button">
+    <a href="/docs/" class="download-button">
       🔧 Troubleshooting
     </a>
     <a href="https://discord.gg/aimatrix" class="download-button">

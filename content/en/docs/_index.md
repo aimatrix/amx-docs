@@ -15,9 +15,9 @@ Build intelligent AI agents that transform how businesses interact with their sy
     <h3>🚀 Getting Started</h3>
     <p>New to AIMatrix? Start here</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/docs/getting-started/quickstart/">Quick Start Guide</a></li>
-      <li>→ <a href="/docs/getting-started/concepts/">Core Concepts</a></li>
-      <li>→ <a href="/docs/getting-started/first-agent/">Build First Agent</a></li>
+      <li>→ <a href="/docs/getting-started/">Getting Started</a></li>
+      <li>→ <a href="/docs/getting-started/quickstart-aimatrix/">Quick Start Guide</a></li>
+      <li>→ <a href="/developers/agent-development/">Build First Agent</a></li>
     </ul>
   </div>
 
@@ -25,9 +25,9 @@ Build intelligent AI agents that transform how businesses interact with their sy
     <h3>🤖 AI Agents</h3>
     <p>Create intelligent agents</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/docs/ai-core/agents/">Agent Framework</a></li>
-      <li>→ <a href="/docs/ai-core/context/">Context Management</a></li>
-      <li>→ <a href="/docs/ai-core/tools/">Building Tools</a></li>
+      <li>→ <a href="/docs/ai-core/">AI Core Overview</a></li>
+      <li>→ <a href="/docs/ai-core/agents/creating-agents/">Creating Agents</a></li>
+      <li>→ <a href="/developers/">Building Tools</a></li>
     </ul>
   </div>
 
@@ -35,9 +35,9 @@ Build intelligent AI agents that transform how businesses interact with their sy
     <h3>🌉 MCP Servers</h3>
     <p>Bridge APIs to AI</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/docs/mcp/overview/">MCP Protocol</a></li>
-      <li>→ <a href="/docs/mcp/building/">Building Servers</a></li>
-      <li>→ <a href="/docs/mcp/security/">Security</a></li>
+      <li>→ <a href="/developers/">MCP Protocol</a></li>
+      <li>→ <a href="/developers/">Building Servers</a></li>
+      <li>→ <a href="/security/">Security</a></li>
     </ul>
   </div>
 
@@ -45,9 +45,9 @@ Build intelligent AI agents that transform how businesses interact with their sy
     <h3>🧠 Knowledge & RAG</h3>
     <p>Context and memory systems</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/docs/knowledge/rag/">RAG Setup</a></li>
-      <li>→ <a href="/docs/knowledge/graphrag/">GraphRAG</a></li>
-      <li>→ <a href="/docs/knowledge/vectors/">Vector DBs</a></li>
+      <li>→ <a href="/developers/">RAG Setup</a></li>
+      <li>→ <a href="/developers/">GraphRAG</a></li>
+      <li>→ <a href="/developers/">Vector DBs</a></li>
     </ul>
   </div>
 
@@ -55,9 +55,9 @@ Build intelligent AI agents that transform how businesses interact with their sy
     <h3>🔧 Integration</h3>
     <p>Connect to business systems</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/docs/integration/bigledger/">BigLedger API</a></li>
-      <li>→ <a href="/docs/integration/third-party/">Third-party Systems</a></li>
-      <li>→ <a href="/docs/integration/webhooks/">Webhooks</a></li>
+      <li>→ <a href="/docs/bigledger/">BigLedger API</a></li>
+      <li>→ <a href="/developers/">Third-party Systems</a></li>
+      <li>→ <a href="/developers/">Webhooks</a></li>
     </ul>
   </div>
 
@@ -65,9 +65,9 @@ Build intelligent AI agents that transform how businesses interact with their sy
     <h3>🚢 Deployment</h3>
     <p>Production deployment</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/docs/deployment/docker/">Docker</a></li>
-      <li>→ <a href="/docs/deployment/kubernetes/">Kubernetes</a></li>
-      <li>→ <a href="/docs/deployment/scaling/">Scaling</a></li>
+      <li>→ <a href="/developers/">Docker</a></li>
+      <li>→ <a href="/developers/">Kubernetes</a></li>
+      <li>→ <a href="/developers/">Scaling</a></li>
     </ul>
   </div>
 
