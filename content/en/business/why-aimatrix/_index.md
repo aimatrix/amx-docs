@@ -58,7 +58,7 @@ Instead of an AI that can only chat about products, you get an AI that knows cur
 - **Secure Data Flow**: Maintains permissions and security across all systems
 
 **Real Examples:**
-- AI agent that can read from Salesforce, check inventory in NetSuite, create invoices in QuickBooks, and send updates via Slack - all in one workflow
+- AI agent that can read from your CRM, check inventory in BigLedger ERP, create invoices, and send updates - all in one workflow
 - Customer service AI that accesses order history, shipping data, warranty info, and knowledge base simultaneously
 - Financial AI that analyzes cash flow, predicts needs, and automatically optimizes investments
 

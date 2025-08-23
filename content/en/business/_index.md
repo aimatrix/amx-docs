@@ -18,9 +18,7 @@ Discover how AIMatrix transforms businesses with intelligent automation and AI-p
     <p>Strategic insights and ROI</p>
     <ul style="list-style: none; padding: 0;">
       <li>→ <a href="/business/why-aimatrix/">Why AIMatrix Platform</a></li>
-      <li>→ <a href="/business/investors/">Investor Information</a></li>
       <li>→ <a href="/business/products/">Product Portfolio</a></li>
-      <li>→ <a href="/business/philosophy/">Our Philosophy</a></li>
     </ul>
   </div>
 

@@ -1,551 +1,391 @@
 ---
 title: AIMatrix Products
-description: Three powerful products that work together to deliver complete AI transformation
+description: Complete AI platform offering solutions, platforms, and digital twin services for business transformation
 weight: 2
 ---
 
-# The AIMatrix Product Suite
+# The AIMatrix Product Portfolio
 
-Three integrated products that create a complete AI ecosystem for businesses, developers, and end users.
+A comprehensive suite of products and services designed to automate your entire business operations through AI.
 
-## Product Overview
+## Product Categories
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
 
   <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
-    <h2>🖥️ AIMatrix CLI</h2>
-    <p><strong>For Developers & Power Users</strong></p>
-    <p>Command-line tool for building, testing, and deploying AI agents locally</p>
+    <h2>🏢 Business Solutions</h2>
+    <p><strong>Complete Business Automation</strong></p>
+    <p>End-to-end AI solutions for specific industries and business functions</p>
     <ul>
-      <li>Workspace management</li>
-      <li>Local agent development</li>
-      <li>P2P compute sharing</li>
-      <li>Credential management</li>
+      <li>Vertical industry solutions</li>
+      <li>Department-specific automation</li>
+      <li>Custom AI implementations</li>
+      <li>Managed AI services</li>
     </ul>
-    <a href="#aimatrix-cli" style="color: #00ff00;">Learn More →</a>
+    <a href="#business-solutions" style="color: #00ff00;">Learn More →</a>
   </div>
 
   <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
-    <h2>☁️ Studio.AIMatrix.com</h2>
-    <p><strong>For Teams & Organizations</strong></p>
-    <p>Revolutionary zero-workflow orchestration platform with Super Agent technology</p>
+    <h2>🚀 Platform Products</h2>
+    <p><strong>Build Your Own AI Ecosystem</strong></p>
+    <p>Tools and platforms for developing, deploying, and managing AI agents</p>
     <ul>
-      <li>No workflows needed (unlike n8n)</li>
-      <li>Automatic model selection</li>
-      <li>Reinforcement learning built-in</li>
-      <li>Beats AutoGen, LangChain, CrewAI</li>
+      <li>AIMatrix CLI (Developer Tools)</li>
+      <li>Studio.AIMatrix.com (Cloud Platform)</li>
+      <li>AIMatrix Console (User Interface)</li>
+      <li>White-label platform licensing</li>
     </ul>
-    <a href="#studio-aimatrix" style="color: #00ff00;">Learn More →</a>
+    <a href="#platform-products" style="color: #00ff00;">Learn More →</a>
   </div>
 
   <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
-    <h2>💬 AIMatrix Console</h2>
-    <p><strong>For End Users</strong></p>
-    <p>Beautiful chat interface for AI interaction on all platforms</p>
+    <h2>🎮 Digital Twin Services</h2>
+    <p><strong>Business Simulation & Prediction</strong></p>
+    <p>Revolutionary simulation engine for business operations and predictive intelligence</p>
     <ul>
-      <li>Unified chat UI</li>
-      <li>iOS, Android, Desktop, Web</li>
-      <li>Voice & vision in chat</li>
-      <li>Compose Multiplatform</li>
+      <li>Business process simulation</li>
+      <li>Predictive operations modeling</li>
+      <li>What-if scenario testing</li>
+      <li>Proactive automation</li>
     </ul>
-    <a href="#aimatrix-console" style="color: #00ff00;">Learn More →</a>
+    <a href="#digital-twin-services" style="color: #00ff00;">Learn More →</a>
   </div>
 
 </div>
 
 ---
 
-## AIMatrix CLI
+## Business Solutions
 
-### The Developer's AI Workspace
+### Industry-Specific AI Platforms
 
-Think of AIMatrix CLI as **git meets npm meets docker** for AI development. It's your local command center for building, testing, and deploying intelligent agents.
+We provide complete AI solutions tailored for specific industries, enabling niche and vertical players to launch their own AI platforms.
 
-### Core Concepts
+#### 🏪 Retail & E-commerce AI Platform
+**Complete automation for retail operations:**
+- Inventory management AI
+- Dynamic pricing optimization
+- Customer service automation
+- Visual merchandising AI
+- Demand forecasting
+- Supply chain optimization
 
-#### 🏗️ Workspace Management
-Just like git manages source code, AIMatrix CLI manages AI projects:
-```bash
-# Initialize a new AI workspace
-aimatrix init my-ai-project
+#### 🏭 Manufacturing AI Platform
+**End-to-end factory automation:**
+- Production planning AI
+- Quality control vision systems
+- Predictive maintenance
+- Supply chain orchestration
+- Compliance automation
+- Worker safety monitoring
 
-# Clone from Studio
-aimatrix clone studio://company/sales-agent
+#### 🏥 Healthcare AI Platform
+**Intelligent healthcare operations:**
+- Patient care coordination
+- Medical records automation
+- Appointment optimization
+- Insurance processing AI
+- Clinical decision support
+- Resource allocation
 
-# Check workspace status
-aimatrix status
-```
+#### 💼 Professional Services AI Platform
+**Automate knowledge work:**
+- Document generation AI
+- Research automation
+- Client communication
+- Project management AI
+- Billing automation
+- Knowledge management
 
-#### 🤖 Agent Orchestration
-Run a master agent that coordinates multiple AI services:
-```bash
-# Start the master agent (like 'ng serve' for Angular)
-aimatrix serve
+### Custom Solutions
 
-# The master agent then manages:
-# - Claude CLI instances
-# - Gemini agents
-# - OpenAI Codex
-# - AutoGen frameworks
-# - Custom agents
-```
+#### White-Label AI Platforms
+**Launch your own AI platform:**
+- Fully branded solution
+- Custom domain and branding
+- Industry-specific features
+- Complete infrastructure
+- Ongoing support and updates
 
-#### 🔑 Credential Management
-Securely manage API keys and credentials:
-```bash
-# Add credentials
-aimatrix auth add openai
-aimatrix auth add anthropic
-aimatrix auth add bigledger
-
-# Credentials are encrypted and isolated per workspace
-```
-
-#### 💰 P2P Compute Network
-Share your computing resources and earn credits:
-```bash
-# Join the compute network
-aimatrix compute join
-
-# Set resource limits
-aimatrix compute config --cpu=4 --memory=8GB --gpu=1
-
-# Monitor earnings
-aimatrix compute earnings
-```
-
-### Key Features
-
-#### Development Environment
-- **Local Testing**: Test agents without cloud costs
-- **Hot Reload**: Changes reflect immediately
-- **Debug Mode**: Step through agent execution
-- **Performance Profiling**: Optimize token usage
-
-#### Agent Management
-```bash
-# Create new agent
-aimatrix agent create expense-processor
-
-# Test agent locally
-aimatrix agent test --input="process this receipt" --image=receipt.jpg
-
-# Deploy to Studio
-aimatrix agent deploy --env=production
-```
-
-#### Integration Tools
-```bash
-# Generate MCP server
-aimatrix mcp init --api=rest --url=https://api.company.com
-
-# Connect to BigLedger
-aimatrix connect bigledger --instance=https://erp.company.com
-
-# Add data sources
-aimatrix data add --type=gdrive --path=/company-docs
-```
-
-### Installation
-
-```bash
-# NPM (Node.js)
-npm install -g @aimatrix/cli
-
-# Homebrew (macOS)
-brew install aimatrix-cli
-
-# Direct download
-curl -L https://get.aimatrix.com | bash
-```
-
-### Example Workflow
-
-```bash
-# 1. Create workspace
-aimatrix init sales-automation
-cd sales-automation
-
-# 2. Add agents
-aimatrix agent add voice-order-taker
-aimatrix agent add inventory-checker
-aimatrix agent add order-processor
-
-# 3. Configure connections
-aimatrix connect bigledger
-aimatrix auth add openai
-
-# 4. Start development server
-aimatrix serve
-
-# 5. Test locally
-aimatrix test scenarios/new-order.yaml
-
-# 6. Deploy to Studio
-aimatrix deploy --studio=company/sales-automation
-```
+#### Managed AI Services
+**We run your AI operations:**
+- Full implementation
+- 24/7 monitoring
+- Continuous optimization
+- Performance guarantees
+- Zero maintenance burden
 
 ---
 
-## Studio.AIMatrix.com
+## Platform Products
 
-### The GitHub for AI Projects
+### Developer Tools & Infrastructure
 
-Studio is where AI projects live, collaborate, and scale. It's your cloud platform for managing, sharing, and deploying AI agents at enterprise scale.
+#### 🖥️ AIMatrix CLI
+**Command-line powerhouse for AI development:**
+
+##### Core Capabilities
+```bash
+# Initialize AI workspace
+aimatrix init my-project
+
+# Create and test agents locally
+aimatrix agent create sales-bot
+aimatrix test --scenario=customer-inquiry
+
+# Deploy to production
+aimatrix deploy --env=production
+```
+
+##### Key Features
+- **Local Development**: Build and test without cloud costs
+- **Agent Orchestration**: Manage multiple AI models
+- **P2P Compute Network**: Share resources, earn credits
+- **Credential Management**: Secure API key handling
+- **Integration Tools**: Connect to any system
+
+#### ☁️ Studio.AIMatrix.com
+**Enterprise cloud platform for AI operations:**
+
+##### Revolutionary Architecture
+Unlike traditional workflow tools (n8n, Zapier, Make), Studio uses **Zero-Workflow Orchestration**:
+- No visual workflow building needed
+- AI automatically determines execution flow
+- Self-optimizing with reinforcement learning
+- Outperforms AutoGen, LangChain, CrewAI
+
+##### Platform Features
+- **Knowledge Capsules**: Plug-and-play AI capabilities
+- **Multi-Cloud Deployment**: AWS, GCP, Azure, Alibaba
+- **Team Collaboration**: GitHub-like for AI projects
+- **Auto-Scaling Runtime**: Handle any workload
+- **Marketplace**: Thousands of pre-built solutions
+
+#### 💬 AIMatrix Console
+**Beautiful chat interface for everyone:**
+
+##### One App, Every Platform
+Built with Compose Multiplatform for native performance:
+- **Mobile**: iOS & Android apps
+- **Desktop**: Windows, macOS, Linux
+- **Web**: Browser-based access
+- **Consistent**: Same experience everywhere
+
+##### User Experience
+- Natural language interaction
+- Voice and vision capabilities
+- Rich media support
+- Real-time responses
+- Offline functionality
+
+---
+
+## Digital Twin Services
+
+### Not Manufacturing - Business Simulation
+
+We're applying digital twin technology to business operations, not machinery. Think of it as a **game simulation engine for your business**.
+
+### What Are Business Digital Twins?
+
+#### Traditional Digital Twin (Manufacturing)
+- Models physical machines
+- Monitors equipment health
+- Predicts maintenance needs
+- Optimizes production lines
+
+#### AIMatrix Digital Twin (Business Operations)
+- Models business processes
+- Simulates market conditions
+- Predicts business outcomes
+- Automates proactive decisions
 
 ### Core Capabilities
 
-#### 📦 Knowledge Capsules
-Like GitHub Apps, but for AI knowledge:
-- **Install & Share**: One-click knowledge installation
-- **Version Control**: Track knowledge evolution
-- **Private/Public**: Control knowledge visibility
-- **Marketplace**: Discover pre-built capabilities
+#### 🎮 Business Process Simulation
+**Run your business in "practice mode":**
+- Test strategies without risk
+- Simulate customer behavior
+- Model market reactions
+- Predict competition moves
 
-#### 🏃 Runtime Environments
-Like GitHub Codespaces, but for AI:
-- **Cloud Workspaces**: Full AIMatrix environment in browser
-- **Instant Deployment**: Zero-config agent deployment
-- **Auto-scaling**: Handle any workload
-- **Multi-cloud**: Deploy to AWS, Google Cloud, Azure, Alibaba
+**Example**: Before launching a promotion, simulate 1000 scenarios to predict:
+- Customer response rates
+- Inventory requirements
+- Staff needs
+- Profit impact
 
-#### 🔄 GitHub Integration
-Seamless connection with your development workflow:
-```yaml
-# .github/aimatrix.yml
-on:
-  issues:
-    types: [opened]
-jobs:
-  process:
-    runs-on: aimatrix
-    steps:
-      - uses: aimatrix/analyze-issue
-      - uses: aimatrix/suggest-solution
-      - uses: aimatrix/create-pr
-```
+#### 🔮 Predictive Operations
+**See the future, act today:**
+- Predict demand spikes before they happen
+- Anticipate supply chain disruptions
+- Forecast cash flow issues
+- Identify emerging opportunities
 
-### Platform Features
+**Example**: AI detects pattern → Predicts shortage in 2 weeks → Orders inventory today → Avoids stockout
 
-#### Project Management
-- **Workspaces**: Organize agents, knowledge, and configurations
-- **Teams**: Collaborate with role-based permissions
-- **Versioning**: Track all changes with rollback capability
-- **Branching**: Test changes before production
+#### 🎯 What-If Scenario Testing
+**Test every decision virtually first:**
+- "What if we raise prices 10%?"
+- "What if we open a new location?"
+- "What if supplier X fails?"
+- "What if demand doubles?"
 
-#### Knowledge Management
-- **RAG Pipelines**: Automated document processing
-- **Vector Stores**: Managed vector databases
-- **Knowledge Graphs**: Visual relationship mapping
-- **Fine-tuning**: Custom model training
+**Example**: Test hiring 10 salespeople virtually:
+- See revenue impact
+- Calculate ROI
+- Optimize territories
+- All before spending a dollar
 
-#### Deployment Options
-```yaml
-# studio.aimatrix.yaml
-deployment:
-  provider: aws
-  region: us-east-1
-  scaling:
-    min: 2
-    max: 100
-  model_config:
-    primary: gpt-4
-    fallback: claude-3
-```
+#### 🤖 Proactive Automation
+**AI acts before problems occur:**
+- Automatic inventory ordering
+- Dynamic pricing adjustments
+- Preventive customer retention
+- Predictive resource allocation
 
-#### Monitoring & Analytics
-- **Real-time Dashboard**: Track agent performance
-- **Cost Analytics**: Monitor and optimize spending
-- **Usage Metrics**: Understand user patterns
-- **Error Tracking**: Automated issue detection
+**Example**: AI sees competitor lowering prices → Simulates impact → Adjusts strategy → Implements changes → All automatically
 
-### Collaboration Features
+### Digital Twin Use Cases
 
-#### Team Workspaces
-- Shared agent development
-- Knowledge base collaboration
-- Credential management
-- Audit logging
+#### Retail Digital Twin
+- Simulate store layouts virtually
+- Test pricing strategies risk-free
+- Predict seasonal demand
+- Optimize staff scheduling
+- Model customer journeys
 
-#### Knowledge Marketplace
-- Browse thousands of capsules
-- Industry-specific solutions
-- Certified integrations
-- Community contributions
+#### Supply Chain Digital Twin
+- Simulate entire supply network
+- Predict disruption impacts
+- Optimize routing dynamically
+- Test contingency plans
+- Balance inventory levels
 
-### Pricing Tiers
+#### Financial Digital Twin
+- Model cash flow scenarios
+- Simulate investment outcomes
+- Predict payment defaults
+- Optimize working capital
+- Test growth strategies
 
-#### Free Tier
-- 3 workspaces
-- 10,000 API calls/month
-- Community support
-- Public repositories only
+#### Workforce Digital Twin
+- Simulate organizational changes
+- Predict skill gaps
+- Optimize team structures
+- Model productivity impacts
+- Plan succession scenarios
 
-#### Pro ($49/month)
-- Unlimited workspaces
-- 100,000 API calls/month
-- Private repositories
-- Priority support
+### Implementation Approach
 
-#### Enterprise (Custom)
-- Dedicated infrastructure
-- Unlimited everything
-- SLA guarantees
-- White-label options
+#### Phase 1: Digital Mirror (Month 1)
+Create real-time digital copy of operations:
+- Connect data sources
+- Build initial models
+- Establish baselines
+- Validate accuracy
 
----
+#### Phase 2: Predictive Twin (Months 2-3)
+Add predictive capabilities:
+- Train prediction models
+- Implement forecasting
+- Enable what-if analysis
+- Start simulations
 
-## AIMatrix Console
+#### Phase 3: Prescriptive Twin (Months 3-6)
+Enable autonomous optimization:
+- Activate auto-recommendations
+- Implement decision automation
+- Enable self-optimization
+- Scale across operations
 
-### AI for Everyone, Everywhere
+#### Phase 4: Cognitive Twin (Months 6+)
+Achieve full intelligence:
+- Self-learning systems
+- Autonomous operations
+- Continuous improvement
+- Strategic augmentation
 
-The AIMatrix Console is the beautiful, intuitive chat interface that makes AI accessible to everyone. Built with Compose Multiplatform, it provides a consistent experience across all devices - no technical knowledge required.
+### Why Digital Twins Matter
 
-### One Codebase, Every Platform
+#### Without Digital Twins
+- Decisions based on past data
+- Learn from expensive mistakes
+- React to problems after they happen
+- Linear, slow improvement
 
-Using **Compose Multiplatform**, we deliver native performance everywhere:
-
-#### 📱 Mobile Apps
-**iOS & Android (Native Performance)**
-- Unified chat interface
-- Voice-first interaction
-- Camera integration for visual AI
-- Push notifications
-- Offline capabilities
-
-#### 💻 Desktop Applications
-**Windows, macOS, Linux (Native Desktop)**
-- Same familiar chat interface
-- Screen capture & automation
-- Keyboard shortcuts
-- System tray integration
-- Multi-window support
-
-#### 🌐 Web Console
-**Browser-based Access (Compose for Web)**
-- No installation required
-- Same UI/UX as native apps
-- Real-time sync
-- Progressive web app
-- Works on any device
-
-### The Chat-First Experience
-
-#### Unified Interface Design
-The Console is fundamentally a **chat interface** that works the same everywhere:
-- Clean, modern chat UI inspired by messaging apps
-- Consistent experience across all platforms
-- Rich message types (text, images, voice, files)
-- Real-time streaming responses
-- Conversation history and context
-
-#### Natural Interaction
-```
-User: "Process yesterday's receipts"
-AI: "I found 12 receipts from yesterday. Processing now..."
-AI: "Complete. 10 expenses created, 2 need your review."
-User: "Show me the ones that need review"
-```
-
-#### Multi-Modal Chat
-Beyond text, the chat interface supports:
-- **📸 Image Messages**: Drag & drop or capture photos
-- **🎤 Voice Messages**: Talk instead of type
-- **📎 File Attachments**: Documents, spreadsheets, PDFs
-- **📊 Rich Responses**: Charts, tables, interactive elements
-- **🔗 Deep Links**: Click to navigate to specific functions
-
-### Business Features
-
-#### For Retail Staff
-- Voice-controlled POS
-- Visual inventory counts
-- Customer service assistant
-- Price checking
-
-#### For Field Workers
-- Photo-based reporting
-- Voice notes to tasks
-- Offline sync
-- GPS integration
-
-#### For Office Workers
-- Email assistant
-- Meeting transcription
-- Document processing
-- Calendar management
-
-#### For Executives
-- Voice-driven analytics
-- Natural language reports
-- Real-time alerts
-- Decision support
-
-### Consumer Features
-
-#### Personal Assistant
-- Expense tracking
-- Shopping assistance
-- Travel planning
-- Health monitoring
-
-#### Home Integration
-- Smart home control
-- Family organization
-- Recipe assistance
-- Entertainment
-
-### Security & Privacy
-
-#### Data Protection
-- End-to-end encryption
-- Biometric authentication
-- Local processing option
-- GDPR compliant
-
-#### User Control
-- Data deletion rights
-- Processing transparency
-- Opt-in features
-- Privacy dashboard
-
-### Technical Architecture
-
-#### Compose Multiplatform
-The Console shares its codebase with AIMatrix CLI, using **Kotlin Multiplatform** and **Compose Multiplatform**:
-- **Shared Business Logic**: One codebase for all platforms
-- **Native Performance**: Compiles to native code
-- **Platform-Specific Features**: Access native APIs when needed
-- **Consistent UI/UX**: Same components everywhere
-
-#### Relationship with CLI
-```
-AIMatrix Repository
-├── cli/                 # Command-line interface
-├── console/            # GUI/Chat interface (Compose)
-├── shared/             # Shared business logic
-└── platform/           # Platform-specific code
-```
-
-While technically part of the same codebase:
-- **CLI**: For developers and automation
-- **Console**: For end users and chat interaction
-- Both can be installed independently
-- Share core agent runtime and capabilities
-
-### Getting Started
-
-#### For End Users (Console)
-```
-# Mobile
-iOS: App Store → "AIMatrix Console"
-Android: Play Store → "AIMatrix Console"
-
-# Desktop
-macOS/Windows/Linux: Download from aimatrix.com/console
-```
-
-#### For Developers (CLI + Console)
-```bash
-# Install complete AIMatrix suite
-npm install -g @aimatrix/cli
-
-# This includes:
-# - CLI tools for development
-# - Console GUI application
-# - Local agent runtime
-# - P2P compute capabilities
-```
+#### With Digital Twins
+- Decisions based on future simulations
+- Learn from virtual experiments
+- Prevent problems before they occur
+- Exponential, rapid optimization
 
 ---
 
-## How They Work Together
+## Integrated Product Ecosystem
 
-### The Complete Ecosystem
+### How Our Products Work Together
 
 ```
-┌─────────────────────────────────────────────────┐
-│            AIMatrix Console                     │
-│         (Chat Interface - GUI)                  │
-│    Compose Multiplatform Application            │
-│   iOS | Android | Desktop | Web                 │
-└────────────────┬────────────────────────────────┘
-                 │
-┌────────────────▼────────────────────────────────┐
-│         Studio.AIMatrix.com                     │
-│         (Cloud Platform)                        │
-│   Knowledge Store | Runtime | Collaboration     │
-└────────────────┬────────────────────────────────┘
-                 │
-┌────────────────▼────────────────────────────────┐
-│            AIMatrix CLI                         │
-│      (Developer Tools & Runtime)                │
-│   Command Line | Agent Runtime | P2P Network    │
-│                                                 │
-│  Note: CLI and Console share same codebase     │
-│  using Compose Multiplatform                   │
-└─────────────────────────────────────────────────┘
+Business Solutions
+    ↓
+Provide complete automation using
+    ↓
+Platform Products (CLI + Studio + Console)
+    ↓
+Enhanced with predictive intelligence from
+    ↓
+Digital Twin Services
+    ↓
+Resulting in: Complete Business Automation
 ```
 
-### Technical & Marketing Perspective
+### Example: Retail Chain Implementation
 
-#### From Technical View (Single Codebase)
-```
-AIMatrix (Compose Multiplatform)
-├── CLI Module (Terminal Interface)
-├── Console Module (Chat GUI)
-├── Shared Core (Agent Runtime)
-└── Platform Adapters (iOS/Android/Desktop/Web)
-```
-
-#### From Marketing View (Three Products)
-1. **CLI** → Developers love command-line tools
-2. **Console** → End users want beautiful apps
-3. **Studio** → Teams need cloud collaboration
-
-### Typical Workflow
-
-1. **Developer** uses CLI to build agent locally
-2. **Developer** tests with Console GUI locally
-3. **Developer** deploys to Studio for team access
-4. **Team** collaborates on Studio to refine
-5. **Organization** deploys to production via Studio
-6. **End Users** interact through Console apps
-7. **P2P Network** (via CLI) provides distributed compute
-
-### Integration Example
-
-```bash
-# Developer creates agent locally
-aimatrix init customer-service
-aimatrix agent create chat-handler
-
-# Deploy to Studio
-aimatrix deploy --studio=company/customer-service
-
-# Studio automatically:
-# - Versions the agent
-# - Runs tests
-# - Deploys to production
-# - Makes available to Console apps
-
-# End users immediately see:
-# "New capability available: Improved customer service"
-```
+1. **Business Solution**: Complete retail automation package
+2. **Platform Products**: 
+   - CLI for custom agent development
+   - Studio for cloud deployment
+   - Console for staff interaction
+3. **Digital Twin**: Simulate store operations and predict demand
+4. **Result**: 70% operational cost reduction
 
 ---
 
-## Start Your Journey
+## Pricing Models
+
+### Business Solutions
+**Industry Platforms**: Custom pricing based on scale
+- Starting from $5,000/month
+- Includes platform, support, updates
+- Revenue sharing options available
+
+### Platform Products
+**Developer Tools**:
+- CLI: Free and open source
+- Studio Pro: $49/user/month
+- Studio Enterprise: Custom pricing
+- Console: Free for end users
+
+### Digital Twin Services
+**Simulation & Prediction**:
+- Starter: $2,000/month (1 process)
+- Business: $5,000/month (5 processes)
+- Enterprise: Custom (unlimited)
+
+---
+
+## Get Started Today
 
 <div style="display: flex; gap: 20px; margin: 40px 0; flex-wrap: wrap; justify-content: center;">
-  <a href="/technical/developers/" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
-    Install CLI →
+  <a href="/business/demo" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
+    Schedule Demo →
   </a>
-  <a href="https://studio.aimatrix.com/signup" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
-    Try Studio →
+  <a href="/business/contact" style="padding: 15px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 8px; font-weight: bold;">
+    Contact Sales →
   </a>
-  <a href="/downloads" style="padding: 15px 30px; background: #00ff00; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold;">
-    Get Console →
+  <a href="/technical/developers" style="padding: 15px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 8px; font-weight: bold;">
+    Try CLI Free →
   </a>
 </div>
 
