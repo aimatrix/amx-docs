@@ -20,7 +20,7 @@ if [ -z "$FUNCTION_EXISTS" ]; then
     aws cloudfront create-function \
         --name "${FUNCTION_NAME}" \
         --function-config Comment="URL rewrite for clean URLs",Runtime="cloudfront-js-1.0" \
-        --function-code "$(cat cloudfront-functions/url-rewrite.js)" \
+        --function-code "$(cat scripts/cloudfront-functions/url-rewrite.js)" \
         --output json > /tmp/cf-function.json
     
     FUNCTION_ARN=$(cat /tmp/cf-function.json | jq -r '.FunctionSummary.FunctionMetadata.FunctionARN')
@@ -52,7 +52,7 @@ else
     aws cloudfront update-function \
         --name "${FUNCTION_NAME}" \
         --function-config Comment="URL rewrite for clean URLs",Runtime="cloudfront-js-1.0" \
-        --function-code "$(cat cloudfront-functions/url-rewrite.js)" \
+        --function-code "$(cat scripts/cloudfront-functions/url-rewrite.js)" \
         --if-match "${ETAG}" \
         --output json > /tmp/cf-function-updated.json
     

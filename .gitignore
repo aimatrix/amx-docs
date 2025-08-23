@@ -1,8 +1,11 @@
 # Hugo build artifacts
-/public/
+/build/public/
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
+
+# Build folder
+/build/
 
 # OS generated files
 .DS_Store
@@ -26,13 +29,12 @@ yarn-debug.log*
 yarn-error.log*
 
 # Temporary files
-tmp/
 *.tmp
 *.temp
 
-# Ideas and todos (not for public)
-ideas/
-todos/
+# Documentation working files (not for public)
+/docs/ideas/
+/docs/todos/
 
 # Local settings
 .claude/settings.local.json
@@ -47,3 +49,8 @@ todos/
 # Environment files
 .env
 .env.local
+
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc

@@ -1,6 +1,7 @@
 # Hugo configuration for Hextra theme
 baseURL: https://docs.aimatrix.com/
 title: docs@aimatrix
+publishDir: build/public
 
 # Language settings
 languageCode: en
