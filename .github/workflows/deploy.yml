@@ -38,7 +38,7 @@ jobs:
       run: |
         hugo --minify --environment production
         echo "Built site successfully"
-        ls -la public/
+        ls -la build/public/
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
@@ -49,7 +49,7 @@ jobs:
 
     - name: Deploy to S3
       run: |
-        aws s3 sync public/ s3://docs.aimatrix.com/ \
+        aws s3 sync build/public/ s3://docs.aimatrix.com/ \
           --delete \
           --cache-control "public, max-age=3600" \
           --metadata-directive REPLACE
@@ -74,5 +74,5 @@ jobs:
       run: |
         echo "🚀 Deployment completed successfully!"
         echo "📋 Site URL: https://docs.aimatrix.com"
-        echo "📊 Files deployed: $(find public -type f | wc -l)"
-        echo "📁 Total size: $(du -sh public/ | cut -f1)"
+        echo "📊 Files deployed: $(find build/public -type f | wc -l)"
+        echo "📁 Total size: $(du -sh build/public/ | cut -f1)"
