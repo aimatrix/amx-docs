@@ -442,13 +442,13 @@ AIMatrix ROI Guarantee:
    - Analyze your current costs
    - Identify quick wins
    - Calculate potential savings
-   - [Schedule Assessment](https://studio.aimatrix.com/roi-assessment)
+   - [Schedule Assessment](https://hub.aimatrix.com/roi-assessment)
 
 2. **Proof of Concept** (2 weeks)
    - Deploy in one department
    - Measure actual results
    - Validate ROI projections
-   - [Start POC](https://studio.aimatrix.com/poc)
+   - [Start POC](https://hub.aimatrix.com/poc)
 
 3. **Full Deployment** (4-8 weeks)
    - Phased rollout plan
@@ -478,4 +478,4 @@ AIMatrix ROI Guarantee:
 
 *Ready to transform your business economics? Calculate your ROI today.*
 
-**[Get Your Custom ROI Report →](https://studio.aimatrix.com/roi-calculator)**
+**[Get Your Custom ROI Report →](https://hub.aimatrix.com/roi-calculator)**

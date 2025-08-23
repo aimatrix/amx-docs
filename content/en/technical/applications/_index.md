@@ -4,7 +4,7 @@ weight: 18
 description: "Comprehensive suite of cross-platform applications for AI agent deployment, management, and interaction across desktop, mobile, web, and edge environments"
 date: 2025-08-23
 toc: true
-tags: ["applications", "cross-platform", "mobile", "desktop", "web", "edge", "terminal"]
+tags: ["applications", "cross-platform", "mobile", "desktop", "web", "edge", "console"]
 ---
 
 # AIMatrix Applications
@@ -27,7 +27,7 @@ graph TB
     end
     
     subgraph "Desktop Applications"
-        AT[AMX Terminal]
+        AC[AMX Console]
         DC[Desktop Console]
         WE[Web Extensions]
     end

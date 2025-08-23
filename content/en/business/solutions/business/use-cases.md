@@ -680,10 +680,10 @@ Innovation Metrics:
 
 ### Contact Us
 - **Email**: sales@aimatrix.com
-- **Demo**: [Book a Demo](https://studio.aimatrix.com/demo)
+- **Demo**: [Book a Demo](https://hub.aimatrix.com/demo)
 - **Support**: 24/7 available
 - **Implementation**: White-glove service available
 
 ---
 
-*Transform your business with AIMatrix Studio - Where every employee becomes 10x more productive*
+*Transform your business with AIMatrix - Where every employee becomes 10x more productive*
