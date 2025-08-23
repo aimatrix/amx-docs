@@ -170,42 +170,27 @@ outputs:
 # Menu configuration
 menu:
   main:
-    - name: Documentation
-      pageRef: /docs
+    - name: Business
+      pageRef: /business
       weight: 1
-    - name: API Reference
-      pageRef: /api
+    - name: Technical
+      pageRef: /technical
       weight: 2
-    - name: Tutorials
-      pageRef: /tutorials
+    - name: Blogs
+      pageRef: /blogs
       weight: 3
-    - name: Community
-      pageRef: /community
-      weight: 4
-    - name: Blog
-      pageRef: /blog
-      weight: 5
       
-  # Documentation sidebar menu
+  # Business sidebar menu
   sidebar:
     - name: Getting Started
-      pageRef: /docs/getting-started
+      pageRef: /business/getting-started
       weight: 1
-    - name: Modules
-      pageRef: /docs/modules
+    - name: Vertical Solutions
+      pageRef: /business/vertical-solutions
       weight: 2
-    - name: User Guides
-      pageRef: /docs/user-guides  
+    - name: Products
+      pageRef: /business/products
       weight: 3
-    - name: Administration
-      pageRef: /docs/administration
-      weight: 4
-    - name: Developer
-      pageRef: /docs/developer
-      weight: 5
-    - name: Best Practices
-      pageRef: /docs/best-practices
-      weight: 6
 
 # Deployment configuration
 deployment:
