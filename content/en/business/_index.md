@@ -47,6 +47,7 @@ Discover how AIMatrix transforms businesses with intelligent automation and AI-p
     <p>Technical concepts made simple</p>
     <ul style="list-style: none; padding: 0;">
       <li>→ <a href="/business/how-it-works/">Technical Overview</a></li>
+      <li>→ <a href="/business/how-it-works/complete-ecosystem/">Complete Ecosystem</a></li>
       <li>→ <a href="/business/how-it-works/ai-agents-explained/">AI Agents</a></li>
       <li>→ <a href="/business/how-it-works/digital-twins-explained/">Digital Twins</a></li>
     </ul>
