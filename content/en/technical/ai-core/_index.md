@@ -233,7 +233,7 @@ AIMatrix is built for enterprise scale:
 - [API Documentation](/technical/developers/api-reference/)
 - [Video Tutorials](/technical/tutorials/)
 - [Best Practices](/technical/best-practices/)
-- [Case Studies](/business/community/success-stories/)
+- [Case Studies](/business/use-cases/)
 
 ---
 

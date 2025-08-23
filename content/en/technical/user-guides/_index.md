@@ -12,8 +12,8 @@ Welcome to the AIMatrix User Guides. These comprehensive guides will help you ge
 ## Getting Started
 
 Learn the basics of using AIMatrix:
-- [Platform Overview](/business/getting-started/)
-- [Quick Start Guide](/business/getting-started/quickstart-aimatrix/)
+- [Platform Overview](/business/overview/)
+- [Quick Start Guide](/business/overview/)
 
 ## Core Features
 
@@ -58,6 +58,6 @@ Learn the basics of using AIMatrix:
 ## Support
 
 Need help? Check out:
-- [Community Forum](/business/community/)
+- [Community Forum](https://forum.aimatrix.com)
 - [Contact Support](/business/contact/)
 - [Tutorials](/technical/tutorials/)

@@ -463,7 +463,7 @@ platform:
 > **Platform Evolution**: The AIMatrix Core Platform is continuously evolving. This documentation reflects our current capabilities and near-term roadmap. For the latest updates, visit our [changelog](/technical/core-platform/changelog/).
 
 > [!TIP]
-> **Getting Started**: New to AIMatrix? Start with our [Quick Start Guide](/business/getting-started/) to understand the fundamentals before diving into the Core Platform architecture.
+> **Getting Started**: New to AIMatrix? Start with our [Quick Start Guide](/business/overview/) to understand the fundamentals before diving into the Core Platform architecture.
 
 ---
 

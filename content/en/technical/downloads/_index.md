@@ -256,7 +256,7 @@ weight: 18
     <p style="color: #ccc;">Comprehensive documentation</p>
     <ul style="list-style: none; padding: 0; margin: 20px 0;">
       <li style="margin: 10px 0;">📄 <a href="/technical/user-guides/" style="color: #00ff00;">User Guide</a></li>
-      <li style="margin: 10px 0;">📄 <a href="/business/getting-started/" style="color: #00ff00;">Quick Start Guide</a></li>
+      <li style="margin: 10px 0;">📄 <a href="/business/overview/" style="color: #00ff00;">Quick Start Guide</a></li>
       <li style="margin: 10px 0;">📄 <a href="/technical/developers/" style="color: #00ff00;">API Reference</a></li>
     </ul>
   </div>
@@ -381,7 +381,7 @@ weight: 18
   <p style="color: #ccc; margin: 20px 0;">Check out our installation guides and troubleshooting resources</p>
   
   <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 30px 0;">
-    <a href="/business/getting-started/" class="download-button">
+    <a href="/business/overview/" class="download-button">
       📚 Installation Guide
     </a>
     <a href="/technical/" class="download-button">

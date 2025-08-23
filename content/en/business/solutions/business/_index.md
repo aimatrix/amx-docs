@@ -259,8 +259,8 @@ Start with highest-impact area:
   <p>Join the businesses operating at 10x efficiency</p>
   
   <div style="display: flex; gap: 20px; margin-top: 20px;">
-    <a href="/business/demo" style="padding: 12px 24px; background: white; color: #667eea; text-decoration: none; border-radius: 6px; font-weight: bold;">
-      See Total Automation Demo →
+    <a href="/business/contact" style="padding: 12px 24px; background: white; color: #667eea; text-decoration: none; border-radius: 6px; font-weight: bold;">
+      Schedule a Demo →
     </a>
     <a href="/business/contact" style="padding: 12px 24px; border: 2px solid white; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
       Get Automation Assessment
