@@ -1,12 +1,12 @@
 ---
-title: "Audit & Accounting AI"
-description: "Revolutionize financial operations with AI that automates 80-95% of accounting workflows while ensuring 99.7% accuracy and full compliance"
+title: "Audit & Assurance AI (A3I)"
+description: "Revolutionize audit and assurance operations with AI that automates 80-95% of audit workflows while ensuring 99.7% accuracy and full compliance"
 weight: 1
 cascade:
   type: docs
 ---
 
-# Audit & Accounting AI: Complete Financial Automation
+# Audit & Assurance AI (A3I): Complete Audit Automation
 
 AIMatrix Audit & Accounting AI represents a revolutionary leap forward in financial operations management. Our comprehensive AI-powered solution automates 80-95% of traditional accounting workflows while maintaining exceptional accuracy rates of 99.7% and ensuring full regulatory compliance across all jurisdictions.
 

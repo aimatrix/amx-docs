@@ -77,17 +77,6 @@ weight: 20
     <a href="https://support.aimatrix.com" class="contact-button">Get Support →</a>
   </div>
   
-  <div class="contact-card">
-    <div style="font-size: 3em; margin-bottom: 20px;">🤝</div>
-    <h3>Partnerships</h3>
-    <p style="color: #ccc; margin: 20px 0;">Interested in partnering? Let's explore opportunities.</p>
-    <div style="margin: 20px 0;">
-      <p>📧 <a href="mailto:partners@aimatrix.com" style="color: #00ff00;">partners@aimatrix.com</a></p>
-      <p>📋 Partner Program Available</p>
-    </div>
-    <a href="mailto:partners@aimatrix.com" class="contact-button">Become a Partner →</a>
-  </div>
-  
 </div>
 
 ## 🏢 Office Location

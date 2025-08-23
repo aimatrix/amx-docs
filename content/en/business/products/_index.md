@@ -1,10 +1,10 @@
 ---
-title: AIMatrix Products
+title: Products
 description: Complete AI platform with CLI tools, console applications, simulation engine, and collaboration hub
 weight: 2
 ---
 
-# The AIMatrix Product Suite
+# Product Suite
 
 Four integrated products that create a complete AI ecosystem for businesses, developers, and end users.
 

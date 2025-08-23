@@ -209,6 +209,14 @@ nav {
   background: rgba(0, 0, 0, 0.4) !important;
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(26, 26, 26, 0.3) !important;
+  z-index: 9990 !important;  /* High but below search results */
+  position: relative !important;
+}
+
+/* Ensure nav container doesn't block search */
+.nav-container {
+  z-index: 9990 !important;
+  position: relative !important;
 }
 
 /* Sidebar - more transparent to show digital rain */
@@ -324,14 +332,39 @@ blockquote {
   box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.1) !important;
 }
 
-/* Search results */
+/* Search results - Fix z-index and clickability */
 .search-results {
   background: #0a0a0a !important;
   border: 1px solid #1a1a1a !important;
+  z-index: 9999 !important;  /* Ensure search results are on top */
+  position: absolute !important;
+  pointer-events: auto !important;  /* Make sure clicks work */
 }
 
-.search-result-item:hover {
+.search-results li,
+.search-results a {
+  pointer-events: auto !important;  /* Ensure links are clickable */
+  cursor: pointer !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 10000 !important;  /* Higher than parent */
+}
+
+.search-result-item:hover,
+.search-results li:hover {
   background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Fix search wrapper to ensure dropdown works */
+.search-wrapper {
+  position: relative !important;
+  z-index: 9998 !important;  /* High z-index for search area */
+}
+
+/* Ensure search input is above other elements */
+.search-input {
+  position: relative !important;
+  z-index: 9997 !important;
 }
 
 /* Buttons */

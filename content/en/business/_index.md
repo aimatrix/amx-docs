@@ -14,62 +14,46 @@ Discover how AIMatrix transforms businesses with intelligent automation and AI-p
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
   
   <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
-    <h3>💼 For Business Leaders</h3>
-    <p>Strategic insights and ROI</p>
+    <h3>📋 Overview</h3>
+    <p>Understanding AIMatrix</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/business/why-aimatrix/">Why AIMatrix Platform</a></li>
-      <li>→ <a href="/business/products/">Product Portfolio</a></li>
+      <li>→ <a href="/business/overview/">What is AIMatrix</a></li>
+      <li>→ <a href="/business/products/">Product Suite</a></li>
+      <li>→ <a href="/business/key-concepts/">Key Concepts</a></li>
     </ul>
   </div>
 
   <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
-    <h3>🏢 Industry Solutions</h3>
-    <p>AI solutions for your sector</p>
+    <h3>🏢 Use Cases - Part 1</h3>
+    <p>Industry AI Solutions</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/business/vertical-solutions/">Vertical Solutions</a></li>
-      <li>→ <a href="/business/solutions/">Business Solutions</a></li>
-      <li>→ <a href="/business/demo/">Interactive Demo</a></li>
+      <li>→ <a href="/business/use-cases/audit-assurance-ai/">Audit & Assurance (A3I)</a></li>
+      <li>→ <a href="/business/use-cases/retail-ai/">Retail AI (RAI)</a></li>
+      <li>→ <a href="/business/use-cases/customer-service-ai/">Customer Service (CSAI)</a></li>
+      <li>→ <a href="/business/use-cases/project-management-ai/">Project Management (PMAI)</a></li>
+      <li>→ <a href="/business/use-cases/human-resource-ai/">Human Resource (HRAI)</a></li>
     </ul>
   </div>
 
   <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
-    <h3>👥 For Your Team</h3>
-    <p>Empower your employees</p>
+    <h3>🎯 Use Cases - Part 2</h3>
+    <p>Business Function AI</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/business/employees/">Employee Benefits</a></li>
-      <li>→ <a href="/business/getting-started/">Getting Started</a></li>
-      <li>→ <a href="/business/community/">Join Community</a></li>
+      <li>→ <a href="/business/use-cases/sales-funnel-ai/">Sales Funnel (SFAI)</a></li>
+      <li>→ <a href="/business/use-cases/digital-marketing-ai/">Digital Marketing (DMAI)</a></li>
+      <li>→ <a href="/business/use-cases/financial-control-ai/">Financial Control (FCAI)</a></li>
+      <li>→ <a href="/business/use-cases/sysops-devops-ai/">SysOps DevOps (SDAI)</a></li>
+      <li>→ <a href="/business/use-cases/learning-management-ai/">Learning Management (LMAI)</a></li>
     </ul>
   </div>
 
   <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
-    <h3>🔧 How It Works</h3>
-    <p>Technical concepts made simple</p>
-    <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/business/how-it-works/">Technical Overview</a></li>
-      <li>→ <a href="/business/how-it-works/complete-ecosystem/">Complete Ecosystem</a></li>
-      <li>→ <a href="/business/how-it-works/ai-agents-explained/">AI Agents</a></li>
-      <li>→ <a href="/business/how-it-works/digital-twins-explained/">Digital Twins</a></li>
-    </ul>
-  </div>
-
-  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
-    <h3>🚀 Implementation</h3>
-    <p>Getting started made simple</p>
-    <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/business/implementation/">Implementation Guide</a></li>
-      <li>→ <a href="/business/how-it-works/data-intelligence/">Data Intelligence</a></li>
-      <li>→ <a href="/business/how-it-works/platform-architecture/">Platform Foundation</a></li>
-    </ul>
-  </div>
-
-  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
-    <h3>📞 Get in Touch</h3>
+    <h3>📞 Get Started</h3>
     <p>Connect with our team</p>
     <ul style="list-style: none; padding: 0;">
-      <li>→ <a href="/business/contact/">Contact Sales</a></li>
-      <li>→ <a href="/business/demo/">Schedule Demo</a></li>
-      <li>→ <a href="/business/solutions/">Request Quote</a></li>
+      <li>→ <a href="/business/contact/">Contact AIMatrix</a></li>
+      <li>→ <a href="mailto:sales@aimatrix.com">Request Demo</a></li>
+      <li>→ <a href="mailto:info@aimatrix.com">Get Quote</a></li>
     </ul>
   </div>
 
@@ -88,12 +72,16 @@ Businesses typically see:
 - 60% reduction in manual errors
 
 ### 🎯 Industry-Specific
-Purpose-built solutions for:
-- Retail & E-commerce
-- Financial Services
-- Manufacturing
-- Healthcare
-- Professional Services
+Purpose-built AI solutions for every business function:
+- Audit & Assurance
+- Retail Management
+- Customer Service
+- Project Management
+- Human Resources
+- Sales & Marketing
+- Financial Control
+- IT Operations
+- Learning & Development
 
 ### 🔐 Enterprise-Ready
 Built for scale with enterprise security, compliance, and reliability standards.

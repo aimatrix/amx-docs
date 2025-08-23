@@ -1,12 +1,12 @@
 ---
-title: "ERP/POS AI Solutions"
-description: "Next-generation enterprise resource planning with AI-first architecture, delivering 70% efficiency gains and real-time intelligent automation"
+title: "Retail AI (RAI)"
+description: "Next-generation retail management with AI-first architecture, delivering 70% efficiency gains and real-time intelligent automation"
 weight: 2
 cascade:
   type: docs
 ---
 
-# ERP/POS AI: Intelligent Enterprise Resource Planning
+# Retail AI (RAI): Intelligent Retail Management
 
 AIMatrix ERP/POS AI Solutions represent a revolutionary transformation in business management systems, integrating artificial intelligence at every layer to create autonomous, adaptive, and intelligent enterprise operations. Our AI-first architecture delivers unprecedented automation, real-time insights, and continuous optimization across all business functions.
 

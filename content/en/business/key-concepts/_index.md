@@ -1,11 +1,11 @@
 ---
-title: How AIMatrix Works
-weight: 15
+title: Key Concepts
+weight: 3
 cascade:
   type: docs
 ---
 
-# Understanding the Technology - Made Simple
+# Understanding Key Concepts
 
 Understanding AIMatrix doesn't require a computer science degree. Think of it as your business getting a team of incredibly smart digital assistants that never sleep, never make mistakes, and get smarter every day.
 

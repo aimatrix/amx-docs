@@ -103,7 +103,7 @@ params:
     type: flexsearch
     flexsearch:
       # index page by page
-      index: docs
+      index: content
       # tokenize by word
       tokenize: forward
       # search result limit
@@ -179,6 +179,10 @@ menu:
     - name: Blogs
       pageRef: /blogs
       weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
       
   # Business sidebar menu
   sidebar:

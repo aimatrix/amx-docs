@@ -1,12 +1,12 @@
 ---
-title: "Vertical Solutions"
+title: "Use Cases"
 description: "Industry-specific AI solutions designed to revolutionize business operations across multiple sectors"
-weight: 100
+weight: 4
 cascade:
   type: docs
 ---
 
-# Industry-Specific AI Solutions
+# Industry Use Cases
 
 AIMatrix Vertical Solutions represent the pinnacle of industry-specific AI applications, delivering transformative capabilities that automate complex business processes with unprecedented accuracy and efficiency. Our vertical solutions are purpose-built to address the unique challenges and requirements of specific industries, providing deep domain expertise combined with cutting-edge artificial intelligence.
 

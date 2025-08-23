@@ -1,10 +1,10 @@
 ---
-title: "CRM & Support AI Solutions"
-description: "Comprehensive AI-powered customer relationship management and support solutions that transform customer experiences through intelligent automation, predictive analytics, and omnichannel engagement."
-weight: 200
+title: "Customer Service AI (CSAI)"
+description: "Comprehensive AI-powered customer service solutions that transform customer experiences through intelligent automation, predictive analytics, and omnichannel engagement."
+weight: 3
 ---
 
-# CRM & Support AI Solutions
+# Customer Service AI (CSAI)
 
 AIMatrix's CRM & Support AI Solutions revolutionize customer relationship management and customer service operations through advanced artificial intelligence, machine learning, and automation technologies. Our comprehensive suite delivers 24/7 intelligent customer support, predictive customer analytics, and seamless integration across all customer touchpoints.
 
