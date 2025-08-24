@@ -4,8 +4,6 @@ description: Get in touch with our team for sales, support, or partnership oppor
 weight: 20
 ---
 
-# Get in Touch
-
 <div style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); border-radius: 16px; padding: 60px 40px; margin: 40px 0; text-align: center; position: relative; overflow: hidden;">
   <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.1; background: repeating-linear-gradient(90deg, #00ff00 0px, transparent 2px, transparent 10px, #00ff00 12px); animation: slide 10s linear infinite;"></div>
   <div style="position: relative; z-index: 1;">

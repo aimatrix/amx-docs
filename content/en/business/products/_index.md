@@ -70,23 +70,7 @@ Four integrated products that create a complete AI ecosystem for businesses, dev
 
 ## How Our Products Work Together
 
-```mermaid
-graph LR
-    A[AIMatrix CLI] --> B[AMX Engine]
-    B --> C[AMX Console]
-    B --> D[AMX Hub]
-    C --> D
-    
-    A -->|Installs & Manages| B
-    B -->|Powers| C
-    D -->|Orchestrates| B
-    C -->|Connects to| B
-    
-    style A fill:#333,stroke:#00ff00
-    style B fill:#333,stroke:#00ff00
-    style C fill:#333,stroke:#00ff00
-    style D fill:#333,stroke:#00ff00
-```
+**Product Integration Flow**: AIMatrix CLI installs and manages AMX Engine, which powers AMX Console and connects to AMX Hub. The Hub orchestrates Engine operations while Console provides user access. This integrated architecture ensures seamless operation across all four products, with each component optimized for specific business functions while maintaining unified intelligence sharing.
 
 ### Complete Integration Flow
 

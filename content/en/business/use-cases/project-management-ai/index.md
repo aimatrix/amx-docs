@@ -4,8 +4,6 @@ description: "Transform project management with AI-powered issue tracking, work 
 weight: 4
 ---
 
-# Project Management AI (PMAI)
-
 AIMatrix Project Management AI revolutionizes how organizations plan, execute, and deliver projects. By integrating artificial intelligence into every aspect of project management, PMAI delivers unprecedented automation, predictive insights, and continuous optimization that transforms project success rates.
 
 ## Overview

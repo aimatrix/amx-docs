@@ -41,19 +41,7 @@ Think of them as giving AI the ability to use software just like humans do.
 
 ### How Tools Work
 
-```
-User: "Check our inventory for product SKU-12345"
-  ↓
-AI recognizes need for inventory tool
-  ↓
-AI calls: checkInventory(sku="SKU-12345")
-  ↓
-Tool queries database
-  ↓
-Returns: {quantity: 145, location: "Warehouse A"}
-  ↓
-AI: "SKU-12345 has 145 units in Warehouse A"
-```
+**Tool Usage Example**: When a user asks "Check our inventory for product SKU-12345", the AI recognizes the need for inventory data, calls the appropriate inventory tool, queries the database, receives the result (145 units in Warehouse A), and responds with "SKU-12345 has 145 units in Warehouse A". This seamless process transforms passive AI into an active business assistant.
 
 ### Types of Tools
 
@@ -88,24 +76,7 @@ AI: "SKU-12345 has 145 units in Warehouse A"
 ### Real-World Tool Examples
 
 #### **Customer Service Scenario**
-```python
-# Tools available to AI
-def check_order_status(order_id):
-    # Queries order database
-    return order_details
-
-def process_refund(order_id, amount):
-    # Initiates refund process
-    return confirmation
-
-def send_email(customer_id, message):
-    # Sends customer notification
-    return success_status
-
-def create_ticket(issue_details):
-    # Creates support ticket
-    return ticket_id
-```
+A customer service AI agent has access to tools for checking order status (queries order database), processing refunds (initiates refund workflow), sending emails (customer notifications), and creating tickets (issue tracking). With these tools, the AI can complete the entire customer service process autonomously.
 
 The AI can now:
 1. Check the customer's order
@@ -135,18 +106,12 @@ MCP is like a universal adapter that allows any AI model to connect with any bus
 
 ### How MCP Works
 
-```
-┌──────────────┐     MCP Protocol     ┌──────────────┐
-│   AI Model   │ ←─────────────────→  │   Your ERP   │
-└──────────────┘                       └──────────────┘
-        ↑                                      ↑
-        │            Standardized              │
-        │             Messages                 │
-        ↓                                      ↓
-┌──────────────┐                       ┌──────────────┐
-│  Any LLM     │                       │  Any System  │
-└──────────────┘                       └──────────────┘
-```
+**Universal Communication Framework:**
+- AI Models connect to any business system through standardized MCP protocol
+- One protocol supports all integrations - write once, use everywhere
+- Standardized message formats enable seamless system interoperability
+- Any LLM can communicate with any ERP, CRM, or business system
+- Future-proof connections adapt to new technologies automatically
 
 ### MCP Components
 
@@ -176,32 +141,17 @@ AI models that need information:
 
 #### **Example: Financial Analysis**
 
-```json
-// MCP Request
-{
-  "context_type": "financial_data",
-  "parameters": {
-    "period": "Q3-2024",
-    "metrics": ["revenue", "expenses", "profit_margin"],
-    "segments": ["product", "region"]
-  },
-  "auth": "bearer_token_xyz"
-}
+**MCP Request Process:**
+- AI requests financial data for Q3-2024 including revenue, expenses, and profit margins
+- System authenticates request and validates user permissions
+- MCP protocol translates request into appropriate ERP system calls
+- Data is retrieved from multiple financial modules and aggregated
 
-// MCP Response
-{
-  "status": "success",
-  "data": {
-    "revenue": {...},
-    "expenses": {...},
-    "profit_margin": {...}
-  },
-  "metadata": {
-    "timestamp": "2024-10-15T10:30:00Z",
-    "source": "ERP_System_v2.1"
-  }
-}
-```
+**MCP Response Delivery:**
+- Comprehensive financial data returned in standardized format
+- Revenue, expense, and profitability metrics segmented by product and region
+- Metadata includes data freshness and source system information
+- Response formatted for immediate AI processing and analysis
 
 ### Benefits of MCP
 
@@ -233,88 +183,26 @@ A2A enables multiple AI agents to work together, like a well-coordinated team wh
 
 ### How A2A Works
 
-```
-Customer Query: "I need to order 500 units for next month's campaign"
-                            ↓
-┌─────────────────────────────────────────────────┐
-│              Orchestrator Agent                  │
-└─────────────────────────────────────────────────┘
-      ↓                    ↓                   ↓
-┌──────────┐      ┌──────────────┐      ┌──────────┐
-│Inventory │      │  Logistics   │      │  Sales   │
-│  Agent   │      │    Agent     │      │  Agent   │
-└──────────┘      └──────────────┘      └──────────┘
-      ↓                    ↓                   ↓
-Check stock       Plan delivery      Calculate pricing
-      ↓                    ↓                   ↓
-                  Coordinated Response
-```
+**A2A Orchestration Example**: When a customer requests 500 units for next month's campaign, the Orchestrator Agent coordinates with specialized agents: the Inventory Agent checks stock availability, the Logistics Agent plans delivery logistics, and the Sales Agent calculates pricing. All agents work simultaneously and provide their inputs for a coordinated, comprehensive response.
 
 ### A2A Communication Patterns
 
 #### **1. Request-Response**
-One agent asks, another responds:
-```
-Sales Agent → Inventory Agent: "Available stock for SKU-123?"
-Inventory Agent → Sales Agent: "450 units available"
-```
+One agent asks, another responds: Sales Agent requests available stock for SKU-123, Inventory Agent responds with "450 units available". This direct communication pattern enables instant information sharing between specialized agents.
 
 #### **2. Publish-Subscribe**
-Agents subscribe to relevant events:
-```
-Order Agent publishes: "New order #12345"
-Inventory Agent subscribes: Updates stock
-Shipping Agent subscribes: Prepares shipment
-Finance Agent subscribes: Processes payment
-```
+Agents subscribe to relevant events: When Order Agent publishes "New order #12345", multiple agents automatically respond - Inventory Agent updates stock levels, Shipping Agent prepares shipment, and Finance Agent processes payment. This pattern ensures coordinated responses without direct agent communication.
 
 #### **3. Orchestration**
-Master agent coordinates others:
-```
-Master: "Process customer request"
-→ Delegates to specialized agents
-→ Collects responses
-→ Provides unified answer
-```
+Master agent coordinates others: When processing a customer request, the orchestrator delegates tasks to specialized agents, collects their responses, and provides a unified answer. This ensures comprehensive handling of complex multi-step processes.
 
 #### **4. Negotiation**
-Agents work out optimal solutions:
-```
-Pricing Agent: "Suggested price $100"
-Inventory Agent: "High stock, recommend discount"
-Sales Agent: "Customer is VIP, approve 10% off"
-Result: Agreed price $90
-```
+Agents collaborate to find optimal solutions: Pricing Agent suggests $100, Inventory Agent recommends a discount due to high stock, Sales Agent notes VIP customer status and approves 10% off. Result: negotiated price of $90 that balances all business factors.
 
 ### Real-World A2A Examples
 
 #### **Supply Chain Coordination**
-
-```python
-class SupplierAgent:
-    def check_availability(self, product, quantity):
-        # Checks with suppliers
-        return availability_list
-
-class LogisticsAgent:
-    def optimize_shipping(self, items, destination):
-        # Plans optimal route
-        return shipping_plan
-
-class InventoryAgent:
-    def forecast_demand(self, product, period):
-        # Predicts future needs
-        return demand_forecast
-
-class ProcurementAgent:
-    def coordinate_order(self, requirement):
-        # Orchestrates the process
-        supplier_data = SupplierAgent.check_availability()
-        shipping = LogisticsAgent.optimize_shipping()
-        forecast = InventoryAgent.forecast_demand()
-        
-        return optimized_order_plan
-```
+Specialized agents handle complex supply chain operations: Supplier Agent checks product availability across vendors, Logistics Agent plans optimal shipping routes, Inventory Agent forecasts demand patterns, and Procurement Agent orchestrates the entire process. Together, they create optimized order plans that balance availability, cost, timing, and forecasted demand requirements.
 
 ## Practical Differences
 

@@ -143,39 +143,7 @@ Put your knowledge to work with AI-powered applications:
 
 Our services follow a complete knowledge lifecycle from creation to activation:
 
-```mermaid
-graph TD
-    subgraph "Knowledge Creation"
-        A[Raw Data Sources] -->|Ingestion| B[Knowledge Pipeline]
-        B -->|Processing| C[Knowledge Capsules]
-        C -->|Compilation| D[Knowledge Volumes]
-        D -->|Organization| E[Knowledge Library]
-    end
-    
-    subgraph "Knowledge Activation"
-        E -->|Transform| F[Course Generation]
-        E -->|Generate| G[Content Publishing]
-        E -->|Build| H[MCP Servers]
-        E -->|Power| I[Software Intelligence]
-        E -->|Train| J[AI Models]
-    end
-    
-    subgraph "Business Value"
-        F --> K[Training & Education]
-        G --> L[Marketing & Engagement]
-        H --> M[Customer Support]
-        I --> N[Development Excellence]
-        J --> O[Competitive Advantage]
-    end
-    
-    style A fill:#333,stroke:#00ff00
-    style E fill:#333,stroke:#00ff00
-    style K fill:#333,stroke:#00ff00
-    style L fill:#333,stroke:#00ff00
-    style M fill:#333,stroke:#00ff00
-    style N fill:#333,stroke:#00ff00
-    style O fill:#333,stroke:#00ff00
-```
+**Complete Knowledge Lifecycle**: Raw data sources flow through the Knowledge Pipeline for processing into capsules, compilation into volumes, and organization into comprehensive libraries. Knowledge activation transforms this intelligence into practical applications: course generation for training and education, content publishing for marketing engagement, MCP servers for customer support, software intelligence for development excellence, and AI model training for competitive advantage.
 
 ### Knowledge Units Explained
 
@@ -228,27 +196,7 @@ AIMatrix services transform this chaos into:
 
 Our services work seamlessly together:
 
-```mermaid
-graph LR
-    A[Google Drive] -->|Knowledge Pipeline| D[Capsules]
-    B[Meeting Videos] -->|Video Intelligence| D
-    C[ERP/CRM] -->|Knowledge Pipeline| D
-    D -->|Organization| E[Volumes]
-    E -->|Cataloging| F[Library]
-    F -->|Powers| G[AI Agents]
-    F -->|Powers| H[Digital Twins]
-    F -->|Powers| I[Analytics]
-    
-    style A fill:#333,stroke:#00ff00
-    style B fill:#333,stroke:#00ff00
-    style C fill:#333,stroke:#00ff00
-    style D fill:#333,stroke:#00ff00
-    style E fill:#333,stroke:#00ff00
-    style F fill:#333,stroke:#00ff00
-    style G fill:#333,stroke:#00ff00
-    style H fill:#333,stroke:#00ff00
-    style I fill:#333,stroke:#00ff00
-```
+**Service Integration Flow**: Multiple data sources including Google Drive, meeting videos, and ERP/CRM systems feed into the Knowledge Pipeline and Video Intelligence services to create knowledge capsules. These are organized into volumes, catalogued in comprehensive libraries, and used to power AI agents, digital twins, and analytics systems, creating a unified intelligence ecosystem.
 
 ## Real-World Applications
 

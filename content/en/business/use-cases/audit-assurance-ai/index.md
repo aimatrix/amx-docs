@@ -52,21 +52,7 @@ Our solution is built on a sophisticated multi-layered AI architecture:
 
 ### Integration Architecture
 
-```mermaid
-graph TB
-    A[Document Input] --> B[OCR Processing]
-    B --> C[NLP Analysis]
-    C --> D[AI Classification]
-    D --> E[Validation Engine]
-    E --> F[Supabase Database]
-    F --> G[Real-time Dashboard]
-    F --> H[Compliance Reports]
-    F --> I[Audit Trail]
-    J[External Systems] --> K[API Gateway]
-    K --> F
-    L[Mobile Apps] --> M[Edge Functions]
-    M --> F
-```
+Our comprehensive integration architecture seamlessly processes documents through advanced OCR processing, NLP analysis, and AI classification systems that connect to sophisticated validation engines and comprehensive database management. The system provides real-time dashboards, automated compliance reporting, and complete audit trail capabilities while integrating with external systems through API gateways and mobile applications via edge functions for complete enterprise accessibility and operational efficiency.
 
 ## Comprehensive Feature Portfolio
 
@@ -78,34 +64,9 @@ graph TB
 - **Smart Categorization**: Automatic GL account assignment with confidence scoring
 - **Custom CoA Adaptation**: AI learns your specific chart of accounts structure
 
-**Technical Implementation:**
-```python
-# Example AI Classification API
-import supabase
-from aimatrix import TransactionClassifier
+**Business Implementation:**
 
-classifier = TransactionClassifier(
-    model="financial-bert-v2",
-    chart_of_accounts=custom_coa,
-    confidence_threshold=0.95
-)
-
-# Process document
-result = classifier.classify_transaction(
-    document_text="Office supplies purchase from Staples $234.56",
-    context={"department": "Marketing", "project": "Q4_Campaign"}
-)
-
-# Store in Supabase with audit trail
-supabase_client.table('transactions').insert({
-    'description': result.description,
-    'amount': result.amount,
-    'gl_account': result.gl_account,
-    'confidence_score': result.confidence,
-    'ai_classification': True,
-    'audit_trail': result.reasoning
-})
-```
+The AI Classification system employs sophisticated financial transaction classification models with customizable chart of accounts adaptation and configurable confidence thresholds for optimal accuracy. The system processes document text with contextual understanding including department and project attribution, generating detailed classification results with confidence scoring and comprehensive reasoning documentation. All transactions are automatically stored with complete audit trails, ensuring regulatory compliance and providing full transparency for business operations and financial reporting requirements.
 
 ### 2. Real-time Automated Bookkeeping
 **Continuous posting and reconciliation across all entities**

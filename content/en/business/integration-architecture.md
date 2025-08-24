@@ -8,67 +8,31 @@ Understanding how AIMatrix products and services integrate is crucial for succes
 
 ## The Complete Integration Picture
 
-```mermaid
-graph TB
-    subgraph "Data Sources"
-        A1[Documents]
-        A2[Videos]
-        A3[BigLedger ERP]
-        A4[Databases]
-        A5[APIs]
-    end
-    
-    subgraph "Processing Layer - AMX Engine"
-        B1[Knowledge Pipeline]
-        B2[Video Intelligence]
-        B3[Data Hub Integration]
-    end
-    
-    subgraph "Storage Layer - Workspaces"
-        C1[Knowledge Capsules]
-        C2[Knowledge Volumes]
-        C3[Knowledge Libraries]
-    end
-    
-    subgraph "Interface Layer - AMX Console"
-        D1[Human Review]
-        D2[Agent Monitoring]
-        D3[Quality Control]
-    end
-    
-    subgraph "Activation Layer - Services"
-        E1[MCP Servers]
-        E2[Course Generation]
-        E3[Content Publishing]
-        E4[Software Intelligence]
-    end
-    
-    A1 --> B1
-    A2 --> B2
-    A3 --> B3
-    A4 --> B1
-    A5 --> B1
-    
-    B1 --> C1
-    B2 --> C1
-    B3 --> C1
-    
-    C1 --> C2
-    C2 --> C3
-    
-    C3 --> D1
-    D1 --> E1
-    D2 --> E1
-    D3 --> C3
-    
-    C3 --> E2
-    C3 --> E3
-    C3 --> E4
-    
-    style B1 fill:#333,stroke:#00ff00
-    style C3 fill:#333,stroke:#00ff00
-    style E1 fill:#333,stroke:#00ff00
-```
+**AIMatrix Integration Architecture Overview:**
+
+**Data Sources Layer:**
+- Documents, Videos, BigLedger ERP, Databases, and APIs provide raw business information
+
+**Processing Layer - AMX Engine:**
+- Knowledge Pipeline processes documents and databases
+- Video Intelligence extracts insights from multimedia content
+- Data Hub Integration connects with BigLedger ERP systems
+
+**Storage Layer - Workspaces:**
+- Knowledge Capsules store individual insights (200-600 tokens)
+- Knowledge Volumes organize related capsules by topic
+- Knowledge Libraries provide comprehensive domain coverage
+
+**Interface Layer - AMX Console:**
+- Human Review validates AI processing results
+- Agent Monitoring tracks AI performance
+- Quality Control ensures accuracy standards
+
+**Activation Layer - Services:**
+- MCP Servers provide intelligent API endpoints
+- Course Generation creates training content
+- Content Publishing distributes across channels
+- Software Intelligence enhances development workflows
 
 ## Product Roles in Service Delivery
 
@@ -76,39 +40,35 @@ graph TB
 
 The CLI manages workspaces and knowledge artifacts (like git manages repositories):
 
-```bash
-# Initialize a new workspace (like git init)
-aimatrix init customer-service
+**Workspace Management:**
+- Initialize new workspaces for different business domains
+- Clone existing workspaces from the Hub for collaboration
+- Manage workspace lifecycle and dependencies
 
-# Clone existing workspace from Hub (like git clone)
-aimatrix clone hub.aimatrix.com/company/customer-service
+**Knowledge Pipeline Configuration:**
+- Connect multiple data sources (BigLedger, support tickets, recordings)
+- Configure processing rules and quality thresholds
+- Set up automated data ingestion workflows
 
-# Configure Knowledge Pipeline in workspace
-aimatrix pipeline create \
-  --source=bigledger \
-  --source=support-tickets \
-  --source=call-recordings
+**Version Control Operations:**
+- Commit knowledge changes with descriptive messages
+- Push workspaces to Hub for team collaboration
+- Track knowledge evolution over time
 
-# Commit knowledge changes (like git commit)
-aimatrix commit -m "Update customer service knowledge"
+**Issue and Task Management:**
+- List and create issues for knowledge gaps
+- Track resolution of data quality problems
+- Close issues with appropriate documentation
 
-# Push workspace to Hub (like git push)
-aimatrix push origin main
+**Workflow Automation:**
+- Run quality checks and validation processes
+- Deploy MCP servers with updated knowledge
+- Monitor action logs for troubleshooting
 
-# Work with issues
-aimatrix issue list
-aimatrix issue create "Missing customer refund policy capsule"
-aimatrix issue close 42 --comment "Added in commit abc123"
-
-# Manage workspace actions
-aimatrix action list
-aimatrix action run quality-check
-aimatrix action logs deploy-mcp
-
-# Configure workspace settings
-aimatrix config set quality.min_confidence 0.9
-aimatrix config add team engineers --permission write
-```
+**Team Collaboration:**
+- Set quality standards and confidence levels
+- Manage team permissions and access control
+- Configure workspace-specific settings
 
 **Service Integration:**
 - **Knowledge Pipeline**: Configures data sources and processing rules
@@ -121,40 +81,38 @@ aimatrix config add team engineers --permission write
 The Engine is where all heavy lifting happens, processing raw data into structured knowledge:
 
 **Knowledge Creation Services:**
-```yaml
-Knowledge Pipeline:
-  Input: Raw business documents, emails, PDFs
-  Processing: Multi-modal LLMs (GPT-4, Claude, Gemini)
-  Output: Knowledge capsules (200-600 tokens)
-  
-Video Intelligence:
-  Input: Meeting recordings, training videos
-  Processing: Whisper (audio), GPT-4V (visual)
-  Output: Transcripts, summaries, action items
 
-Data Hub Integration:
-  Input: BigLedger ERP data
-  Processing: ETL transformations, real-time sync
-  Output: Structured data for agents
-```
+**Knowledge Pipeline:**
+- Processes raw business documents, emails, and PDFs
+- Uses advanced multi-modal AI models for content understanding
+- Generates structured knowledge capsules for easy retrieval
+  
+**Video Intelligence:**
+- Analyzes meeting recordings and training videos
+- Extracts audio insights and visual information
+- Produces transcripts, summaries, and actionable items
+
+**Data Hub Integration:**
+- Connects directly with BigLedger ERP systems
+- Performs real-time data synchronization
+- Transforms raw ERP data into AI-ready formats
 
 **Knowledge Activation Services:**
-```yaml
-MCP Server Hosting:
-  Function: Run intelligent API endpoints
-  Processing: RAG retrieval, guardrail validation
-  Output: Grounded responses with citations
 
-AI Model Training:
-  Function: Fine-tune models on business data
-  Processing: Custom training pipelines
-  Output: Specialized business models
+**MCP Server Hosting:**
+- Hosts intelligent API endpoints for business applications
+- Provides retrieval-augmented generation with proper citations
+- Implements guardrails and validation for safe AI responses
 
-Digital Twin Simulation:
-  Function: Business process modeling
-  Processing: Kalasim discrete event simulation
-  Output: Predictive analytics, optimization
-```
+**AI Model Training:**
+- Fine-tunes models specifically on your business data
+- Creates specialized models for industry-specific tasks
+- Delivers improved performance for domain-specific applications
+
+**Digital Twin Simulation:**
+- Models complex business processes for optimization
+- Uses discrete event simulation for accurate predictions
+- Generates actionable insights for strategic planning
 
 ### AMX Console: The Human Interface
 
@@ -172,58 +130,67 @@ Console provides universal access across all platforms with critical human-in-th
 | MCP Development | Test API responses | Verify answer accuracy |
 
 **Multi-Channel Monitoring:**
-```
-┌─────────────────────────────────────┐
-│     AMX Console Dashboard           │
-├─────────────────────────────────────┤
-│ Active Agents        │ Quality Score│
-│ ├─ Customer Support  │     95%      │
-│ ├─ Sales Assistant   │     92%      │
-│ └─ Order Processing  │     98%      │
-├─────────────────────────────────────┤
-│ Recent Conversations │ Status       │
-│ ├─ WhatsApp #1234   │ Resolved     │
-│ ├─ Email #5678      │ Escalated    │
-│ └─ Telegram #9012   │ Processing   │
-└─────────────────────────────────────┘
-```
+
+**AMX Console Dashboard provides comprehensive oversight:**
+
+**Active Agent Performance:**
+- Customer Support Agent: 95% quality score
+- Sales Assistant Agent: 92% quality score  
+- Order Processing Agent: 98% quality score
+
+**Recent Conversation Status:**
+- WhatsApp conversation #1234: Successfully resolved
+- Email inquiry #5678: Escalated to human agent
+- Telegram support #9012: Currently processing
+
+**Real-time Monitoring Capabilities:**
+- Track agent performance across all channels
+- Monitor conversation flow and resolution rates
+- Identify escalation patterns and improvement opportunities
+- Maintain quality standards through continuous oversight
 
 ### AMX Hub: The Collaboration Platform
 
 Hub hosts and manages workspaces (like GitHub hosts git repositories):
 
 **AMX Workspace Structure:**
-```
-customer-service-workspace/
-├── .aimatrix/              # Workspace configuration (like .git)
-│   ├── config.yaml        # Workspace settings
-│   ├── pipelines/         # Knowledge pipeline definitions
-│   ├── hooks/             # Automation hooks
-│   ├── issues/            # Issue tracker database
-│   └── settings.yaml      # Workspace-specific settings
-├── .aimatrix-actions/     # Automated workflows (like GitHub Actions)
-│   ├── on-push.yaml       # Trigger on knowledge push
-│   ├── on-capsule.yaml    # Trigger on new capsule
-│   ├── quality-check.yaml # Automated quality validation
-│   └── deploy-mcp.yaml    # Auto-deploy MCP servers
-├── knowledge/             # Knowledge artifacts
-│   ├── capsules/          # Atomic knowledge units (200-600 tokens)
-│   │   ├── issues/        # Customer issue capsules
-│   │   ├── solutions/     # Resolution capsules
-│   │   └── policies/      # Policy capsules
-│   ├── volumes/           # Topic collections (10-20 capsules)
-│   │   ├── onboarding.vol # Onboarding procedures
-│   │   └── escalation.vol # Escalation processes
-│   └── libraries/         # Complete knowledge bases
-│       └── support.lib    # Full support knowledge library
-├── agents/                # Agent configurations
-│   ├── support-bot.yaml   # Customer support agent
-│   └── escalation.yaml    # Escalation agent
-├── workflows/             # Business process definitions
-├── integrations/          # Third-party connections
-├── models/               # Fine-tuned model configs
-└── WORKSPACE.md          # Workspace documentation
-```
+
+**Customer Service Workspace Organization:**
+
+**Configuration Management:**
+- Workspace configuration files (similar to .git)
+- Pipeline definitions for knowledge processing
+- Automation hooks and triggers
+- Issue tracking database
+- Workspace-specific settings
+
+**Automated Workflows:**
+- Knowledge push triggers
+- New capsule processing
+- Quality validation checks
+- Automatic MCP server deployment
+
+**Knowledge Organization:**
+- **Capsules**: Atomic knowledge units (200-600 tokens)
+  - Customer issue patterns
+  - Solution procedures
+  - Policy information
+- **Volumes**: Topic collections (10-20 related capsules)
+  - Onboarding procedures
+  - Escalation processes
+- **Libraries**: Complete domain knowledge bases
+  - Comprehensive support library
+
+**Agent Configuration:**
+- Customer support bot settings
+- Escalation agent parameters
+- Performance monitoring configs
+
+**Business Process Integration:**
+- Workflow definitions
+- Third-party system connections
+- Custom model configurations
+- Documentation and guides
 
 **Workspace Features (via AMX Hub):**
 
@@ -245,51 +212,36 @@ Issue Workflow:
 ```
 
 *Workspace Automation (AIMatrix Actions):*
-```yaml
-# .aimatrix-actions/quality-check.yaml
-name: Knowledge Quality Check
-on:
-  push:
-    paths:
-      - 'knowledge/capsules/**'
-jobs:
-  validate:
-    runs-on: amx-engine
-    steps:
-      - name: Check capsule format
-        run: aimatrix validate capsules
-      - name: Run confidence scoring
-        run: aimatrix score --threshold=0.8
-      - name: Test against examples
-        run: aimatrix test knowledge/tests/
-      - name: Deploy if passing
-        if: success()
-        run: aimatrix deploy --stage=production
-```
+
+**Quality Check Automation Process:**
+- Triggered automatically when knowledge capsules are updated
+- Validates capsule format and structure
+- Runs confidence scoring with configurable thresholds
+- Tests knowledge against real-world examples
+- Deploys to production only if all checks pass
+- Provides automated quality assurance for knowledge updates
 
 *Workspace Settings:*
-```yaml
-# .aimatrix/settings.yaml
-workspace:
-  visibility: private  # private/internal/public
-  default_branch: main
-  protected_branches: [main, production]
-  
-access:
-  teams:
-    - engineers: write
-    - reviewers: read
-    - admins: admin
-  
-integrations:
-  bigledger: enabled
-  slack: webhook_url
-  
-quality:
-  min_confidence: 0.85
-  require_review: true
-  auto_deploy: false
-```
+
+**Workspace Configuration Management:**
+- Visibility controls (private/internal/public)
+- Branch protection for main and production
+- Default branch management
+
+**Access Control:**
+- Engineers: Write permissions for knowledge updates
+- Reviewers: Read access for quality oversight
+- Administrators: Full administrative control
+
+**System Integrations:**
+- BigLedger ERP system enabled for data sync
+- Slack webhook configured for notifications
+- Additional integrations configurable as needed
+
+**Quality Standards:**
+- Minimum confidence threshold of 85%
+- Manual review required for quality assurance
+- Automatic deployment disabled for safety
 
 **Hub Platform Services:**
 - **Workspace Hosting**: Hosts workspaces like GitHub hosts repos
@@ -307,70 +259,27 @@ quality:
 ### Knowledge Creation Services
 
 #### Knowledge Pipeline
-```
-Flow: Raw Data → AMX Engine → Workspaces → AMX Console
-```
-- **AMX Engine**: Processes documents using AI models
-- **Workspaces**: Store versioned knowledge capsules (hosted on AMX Hub)
-- **AMX Console**: Human validation interface
-- **AIMatrix CLI**: Pipeline configuration and management
+**Processing Flow**: Raw data flows into AMX Engine for AI-powered document processing, results are stored as versioned knowledge capsules in workspaces hosted on AMX Hub, human validation occurs through AMX Console interfaces, and AIMatrix CLI manages pipeline configuration and operations.
 
 #### Video Intelligence
-```
-Flow: Videos → AMX Engine → Knowledge → Workspaces → Services
-```
-- **AMX Engine**: Multi-modal processing (audio + visual)
-- **Workspaces**: Store extracted knowledge artifacts
-- **AMX Console**: Review and edit summaries
-- **AIMatrix CLI**: Batch processing setup
+**Multi-Modal Processing**: Videos undergo advanced audio and visual processing in AMX Engine, extracted knowledge artifacts are stored in workspaces, AMX Console enables review and editing of summaries, and AIMatrix CLI facilitates batch processing setup for large video libraries.
 
 #### Knowledge Library
-```
-Flow: Capsules → Organization → Workspaces → API Access
-```
-- **Workspaces**: Primary storage of knowledge artifacts
-- **AMX Hub**: Hosts and manages workspaces (like GitHub)
-- **AMX Console**: Browse and search interface
-- **AMX Engine**: Indexing and retrieval
-- **AIMatrix CLI**: Library management commands
+**Organization and Access**: Knowledge capsules are systematically organized within workspaces, AMX Hub provides GitHub-like hosting and management, AMX Console offers intuitive browsing and search interfaces, AMX Engine handles indexing and retrieval, and AIMatrix CLI provides comprehensive library management capabilities.
 
 ### Knowledge Activation Services
 
 #### Course Generation
-```
-Flow: Knowledge Library → AMX Engine → Courses → LMS
-```
-- **Workspaces**: Source knowledge libraries
-- **AMX Engine**: Content generation and structuring
-- **AMX Console**: Course review and approval
-- **AIMatrix CLI**: Bulk course generation
+**Educational Content Creation**: Source knowledge libraries in workspaces feed into AMX Engine for automated content generation and structuring, AMX Console provides course review and approval workflows, and AIMatrix CLI enables bulk course generation for large-scale training programs.
 
 #### Content Publishing
-```
-Flow: Knowledge → AMX Engine → Content → Social Platforms
-```
-- **Workspaces**: Knowledge source
-- **AMX Engine**: Content transformation
-- **AMX Console**: Publishing calendar and approval
-- **AIMatrix CLI**: Automation scripts
+**Multi-Channel Distribution**: Knowledge from workspaces transforms through AMX Engine into platform-appropriate content, AMX Console manages publishing calendars and approval workflows, and AIMatrix CLI provides automation scripts for streamlined content distribution across social platforms.
 
 #### MCP Development
-```
-Flow: Knowledge → MCP Server → AMX Engine → API Endpoints
-```
-- **AMX Engine**: Hosts MCP servers
-- **Workspaces**: Knowledge retrieval source
-- **AMX Console**: Test and monitor APIs
-- **AIMatrix CLI**: Server deployment
+**Intelligent API Creation**: Knowledge from workspaces powers MCP servers hosted on AMX Engine to create intelligent API endpoints, AMX Console provides testing and monitoring capabilities, and AIMatrix CLI handles server deployment and management.
 
 #### Software Intelligence
-```
-Flow: Code → AMX Engine → Analysis → AMX Console → Feedback
-```
-- **AMX Engine**: Code analysis and testing
-- **AMX Console**: Review suggestions
-- **Workspaces**: Store code patterns and knowledge
-- **AIMatrix CLI**: CI/CD integration
+**Development Enhancement**: Code analysis and testing occur in AMX Engine, AMX Console presents suggestions for review, workspaces store code patterns and development knowledge, and AIMatrix CLI provides seamless CI/CD integration for continuous improvement.
 
 ## Data Flow Examples
 
@@ -448,168 +357,127 @@ Flow: Code → AMX Engine → Analysis → AMX Console → Feedback
 ## Workspace Automation Examples
 
 ### Auto-Deploy on Knowledge Update
-```yaml
-# .aimatrix-actions/auto-deploy.yaml
-name: Auto Deploy MCP Server
-on:
-  push:
-    branches: [main]
-    paths:
-      - 'knowledge/libraries/**'
 
-jobs:
-  deploy:
-    runs-on: amx-engine
-    steps:
-      - name: Checkout workspace
-        uses: actions/checkout@v2
-      
-      - name: Validate knowledge quality
-        run: aimatrix validate --min-confidence=0.85
-      
-      - name: Run integration tests
-        run: aimatrix test integration/
-      
-      - name: Deploy MCP server
-        run: |
-          aimatrix mcp build --library=knowledge/libraries/support.lib
-          aimatrix mcp deploy --env=production
-      
-      - name: Notify team
-        if: success()
-        run: aimatrix notify slack "MCP server updated with latest knowledge"
-```
+**Automated Deployment Workflow:**
+- Triggered when knowledge libraries are updated on main branch
+- Runs comprehensive quality validation with 85% confidence threshold
+- Executes full integration test suite
+- Builds and deploys MCP server to production environment
+- Notifies team via Slack upon successful deployment
+
+**Quality Gates:**
+- Knowledge validation ensures accuracy standards
+- Integration tests verify system compatibility
+- Deployment only proceeds if all checks pass
+- Automatic rollback if deployment fails
+- Complete audit trail maintained for compliance
 
 ### Issue-Driven Knowledge Updates
-```yaml
-# .aimatrix-actions/issue-to-capsule.yaml
-name: Convert Issue to Knowledge Capsule
-on:
-  issues:
-    types: [labeled]
 
-jobs:
-  process:
-    if: github.event.label.name == 'knowledge-gap'
-    runs-on: amx-engine
-    steps:
-      - name: Extract issue content
-        id: extract
-        run: |
-          echo "::set-output name=title::${{ github.event.issue.title }}"
-          echo "::set-output name=body::${{ github.event.issue.body }}"
-      
-      - name: Generate capsule
-        run: |
-          aimatrix capsule generate \
-            --title="${{ steps.extract.outputs.title }}" \
-            --content="${{ steps.extract.outputs.body }}" \
-            --output=knowledge/capsules/issues/
-      
-      - name: Create pull request
-        run: |
-          aimatrix checkout -b issue-${{ github.event.issue.number }}
-          aimatrix add knowledge/capsules/issues/
-          aimatrix commit -m "Add capsule for issue #${{ github.event.issue.number }}"
-          aimatrix push origin issue-${{ github.event.issue.number }}
-          aimatrix pr create --title="Knowledge capsule for issue #${{ github.event.issue.number }}"
-```
+**Automated Issue Processing:**
+- Triggered when issues are labeled as "knowledge-gap"
+- Extracts relevant content from issue title and description
+- Generates structured knowledge capsules automatically
+- Creates pull requests for team review and approval
+
+**Knowledge Gap Resolution Process:**
+- Issue content transformed into reusable knowledge capsules
+- Structured storage in appropriate knowledge categories
+- Version controlled through branch creation and merging
+- Team collaboration through pull request workflow
+- Automatic linking between issues and generated knowledge
+
+**Quality Assurance:**
+- Generated capsules follow standard format requirements
+- Review process ensures accuracy before integration
+- Traceable connection between problems and solutions
+- Continuous knowledge base improvement
 
 ### Quality Gate Enforcement
-```yaml
-# .aimatrix-actions/quality-gate.yaml
-name: Knowledge Quality Gate
-on:
-  pull_request:
-    paths:
-      - 'knowledge/**'
 
-jobs:
-  quality_check:
-    runs-on: amx-engine
-    steps:
-      - name: Check capsule format
-        run: aimatrix lint knowledge/capsules/
-      
-      - name: Validate confidence scores
-        run: |
-          SCORE=$(aimatrix score knowledge/ --format=json | jq .average)
-          if (( $(echo "$SCORE < 0.85" | bc -l) )); then
-            echo "Quality score $SCORE is below threshold"
-            exit 1
-          fi
-      
-      - name: Check for duplicates
-        run: aimatrix dedupe check knowledge/
-      
-      - name: Test with examples
-        run: aimatrix test examples/ --knowledge=knowledge/
-      
-      - name: Post results
-        if: always()
-        run: |
-          aimatrix pr comment \
-            --body="Quality check results: Score: $SCORE, Tests: ${{ steps.test.outcome }}"
-```
+**Comprehensive Quality Validation:**
+- Triggered on all pull requests affecting knowledge content
+- Validates capsule format and structure compliance
+- Ensures confidence scores meet minimum threshold (85%)
+- Detects and prevents duplicate knowledge entries
+- Tests knowledge against real-world examples
+- Posts detailed quality results as PR comments
+
+**Multi-Stage Quality Checks:**
+- **Format Validation**: Ensures consistent capsule structure
+- **Confidence Scoring**: Validates AI confidence in knowledge accuracy
+- **Duplicate Detection**: Prevents redundant information
+- **Example Testing**: Verifies knowledge works in practice
+- **Results Reporting**: Provides transparent quality feedback
+
+**Quality Standards Enforcement:**
+- Pull requests blocked if quality standards not met
+- Clear feedback provided for improvement guidance
+- Automated suggestions for quality improvements
+- Maintains high knowledge base integrity
 
 ## Deployment Architectures
 
 ### Small Business Setup
-```
-Single Server Deployment:
-├── AIMatrix CLI (developer machine)
-├── AMX Engine (local server)
-├── AMX Console (employee devices)
-└── AMX Hub (cloud backup)
 
-Services:
-- Knowledge Pipeline (basic)
-- MCP Development (customer service)
-- Content Publishing (social media)
-```
+**Single Server Deployment Architecture:**
+- AIMatrix CLI on developer workstation
+- AMX Engine on local server infrastructure
+- AMX Console accessible on all employee devices
+- AMX Hub for cloud backup and collaboration
+
+**Essential Services:**
+- Basic Knowledge Pipeline for document processing
+- MCP Development for customer service automation
+- Content Publishing for social media management
+- Streamlined implementation for immediate value
 
 ### Medium Enterprise
-```
-Hybrid Deployment:
-├── AIMatrix CLI (dev team)
-├── AMX Engine (on-premise + cloud)
-├── AMX Console (company-wide)
-└── AMX Hub (private cloud)
 
-Services:
-- Full Knowledge Pipeline
-- Video Intelligence
-- Course Generation
-- Software Intelligence
-- Multiple MCP servers
-```
+**Hybrid Deployment Architecture:**
+- AIMatrix CLI distributed across development team
+- AMX Engine deployed both on-premise and in cloud
+- AMX Console rolled out company-wide
+- AMX Hub in private cloud for security and control
+
+**Comprehensive Services:**
+- Full Knowledge Pipeline with advanced processing
+- Video Intelligence for meeting and training analysis
+- Course Generation for employee development
+- Software Intelligence for development enhancement
+- Multiple specialized MCP servers for different domains
 
 ### Large Corporation
-```
-Full Cloud Architecture:
-├── AIMatrix CLI (global dev teams)
-├── AMX Engine (kubernetes cluster)
-├── AMX Console (10,000+ users)
-└── AMX Hub (multi-region)
 
-Services:
-- All services at scale
-- Custom integrations
-- White-label options
-- 24/7 support
-```
+**Full Cloud Architecture:**
+- AIMatrix CLI for global development teams
+- AMX Engine on scalable Kubernetes clusters
+- AMX Console supporting 10,000+ users
+- AMX Hub with multi-region deployment
+
+**Enterprise-Scale Services:**
+- All AIMatrix services at enterprise scale
+- Custom integrations for legacy systems
+- White-label options for customer-facing applications
+- 24/7 premium support with dedicated account management
+- Advanced security and compliance features
 
 ## Security & Compliance Integration
 
 ### Data Flow Security
-```
-Encryption Points:
-1. Data Ingestion: TLS 1.3 for all transfers
-2. Processing: Encrypted compute environments
-3. Storage: AES-256 encryption at rest
-4. API Access: OAuth 2.0 + API keys
-5. Console Access: Multi-factor authentication
-```
+
+**Multi-Layer Security Architecture:**
+1. **Data Ingestion**: TLS 1.3 encryption for all data transfers
+2. **Processing**: Encrypted compute environments with secure enclaves
+3. **Storage**: AES-256 encryption at rest with key management
+4. **API Access**: OAuth 2.0 with API key authentication
+5. **Console Access**: Multi-factor authentication and session management
+
+**Security Best Practices:**
+- End-to-end encryption throughout data lifecycle
+- Zero-trust architecture implementation
+- Regular security audits and penetration testing
+- Compliance with SOC 2, GDPR, and industry standards
 
 ### Compliance Controls
 - **Knowledge Pipeline**: PII detection and masking

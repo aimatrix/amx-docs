@@ -22,24 +22,17 @@ Traditional ERP systems present significant usability challenges:
 
 ### Conversational Business Intelligence Engine
 
-```mermaid
-graph TB
-    A[Natural Language Input] --> B[Intent Recognition]
-    B --> C[Entity Extraction]
-    C --> D[Context Analysis]
-    D --> E[Business Logic Router]
-    E --> F[ERP Function Executor]
-    F --> G[Data Retrieval/Action]
-    G --> H[Response Generation]
-    H --> I[Natural Language Response]
-    J[Business Context] --> K[Contextual Memory]
-    K --> D
-    L[User Behavior] --> M[Learning Engine]
-    M --> N[Personalization]
-    N --> B
-    O[Real-time Data] --> P[Insight Generation]
-    P --> H
-```
+**Conversational Business Intelligence Architecture:**
+
+The ERP Copilot processes natural language input through sophisticated intent recognition and entity extraction, followed by comprehensive context analysis that incorporates business context and contextual memory. The business logic router directs requests to appropriate ERP function executors for data retrieval and actions.
+
+User behavior feeds into a learning engine that enables personalization of the intent recognition process, while real-time data drives insight generation that enhances response quality. The complete workflow culminates in natural language response generation that provides users with actionable business intelligence.
+
+**Key Processing Flow:**
+- Natural Language Input → Intent Recognition → Entity Extraction → Context Analysis
+- Business Logic Router → ERP Function Executor → Data Retrieval/Action → Response Generation
+- Contextual Memory and Business Context integration throughout the process
+- User Behavior Learning and Real-time Data Insights enhance accuracy and relevance
 
 ### Core Copilot Capabilities
 
@@ -65,729 +58,182 @@ graph TB
 
 ### Conversational ERP Framework
 
-```python
-# Advanced ERP Copilot system
-import asyncio
-from datetime import datetime, timedelta
-from aimatrix.copilot import ERPCopilot
-from aimatrix.nlp import ConversationalNLP
-from aimatrix.erp import ERPIntegration
-import supabase
+**Advanced ERP Copilot System Architecture:**
+The ERP Copilot System integrates multiple AI components including the core copilot engine, conversational NLP processor, ERP integration module, and conversation context manager. The system processes natural language business requests through comprehensive intent analysis and business entity extraction.
 
-class ERPCopilotSystem:
-    def __init__(self, supabase_client):
-        self.supabase = supabase_client
-        self.copilot = ERPCopilot()
-        self.nlp_engine = ConversationalNLP()
-        self.erp_integration = ERPIntegration()
-        self.context_manager = ConversationContextManager()
-        
-    async def process_user_request(self, user_input, user_context):
-        """Process natural language business request"""
-        
-        # Get conversation context
-        conversation_context = await self.context_manager.get_context(
-            user_context.user_id, user_context.session_id
-        )
-        
-        # Analyze user intent and extract business entities
-        intent_analysis = await self.nlp_engine.analyze_business_intent(
-            user_input, conversation_context, user_context
-        )
-        
-        # Route to appropriate business function
-        response = await self.route_business_request(
-            intent_analysis, user_context, conversation_context
-        )
-        
-        # Update conversation context
-        await self.context_manager.update_context(
-            user_context.session_id, intent_analysis, response
-        )
-        
-        # Learn from interaction for future improvements
-        await self.learn_from_interaction(
-            user_input, intent_analysis, response, user_context
-        )
-        
-        return response
+**Request Processing Workflow:**
+1. **Context Retrieval**: Loads conversation history and user context for personalized processing
+2. **Intent Analysis**: Advanced NLP engine analyzes user intent and extracts business entities
+3. **Business Routing**: Intelligent routing to appropriate business functions based on intent analysis
+4. **Context Management**: Updates conversation context with interaction results for continuity
+5. **Continuous Learning**: System learns from each interaction to improve future performance
+
+**AI Integration Components:**
+- **ERPCopilot**: Core conversational AI engine for business operations
+- **ConversationalNLP**: Advanced natural language processing for business contexts
+- **ERPIntegration**: Direct integration with ERP systems for data access and actions
+- **ConversationContextManager**: Maintains conversational continuity across sessions
     
-    async def route_business_request(self, intent_analysis, user_context, conversation_context):
-        """Route request to appropriate business function handler"""
-        
-        intent = intent_analysis.primary_intent
-        entities = intent_analysis.entities
-        
-        if intent == 'financial_inquiry':
-            return await self.handle_financial_inquiry(entities, user_context)
-        elif intent == 'inventory_management':
-            return await self.handle_inventory_management(entities, user_context)
-        elif intent == 'sales_operations':
-            return await self.handle_sales_operations(entities, user_context)
-        elif intent == 'customer_management':
-            return await self.handle_customer_management(entities, user_context)
-        elif intent == 'reporting_analytics':
-            return await self.handle_reporting_analytics(entities, user_context)
-        elif intent == 'workflow_assistance':
-            return await self.handle_workflow_assistance(entities, user_context, conversation_context)
-        elif intent == 'system_configuration':
-            return await self.handle_system_configuration(entities, user_context)
-        else:
-            return await self.handle_general_business_query(intent_analysis, user_context)
+**Business Request Routing System:**
+The intelligent routing system analyzes primary intent and extracted entities to direct requests to specialized business function handlers. The system supports comprehensive business operations including financial inquiries, inventory management, sales operations, customer management, reporting analytics, workflow assistance, and system configuration.
+
+**Specialized Business Handlers:**
+- **Financial Inquiry**: Revenue analysis, expense tracking, profitability reporting, and budget management
+- **Inventory Management**: Stock level monitoring, reorder optimization, and demand forecasting
+- **Sales Operations**: Order processing, customer analysis, and performance tracking
+- **Customer Management**: Profile management, interaction history, and relationship analytics
+- **Reporting Analytics**: Business intelligence, KPI tracking, and performance dashboards
+- **Workflow Assistance**: Process guidance, task automation, and efficiency optimization
+- **System Configuration**: Settings management, user permissions, and system customization
+- **General Business Queries**: Fallback handler for complex or multi-domain requests
     
-    async def handle_financial_inquiry(self, entities, user_context):
-        """Handle financial and accounting related queries"""
-        
-        # Extract financial parameters
-        account = entities.get('account')
-        date_range = entities.get('date_range', self.get_current_period())
-        metric = entities.get('financial_metric')
-        comparison = entities.get('comparison_period')
-        
-        # Execute financial query
-        if metric == 'revenue':
-            data = await self.get_revenue_analysis(account, date_range, comparison)
-            response_text = f"Revenue Analysis for {date_range['description']}:\n\n"
-            response_text += f"Total Revenue: ${data['total_revenue']:,.2f}\n"
-            
-            if comparison:
-                growth_rate = data.get('growth_rate', 0)
-                response_text += f"Growth vs {comparison}: {growth_rate:+.1f}%\n"
-            
-            response_text += f"\nTop Revenue Sources:\n"
-            for source in data['top_sources'][:5]:
-                response_text += f"• {source['name']}: ${source['amount']:,.2f}\n"
-                
-        elif metric == 'expenses':
-            data = await self.get_expense_analysis(account, date_range, comparison)
-            response_text = f"Expense Analysis for {date_range['description']}:\n\n"
-            response_text += f"Total Expenses: ${data['total_expenses']:,.2f}\n"
-            
-            if data.get('budget_variance'):
-                variance = data['budget_variance']
-                response_text += f"Budget Variance: {variance:+.1f}%\n"
-                
-        elif metric == 'profitability':
-            data = await self.get_profitability_analysis(date_range, comparison)
-            response_text = f"Profitability Analysis for {date_range['description']}:\n\n"
-            response_text += f"Gross Profit: ${data['gross_profit']:,.2f} ({data['gross_margin']:.1f}%)\n"
-            response_text += f"Net Profit: ${data['net_profit']:,.2f} ({data['net_margin']:.1f}%)\n"
-            
-        else:
-            # General financial overview
-            data = await self.get_financial_overview(date_range)
-            response_text = f"Financial Overview for {date_range['description']}:\n\n"
-            response_text += f"Revenue: ${data['revenue']:,.2f}\n"
-            response_text += f"Expenses: ${data['expenses']:,.2f}\n"
-            response_text += f"Net Profit: ${data['net_profit']:,.2f}\n"
-            response_text += f"Cash Flow: ${data['cash_flow']:,.2f}\n"
-        
-        # Add insights and recommendations
-        insights = await self.generate_financial_insights(data, entities)
-        if insights:
-            response_text += f"\n💡 Insights:\n"
-            for insight in insights:
-                response_text += f"• {insight}\n"
-        
-        return {
-            'text': response_text,
-            'data': data,
-            'visualizations': await self.generate_financial_charts(data, metric),
-            'follow_up_actions': await self.suggest_financial_actions(data, entities),
-            'confidence': 0.95
-        }
+**Financial Inquiry Handler:**
+The financial inquiry handler processes comprehensive financial requests including revenue analysis, expense tracking, profitability assessment, and general financial overviews. The system extracts relevant parameters (account, date range, metrics, comparison periods) and generates detailed financial reports with insights and recommendations.
+
+**Financial Analysis Capabilities:**
+- **Revenue Analysis**: Total revenue calculation with growth rate comparisons and top revenue source identification
+- **Expense Analysis**: Comprehensive expense tracking with budget variance analysis and category breakdowns
+- **Profitability Analysis**: Gross and net profit calculations with margin analysis and comparison periods
+- **Financial Overview**: Comprehensive snapshot including revenue, expenses, net profit, and cash flow
+
+**Value-Added Features:**
+- **AI-Generated Insights**: Intelligent analysis of financial trends and anomalies
+- **Visual Reporting**: Automatic chart generation for data visualization
+- **Follow-up Actions**: Suggested next steps based on financial analysis results
+- **High Confidence**: 95% confidence scoring for reliable financial decision-making
     
-    async def handle_inventory_management(self, entities, user_context):
-        """Handle inventory-related requests"""
-        
-        product = entities.get('product')
-        location = entities.get('location')
-        action = entities.get('inventory_action')
-        quantity = entities.get('quantity')
-        
-        if action == 'check_stock':
-            stock_data = await self.get_stock_levels(product, location)
-            
-            if product:
-                # Specific product inquiry
-                product_stock = stock_data.get(product, {})
-                response_text = f"Stock Level for {product}:\n\n"
-                
-                if location:
-                    level = product_stock.get(location, 0)
-                    response_text += f"{location}: {level:,.0f} units\n"
-                else:
-                    total = sum(product_stock.values())
-                    response_text += f"Total Stock: {total:,.0f} units\n"
-                    response_text += f"\nBy Location:\n"
-                    for loc, qty in product_stock.items():
-                        response_text += f"• {loc}: {qty:,.0f} units\n"
-                
-                # Add reorder recommendations
-                reorder_info = await self.check_reorder_requirements(product)
-                if reorder_info['needs_reorder']:
-                    response_text += f"\n⚠️ Reorder Alert: Stock below minimum level\n"
-                    response_text += f"Suggested Order Quantity: {reorder_info['suggested_quantity']:,.0f}\n"
-                    response_text += f"Lead Time: {reorder_info['lead_time']} days\n"
-                    
-            else:
-                # General inventory overview
-                response_text = "Inventory Overview:\n\n"
-                total_value = sum(item['value'] for item in stock_data.values())
-                response_text += f"Total Inventory Value: ${total_value:,.2f}\n"
-                
-                # Low stock alerts
-                low_stock_items = await self.get_low_stock_items()
-                if low_stock_items:
-                    response_text += f"\n⚠️ Low Stock Items ({len(low_stock_items)}):\n"
-                    for item in low_stock_items[:5]:
-                        response_text += f"• {item['name']}: {item['current_stock']:,.0f} units\n"
-        
-        elif action == 'reorder':
-            if product and quantity:
-                # Execute reorder
-                reorder_result = await self.create_purchase_order(product, quantity, location)
-                response_text = f"Purchase Order Created:\n\n"
-                response_text += f"Product: {product}\n"
-                response_text += f"Quantity: {quantity:,.0f} units\n"
-                response_text += f"Estimated Cost: ${reorder_result['estimated_cost']:,.2f}\n"
-                response_text += f"PO Number: {reorder_result['po_number']}\n"
-                response_text += f"Expected Delivery: {reorder_result['expected_delivery']}\n"
-            else:
-                # Suggest reorder quantities for multiple items
-                reorder_suggestions = await self.get_reorder_suggestions()
-                response_text = "Reorder Suggestions:\n\n"
-                for suggestion in reorder_suggestions[:10]:
-                    response_text += f"• {suggestion['product']}: {suggestion['quantity']:,.0f} units (${suggestion['cost']:,.2f})\n"
-        
-        # Add predictive insights
-        predictions = await self.generate_inventory_predictions(product, location)
-        if predictions:
-            response_text += f"\n📊 Demand Forecast:\n"
-            response_text += f"Next 30 days: {predictions['demand_30d']:,.0f} units\n"
-            response_text += f"Stock-out risk: {predictions['stockout_risk']:.1f}%\n"
-        
-        return {
-            'text': response_text,
-            'data': stock_data,
-            'actions': await self.suggest_inventory_actions(entities, stock_data),
-            'confidence': 0.92
-        }
+**Inventory Management Handler:**
+The inventory management system handles comprehensive stock-related requests including stock level checking, reorder processing, and inventory overview generation. The system processes product-specific or location-specific queries and provides detailed inventory analysis with predictive insights.
+
+**Inventory Operations:**
+- **Stock Level Checking**: Real-time stock level retrieval with location-specific or total inventory views
+- **Reorder Management**: Automated reorder alert generation with suggested quantities and lead time information
+- **Purchase Order Creation**: Direct PO generation with cost estimation and delivery timeline projection
+- **Inventory Overview**: Comprehensive inventory value analysis with low stock item identification
+
+**Advanced Features:**
+- **Reorder Recommendations**: Intelligent suggestions based on minimum stock levels and historical consumption
+- **Predictive Analytics**: 30-day demand forecasting with stock-out risk assessment
+- **Multi-Location Support**: Location-specific inventory tracking with consolidated reporting
+- **Automated Alerts**: Proactive notifications for low stock items requiring immediate attention
+- **Action Suggestions**: Context-aware recommendations for inventory optimization
     
-    async def handle_workflow_assistance(self, entities, user_context, conversation_context):
-        """Provide step-by-step workflow guidance"""
-        
-        workflow_type = entities.get('workflow_type')
-        step_request = entities.get('step_request')
-        
-        # Check if user is in middle of a guided workflow
-        active_workflow = conversation_context.get('active_workflow')
-        
-        if active_workflow:
-            # Continue existing workflow
-            if step_request == 'next':
-                return await self.advance_workflow_step(active_workflow, user_context)
-            elif step_request == 'previous':
-                return await self.go_back_workflow_step(active_workflow, user_context)
-            elif step_request == 'help':
-                return await self.provide_step_help(active_workflow, user_context)
-            else:
-                # Process step input
-                return await self.process_workflow_input(
-                    active_workflow, entities, user_context
-                )
-        
-        elif workflow_type:
-            # Start new workflow
-            workflow = await self.initialize_workflow(workflow_type, user_context)
-            
-            response_text = f"Starting {workflow['name']} Workflow\n\n"
-            response_text += f"Description: {workflow['description']}\n"
-            response_text += f"Estimated Time: {workflow['estimated_time']}\n"
-            response_text += f"Steps: {len(workflow['steps'])}\n\n"
-            response_text += f"Step 1: {workflow['steps'][0]['title']}\n"
-            response_text += workflow['steps'][0]['description']
-            
-            if workflow['steps'][0]['inputs']:
-                response_text += "\n\nRequired Information:\n"
-                for input_field in workflow['steps'][0]['inputs']:
-                    response_text += f"• {input_field['label']}\n"
-            
-            # Store active workflow in context
-            conversation_context['active_workflow'] = workflow
-            
-            return {
-                'text': response_text,
-                'workflow': workflow,
-                'current_step': 0,
-                'guidance': workflow['steps'][0].get('guidance', []),
-                'confidence': 0.95
-            }
-        
-        else:
-            # List available workflows
-            available_workflows = await self.get_available_workflows(user_context)
-            
-            response_text = "Available Workflows:\n\n"
-            for workflow in available_workflows:
-                response_text += f"• **{workflow['name']}**: {workflow['description']}\n"
-            
-            response_text += "\nWhat workflow would you like to start?"
-            
-            return {
-                'text': response_text,
-                'available_workflows': available_workflows,
-                'confidence': 0.90
-            }
-```
+**Workflow Assistance Handler:**
+The workflow assistance system provides step-by-step guidance through complex business processes with support for workflow continuation, navigation (next/previous steps), contextual help, and input processing. The system maintains active workflow state and provides comprehensive workflow management.
+
+**Workflow Management Features:**
+- **Active Workflow Continuation**: Seamless progression through multi-step business processes with state management
+- **Navigation Support**: Forward/backward step navigation with contextual help at each stage
+- **Input Processing**: Intelligent processing of user inputs within workflow context
+- **Workflow Initialization**: Guided workflow startup with comprehensive overview and time estimates
+
+**Workflow Capabilities:**
+- **Step-by-Step Guidance**: Detailed instructions for each workflow step with required information lists
+- **Progress Tracking**: Current step indication with total step count and completion status
+- **Contextual Help**: Step-specific guidance and assistance when users need additional support
+- **Workflow Discovery**: Comprehensive listing of available workflows with descriptions for easy selection
+- **Time Estimation**: Realistic time estimates for workflow completion to help users plan effectively
 
 ### Supabase Schema for ERP Copilot
 
-```sql
--- ERP Copilot conversation sessions
-CREATE TABLE copilot_sessions (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID NOT NULL REFERENCES auth.users(id),
-    company_id UUID NOT NULL,
-    
-    -- Session details
-    session_id VARCHAR(255) UNIQUE NOT NULL,
-    session_start TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    session_end TIMESTAMP WITH TIME ZONE,
-    session_status VARCHAR(50) DEFAULT 'active',
-    
-    -- Context and state
-    conversation_context JSONB DEFAULT '{}'::jsonb,
-    active_workflow JSONB,
-    user_preferences JSONB DEFAULT '{}'::jsonb,
-    
-    -- Performance metrics
-    total_interactions INTEGER DEFAULT 0,
-    successful_completions INTEGER DEFAULT 0,
-    average_response_time INTEGER DEFAULT 0,
-    
-    -- Learning data
-    user_competency_scores JSONB DEFAULT '{}'::jsonb,
-    frequently_used_functions JSONB DEFAULT '[]'::jsonb,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**ERP Copilot Session Management Schema:**
+The copilot sessions table manages user interaction sessions with comprehensive tracking of conversation context, active workflows, and user preferences. The schema includes performance metrics, learning data, and competency scoring to enable personalized user experiences.
 
--- Individual copilot interactions
-CREATE TABLE copilot_interactions (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    session_id UUID NOT NULL REFERENCES copilot_sessions(id),
-    
-    -- Interaction details
-    user_input TEXT NOT NULL,
-    copilot_response TEXT NOT NULL,
-    interaction_type VARCHAR(100) NOT NULL,
-    
-    -- AI processing results
-    intent_classification VARCHAR(100),
-    entities_extracted JSONB DEFAULT '{}'::jsonb,
-    confidence_score DECIMAL(3,2),
-    processing_time_ms INTEGER,
-    
-    -- Business actions performed
-    erp_functions_called JSONB DEFAULT '[]'::jsonb,
-    data_accessed JSONB DEFAULT '[]'::jsonb,
-    business_impact JSONB,
-    
-    -- User feedback
-    user_satisfaction INTEGER CHECK (user_satisfaction BETWEEN 1 AND 5),
-    task_completed BOOLEAN DEFAULT FALSE,
-    follow_up_required BOOLEAN DEFAULT FALSE,
-    
-    -- Context
-    conversation_step INTEGER DEFAULT 1,
-    workflow_step INTEGER,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Session Management Features:**
+- **Session Tracking**: Unique session identification with start/end timestamps and status management
+- **Context Preservation**: JSON storage of conversation context and active workflow state
+- **User Preferences**: Personalized settings and interaction preferences for optimized user experience
+- **Performance Metrics**: Interaction counts, completion rates, and response time tracking
+- **Learning Integration**: User competency scores and frequently used functions for personalization
 
--- Business workflow definitions
-CREATE TABLE business_workflows (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Workflow details
-    workflow_name VARCHAR(255) NOT NULL,
-    workflow_type VARCHAR(100) NOT NULL,
-    description TEXT NOT NULL,
-    
-    -- Workflow structure
-    workflow_steps JSONB NOT NULL DEFAULT '[]'::jsonb,
-    estimated_duration INTEGER DEFAULT 0, -- in minutes
-    difficulty_level VARCHAR(20) DEFAULT 'medium',
-    
-    -- Requirements
-    required_permissions JSONB DEFAULT '[]'::jsonb,
-    prerequisite_data JSONB DEFAULT '[]'::jsonb,
-    
-    -- Usage statistics
-    usage_count INTEGER DEFAULT 0,
-    success_rate DECIMAL(5,2) DEFAULT 100.00,
-    average_completion_time INTEGER DEFAULT 0,
-    
-    -- Personalization
-    user_customizations JSONB DEFAULT '{}'::jsonb,
-    
-    -- Status
-    status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'inactive', 'deprecated')),
-    version VARCHAR(20) DEFAULT '1.0',
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Copilot Interaction Tracking Schema:**
+The interactions table captures detailed information about each user-copilot exchange including user input, AI-generated responses, and processing metadata. The schema tracks business impact, user feedback, and conversation context for continuous improvement.
 
--- User learning and competency tracking
-CREATE TABLE user_competency (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    user_id UUID NOT NULL REFERENCES auth.users(id),
-    
-    -- Competency areas
-    financial_operations_score DECIMAL(5,2) DEFAULT 0.00,
-    inventory_management_score DECIMAL(5,2) DEFAULT 0.00,
-    sales_operations_score DECIMAL(5,2) DEFAULT 0.00,
-    reporting_analytics_score DECIMAL(5,2) DEFAULT 0.00,
-    system_administration_score DECIMAL(5,2) DEFAULT 0.00,
-    
-    -- Learning progress
-    total_interactions INTEGER DEFAULT 0,
-    successful_task_completions INTEGER DEFAULT 0,
-    workflow_completions INTEGER DEFAULT 0,
-    
-    -- Personalization data
-    preferred_interaction_style VARCHAR(50) DEFAULT 'guided',
-    common_tasks JSONB DEFAULT '[]'::jsonb,
-    learning_pace VARCHAR(20) DEFAULT 'normal',
-    
-    -- Assessment results
-    last_assessment_date DATE,
-    overall_competency_score DECIMAL(5,2) DEFAULT 0.00,
-    improvement_recommendations JSONB DEFAULT '[]'::jsonb,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Interaction Analysis Features:**
+- **Comprehensive Logging**: User input, copilot responses, and interaction type classification
+- **AI Processing Metrics**: Intent classification, entity extraction, confidence scores, and processing times
+- **Business Impact Tracking**: ERP functions called, data accessed, and measurable business impact
+- **User Feedback Collection**: Satisfaction ratings, task completion status, and follow-up requirements
+- **Conversation Context**: Step tracking within conversations and workflows for continuity
 
--- ERP function usage analytics
-CREATE TABLE erp_function_analytics (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    
-    -- Function details
-    function_name VARCHAR(255) NOT NULL,
-    function_category VARCHAR(100) NOT NULL,
-    access_date DATE NOT NULL DEFAULT CURRENT_DATE,
-    
-    -- Usage metrics
-    total_accesses INTEGER DEFAULT 0,
-    unique_users INTEGER DEFAULT 0,
-    success_rate DECIMAL(5,2) DEFAULT 100.00,
-    average_completion_time INTEGER DEFAULT 0,
-    
-    -- AI assistance metrics
-    ai_assisted_accesses INTEGER DEFAULT 0,
-    ai_success_rate DECIMAL(5,2) DEFAULT 100.00,
-    user_satisfaction_score DECIMAL(3,2),
-    
-    -- Error tracking
-    error_count INTEGER DEFAULT 0,
-    common_errors JSONB DEFAULT '[]'::jsonb,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Business Workflow Definition Schema:**
+The business workflows table defines structured business processes with comprehensive workflow steps, requirements, and performance metrics. The schema supports workflow customization, usage analytics, and version management for continuous improvement.
 
--- Create indexes for optimal performance
-CREATE INDEX idx_copilot_sessions_user ON copilot_sessions(user_id, session_status);
-CREATE INDEX idx_copilot_interactions_session ON copilot_interactions(session_id, created_at);
-CREATE INDEX idx_copilot_interactions_intent ON copilot_interactions(intent_classification);
-CREATE INDEX idx_business_workflows_type ON business_workflows(workflow_type, status);
-CREATE INDEX idx_user_competency_user ON user_competency(user_id);
-CREATE INDEX idx_erp_analytics_function ON erp_function_analytics(function_name, access_date);
+**Workflow Management Features:**
+- **Workflow Structure**: Name, type, description, and detailed step definitions with duration estimates
+- **Difficulty Assessment**: Complexity level classification with permission and prerequisite requirements
+- **Usage Analytics**: Count tracking, success rates, and completion time analysis for optimization
+- **Personalization Support**: User-specific customizations and adaptive workflow modifications
+- **Lifecycle Management**: Status tracking (active/inactive/deprecated) with version control
 
--- Functions for copilot operations
-CREATE OR REPLACE FUNCTION get_user_copilot_metrics(
-    p_user_id UUID,
-    p_days_back INTEGER DEFAULT 30
-) RETURNS JSONB AS $$
-DECLARE
-    metrics_result JSONB;
-    start_date DATE := CURRENT_DATE - p_days_back;
-BEGIN
-    WITH user_metrics AS (
-        SELECT 
-            COUNT(DISTINCT cs.id) as total_sessions,
-            COUNT(ci.id) as total_interactions,
-            AVG(ci.confidence_score) as avg_confidence,
-            COUNT(*) FILTER (WHERE ci.task_completed = TRUE) as completed_tasks,
-            AVG(ci.user_satisfaction) as avg_satisfaction
-        FROM copilot_sessions cs
-        LEFT JOIN copilot_interactions ci ON cs.id = ci.session_id
-        WHERE cs.user_id = p_user_id
-        AND cs.created_at >= start_date
-    ),
-    competency_data AS (
-        SELECT 
-            overall_competency_score,
-            financial_operations_score,
-            inventory_management_score,
-            sales_operations_score,
-            reporting_analytics_score
-        FROM user_competency
-        WHERE user_id = p_user_id
-    )
-    SELECT json_build_object(
-        'usage_metrics', row_to_json(user_metrics),
-        'competency_scores', row_to_json(competency_data),
-        'report_period', p_days_back,
-        'generated_at', NOW()
-    ) INTO metrics_result
-    FROM user_metrics, competency_data;
-    
-    RETURN metrics_result;
-END;
-$$ LANGUAGE plpgsql;
+**User Competency Tracking Schema:**
+The user competency table tracks individual user skills across business domains including financial operations, inventory management, sales operations, reporting analytics, and system administration. The schema supports personalized learning and adaptive system behavior.
 
--- Function to update user competency scores
-CREATE OR REPLACE FUNCTION update_user_competency(
-    p_user_id UUID,
-    p_function_category VARCHAR(100),
-    p_success BOOLEAN,
-    p_completion_time INTEGER
-) RETURNS VOID AS $$
-DECLARE
-    score_increment DECIMAL(5,2);
-    current_score DECIMAL(5,2);
-BEGIN
-    -- Calculate score increment based on success and efficiency
-    IF p_success THEN
-        score_increment := LEAST(1.0, 10.0 / GREATEST(p_completion_time, 10));
-    ELSE
-        score_increment := -0.5;
-    END IF;
-    
-    -- Update category-specific score
-    CASE p_function_category
-        WHEN 'financial_operations' THEN
-            UPDATE user_competency 
-            SET financial_operations_score = GREATEST(0, LEAST(100, financial_operations_score + score_increment))
-            WHERE user_id = p_user_id;
-            
-        WHEN 'inventory_management' THEN
-            UPDATE user_competency 
-            SET inventory_management_score = GREATEST(0, LEAST(100, inventory_management_score + score_increment))
-            WHERE user_id = p_user_id;
-            
-        WHEN 'sales_operations' THEN
-            UPDATE user_competency 
-            SET sales_operations_score = GREATEST(0, LEAST(100, sales_operations_score + score_increment))
-            WHERE user_id = p_user_id;
-            
-        WHEN 'reporting_analytics' THEN
-            UPDATE user_competency 
-            SET reporting_analytics_score = GREATEST(0, LEAST(100, reporting_analytics_score + score_increment))
-            WHERE user_id = p_user_id;
-    END CASE;
-    
-    -- Update overall competency score
-    UPDATE user_competency 
-    SET overall_competency_score = (
-        financial_operations_score + 
-        inventory_management_score + 
-        sales_operations_score + 
-        reporting_analytics_score + 
-        system_administration_score
-    ) / 5
-    WHERE user_id = p_user_id;
-END;
-$$ LANGUAGE plpgsql;
+**Competency Management Features:**
+- **Domain-Specific Scoring**: Individual competency scores for financial operations, inventory, sales, reporting, and system administration
+- **Learning Progress Tracking**: Total interactions, successful completions, and workflow completion statistics
+- **Personalization Data**: Interaction style preferences, common tasks identification, and learning pace assessment
+- **Assessment Integration**: Last assessment dates, overall scores, and improvement recommendations
+- **Adaptive Learning**: Data-driven personalization for optimal user experience and skill development
 
--- Function to get personalized workflow recommendations
-CREATE OR REPLACE FUNCTION get_workflow_recommendations(
-    p_user_id UUID
-) RETURNS TABLE (
-    workflow_id UUID,
-    workflow_name VARCHAR(255),
-    recommendation_score DECIMAL(5,2),
-    recommendation_reason TEXT
-) AS $$
-BEGIN
-    RETURN QUERY
-    WITH user_profile AS (
-        SELECT 
-            uc.overall_competency_score,
-            uc.common_tasks,
-            uc.preferred_interaction_style
-        FROM user_competency uc
-        WHERE uc.user_id = p_user_id
-    ),
-    workflow_scores AS (
-        SELECT 
-            bw.id,
-            bw.workflow_name,
-            -- Score based on user competency and workflow difficulty
-            CASE 
-                WHEN up.overall_competency_score >= 80 THEN 
-                    CASE bw.difficulty_level
-                        WHEN 'easy' THEN 60.0
-                        WHEN 'medium' THEN 85.0
-                        WHEN 'hard' THEN 100.0
-                    END
-                WHEN up.overall_competency_score >= 50 THEN
-                    CASE bw.difficulty_level
-                        WHEN 'easy' THEN 90.0
-                        WHEN 'medium' THEN 100.0
-                        WHEN 'hard' THEN 70.0
-                    END
-                ELSE
-                    CASE bw.difficulty_level
-                        WHEN 'easy' THEN 100.0
-                        WHEN 'medium' THEN 80.0
-                        WHEN 'hard' THEN 40.0
-                    END
-            END as base_score,
-            -- Boost score for frequently used workflow types
-            CASE WHEN bw.workflow_type = ANY(
-                SELECT jsonb_array_elements_text(up.common_tasks)
-            ) THEN 20.0 ELSE 0.0 END as frequency_boost
-        FROM business_workflows bw, user_profile up
-        WHERE bw.status = 'active'
-    )
-    SELECT 
-        ws.id,
-        ws.workflow_name,
-        (ws.base_score + ws.frequency_boost) as recommendation_score,
-        CASE 
-            WHEN ws.frequency_boost > 0 THEN 'Frequently used workflow type'
-            WHEN ws.base_score >= 90 THEN 'Well-matched to your skill level'
-            WHEN ws.base_score < 70 THEN 'Consider when you gain more experience'
-            ELSE 'Good fit for your current competency'
-        END as recommendation_reason
-    FROM workflow_scores ws
-    ORDER BY recommendation_score DESC
-    LIMIT 10;
-END;
-$$ LANGUAGE plpgsql;
-```
+**ERP Function Usage Analytics Schema:**
+The function analytics table tracks usage patterns across ERP functions with comprehensive metrics including access counts, user adoption, success rates, and AI assistance effectiveness. The schema enables data-driven optimization of ERP function design and AI assistance.
+
+**Analytics Capabilities:**
+- **Usage Metrics**: Total access counts, unique user tracking, success rates, and completion time analysis
+- **AI Assistance Tracking**: AI-assisted access monitoring, success rate comparison, and user satisfaction scoring
+- **Error Analysis**: Error count tracking with common error pattern identification for system improvement
+- **Performance Monitoring**: Function category analysis and daily usage tracking for trend identification
+- **User Experience Optimization**: Comprehensive data collection for evidence-based UX improvements
+
+**Database Performance Optimization:**
+Strategic indexes optimize query performance for user session tracking, interaction history analysis, intent classification searches, workflow type filtering, user competency lookups, and ERP function analytics. These indexes ensure rapid response times across all copilot operations.
+
+**User Copilot Metrics Function:**
+The comprehensive metrics function provides detailed user performance analytics including session counts, interaction totals, confidence scores, task completion rates, and user satisfaction. The function integrates usage metrics with competency scores to provide complete user performance insights over configurable time periods (default 30 days) for management reporting and user development planning.
+
+**User Competency Update Function:**
+The competency scoring system automatically updates user skill levels based on task success and completion efficiency. Successful tasks improve scores (with efficiency bonuses), while failed tasks apply small penalties. The system maintains scores within 0-100 range and calculates overall competency as the average across all functional areas.
+
+**Competency Scoring Algorithm:**
+- **Success Bonus**: Successful tasks earn up to 1.0 point with efficiency multipliers (faster completion = higher bonus)
+- **Failure Penalty**: Failed tasks result in -0.5 point deduction to encourage learning
+- **Category-Specific Updates**: Financial operations, inventory management, sales operations, and reporting analytics scored separately
+- **Overall Score Calculation**: Automatic computation of overall competency as average of all functional area scores
+- **Score Boundaries**: All scores maintained between 0 and 100 for consistent measurement
+
+**Personalized Workflow Recommendation Function:**
+The intelligent recommendation system analyzes user competency scores and common task patterns to suggest optimal workflows. The algorithm matches user skill levels with workflow difficulty and provides frequency bonuses for commonly used workflow types.
+
+**Recommendation Algorithm:**
+- **Competency-Based Scoring**: Advanced users (80+) favor challenging workflows, intermediate users (50-80) prefer medium complexity, beginners focus on easy workflows
+- **Frequency Boost**: 20-point bonus for workflow types the user commonly performs
+- **Smart Reasoning**: Contextual explanations for recommendations (frequently used, skill-matched, developmental)
+- **Top 10 Results**: Prioritized list of most suitable workflows based on combined scoring
+- **Adaptive Learning**: Recommendations improve as user competency and usage patterns evolve
 
 ### Advanced Personalization Engine
 
-```python
-class CopilotPersonalizationEngine:
-    def __init__(self, supabase_client):
-        self.supabase = supabase_client
-        
-    async def personalize_response(self, response, user_context, interaction_history):
-        """Personalize copilot response based on user profile and history"""
-        
-        # Get user competency profile
-        user_competency = await self.get_user_competency(user_context.user_id)
-        
-        # Adjust response complexity based on competency
-        if user_competency.overall_score < 50:
-            # Beginner user - provide more detailed explanations
-            response = await self.add_detailed_explanations(response)
-            response = await self.add_learning_tips(response)
-        elif user_competency.overall_score > 80:
-            # Advanced user - provide concise, efficient responses
-            response = await self.make_response_concise(response)
-            response = await self.add_advanced_options(response)
-        
-        # Add contextual help based on common mistakes
-        common_errors = await self.get_common_user_errors(
-            user_context.user_id, response.function_category
-        )
-        if common_errors:
-            response = await self.add_error_prevention_tips(response, common_errors)
-        
-        # Suggest related functions based on usage patterns
-        related_functions = await self.get_related_functions(
-            user_context.user_id, response.primary_function
-        )
-        if related_functions:
-            response['suggested_next_actions'] = related_functions
-        
-        return response
-    
-    async def adapt_workflow_guidance(self, workflow, user_context):
-        """Adapt workflow steps based on user competency and preferences"""
-        
-        user_profile = await self.get_user_profile(user_context.user_id)
-        
-        adapted_workflow = workflow.copy()
-        
-        for step in adapted_workflow['steps']:
-            # Adjust step complexity
-            if user_profile.competency_scores.get(workflow['category'], 0) < 60:
-                # Add more detailed instructions for beginners
-                step['description'] = await self.expand_step_description(
-                    step['description'], user_profile
-                )
-                step['guidance'] = await self.add_beginner_guidance(
-                    step.get('guidance', [])
-                )
-            
-            # Add personalized examples
-            step['examples'] = await self.get_personalized_examples(
-                step['type'], user_profile.industry, user_profile.role
-            )
-            
-            # Adjust validation rules
-            if user_profile.error_prone_areas:
-                step['validation_rules'] = await self.add_extra_validations(
-                    step.get('validation_rules', []), user_profile.error_prone_areas
-                )
-        
-        return adapted_workflow
-    
-    async def generate_learning_recommendations(self, user_id):
-        """Generate personalized learning recommendations"""
-        
-        # Analyze user's current competencies
-        competency_gaps = await self.analyze_competency_gaps(user_id)
-        
-        # Get user's recent activities and struggles
-        recent_struggles = await self.identify_recent_struggles(user_id)
-        
-        # Generate targeted recommendations
-        recommendations = []
-        
-        for gap in competency_gaps:
-            if gap.importance_score > 70:  # Focus on important gaps
-                recommendation = {
-                    'type': 'skill_development',
-                    'area': gap.competency_area,
-                    'current_score': gap.current_score,
-                    'target_score': gap.target_score,
-                    'recommended_actions': await self.get_improvement_actions(gap),
-                    'estimated_time': await self.estimate_improvement_time(gap),
-                    'priority': gap.priority_level
-                }
-                recommendations.append(recommendation)
-        
-        # Add recommendations for recent struggles
-        for struggle in recent_struggles:
-            recommendation = {
-                'type': 'immediate_help',
-                'function': struggle.function_name,
-                'common_mistakes': struggle.common_mistakes,
-                'quick_tips': struggle.quick_tips,
-                'practice_scenarios': await self.get_practice_scenarios(struggle),
-                'priority': 'high'
-            }
-            recommendations.append(recommendation)
-        
-        # Sort by priority and impact
-        recommendations.sort(
-            key=lambda x: (x['priority'], x.get('impact_score', 0)), 
-            reverse=True
-        )
-        
-        return recommendations[:10]  # Return top 10 recommendations
-```
+**Copilot Personalization Engine:**
+The Personalization Engine adapts copilot responses based on user competency profiles, interaction history, and individual preferences. The system provides beginner-friendly detailed explanations for new users and concise, efficient responses for advanced users with contextual help and error prevention tips.
+
+**Response Personalization Features:**
+- **Competency-Based Adaptation**: Beginners receive detailed explanations and learning tips, while advanced users get concise responses with advanced options
+- **Error Prevention**: Contextual help based on user's common mistake patterns with proactive error prevention tips
+- **Related Function Suggestions**: Intelligent suggestions for next actions based on user usage patterns and workflow context
+- **Learning Integration**: Continuous adaptation based on user performance and skill development
+
+**Workflow Guidance Adaptation:**
+- **Step Complexity Adjustment**: Detailed instructions for beginners, streamlined guidance for experienced users
+- **Personalized Examples**: Industry and role-specific examples relevant to user's business context
+- **Enhanced Validation**: Extra validation rules for users with known error-prone areas
+- **Context-Aware Guidance**: Workflow steps adapted based on user competency in specific categories
+
+**Learning Recommendation System:**
+- **Competency Gap Analysis**: Identifies skill development opportunities with importance scoring and priority levels
+- **Immediate Help**: Quick assistance for recent struggles with common mistakes and practice scenarios
+- **Targeted Actions**: Specific improvement recommendations with time estimates and priority rankings
+- **Top 10 Focus**: Prioritized list of most impactful learning opportunities for efficient skill development
 
 ## Performance Metrics and ROI
 

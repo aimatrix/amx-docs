@@ -12,23 +12,7 @@ AIMatrix solves this fundamental problem by transforming how businesses create, 
 
 AIMatrix operates through three interconnected layers that transform your business into an intelligent, self-improving system:
 
-```mermaid
-graph TB
-    A[Knowledge Pipeline] --> B[Knowledge Library]
-    B --> C[Knowledge Activation]
-    
-    A --> A1[Data Ingestion]
-    A --> A2[Content Processing]
-    A --> A3[Knowledge Extraction]
-    
-    B --> B1[Structured Knowledge Base]
-    B --> B2[Semantic Search]
-    B --> B3[Version Control]
-    
-    C --> C1[AI Agents]
-    C --> C2[Automation Services]
-    C --> C3[Decision Support]
-```
+**Three-Layer AIMatrix Architecture**: The Knowledge Pipeline ingests and processes raw data through data ingestion, content processing, and knowledge extraction. The Knowledge Library provides structured storage with semantic search and version control capabilities. Knowledge Activation deploys intelligence through AI agents, automation services, and decision support systems, creating a complete intelligence transformation workflow.
 
 ### Layer 1: Knowledge Pipeline - Your Intelligence Factory
 

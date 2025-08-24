@@ -5,8 +5,6 @@ cascade:
   type: docs
 ---
 
-# AIMatrix Business Solutions
-
 Discover how AIMatrix transforms businesses with intelligent automation and AI-powered solutions. Perfect for decision makers, business users, and anyone looking to understand the business value of AIMatrix.
 
 ## Quick Navigation

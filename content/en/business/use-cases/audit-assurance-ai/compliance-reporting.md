@@ -22,22 +22,7 @@ Modern businesses face increasingly complex regulatory requirements:
 
 ### Intelligent Compliance Engine
 
-```mermaid
-graph TB
-    A[Financial Data] --> B[AI Compliance Engine]
-    B --> C[Jurisdiction Detection]
-    C --> D[Standards Mapping]
-    D --> E[Automated Report Generation]
-    E --> F[Validation & Review]
-    F --> G[Digital Submission]
-    G --> H[Compliance Tracking]
-    I[Regulatory Updates] --> J[AI Learning System]
-    J --> K[Rule Engine Updates]
-    K --> B
-    L[Audit Requirements] --> M[Evidence Collection]
-    M --> N[Supporting Documentation]
-    N --> F
-```
+Our AI Compliance Engine seamlessly processes financial data through sophisticated jurisdiction detection and standards mapping capabilities that enable automated report generation with comprehensive validation and review processes. The system supports digital submission and compliance tracking while continuously learning from regulatory updates and incorporating rule engine updates for optimal compliance accuracy. Audit requirements are handled through intelligent evidence collection and supporting documentation generation for complete regulatory compliance and audit readiness.
 
 ### Core Compliance Components
 
@@ -63,637 +48,180 @@ graph TB
 
 ### Compliance Engine Architecture
 
-```python
-# AI-powered compliance reporting system
-import asyncio
-from datetime import datetime, timedelta
-from aimatrix.compliance import ComplianceEngine
-from aimatrix.reporting import ReportGenerator
-import supabase
+**AI Compliance Reporting System Architecture:**
+The comprehensive AI Compliance Reporting System integrates Compliance Engine, Report Generator, and Regulatory Update Monitor to automate complex compliance reporting processes. The system handles jurisdiction identification, requirement analysis, data extraction, validation, report generation, and automated submission to regulatory authorities.
 
-class AIComplianceReportingSystem:
-    def __init__(self, supabase_client):
-        self.supabase = supabase_client
-        self.compliance_engine = ComplianceEngine()
-        self.report_generator = ReportGenerator()
-        self.regulatory_monitor = RegulatoryUpdateMonitor()
-        
-    async def generate_compliance_report(self, entity_id, report_type, reporting_period):
-        """Generate compliance report with AI validation"""
-        
-        # Identify applicable jurisdictions and standards
-        jurisdictions = await self.identify_jurisdictions(entity_id)
-        compliance_requirements = await self.get_compliance_requirements(
-            jurisdictions, report_type, reporting_period
-        )
-        
-        # Extract and validate source data
-        source_data = await self.extract_compliance_data(
-            entity_id, reporting_period, compliance_requirements
-        )
-        
-        # AI-powered data validation and consistency checking
-        validation_results = await self.validate_compliance_data(
-            source_data, compliance_requirements
-        )
-        
-        if not validation_results.is_valid:
-            # Handle validation errors
-            await self.handle_validation_errors(validation_results)
-            return None
-        
-        # Generate report using AI templates
-        report_data = await self.generate_report_data(
-            source_data, compliance_requirements
-        )
-        
-        # Create formatted report
-        formatted_report = await self.format_compliance_report(
-            report_data, compliance_requirements
-        )
-        
-        # Generate supporting documentation
-        supporting_docs = await self.generate_supporting_documentation(
-            source_data, report_data, compliance_requirements
-        )
-        
-        # Store compliance report with audit trail
-        stored_report = await self.store_compliance_report(
-            entity_id, report_type, reporting_period, 
-            formatted_report, supporting_docs, validation_results
-        )
-        
-        # Submit to regulatory authorities (if configured)
-        if compliance_requirements.auto_submit:
-            submission_result = await self.submit_to_authorities(
-                stored_report, compliance_requirements
-            )
-            stored_report['submission_result'] = submission_result
-        
-        return stored_report
+**Compliance Report Generation Workflow:**
+1. **Jurisdiction Identification**: Automatically identifies applicable jurisdictions and regulatory standards
+2. **Requirement Analysis**: Retrieves specific compliance requirements for report type and period
+3. **Data Extraction**: Gathers source data from multiple systems with validation
+4. **AI Validation**: Performs comprehensive data consistency checking and error detection
+5. **Report Generation**: Creates formatted reports using AI-powered templates
+6. **Documentation Creation**: Generates supporting documentation and audit trails
+7. **Automated Submission**: Submits reports to regulatory authorities when configured
+8. **Audit Trail Storage**: Maintains complete compliance reporting audit trails
     
-    async def identify_jurisdictions(self, entity_id):
-        """AI-powered jurisdiction identification"""
-        
-        # Get entity information
-        entity = await self.supabase.table('entities').select(
-            'country, business_activities, subsidiaries, tax_registrations'
-        ).eq('id', entity_id).single().execute()
-        
-        # Analyze business activities to determine reporting obligations
-        jurisdictions = []
-        
-        # Primary jurisdiction
-        jurisdictions.append({
-            'country': entity.data['country'],
-            'type': 'primary',
-            'requirements': await self.get_country_requirements(entity.data['country'])
-        })
-        
-        # Subsidiary jurisdictions
-        for subsidiary in entity.data.get('subsidiaries', []):
-            if subsidiary['country'] != entity.data['country']:
-                jurisdictions.append({
-                    'country': subsidiary['country'],
-                    'type': 'subsidiary',
-                    'requirements': await self.get_country_requirements(subsidiary['country'])
-                })
-        
-        # Tax registration jurisdictions
-        for tax_reg in entity.data.get('tax_registrations', []):
-            jurisdiction_exists = any(j['country'] == tax_reg['country'] for j in jurisdictions)
-            if not jurisdiction_exists:
-                jurisdictions.append({
-                    'country': tax_reg['country'],
-                    'type': 'tax_only',
-                    'requirements': await self.get_tax_requirements(tax_reg['country'])
-                })
-        
-        # AI analysis for additional obligations
-        additional_jurisdictions = await self.ai_analyze_additional_obligations(
-            entity.data['business_activities']
-        )
-        jurisdictions.extend(additional_jurisdictions)
-        
-        return jurisdictions
+**AI-Powered Jurisdiction Identification:**
+The system analyzes entity information including country of incorporation, business activities, subsidiary locations, and tax registrations to comprehensively identify all applicable reporting jurisdictions. AI analysis extends beyond basic entity data to identify additional compliance obligations based on business activity patterns.
+
+**Jurisdiction Analysis Components:**
+- **Primary Jurisdiction**: Entity's home country with full compliance requirements
+- **Subsidiary Jurisdictions**: Countries where subsidiaries operate with local compliance obligations
+- **Tax Registration Jurisdictions**: Additional countries where entity has tax obligations requiring compliance reporting
+- **AI Additional Analysis**: Machine learning identifies complex compliance scenarios based on business activities and cross-border operations
+
+**Comprehensive Coverage:**
+- Prevents missed compliance obligations through systematic analysis
+- Identifies both direct and indirect reporting requirements
+- Considers complex multi-jurisdictional scenarios automatically
+- Adapts to changing business structures and activities
     
-    async def generate_report_data(self, source_data, requirements):
-        """AI-powered report data generation"""
-        
-        report_data = {}
-        
-        for requirement in requirements:
-            if requirement['type'] == 'balance_sheet':
-                report_data['balance_sheet'] = await self.generate_balance_sheet_data(
-                    source_data, requirement
-                )
-            elif requirement['type'] == 'income_statement':
-                report_data['income_statement'] = await self.generate_income_statement_data(
-                    source_data, requirement
-                )
-            elif requirement['type'] == 'cash_flow':
-                report_data['cash_flow'] = await self.generate_cash_flow_data(
-                    source_data, requirement
-                )
-            elif requirement['type'] == 'tax_computation':
-                report_data['tax_computation'] = await self.generate_tax_computation_data(
-                    source_data, requirement
-                )
-            elif requirement['type'] == 'regulatory_ratios':
-                report_data['regulatory_ratios'] = await self.calculate_regulatory_ratios(
-                    source_data, requirement
-                )
-        
-        # AI validation of report data consistency
-        consistency_check = await self.validate_report_consistency(report_data)
-        if not consistency_check.is_consistent:
-            # Auto-correct minor inconsistencies
-            report_data = await self.auto_correct_inconsistencies(
-                report_data, consistency_check.issues
-            )
-        
-        return report_data
-```
+**AI-Powered Report Data Generation:**
+The system generates comprehensive report data based on compliance requirements, creating balance sheets, income statements, cash flow statements, tax computations, and regulatory ratios. AI validation ensures consistency across all report components with automatic correction of minor inconsistencies.
+
+**Report Generation Components:**
+- **Balance Sheet Generation**: Automated creation of jurisdiction-specific balance sheet formats
+- **Income Statement Processing**: Generation of profit and loss statements compliant with local standards
+- **Cash Flow Analysis**: Comprehensive cash flow statement creation following regulatory formats
+- **Tax Computation**: Detailed tax calculations specific to jurisdiction requirements
+- **Regulatory Ratios**: Automatic calculation of required financial and regulatory ratios
+
+**Quality Assurance Features:**
+- **Consistency Validation**: AI-powered cross-validation of all report components
+- **Automatic Correction**: Minor inconsistencies corrected automatically
+- **Error Detection**: Comprehensive identification of data quality issues
+- **Compliance Verification**: Ensures all generated data meets regulatory standards
 
 ### Supabase Schema for Compliance Management
 
-```sql
--- Compliance entities and jurisdictions
-CREATE TABLE compliance_entities (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    entity_name VARCHAR(255) NOT NULL,
-    primary_country VARCHAR(3) NOT NULL,
-    business_activities JSONB DEFAULT '[]'::jsonb,
-    subsidiaries JSONB DEFAULT '[]'::jsonb,
-    tax_registrations JSONB DEFAULT '[]'::jsonb,
-    compliance_obligations JSONB DEFAULT '{}'::jsonb,
-    
-    -- AI analysis results
-    ai_jurisdiction_analysis JSONB DEFAULT '{}'::jsonb,
-    last_jurisdiction_review DATE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Compliance Entities Database Schema:**
+The compliance entities table stores comprehensive entity information including business activities, subsidiaries, tax registrations, and compliance obligations. AI analysis results are stored to support jurisdiction identification and obligation tracking with review date management for ongoing compliance monitoring.
 
--- Regulatory requirements database
-CREATE TABLE regulatory_requirements (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    country VARCHAR(3) NOT NULL,
-    requirement_type VARCHAR(100) NOT NULL,
-    requirement_name VARCHAR(255) NOT NULL,
-    
-    -- Requirement details
-    description TEXT,
-    filing_frequency VARCHAR(50), -- monthly, quarterly, annually
-    due_date_rule TEXT, -- e.g., "15 days after month end"
-    mandatory BOOLEAN DEFAULT TRUE,
-    
-    -- AI processing rules
-    data_mapping_rules JSONB DEFAULT '{}'::jsonb,
-    validation_rules JSONB DEFAULT '[]'::jsonb,
-    calculation_formulas JSONB DEFAULT '{}'::jsonb,
-    
-    -- Template information
-    report_template JSONB DEFAULT '{}'::jsonb,
-    output_format VARCHAR(50) DEFAULT 'pdf',
-    submission_method VARCHAR(50), -- online, email, physical
-    
-    -- Regulatory authority information
-    authority_name VARCHAR(255),
-    authority_website TEXT,
-    submission_portal TEXT,
-    
-    -- Versioning
-    version VARCHAR(20) DEFAULT '1.0',
-    effective_date DATE NOT NULL,
-    superseded_by UUID REFERENCES regulatory_requirements(id),
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Entity Management Features:**
+- **Entity Identification**: Name, primary country, and comprehensive business activity tracking
+- **Structure Analysis**: Subsidiary and tax registration information for multi-jurisdictional compliance
+- **Obligation Mapping**: JSON storage of complex compliance obligations across jurisdictions
+- **AI Integration**: Stores AI-powered jurisdiction analysis results and review scheduling
 
--- Generated compliance reports
-CREATE TABLE compliance_reports (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    entity_id UUID NOT NULL REFERENCES compliance_entities(id),
-    requirement_id UUID NOT NULL REFERENCES regulatory_requirements(id),
-    
-    -- Report details
-    report_type VARCHAR(100) NOT NULL,
-    reporting_period_start DATE NOT NULL,
-    reporting_period_end DATE NOT NULL,
-    generation_date TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    
-    -- Report content
-    report_data JSONB NOT NULL,
-    formatted_report_url TEXT,
-    supporting_documents JSONB DEFAULT '[]'::jsonb,
-    
-    -- AI processing information
-    ai_generated BOOLEAN DEFAULT TRUE,
-    data_sources JSONB DEFAULT '[]'::jsonb,
-    validation_results JSONB DEFAULT '{}'::jsonb,
-    confidence_score DECIMAL(3,2),
-    
-    -- Submission tracking
-    submission_status VARCHAR(50) DEFAULT 'draft',
-    submission_date TIMESTAMP WITH TIME ZONE,
-    submission_reference VARCHAR(255),
-    submission_response JSONB,
-    
-    -- Review and approval
-    reviewed_by UUID REFERENCES auth.users(id),
-    reviewed_at TIMESTAMP WITH TIME ZONE,
-    approved_by UUID REFERENCES auth.users(id),
-    approved_at TIMESTAMP WITH TIME ZONE,
-    
-    -- Status tracking
-    status VARCHAR(50) DEFAULT 'generated' CHECK (
-        status IN ('generated', 'reviewed', 'approved', 'submitted', 'accepted', 'rejected')
-    ),
-    due_date DATE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Regulatory Requirements Database Schema:**
+The regulatory requirements table maintains comprehensive country-specific compliance requirements including filing frequencies, due date rules, and mandatory status. AI processing rules enable automated data mapping, validation, and calculation while template information supports automated report generation.
 
--- Compliance monitoring and alerts
-CREATE TABLE compliance_monitoring (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    entity_id UUID NOT NULL REFERENCES compliance_entities(id),
-    requirement_id UUID NOT NULL REFERENCES regulatory_requirements(id),
-    
-    -- Monitoring details
-    monitoring_date DATE NOT NULL DEFAULT CURRENT_DATE,
-    compliance_status VARCHAR(50) NOT NULL,
-    risk_level VARCHAR(20) DEFAULT 'low',
-    
-    -- AI assessment
-    ai_risk_score DECIMAL(5,2) DEFAULT 0.00,
-    compliance_gap_analysis JSONB DEFAULT '{}'::jsonb,
-    recommendations JSONB DEFAULT '[]'::jsonb,
-    
-    -- Alert information
-    alerts_generated INTEGER DEFAULT 0,
-    last_alert_date TIMESTAMP WITH TIME ZONE,
-    
-    -- Remediation tracking
-    remediation_required BOOLEAN DEFAULT FALSE,
-    remediation_plan JSONB,
-    remediation_status VARCHAR(50),
-    remediation_due_date DATE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Requirement Management Features:**
+- **Requirement Definition**: Country, type, name, description, and filing frequency specifications
+- **AI Processing Rules**: Data mapping, validation rules, and calculation formulas for automation
+- **Template Management**: Report templates, output formats, and submission methods
+- **Authority Integration**: Regulatory authority information with submission portal details
+- **Version Control**: Requirement versioning with effective dates and supersession tracking
 
--- Regulatory updates tracking
-CREATE TABLE regulatory_updates (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    country VARCHAR(3) NOT NULL,
-    authority_name VARCHAR(255),
-    
-    -- Update details
-    update_title VARCHAR(500) NOT NULL,
-    update_description TEXT,
-    update_date DATE NOT NULL,
-    effective_date DATE,
-    
-    -- Classification
-    update_type VARCHAR(100), -- new_requirement, amendment, clarification
-    impact_level VARCHAR(20), -- high, medium, low
-    affected_industries TEXT[],
-    
-    -- AI processing
-    ai_analyzed BOOLEAN DEFAULT FALSE,
-    ai_impact_assessment JSONB,
-    affected_requirements UUID[] DEFAULT '{}',
-    
-    -- Processing status
-    processed_by_system BOOLEAN DEFAULT FALSE,
-    requires_manual_review BOOLEAN DEFAULT TRUE,
-    reviewed_by UUID REFERENCES auth.users(id),
-    reviewed_at TIMESTAMP WITH TIME ZONE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
+**Compliance Reports Database Schema:**
+The compliance reports table tracks generated reports with complete audit trails including entity and requirement references, reporting periods, and generation details. The schema supports AI processing metadata, submission tracking, and comprehensive review and approval workflows.
 
--- Create indexes for performance
-CREATE INDEX idx_compliance_reports_entity_period ON compliance_reports(entity_id, reporting_period_end);
-CREATE INDEX idx_compliance_reports_due_date ON compliance_reports(due_date) WHERE status != 'submitted';
-CREATE INDEX idx_regulatory_requirements_country_type ON regulatory_requirements(country, requirement_type);
-CREATE INDEX idx_compliance_monitoring_entity_status ON compliance_monitoring(entity_id, compliance_status);
+**Report Management Features:**
+- **Report Tracking**: Entity, requirement, type, period, and generation date documentation
+- **Content Storage**: JSON report data, formatted report URLs, and supporting documents
+- **AI Metadata**: Generation flags, data sources, validation results, and confidence scores
+- **Submission Management**: Status tracking, submission dates, references, and regulatory responses
+- **Approval Workflow**: Review and approval tracking with user identification and timestamps
+- **Status Lifecycle**: Complete status tracking from generation through regulatory acceptance
 
--- Functions for compliance automation
-CREATE OR REPLACE FUNCTION calculate_compliance_due_date(
-    requirement_id UUID,
-    reporting_period_end DATE
-) RETURNS DATE AS $$
-DECLARE
-    due_date_rule TEXT;
-    calculated_date DATE;
-BEGIN
-    -- Get due date rule for the requirement
-    SELECT rr.due_date_rule INTO due_date_rule
-    FROM regulatory_requirements rr
-    WHERE rr.id = requirement_id;
-    
-    -- Simple rule parsing (extend as needed)
-    IF due_date_rule LIKE '%days after%' THEN
-        -- Extract number of days
-        calculated_date := reporting_period_end + 
-            CAST(regexp_replace(due_date_rule, '[^0-9]', '', 'g') AS INTEGER);
-    ELSIF due_date_rule LIKE '%month end' THEN
-        -- End of following month
-        calculated_date := (DATE_TRUNC('month', reporting_period_end) + INTERVAL '2 months - 1 day')::DATE;
-    ELSE
-        -- Default to 30 days after period end
-        calculated_date := reporting_period_end + 30;
-    END IF;
-    
-    RETURN calculated_date;
-END;
-$$ LANGUAGE plpgsql;
+**Compliance Monitoring Database Schema:**
+The compliance monitoring table provides real-time oversight of compliance status with AI-powered risk assessment, gap analysis, and automated alert generation. The schema includes remediation tracking and recommendation management for comprehensive compliance oversight.
 
--- Function to identify overdue compliance reports
-CREATE OR REPLACE FUNCTION get_overdue_compliance_reports()
-RETURNS TABLE (
-    entity_name VARCHAR(255),
-    requirement_name VARCHAR(255),
-    due_date DATE,
-    days_overdue INTEGER,
-    risk_level VARCHAR(20)
-) AS $$
-BEGIN
-    RETURN QUERY
-    SELECT 
-        ce.entity_name,
-        rr.requirement_name,
-        cr.due_date,
-        (CURRENT_DATE - cr.due_date) as days_overdue,
-        CASE 
-            WHEN (CURRENT_DATE - cr.due_date) > 30 THEN 'high'
-            WHEN (CURRENT_DATE - cr.due_date) > 7 THEN 'medium'
-            ELSE 'low'
-        END as risk_level
-    FROM compliance_reports cr
-    JOIN compliance_entities ce ON cr.entity_id = ce.id
-    JOIN regulatory_requirements rr ON cr.requirement_id = rr.id
-    WHERE cr.status != 'submitted'
-    AND cr.due_date < CURRENT_DATE
-    ORDER BY days_overdue DESC;
-END;
-$$ LANGUAGE plpgsql;
-```
+**Monitoring Features:**
+- **Status Tracking**: Entity-specific compliance status monitoring with date tracking and risk level assessment
+- **AI Risk Assessment**: Automated risk scoring with comprehensive gap analysis and AI-generated recommendations
+- **Alert Management**: Alert generation counting with timestamp tracking for notification management
+- **Remediation Workflow**: Required remediation tracking with plans, status updates, and due date management
+- **Continuous Monitoring**: Ongoing compliance position assessment with trend analysis and proactive risk identification
+
+**Regulatory Updates Tracking Schema:**
+The regulatory updates table monitors regulatory changes across jurisdictions with comprehensive update classification, impact assessment, and processing status tracking. AI analysis provides automated impact assessment and affected requirement identification.
+
+**Update Management Features:**
+- **Update Classification**: Country, authority, title, description, dates, and type categorization (new requirement, amendment, clarification)
+- **Impact Assessment**: Impact level classification (high, medium, low) with affected industry identification
+- **AI Processing**: Automated analysis with impact assessment and affected requirement mapping
+- **Review Workflow**: Processing status tracking with manual review requirements and user assignment
+- **System Integration**: Automated system processing flags with comprehensive status management
+
+**Database Performance Optimization:**
+Strategic indexes optimize query performance for entity-period combinations, due date filtering for active reports, country-type requirement lookups, and entity-status compliance monitoring. These indexes ensure rapid data retrieval across all compliance operations.
+
+**Automated Due Date Calculation:**
+The compliance due date function intelligently parses regulatory requirements to calculate filing deadlines. It handles various rule formats including "X days after period end" and "end of following month" with intelligent default handling for complex scenarios. This automation ensures accurate deadline tracking across all jurisdictions and requirement types.
+
+**Overdue Compliance Report Identification:**
+The system automatically identifies overdue compliance reports with risk level assessment based on days overdue. Reports overdue by more than 30 days are classified as high risk, 7-30 days as medium risk, and under 7 days as low risk. This function provides comprehensive oversight of compliance status with prioritized risk management.
+
+**Overdue Report Features:**
+- **Automatic Identification**: Continuous monitoring of all unsubmitted reports past due dates
+- **Risk Classification**: Intelligent risk level assignment based on overdue duration
+- **Comprehensive Reporting**: Entity name, requirement name, due date, and days overdue information
+- **Priority Sorting**: Results ordered by days overdue to prioritize most urgent items
+- **Status Filtering**: Focuses on unsubmitted reports requiring immediate attention
 
 ### Advanced Country-Specific Compliance Features
 
-```python
-class CountrySpecificComplianceEngine:
-    def __init__(self, supabase_client):
-        self.supabase = supabase_client
-        self.country_handlers = self.load_country_handlers()
-        
-    async def generate_country_specific_report(self, entity_id, country, report_type, period):
-        """Generate country-specific compliance reports"""
-        
-        # Get country-specific handler
-        handler = self.country_handlers.get(country)
-        if not handler:
-            raise ValueError(f"Unsupported country: {country}")
-        
-        # Get country-specific requirements
-        requirements = await handler.get_reporting_requirements(report_type, period)
-        
-        # Extract data using country-specific mapping
-        source_data = await self.extract_country_specific_data(
-            entity_id, period, requirements
-        )
-        
-        # Apply country-specific validations
-        validation_results = await handler.validate_data(source_data, requirements)
-        
-        # Generate report using country template
-        report = await handler.generate_report(source_data, requirements, validation_results)
-        
-        return report
-    
-    def load_country_handlers(self):
-        """Load country-specific compliance handlers"""
-        return {
-            'SGP': SingaporeComplianceHandler(),
-            'MYS': MalaysiaComplianceHandler(),
-            'USA': USAComplianceHandler(),
-            'GBR': UKComplianceHandler(),
-            'AUS': AustraliaComplianceHandler(),
-            'HKG': HongKongComplianceHandler(),
-            'CHN': ChinaComplianceHandler(),
-            'IND': IndiaComplianceHandler(),
-            'THA': ThailandComplianceHandler(),
-            'IDN': IndonesiaComplianceHandler()
-        }
+**Country-Specific Compliance Engine:**
+The Country-Specific Compliance Engine provides specialized handlers for different jurisdictions including Singapore, Malaysia, USA, UK, Australia, Hong Kong, China, India, Thailand, and Indonesia. Each handler implements country-specific reporting requirements, data extraction mappings, validation rules, and report generation templates.
 
-class SingaporeComplianceHandler:
-    """Singapore ACRA compliance handler"""
-    
-    async def get_reporting_requirements(self, report_type, period):
-        """Get Singapore-specific reporting requirements"""
-        
-        if report_type == 'annual_return':
-            return {
-                'filing_deadline': '30 days after AGM',
-                'required_documents': [
-                    'annual_accounts',
-                    'directors_report',
-                    'auditors_report'
-                ],
-                'format': 'XBRL',
-                'validation_rules': [
-                    'balance_sheet_balance',
-                    'profit_loss_arithmetic',
-                    'cash_flow_consistency'
-                ]
-            }
-        elif report_type == 'gst_return':
-            return {
-                'filing_deadline': '1 month after end of return period',
-                'required_sections': [
-                    'standard_rated_supplies',
-                    'zero_rated_supplies',
-                    'exempt_supplies',
-                    'input_tax'
-                ],
-                'format': 'electronic',
-                'validation_rules': [
-                    'gst_calculation_accuracy',
-                    'supporting_documents'
-                ]
-            }
-    
-    async def generate_report(self, source_data, requirements, validation):
-        """Generate Singapore-compliant report"""
-        
-        # Apply Singapore-specific formatting
-        report_data = {
-            'company_details': {
-                'uen': source_data['company']['uen'],
-                'name': source_data['company']['name'],
-                'financial_year_end': source_data['company']['financial_year_end']
-            },
-            'financial_statements': await self.format_singapore_financials(
-                source_data['financials']
-            ),
-            'compliance_certifications': await self.generate_compliance_certs(
-                source_data, requirements
-            )
-        }
-        
-        return report_data
-    
-    async def format_singapore_financials(self, financial_data):
-        """Format financial statements per Singapore GAAP"""
-        
-        # Apply Singapore-specific account groupings
-        balance_sheet = {
-            'non_current_assets': {
-                'property_plant_equipment': financial_data['ppe_net'],
-                'intangible_assets': financial_data['intangibles'],
-                'investments': financial_data['investments']
-            },
-            'current_assets': {
-                'trade_receivables': financial_data['accounts_receivable'],
-                'other_receivables': financial_data['other_receivables'],
-                'cash_equivalents': financial_data['cash']
-            },
-            'equity_liabilities': {
-                'share_capital': financial_data['share_capital'],
-                'retained_earnings': financial_data['retained_earnings'],
-                'current_liabilities': financial_data['current_liabilities']
-            }
-        }
-        
-        # Apply Singapore presentation requirements
-        return balance_sheet
+**Country Handler Architecture:**
+- **Specialized Processing**: Each country has dedicated compliance handler with jurisdiction-specific logic
+- **Requirements Management**: Country-specific reporting requirements and template handling
+- **Data Mapping**: Jurisdiction-specific data extraction and formatting rules
+- **Validation Rules**: Country-specific validation logic ensuring regulatory compliance
+- **Template Generation**: Localized report generation using jurisdiction-appropriate formats
 
-class MalaysiaComplianceHandler:
-    """Malaysia SSM and tax compliance handler"""
+**Supported Jurisdictions:**
+- Singapore (SGP), Malaysia (MYS), USA, United Kingdom (GBR)
+- Australia (AUS), Hong Kong (HKG), China (CHN), India (IND)
+- Thailand (THA), Indonesia (IDN) with extensible architecture for additional countries
+
+**Singapore ACRA Compliance Handler:**
+The Singapore compliance handler manages ACRA (Accounting and Corporate Regulatory Authority) requirements including annual returns and GST returns. Annual returns require filing within 30 days of AGM with XBRL format, while GST returns must be filed within 1 month of return period end in electronic format.
+
+**Singapore Compliance Features:**
+- **Annual Returns**: Required documents include annual accounts, directors' reports, and auditors' reports with comprehensive validation
+- **GST Returns**: Electronic filing with standard-rated, zero-rated, and exempt supplies sections plus input tax calculations
+- **XBRL Format**: Structured data format for annual returns ensuring regulatory compliance
+- **Validation Rules**: Balance sheet balancing, profit/loss arithmetic verification, and cash flow consistency checking
+- **Electronic Processing**: Streamlined electronic submission with automated validation and error checking
     
-    async def generate_report(self, source_data, requirements, validation):
-        """Generate Malaysia-compliant report"""
-        
-        if requirements['report_type'] == 'mfrs_accounts':
-            return await self.generate_mfrs_accounts(source_data)
-        elif requirements['report_type'] == 'sst_return':
-            return await self.generate_sst_return(source_data)
-    
-    async def generate_mfrs_accounts(self, source_data):
-        """Generate MFRS-compliant accounts"""
-        
-        # Apply Malaysian Financial Reporting Standards
-        accounts = {
-            'statement_position': await self.format_mfrs_balance_sheet(source_data),
-            'statement_comprehensive_income': await self.format_mfrs_pnl(source_data),
-            'statement_cash_flows': await self.format_mfrs_cashflow(source_data),
-            'statement_changes_equity': await self.format_equity_statement(source_data),
-            'notes_accounts': await self.generate_mfrs_notes(source_data)
-        }
-        
-        return accounts
-```
+**Singapore Report Generation:**
+The Singapore report generator creates ACRA-compliant reports with proper company details (UEN, name, financial year end), Singapore GAAP-formatted financial statements, and compliance certifications. Financial statement formatting follows Singapore-specific account groupings and presentation requirements.
+
+**Singapore Financial Statement Format:**
+- **Non-Current Assets**: Property, plant & equipment, intangible assets, and investments categorization
+- **Current Assets**: Trade receivables, other receivables, and cash equivalents presentation
+- **Equity & Liabilities**: Share capital, retained earnings, and current liabilities structure
+- **GAAP Compliance**: Adherence to Singapore Generally Accepted Accounting Principles
+- **ACRA Standards**: Full compliance with ACRA presentation and disclosure requirements
+
+**Malaysia SSM Compliance Handler:**
+The Malaysia compliance handler manages SSM (Suruhanjaya Syarikat Malaysia) and tax compliance requirements including MFRS (Malaysian Financial Reporting Standards) accounts and SST (Sales and Service Tax) returns. The handler generates comprehensive financial statements compliant with Malaysian regulatory standards.
+
+**Malaysian Compliance Features:**
+- **MFRS Accounts**: Complete financial statement sets including statement of financial position, comprehensive income, cash flows, changes in equity, and detailed notes
+- **SST Returns**: Sales and Service Tax return generation compliant with Malaysian tax authority requirements
+- **Malaysian Standards**: Full adherence to Malaysian Financial Reporting Standards for accurate regulatory compliance
+- **Comprehensive Reporting**: Five-statement financial reporting with detailed notes ensuring complete disclosure requirements
+- **SSM Compliance**: Structured reporting meeting Suruhanjaya Syarikat Malaysia filing requirements
 
 ### Real-Time Compliance Monitoring
 
-```python
-class ComplianceMonitoringSystem:
-    def __init__(self, supabase_client):
-        self.supabase = supabase_client
-        self.monitoring_rules = self.load_monitoring_rules()
-        
-    async def monitor_real_time_compliance(self):
-        """Continuous compliance monitoring"""
-        
-        while True:
-            try:
-                # Get all entities requiring monitoring
-                entities = await self.get_monitored_entities()
-                
-                for entity in entities:
-                    # Check compliance status
-                    compliance_status = await self.check_entity_compliance(entity)
-                    
-                    # Update monitoring records
-                    await self.update_compliance_monitoring(entity['id'], compliance_status)
-                    
-                    # Generate alerts if necessary
-                    if compliance_status['risk_level'] == 'high':
-                        await self.generate_compliance_alert(entity, compliance_status)
-                
-                # Wait before next monitoring cycle
-                await asyncio.sleep(3600)  # Check every hour
-                
-            except Exception as e:
-                await self.log_monitoring_error(e)
-                await asyncio.sleep(300)  # Wait 5 minutes before retry
-    
-    async def check_entity_compliance(self, entity):
-        """Check compliance status for entity"""
-        
-        compliance_issues = []
-        overall_risk_score = 0
-        
-        # Check overdue reports
-        overdue_reports = await self.get_overdue_reports(entity['id'])
-        for report in overdue_reports:
-            days_overdue = (datetime.now().date() - report['due_date']).days
-            risk_impact = min(days_overdue * 2, 100)  # Cap at 100
-            overall_risk_score += risk_impact
-            
-            compliance_issues.append({
-                'type': 'overdue_report',
-                'severity': 'high' if days_overdue > 30 else 'medium',
-                'description': f"{report['report_type']} overdue by {days_overdue} days",
-                'impact_score': risk_impact
-            })
-        
-        # Check upcoming deadlines
-        upcoming_reports = await self.get_upcoming_reports(entity['id'], days_ahead=30)
-        for report in upcoming_reports:
-            if not self.is_preparation_started(report):
-                days_until_due = (report['due_date'] - datetime.now().date()).days
-                if days_until_due < 7:  # Less than a week
-                    compliance_issues.append({
-                        'type': 'approaching_deadline',
-                        'severity': 'medium',
-                        'description': f"{report['report_type']} due in {days_until_due} days",
-                        'impact_score': (7 - days_until_due) * 10
-                    })
-        
-        # Check regulatory update impacts
-        unprocessed_updates = await self.get_unprocessed_regulatory_updates(entity['id'])
-        for update in unprocessed_updates:
-            if update['impact_level'] == 'high':
-                compliance_issues.append({
-                    'type': 'regulatory_update',
-                    'severity': 'high',
-                    'description': f"High-impact regulatory update requires review: {update['title']}",
-                    'impact_score': 50
-                })
-        
-        # Calculate overall risk level
-        risk_level = 'low'
-        if overall_risk_score > 150:
-            risk_level = 'high'
-        elif overall_risk_score > 50:
-            risk_level = 'medium'
-        
-        return {
-            'compliance_issues': compliance_issues,
-            'risk_score': min(overall_risk_score, 100),
-            'risk_level': risk_level,
-            'total_issues': len(compliance_issues)
-        }
-```
+**Real-Time Compliance Monitoring System:**
+The Compliance Monitoring System provides continuous oversight of all entities with automated compliance status checking, risk assessment, and alert generation. The system runs hourly monitoring cycles with comprehensive error handling and recovery mechanisms.
+
+**Continuous Monitoring Features:**
+- **Real-Time Monitoring**: Hourly compliance status checks across all monitored entities with automated error handling
+- **Risk Assessment**: Comprehensive compliance risk scoring based on overdue reports, approaching deadlines, and unprocessed regulatory updates
+- **Automated Alerting**: High-risk situations trigger immediate alerts with detailed compliance issue descriptions
+- **Multi-Factor Analysis**: Considers overdue reports (with escalating risk scores), upcoming deadlines (7-day warning threshold), and regulatory updates (high-impact focus)
+
+**Risk Calculation and Classification:**
+- **Dynamic Risk Scoring**: Overdue reports contribute 2 points per day (capped at 100), approaching deadlines score based on urgency, and high-impact regulatory updates add 50 points
+- **Risk Level Classification**: Low risk (0-50 points), medium risk (51-150 points), high risk (150+ points) with automatic escalation and alert generation
+- **Comprehensive Issue Tracking**: Detailed issue descriptions with severity levels and impact scores for prioritized remediation planning
 
 ## Performance Metrics and ROI
 

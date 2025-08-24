@@ -65,19 +65,17 @@ Understanding the fundamental concepts that power AIMatrix's intelligent busines
 
 ### The AIMatrix Stack
 
-```
-┌─────────────────────────────────────┐
-│     Adaptive AI Systems             │ ← Continuous Learning Layer
-├─────────────────────────────────────┤
-│   Intelligent Digital Twins         │ ← Simulation & Optimization
-├─────────────────────────────────────┤
-│        AI Agents                    │ ← Autonomous Execution
-├─────────────────────────────────────┤
-│    Tools, MCP, A2A Protocols        │ ← Integration & Communication
-├─────────────────────────────────────┤
-│  Multi-Modal & Language Models      │ ← Core AI Foundation
-└─────────────────────────────────────┘
-```
+**The AIMatrix Technology Stack**:
+
+**Continuous Learning Layer (Adaptive AI Systems)**: Provides ongoing learning and improvement capabilities.
+
+**Simulation & Optimization (Intelligent Digital Twins)**: Enables predictive modeling and business process optimization.
+
+**Autonomous Execution (AI Agents)**: Handles intelligent task automation and decision-making.
+
+**Integration & Communication (Tools, MCP, A2A Protocols)**: Facilitates system connectivity and agent coordination.
+
+**Core AI Foundation (Multi-Modal & Language Models)**: Provides the fundamental intelligence capabilities that power all layers above.
 
 ## Quick Overview
 

@@ -4,7 +4,6 @@ description: "Comprehensive AI-powered digital marketing solutions that transfor
 weight: 7
 ---
 
-# Digital Marketing AI (DMAI)
 
 AIMatrix's Digital Marketing AI Solutions revolutionize marketing operations through advanced artificial intelligence, machine learning, and automation technologies. Our comprehensive suite transforms every aspect of digital marketing, from content creation to campaign optimization, through intelligent automation, predictive analytics, and personalized customer journey orchestration.
 
@@ -46,17 +45,8 @@ Organizations implementing our Digital Marketing AI Solutions typically experien
 Our Digital Marketing AI Solutions are built on a modern, scalable architecture leveraging:
 
 ### Foundation Layer
-```mermaid
-graph TB
-    A[Supabase Backend] --> B[Vector Database]
-    A --> C[Real-time Analytics]
-    A --> D[Edge Functions]
-    B --> E[Content Embeddings]
-    C --> F[Campaign Tracking]
-    D --> G[AI Processing Pipeline]
-    G --> H[Content Generation]
-    H --> I[Personalization Engine]
-```
+
+Our Digital Marketing AI Solutions are built on a robust, modern foundation that integrates advanced backend infrastructure with sophisticated vector databases for intelligent content analysis and real-time analytics capabilities. The architecture features edge functions for rapid AI processing and campaign tracking systems that enable comprehensive content embeddings and personalization engines for maximum marketing effectiveness.
 
 ### AI Processing Stack
 - **Large Language Models**: GPT-4, Claude-3, and specialized marketing content models
@@ -81,30 +71,9 @@ AI-powered campaign creation and optimization system that manages multi-channel 
 - Dynamic budget allocation based on channel performance
 - Real-time campaign adjustments and bid management
 
-**Technical Implementation:**
-```python
-class CampaignAutomationEngine:
-    def __init__(self):
-        self.ad_platforms = {
-            'google_ads': GoogleAdsClient(),
-            'facebook_ads': FacebookAdsClient(),
-            'linkedin_ads': LinkedInAdsClient(),
-            'email_marketing': EmailClient()
-        }
-        self.optimization_engine = PerformanceOptimizer()
-        self.budget_allocator = BudgetAllocationAI()
-    
-    async def optimize_campaigns(self, campaign_data):
-        performance_metrics = await self.get_performance_data(campaign_data)
-        optimization_recommendations = await self.optimization_engine.analyze(
-            performance_metrics
-        )
-        
-        for platform, recommendations in optimization_recommendations.items():
-            await self.ad_platforms[platform].apply_optimizations(recommendations)
-        
-        return await self.budget_allocator.reallocate_budget(campaign_data)
-```
+**Business Implementation:**
+
+The Campaign Automation Engine operates through comprehensive integration with major advertising platforms including Google Ads, Facebook Ads, LinkedIn Ads, and email marketing systems. The system employs sophisticated performance optimization algorithms that continuously analyze campaign metrics and generate intelligent recommendations for campaign improvements. Budget allocation AI ensures optimal resource distribution across platforms while automated optimization application maximizes campaign performance and ROI across all marketing channels.
 
 ### 2. AI Content Generation & Optimization
 Advanced content creation system that generates high-quality marketing content, optimizes for SEO and engagement, and personalizes content for different audience segments.

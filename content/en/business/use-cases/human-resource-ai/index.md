@@ -4,8 +4,6 @@ description: "Revolutionize HR operations with AI-powered attendance tracking, w
 weight: 5
 ---
 
-# Human Resource AI (HRAI)
-
 AIMatrix Human Resource AI transforms traditional HR operations into intelligent, automated systems that enhance employee experience while dramatically reducing administrative overhead. HRAI brings unprecedented efficiency to workforce management through AI-driven automation, predictive analytics, and intelligent decision support.
 
 ## Overview
