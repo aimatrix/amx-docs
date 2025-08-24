@@ -63,12 +63,15 @@ jobs:
             "ErrorDocument": {"Key": "404.html"}
           }'
 
-    - name: Invalidate CloudFront (optional - if you have CloudFront)
+    - name: Invalidate CloudFront
       run: |
-        # Uncomment and configure if you have CloudFront distribution
-        # aws cloudfront create-invalidation \
-        #   --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-        #   --paths "/*"
+        echo "Creating CloudFront invalidation..."
+        aws cloudfront create-invalidation \
+          --distribution-id E18XNULEWFKQ3P \
+          --paths "/*" \
+          --query 'Invalidation.Id' \
+          --output text
+        echo "CloudFront invalidation created successfully"
 
     - name: Deployment Summary
       run: |
