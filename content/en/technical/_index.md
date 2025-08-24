@@ -17,6 +17,8 @@ Comprehensive technical resources for developers, system administrators, and tec
     <h3>🚀 Getting Started</h3>
     <p>Begin your development journey</p>
     <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/technical/apis/">APIs & Integration</a></li>
+      <li>→ <a href="/technical/sdks/">SDKs & Libraries</a></li>
       <li>→ <a href="/technical/developers/">Developer Guide</a></li>
       <li>→ <a href="/technical/tutorials/">Tutorials</a></li>
       <li>→ <a href="/technical/user-guides/">User Guides</a></li>
@@ -114,17 +116,20 @@ Comprehensive technical resources for developers, system administrators, and tec
 - **Cloud**: AWS, GCP, Azure, Edge Computing
 
 ### Integration Capabilities
-- **APIs**: REST, GraphQL, WebSockets
-- **Protocols**: MCP, HTTP, MQTT
-- **Authentication**: OAuth, JWT, SAML
-- **Deployment**: Docker, Kubernetes, Serverless
+- **APIs**: [REST, GraphQL, WebSockets](/technical/apis/) - Comprehensive API suite
+- **Protocols**: MCP, HTTP, MQTT, gRPC - Multi-protocol support  
+- **Authentication**: OAuth, JWT, SAML - Enterprise-grade security
+- **Deployment**: Docker, Kubernetes, Serverless - Flexible deployment options
 
 ## Development Resources
 
 ### SDKs & Libraries
-- [Python SDK](/technical/developers/) - Full-featured Python library
-- [JavaScript SDK](/technical/developers/) - Node.js and browser support  
-- [REST API](/technical/specs/) - HTTP-based integration
+- [Kotlin SDK](/technical/sdks/#kotlin-sdk) - First-class JVM/Android support with coroutines
+- [Python SDK](/technical/sdks/#python-sdk) - Full-featured async library with type hints
+- [TypeScript SDK](/technical/sdks/#typescript-sdk) - Type-safe Node.js and browser support
+- [C# SDK](/technical/sdks/#csharp-sdk) - .NET ecosystem with dependency injection
+- [Java SDK](/technical/sdks/#java-sdk) - Enterprise-ready with Spring Boot integration
+- [REST API](/technical/apis/) - HTTP-based integration
 - [CLI Tools](/technical/applications/) - Command-line utilities
 
 ### Sample Code
