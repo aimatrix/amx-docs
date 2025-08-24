@@ -260,7 +260,7 @@ Start with highest-impact area:
   
   <div style="display: flex; gap: 20px; margin-top: 20px;">
     <a href="/business/contact" style="padding: 12px 24px; background: white; color: #667eea; text-decoration: none; border-radius: 6px; font-weight: bold;">
-      Schedule a Demo →
+      Get Started →
     </a>
     <a href="/business/contact" style="padding: 12px 24px; border: 2px solid white; color: white; text-decoration: none; border-radius: 6px; font-weight: bold;">
       Get Automation Assessment

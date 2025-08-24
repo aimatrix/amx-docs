@@ -680,7 +680,7 @@ Innovation Metrics:
 
 ### Contact Us
 - **Email**: sales@aimatrix.com
-- **Demo**: [Book a Demo](https://hub.aimatrix.com/demo)
+- **Phone**: 1-800-AIMATRIX
 - **Support**: 24/7 available
 - **Implementation**: White-glove service available
 

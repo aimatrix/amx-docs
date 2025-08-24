@@ -62,7 +62,7 @@ Discover how AIMatrix transforms businesses with intelligent automation and AI-p
     <p>Connect with our team</p>
     <ul style="list-style: none; padding: 0;">
       <li>→ <a href="/business/contact/">Contact AIMatrix</a></li>
-      <li>→ <a href="mailto:sales@aimatrix.com">Request Demo</a></li>
+      <li>→ <a href="mailto:sales@aimatrix.com">Sales Inquiry</a></li>
       <li>→ <a href="mailto:info@aimatrix.com">Get Quote</a></li>
     </ul>
   </div>

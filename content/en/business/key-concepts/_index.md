@@ -118,4 +118,4 @@ Begin with any concept that interests you most, or follow our recommended learni
 
 ---
 
-Ready to see these concepts in action? [Schedule a demo](/business/contact/) to experience how AIMatrix transforms these technologies into practical business solutions.
+Ready to see these concepts in action? [Contact us](/business/contact/) to learn how AIMatrix transforms these technologies into practical business solutions.

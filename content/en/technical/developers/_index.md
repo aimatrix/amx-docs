@@ -258,19 +258,16 @@ Scale from prototype to enterprise
 Complete example of receipt/invoice processing
 - [Source Code](https://github.com/aimatrix/examples/invoice-processor)
 - [Tutorial](/technical/tutorials/invoice-processor)
-- [Live Demo](https://demo.aimatrix.com/invoice)
 
 ### 🎤 Voice Order System
 Natural language order taking system
 - [Source Code](https://github.com/aimatrix/examples/voice-orders)
 - [Tutorial](/technical/tutorials/voice-orders)
-- [Live Demo](https://demo.aimatrix.com/voice)
 
 ### 🤖 Customer Service Bot
 Multi-channel support automation
 - [Source Code](https://github.com/aimatrix/examples/support-bot)
 - [Tutorial](/technical/tutorials/support-bot)
-- [Live Demo](https://demo.aimatrix.com/support)
 
 ## Community & Support
 
