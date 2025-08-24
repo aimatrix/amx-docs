@@ -1,6 +1,6 @@
 ---
 title: Services
-weight: 6
+weight: 3
 description: Transform your data into actionable intelligence with AIMatrix's comprehensive knowledge processing services
 ---
 
