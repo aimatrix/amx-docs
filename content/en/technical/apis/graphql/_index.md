@@ -965,4 +965,4 @@ query GetTypeInfo {
 
 ---
 
-For more examples and advanced GraphQL patterns, see our [GraphQL Examples](/technical/apis/examples/#graphql-examples) section.
+For more examples and advanced GraphQL patterns, see our [GraphQL Examples](/reference/apis/examples/#graphql-examples) section.

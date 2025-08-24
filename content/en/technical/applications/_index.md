@@ -7,8 +7,6 @@ toc: true
 tags: ["applications", "cross-platform", "mobile", "desktop", "web", "edge", "console"]
 ---
 
-# AIMatrix Applications
-
 ## The Complete Application Ecosystem for AI-First Organizations
 
 AIMatrix Applications represents a comprehensive suite of cross-platform applications designed to bring AI agent capabilities to every device, environment, and use case. From powerful desktop terminals to lightweight mobile apps, from web-based dashboards to edge computing nodes, our application ecosystem ensures that intelligent automation is accessible wherever work happens.

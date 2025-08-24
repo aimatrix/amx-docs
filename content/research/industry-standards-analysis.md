@@ -4,8 +4,6 @@ description: "Comprehensive research and analysis of industry standards and best
 weight: 1
 ---
 
-# Industry Standards Analysis for AIMatrix Technical Specifications
-
 This document provides a comprehensive analysis of industry standards and best practices from leading platforms and products to inform the technical specifications for AIMatrix components: CLI, Console, Hub, Engine, and Workspace.
 
 ## Executive Summary

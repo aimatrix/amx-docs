@@ -272,7 +272,7 @@ Multi-channel support automation
 ## Community & Support
 
 ### Resources
-- [API Documentation](/api)
+- [API Documentation](/reference/apis)
 - [GitHub](https://github.com/aimatrix)
 - [Discord Community](https://discord.gg/aimatrix)
 - [Stack Overflow](https://stackoverflow.com/tags/aimatrix)

@@ -7,8 +7,6 @@ toc: true
 tags: ["automation", "ai", "workflow", "rpa", "process-mining"]
 ---
 
-# Intelligent Automation
-
 ## Beyond Traditional Automation
 
 Intelligent Automation in AIMatrix combines the power of AI with process automation to create self-improving workflows that adapt to your business needs. Unlike traditional RPA (Robotic Process Automation) that follows rigid rules, our intelligent automation learns from patterns, handles exceptions, and continuously optimizes itself.

@@ -7,8 +7,6 @@ toc: true
 tags: ["agent-workspace", "development", "collaboration", "git", "blueprints"]
 ---
 
-# Agent Workspace
-
 ## The Collaborative Hub for AI Agent Development
 
 The Agent Workspace is AIMatrix's integrated development environment (IDE) specifically designed for building, testing, and managing AI agents at enterprise scale. It combines the power of modern development tools with AI-specific capabilities to accelerate agent development while maintaining enterprise-grade governance and collaboration.

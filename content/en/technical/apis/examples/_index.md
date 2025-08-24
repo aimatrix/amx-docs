@@ -1113,4 +1113,4 @@ if __name__ == "__main__":
 
 ---
 
-These comprehensive examples demonstrate real-world integration patterns with the AIMatrix platform. For more specific use cases or custom implementations, refer to our [API Documentation](/technical/apis/) or contact our support team.
+These comprehensive examples demonstrate real-world integration patterns with the AIMatrix platform. For more specific use cases or custom implementations, refer to our [API Documentation](/reference/apis/) or contact our support team.

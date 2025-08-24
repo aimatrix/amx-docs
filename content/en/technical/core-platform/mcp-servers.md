@@ -7,8 +7,6 @@ toc: true
 tags: ["mcp", "connectors", "erp", "crm", "accounting", "integration"]
 ---
 
-# MCP Servers
-
 ## Bridging AI and Business Systems
 
 MCP (Model Context Protocol) Servers act as intelligent translators between AI agents and business systems, transforming complex enterprise APIs into AI-understandable interfaces. They provide secure, scalable, and semantically rich connections that enable AI agents to interact naturally with any business system.

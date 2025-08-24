@@ -7,8 +7,6 @@ toc: true
 tags: ["core-services", "identity", "authentication", "api-gateway", "licensing", "billing"]
 ---
 
-# Core Services
-
 ## The Foundation of Enterprise AI Infrastructure
 
 Core Services provide the essential infrastructure components that power every aspect of the AIMatrix platform. These services handle identity management, authentication, API routing, licensing enforcement, and billing operations with enterprise-grade security, scalability, and reliability.

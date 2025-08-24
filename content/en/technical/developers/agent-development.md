@@ -4,8 +4,6 @@ description: Build intelligent agents on the AIMatrix platform
 weight: 20
 ---
 
-# Agent Development Guide
-
 ## Understanding the Super Agent Architecture
 
 Unlike traditional agent frameworks that require extensive manual configuration, AIMatrix agents are self-organizing and continuously learning. This guide shows you how to build agents that leverage our Super Agent orchestration layer.

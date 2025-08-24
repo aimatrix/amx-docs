@@ -5,8 +5,6 @@ cascade:
   type: docs
 ---
 
-# User Guides
-
 Welcome to the AIMatrix User Guides. These comprehensive guides will help you get the most out of the AIMatrix platform.
 
 ## Getting Started

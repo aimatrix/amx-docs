@@ -109,10 +109,10 @@ For business leaders, understanding these concepts helps you:
 
 Begin with any concept that interests you most, or follow our recommended learning path:
 
-1. **[Language Models](/business/key-concepts/language-models/)** - Understand the foundation
-2. **[AI Agents](/business/key-concepts/ai-agents/)** - Learn about digital workers
-3. **[Digital Twins](/business/key-concepts/intelligent-digital-twins/)** - Explore business simulation
-4. **[Adaptive AI](/business/key-concepts/adaptive-ai-systems/)** - Discover continuous improvement
+1. **[Language Models](/get-started/concepts/language-models/)** - Understand the foundation
+2. **[AI Agents](/get-started/concepts/ai-agents/)** - Learn about digital workers
+3. **[Digital Twins](/get-started/concepts/intelligent-digital-twins/)** - Explore business simulation
+4. **[Adaptive AI](/get-started/concepts/adaptive-ai-systems/)** - Discover continuous improvement
 
 ---
 

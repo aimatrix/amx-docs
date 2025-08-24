@@ -7,8 +7,6 @@ toc: true
 tags: ["daemon", "background", "service", "system", "monitoring", "auto-scaling", "health-check"]
 ---
 
-# AMX Daemon
-
 ## System-Level Intelligence for Continuous Operations
 
 AMX Daemon is the backbone service that ensures continuous, reliable operation of AI agents and workflows across your infrastructure. Running as a system-level service, it provides intelligent resource management, automatic scaling, health monitoring, and recovery capabilities that keep your AI operations running smoothly 24/7.

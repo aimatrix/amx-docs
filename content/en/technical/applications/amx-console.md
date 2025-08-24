@@ -7,8 +7,6 @@ toc: true
 tags: ["console", "cross-platform", "conversational-ui", "gui", "desktop", "mobile", "compose-multiplatform"]
 ---
 
-# AMX Console
-
 ## The Universal Interface for Everyone
 
 AMX Console is the user-facing application that employees, customers, and suppliers use to interact with AIMatrix. Built with Compose Multiplatform, it provides native applications for iOS, Android, Windows, macOS, and Linux. The console combines conversational UI with traditional graphical interfaces, includes the studio functionality for workspace configuration, and serves as the primary interface for all users.

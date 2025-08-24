@@ -4,8 +4,6 @@ description: Latest news, updates, and insights from the AIMatrix team
 weight: 5
 ---
 
-# AIMatrix Blog
-
 <div style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); border-radius: 16px; padding: 60px 40px; margin: 40px 0; text-align: center; position: relative; overflow: hidden;">
   <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, #00ff0010 10px, #00ff0010 20px); animation: slide-diagonal 20s linear infinite;"></div>
   <div style="position: relative; z-index: 1;">

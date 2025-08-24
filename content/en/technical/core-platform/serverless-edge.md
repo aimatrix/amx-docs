@@ -7,8 +7,6 @@ toc: true
 tags: ["serverless", "edge-computing", "kubernetes", "orchestration", "multi-cloud"]
 ---
 
-# Serverless Edge & Cloud Clusters
-
 ## Distributed Intelligence at Global Scale
 
 The Serverless Edge & Cloud Clusters infrastructure provides a globally distributed, auto-scaling compute platform that brings AI processing closer to users while maintaining centralized coordination. This hybrid architecture combines the benefits of edge computing with the power of cloud-scale orchestration.

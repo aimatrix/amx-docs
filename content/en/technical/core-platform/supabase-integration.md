@@ -7,8 +7,6 @@ toc: true
 tags: ["supabase", "postgresql", "real-time", "auth", "vector", "storage", "edge-functions"]
 ---
 
-# Supabase Integration
-
 ## The Complete Backend-as-a-Service Solution
 
 Supabase serves as the foundational backend infrastructure for AIMatrix Core Platform, providing a unified, scalable, and developer-friendly solution that combines PostgreSQL database, authentication, real-time subscriptions, storage, and Edge Functions. This integration enables AIMatrix to deliver enterprise-grade features while maintaining the flexibility and performance required for AI-powered applications.

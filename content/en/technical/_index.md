@@ -116,7 +116,7 @@ Comprehensive technical resources for developers, system administrators, and tec
 - **Cloud**: AWS, GCP, Azure, Edge Computing
 
 ### Integration Capabilities
-- **APIs**: [REST, GraphQL, WebSockets](/technical/apis/) - Comprehensive API suite
+- **APIs**: [REST, GraphQL, WebSockets](/reference/apis/) - Comprehensive API suite
 - **Protocols**: MCP, HTTP, MQTT, gRPC - Multi-protocol support  
 - **Authentication**: OAuth, JWT, SAML - Enterprise-grade security
 - **Deployment**: Docker, Kubernetes, Serverless - Flexible deployment options
@@ -129,7 +129,7 @@ Comprehensive technical resources for developers, system administrators, and tec
 - [TypeScript SDK](/technical/sdks/#typescript-sdk) - Type-safe Node.js and browser support
 - [C# SDK](/technical/sdks/#csharp-sdk) - .NET ecosystem with dependency injection
 - [Java SDK](/technical/sdks/#java-sdk) - Enterprise-ready with Spring Boot integration
-- [REST API](/technical/apis/) - HTTP-based integration
+- [REST API](/reference/apis/) - HTTP-based integration
 - [CLI Tools](/technical/applications/) - Command-line utilities
 
 ### Sample Code
