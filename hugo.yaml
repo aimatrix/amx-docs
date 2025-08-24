@@ -184,17 +184,7 @@ menu:
       params:
         type: search
       
-  # Business sidebar menu
-  sidebar:
-    - name: Getting Started
-      pageRef: /business/getting-started
-      weight: 1
-    - name: Vertical Solutions
-      pageRef: /business/vertical-solutions
-      weight: 2
-    - name: Products
-      pageRef: /business/products
-      weight: 3
+  # Business sidebar menu (auto-generated from content structure)
 
 # Deployment configuration
 deployment:
