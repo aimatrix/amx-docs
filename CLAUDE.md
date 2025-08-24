@@ -8,6 +8,20 @@ This file provides guidance to Claude Code when working with this repository.
 - **NEVER** add "Generated with Claude Code" or similar attribution in commits
 - Keep commit messages professional and focused on the changes made
 
+## Task Management Strategy
+
+**ALWAYS use sub-agents for complex, long-running tasks:**
+- When given multiple files to create or extensive content to generate
+- When tasks involve analyzing and processing large amounts of information
+- When implementing features that span multiple files or sections
+- This keeps the main agent's context window available for understanding user requests and coordinating work
+
+**How to use sub-agents effectively:**
+1. Break down complex tasks into smaller, focused sub-tasks
+2. Spin up multiple sub-agents in parallel when possible
+3. Use the main agent to coordinate and review sub-agent outputs
+4. Keep the main agent free to respond to user queries and maintain overall context
+
 ## Critical: Prevent Duplicate Headers
 
 **NEVER create markdown files with duplicate headers!**

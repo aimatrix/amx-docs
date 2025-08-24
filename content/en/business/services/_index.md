@@ -8,6 +8,9 @@ Beyond our core products, AIMatrix offers specialized services that transform ra
 
 ## Our Service Portfolio
 
+### Knowledge Creation Services
+Transform raw data into structured, intelligent knowledge:
+
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
 
   <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
@@ -51,24 +54,127 @@ Beyond our core products, AIMatrix offers specialized services that transform ra
 
 </div>
 
-## The Knowledge Hierarchy
+### Knowledge Activation Services
+Put your knowledge to work with AI-powered applications:
 
-Our services follow a structured approach to knowledge management:
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
+
+  <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
+    <h2>🎓 Course Generation</h2>
+    <p><strong>Automated Learning Content</strong></p>
+    <p>Transform your knowledge library into comprehensive training courses and educational materials</p>
+    <ul>
+      <li>Custom course creation</li>
+      <li>Multi-level curricula</li>
+      <li>Interactive assessments</li>
+      <li>LMS integration</li>
+    </ul>
+    <a href="/business/services/course-generation/" style="color: #00ff00;">Learn More →</a>
+  </div>
+
+  <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
+    <h2>📱 Content Publishing</h2>
+    <p><strong>Multi-Channel Content Creation</strong></p>
+    <p>Generate and publish content across social media, video platforms, and professional networks</p>
+    <ul>
+      <li>Social media content</li>
+      <li>Video generation</li>
+      <li>Blog articles</li>
+      <li>Marketing materials</li>
+    </ul>
+    <a href="/business/services/content-publishing/" style="color: #00ff00;">Learn More →</a>
+  </div>
+
+  <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
+    <h2>🔌 MCP Development</h2>
+    <p><strong>Intelligent API Services</strong></p>
+    <p>Build Model Context Protocol servers that provide grounded, accurate Q&A and domain expertise</p>
+    <ul>
+      <li>Custom MCP servers</li>
+      <li>Q&A systems</li>
+      <li>Domain expertise APIs</li>
+      <li>Guardrail implementation</li>
+    </ul>
+    <a href="/business/services/mcp-development/" style="color: #00ff00;">Learn More →</a>
+  </div>
+
+  <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
+    <h2>💻 Software Intelligence</h2>
+    <p><strong>AI-Powered Development Support</strong></p>
+    <p>Enhance software development with domain-aware code review, testing, and issue management</p>
+    <ul>
+      <li>Intelligent code review</li>
+      <li>Domain-aware testing</li>
+      <li>Issue automation</li>
+      <li>Developer assistance</li>
+    </ul>
+    <a href="/business/services/software-intelligence/" style="color: #00ff00;">Learn More →</a>
+  </div>
+
+  <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
+    <h2>🧠 AI Model Training</h2>
+    <p><strong>Custom AI Development</strong></p>
+    <p>Create specialized AI models using your knowledge library for RAG, fine-tuning, and SLMs</p>
+    <ul>
+      <li>RAG implementation</li>
+      <li>Graph RAG systems</li>
+      <li>Model fine-tuning</li>
+      <li>Small Language Models</li>
+    </ul>
+    <a href="/business/services/ai-model-training/" style="color: #00ff00;">Learn More →</a>
+  </div>
+
+  <div style="border: 2px solid #00ff00; padding: 30px; border-radius: 10px;">
+    <h2>🔗 Data Hub Integration</h2>
+    <p><strong>BigLedger Data Hub Connectivity</strong></p>
+    <p>Integrate structured knowledge into BigLedger Data Hub for agent and digital twin access</p>
+    <ul>
+      <li>BigLedger integration</li>
+      <li>Agent data access</li>
+      <li>Digital twin feeds</li>
+      <li>Real-time synchronization</li>
+    </ul>
+    <a href="/business/services/data-hub-integration/" style="color: #00ff00;">Learn More →</a>
+  </div>
+
+</div>
+
+## The Knowledge Lifecycle
+
+Our services follow a complete knowledge lifecycle from creation to activation:
 
 ```mermaid
 graph TD
-    A[Raw Data Sources] -->|Ingestion| B[Knowledge Pipeline]
-    B -->|Processing| C[Knowledge Capsules]
-    C -->|Compilation| D[Knowledge Volumes]
-    D -->|Organization| E[Knowledge Library]
-    E -->|Deployment| F[AI Agents & Systems]
+    subgraph "Knowledge Creation"
+        A[Raw Data Sources] -->|Ingestion| B[Knowledge Pipeline]
+        B -->|Processing| C[Knowledge Capsules]
+        C -->|Compilation| D[Knowledge Volumes]
+        D -->|Organization| E[Knowledge Library]
+    end
+    
+    subgraph "Knowledge Activation"
+        E -->|Transform| F[Course Generation]
+        E -->|Generate| G[Content Publishing]
+        E -->|Build| H[MCP Servers]
+        E -->|Power| I[Software Intelligence]
+        E -->|Train| J[AI Models]
+    end
+    
+    subgraph "Business Value"
+        F --> K[Training & Education]
+        G --> L[Marketing & Engagement]
+        H --> M[Customer Support]
+        I --> N[Development Excellence]
+        J --> O[Competitive Advantage]
+    end
     
     style A fill:#333,stroke:#00ff00
-    style B fill:#333,stroke:#00ff00
-    style C fill:#333,stroke:#00ff00
-    style D fill:#333,stroke:#00ff00
     style E fill:#333,stroke:#00ff00
-    style F fill:#333,stroke:#00ff00
+    style K fill:#333,stroke:#00ff00
+    style L fill:#333,stroke:#00ff00
+    style M fill:#333,stroke:#00ff00
+    style N fill:#333,stroke:#00ff00
+    style O fill:#333,stroke:#00ff00
 ```
 
 ### Knowledge Units Explained
