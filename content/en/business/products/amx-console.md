@@ -6,7 +6,7 @@ weight: 2
 
 ## Executive Summary
 
-AMX Console is a universal, cross-platform application providing conversational and graphical user interfaces for AIMatrix ecosystem interaction. Built with Compose Multiplatform technology, it delivers native performance across iOS, Android, Windows, macOS, and Linux platforms while maintaining a single codebase. The application serves employees, customers, and suppliers with todo management, conversation hubs, agent monitoring, and multi-channel communication integration.
+AMX Console is a universal, cross-platform application providing conversational and graphical user interfaces for AIMatrix ecosystem interaction. Built with Compose Multiplatform technology, it delivers native performance across iOS, Android, Windows, macOS, and Linux platforms while maintaining a single codebase. The application provides workspace management UI, todo management, conversation hubs, agent monitoring, and multi-channel communication integration for employees, customers, and suppliers.
 
 ## Technical Specifications
 

@@ -11,7 +11,7 @@ tags: ["cli", "command-line", "kotlin", "python", "automation", "devops", "scrip
 
 ## Developer-First Command Line Interface
 
-AIMatrix Console CLI Tools provide powerful, intuitive command-line interfaces for developers, DevOps engineers, and system administrators. Built with both Kotlin and Python implementations, these tools offer comprehensive functionality for agent management, workflow automation, system administration, and seamless integration with CI/CD pipelines.
+AIMatrix Console CLI Tools provide powerful, git-like command-line interfaces for workspace management, agent operations, and system administration. Built with both Kotlin and Python implementations, these tools offer git-like workflow for workspace management, agent orchestration, system monitoring, and seamless integration with CI/CD pipelines.
 
 ## Multi-Language Architecture
 

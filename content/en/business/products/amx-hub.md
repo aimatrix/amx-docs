@@ -6,7 +6,7 @@ weight: 4
 
 ## Executive Summary
 
-AMX Hub is the centralized collaboration and orchestration platform for the AIMatrix ecosystem, functioning as "GitHub for AI Workspaces." Built with Spring Cloud Gateway and Angular, it provides workspace hosting, webhook integration management, engine orchestration, subscription services, and enterprise-grade security. The platform serves as the central nervous system connecting all AIMatrix components while providing scalable cloud infrastructure for businesses of all sizes.
+AMX Hub is the centralized collaboration and orchestration platform for the AIMatrix ecosystem, functioning as "GitHub for AI Workspaces." Built with Spring Cloud Gateway and Angular, it provides workspace hosting (not storage), webhook integration management, engine orchestration, subscription services, and enterprise-grade security. AMX Hub hosts workspaces like GitHub hosts repositories - the knowledge artifacts (capsules, volumes, libraries) are stored as files within workspaces, and AMX Hub provides the platform for collaboration, version control, and remote access.
 
 ## Technical Specifications
 
@@ -77,22 +77,28 @@ AMX Hub is the centralized collaboration and orchestration platform for the AIMa
 #### Repository-Style Management
 | Feature | Description |
 |---------|-------------|
-| **Workspace Creation** | Git-like workspace initialization and cloning |
-| **Version Control** | Full versioning for all workspace configurations |
+| **Workspace Hosting** | Host workspaces like GitHub hosts repositories |
+| **Version Control** | Full versioning using git-like operations (push/pull/commit) |
 | **Branching & Merging** | Feature branches for safe experimentation |
+| **Issue Tracking** | Built-in issue tracker per workspace for knowledge gaps, quality issues |
+| **Workspace Actions** | Automated workflows triggered on events (like GitHub Actions) |
+| **Pull Requests** | Review and approve knowledge changes before merging |
 | **Collaboration** | Multi-user workspace sharing and permissions |
+| **Workspace Settings** | Per-workspace configuration for access, quality, integrations |
 | **Templates** | Pre-built workspace templates for common use cases |
-| **Import/Export** | Workspace portability and backup capabilities |
+| **Fork & Clone** | Fork workspaces and clone to local development |
 
-#### Workspace Components
-| Component | Description |
-|-----------|-------------|
-| **Agent Definitions** | AI agent configurations and behavior specifications |
-| **Workflow Configurations** | Business process definitions and rules |
-| **Integration Settings** | Third-party API configurations and credentials |
-| **Simulation Models** | Digital twin models and parameters |
-| **Custom Resources** | User-uploaded assets and custom code |
-| **Environment Variables** | Secure configuration management |
+#### Workspace File Structure (Hosted on AMX Hub)
+| Directory | Contents |
+|-----------|----------|
+| **knowledge/capsules/** | Knowledge capsule files (.kc format) |
+| **knowledge/volumes/** | Knowledge volume files (.kv format) |
+| **knowledge/libraries/** | Knowledge library files (.kl format) |
+| **agents/** | AI agent configuration files |
+| **workflows/** | Workflow definition files |
+| **integrations/** | Integration configuration files |
+| **models/** | Custom model files and parameters |
+| **.aimatrix/** | Workspace metadata (like .git/) |
 
 ### Integration Gateway
 

@@ -45,11 +45,15 @@ AIMatrix CLI is a free, cross-platform command-line interface that serves as the
 
 ## Key Features & Capabilities
 
-### Environment Management
-- **Project Initialization**: `aimatrix init` - Set up AIMatrix configuration in any directory
-- **Environment Setup**: `aimatrix setup` - Configure local development environment
-- **Status Monitoring**: `aimatrix status` - Check system and service status
-- **Configuration Management**: Centralized configuration file handling
+### Workspace Management (Git-like Workflow)
+- **Workspace Initialization**: `aimatrix init` - Initialize new AMX workspace (like `git init`)
+- **Workspace Cloning**: `aimatrix clone <workspace-url>` - Clone existing workspace (like `git clone`)
+- **Status Check**: `aimatrix status` - Check workspace and local changes (like `git status`)
+- **Diff Changes**: `aimatrix diff` - View workspace changes (like `git diff`)
+- **Stage Changes**: `aimatrix add <files>` - Stage workspace changes (like `git add`)
+- **Commit Changes**: `aimatrix commit -m "message"` - Commit workspace changes (like `git commit`)
+- **Push to Hub**: `aimatrix push` - Push changes to AMX Hub (like `git push`)
+- **Pull from Hub**: `aimatrix pull` - Pull latest changes from AMX Hub (like `git pull`)
 
 ### Application Launcher
 - **Desktop Console**: `aimatrix console` - Launch AMX Console desktop application
@@ -99,7 +103,8 @@ AIMatrix CLI is a free, cross-platform command-line interface that serves as the
 
 ### AMX Hub Integration
 - **Authentication**: OAuth2 integration with hub.aimatrix.com
-- **Workspace Sync**: Download/upload workspace configurations
+- **Workspace Hosting**: Push/pull workspaces to/from AMX Hub (like GitHub)
+- **Collaboration**: Share workspaces, manage permissions, version control
 - **License Validation**: Verify subscription status
 - **Update Distribution**: Hub-managed CLI updates
 
@@ -130,12 +135,13 @@ AIMatrix CLI is a free, cross-platform command-line interface that serves as the
 # Download and install
 curl -fsSL https://get.aimatrix.com | sh
 
-# Initialize project
-cd my-project
+# Initialize new workspace
+mkdir my-aimatrix-workspace
+cd my-aimatrix-workspace
 aimatrix init
 
-# Set up local environment
-aimatrix setup
+# Or clone existing workspace
+aimatrix clone https://hub.aimatrix.com/username/workspace-name
 ```
 
 ### Team Environment
@@ -224,11 +230,24 @@ aimatrix --version
 aimatrix doctor  # Check system compatibility
 ```
 
-### Step 3: First Project
+### Step 3: First Workspace
 ```bash
-mkdir my-aimatrix-project
-cd my-aimatrix-project
+# Create new workspace
+mkdir my-aimatrix-workspace
+cd my-aimatrix-workspace
 aimatrix init
+
+# This creates workspace structure:
+# my-aimatrix-workspace/
+# ├── .aimatrix/           (like .git/)
+# ├── knowledge/
+# │   ├── capsules/
+# │   ├── volumes/
+# │   └── libraries/
+# ├── agents/
+# ├── workflows/
+# ├── integrations/
+# └── models/
 ```
 
 ### Step 4: Engine Setup
@@ -247,16 +266,16 @@ aimatrix console  # Launches desktop application
 
 | Command | Purpose |
 |---------|---------|
-| `aimatrix init` | Initialize new project |
-| `aimatrix setup` | Configure environment |
-| `aimatrix status` | Check system status |
-| `aimatrix engine install` | Install local engine |
+| `aimatrix init` | Initialize new workspace |
+| `aimatrix clone <url>` | Clone existing workspace |
+| `aimatrix status` | Check workspace status |
+| `aimatrix add <files>` | Stage workspace changes |
+| `aimatrix commit -m "msg"` | Commit changes |
+| `aimatrix push` | Push to AMX Hub |
+| `aimatrix pull` | Pull from AMX Hub |
 | `aimatrix engine start` | Start engine service |
 | `aimatrix console` | Launch desktop console |
-| `aimatrix auth login` | Authenticate with hub |
-| `aimatrix hub connect` | Link to hub workspace |
 | `aimatrix doctor` | Diagnose issues |
-| `aimatrix help` | Show all commands |
 
 ---
 

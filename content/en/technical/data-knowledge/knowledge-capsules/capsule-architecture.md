@@ -6,7 +6,32 @@ weight: 210
 
 # Capsule Architecture
 
-The Knowledge Capsule System is built on a sophisticated architecture that ensures scalability, security, and maintainability while providing seamless integration with AIMatrix's core platform.
+Knowledge Capsules are structured files stored within AMX Workspaces, providing encapsulated units of knowledge that can be versioned, shared, and processed by AMX Engine. The architecture treats capsules as files within the workspace's knowledge/ directory, managed through git-like operations.
+
+## Workspace Integration
+
+Knowledge Capsules exist as files within the workspace structure:
+
+```
+workspace/
+├── .aimatrix/
+├── knowledge/
+│   ├── capsules/
+│   │   ├── customer-service.kc      # Customer service capsule
+│   │   ├── product-catalog.kc       # Product knowledge capsule
+│   │   └── troubleshooting.kc       # Support knowledge capsule
+│   ├── volumes/
+│   └── libraries/
+├── agents/
+├── workflows/
+└── models/
+```
+
+### File-Based Management
+- **Storage**: Capsules are `.kc` files stored in `knowledge/capsules/`
+- **Version Control**: Managed through AMX Hub like git repositories
+- **Processing**: AMX Engine reads capsule files directly from workspace
+- **Collaboration**: Shared through workspace push/pull operations
 
 ## System Architecture Overview
 

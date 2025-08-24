@@ -9,17 +9,17 @@ Complete technical architecture of the four-product AIMatrix ecosystem.
 
 ## Product Overview
 
-AIMatrix consists of four integrated products, each built with specific technologies for optimal performance:
+AIMatrix consists of four integrated products that work together around the concept of AMX Workspaces:
 
-1. **AIMatrix CLI** - Kotlin + Clikt
-2. **AMX Console** - Compose Multiplatform  
-3. **AMX Engine** - Ktor
-4. **AMX Hub** - Spring Cloud Gateway + Angular
+1. **AIMatrix CLI** - Git-like workspace management tool (Kotlin + Clikt)
+2. **AMX Console** - Universal workspace UI (Compose Multiplatform)  
+3. **AMX Engine** - Workspace processing engine (Ktor + Kalasim)
+4. **AMX Hub** - Workspace hosting platform (Spring Cloud Gateway + Angular)
 
 ## AIMatrix CLI
 
 ### Purpose
-Free command-line tool for developers and power users to manage AIMatrix environments.
+Git-like command-line tool for managing AMX Workspaces (like `git` manages repositories).
 
 ### Technology Stack
 - **Language**: Kotlin
@@ -27,32 +27,31 @@ Free command-line tool for developers and power users to manage AIMatrix environ
 - **Build Tool**: Gradle
 - **Distribution**: Native executables via GraalVM
 
-### Architecture
+### Workspace Structure Created by CLI
 ```
-aimatrix-cli/
-├── src/main/kotlin/
-│   ├── commands/
-│   │   ├── InitCommand.kt
-│   │   ├── EngineCommand.kt
-│   │   ├── ConsoleCommand.kt
-│   │   └── HubCommand.kt
-│   ├── services/
-│   │   ├── EngineManager.kt
-│   │   ├── AuthService.kt
-│   │   └── ConfigService.kt
-│   └── Application.kt
-├── build.gradle.kts
-└── native-image/
+my-workspace/
+├── .aimatrix/           # Workspace metadata (like .git/)
+├── knowledge/
+│   ├── capsules/        # Knowledge capsule files
+│   ├── volumes/         # Knowledge volume files
+│   └── libraries/       # Knowledge library files
+├── agents/              # Agent configuration files
+├── workflows/           # Workflow definition files
+├── integrations/        # Integration configurations
+└── models/              # Custom model files
 ```
 
-### Key Features
-- Environment initialization and setup
-- Engine lifecycle management
-- Desktop app launcher for AMX Console
-- User authentication and account management
-- Workspace synchronization with AMX Hub
+### Key Features (Git-like Operations)
+- Workspace initialization (`aimatrix init`)
+- Clone workspaces (`aimatrix clone`)
+- Stage changes (`aimatrix add`)
+- Commit changes (`aimatrix commit`)
+- Push to AMX Hub (`aimatrix push`)
+- Pull from AMX Hub (`aimatrix pull`)
+- Check status (`aimatrix status`)
+- View differences (`aimatrix diff`)
 
-### Commands Structure
+### Git-like Commands Structure
 ```kotlin
 class AimatrixCli : CliktCommand() {
     override fun run() = Unit
@@ -60,17 +59,26 @@ class AimatrixCli : CliktCommand() {
 
 class InitCommand : CliktCommand(name = "init") {
     override fun run() {
-        // Initialize AIMatrix workspace
+        // Initialize new AMX workspace (like git init)
+        createWorkspaceStructure()
     }
 }
 
-class EngineCommand : CliktCommand(name = "engine") {
-    override fun run() = Unit
+class CloneCommand : CliktCommand(name = "clone") {
+    override fun run() {
+        // Clone workspace from AMX Hub (like git clone)
+    }
 }
 
-class StartEngine : CliktCommand(name = "start") {
+class CommitCommand : CliktCommand(name = "commit") {
     override fun run() {
-        // Start AMX Engine daemon
+        // Commit workspace changes (like git commit)
+    }
+}
+
+class PushCommand : CliktCommand(name = "push") {
+    override fun run() {
+        // Push to AMX Hub (like git push)
     }
 }
 ```
@@ -143,7 +151,7 @@ fun AgentMonitoringUI() {
 ## AMX Engine
 
 ### Purpose
-The core simulation and agent orchestration engine that runs digital twins, manages agents, and handles integrations.
+The processing engine that reads workspace files and executes simulations, agents, and integrations locally or in the cloud.
 
 ### Technology Stack
 - **Framework**: Ktor (Kotlin async web framework)
@@ -234,7 +242,7 @@ class A2AServer {
 ## AMX Hub
 
 ### Purpose
-GitHub-like collaboration platform for hosting workspaces, managing webhooks, and orchestrating cloud engines.
+GitHub-like platform for hosting AMX Workspaces (not storing knowledge directly - knowledge is stored as files within workspaces).
 
 ### Technology Stack
 - **Backend**: Spring Cloud Gateway (Reactive Kotlin)
@@ -280,14 +288,17 @@ amx-hub-frontend/
 
 ### Key Features
 
-#### Workspace Management
+#### Workspace Hosting (Like GitHub)
 ```kotlin
 @Service
 class WorkspaceService {
-    fun createWorkspace(owner: User, config: WorkspaceConfig): Workspace
+    fun createWorkspace(owner: User, name: String): Workspace
+    fun forkWorkspace(original: Workspace, owner: User): Workspace
+    fun cloneWorkspace(workspace: Workspace): CloneInfo
+    fun pushWorkspace(workspace: Workspace, changes: Changes)
+    fun pullWorkspace(workspace: Workspace): Changes
     fun versionControl(workspace: Workspace): Version
     fun collaborate(workspace: Workspace, users: List<User>)
-    fun backup(workspace: Workspace): BackupResult
 }
 ```
 
@@ -362,10 +373,11 @@ class GatewayConfig {
 ```
 
 ### Data Flow
-1. **CLI → Engine**: Lifecycle management, configuration
-2. **Console → Engine**: User interactions, queries, commands
-3. **Engine → Hub**: Workspace sync, backup, cloud burst
-4. **Hub → Engine**: Orchestration, scaling, deployment
+1. **CLI → Workspace Files**: Create, modify workspace structure and files
+2. **CLI → Hub**: Push/pull workspace changes (like git push/pull)
+3. **Engine → Workspace Files**: Read knowledge, agents, workflows from files
+4. **Console → Engine**: User interactions, monitoring, control
+5. **Hub**: Hosts workspaces for collaboration and version control
 
 ### Authentication Flow
 - All products use JWT tokens

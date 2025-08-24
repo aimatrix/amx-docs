@@ -6,7 +6,7 @@ weight: 3
 
 ## Executive Summary
 
-AMX Engine is the core computational platform powering the AIMatrix ecosystem, serving as both a digital twin factory and agent orchestration engine. Built with Ktor framework and Kotlin, it provides discrete event simulation capabilities through the integrated Kalasim engine, comprehensive agent design and workflow management, and universal connectivity through MCP (Model Context Protocol) and A2A (Agent-to-Agent) servers. The platform supports flexible deployment models from local development to enterprise cloud infrastructure.
+AMX Engine is the core computational platform powering the AIMatrix ecosystem, serving as both a digital twin factory and agent orchestration engine. Built with Ktor framework and Kotlin, it processes data and executes workflows locally or in the cloud, reading knowledge artifacts from local workspace files. It provides discrete event simulation capabilities through the integrated Kalasim engine, comprehensive agent design and workflow management, and universal connectivity through MCP (Model Context Protocol) and A2A (Agent-to-Agent) servers.
 
 ## Technical Specifications
 
@@ -178,18 +178,25 @@ AMX Engine Core
 
 ## Deployment Options
 
-### Local Development
+### Local Development (Workspace-Aware)
 ```bash
-# Via AIMatrix CLI
+# Via AIMatrix CLI (in workspace directory)
+cd my-workspace/
 aimatrix engine install
 aimatrix engine start
 
-# Direct Docker
-docker run -d --name amx-engine \
-  -p 8080:8080 \
-  -e DATABASE_URL=postgresql://localhost:5432/amx \
-  aimatrix/amx-engine:latest
+# Engine automatically reads workspace structure:
+# my-workspace/
+# ├── .aimatrix/
+# ├── knowledge/
+# │   ├── capsules/     # Knowledge files
+# │   ├── volumes/      # Knowledge files
+# │   └── libraries/    # Knowledge files
+# ├── agents/           # Agent configs
+# ├── workflows/        # Workflow definitions
+# └── models/           # Custom models
 
+# Engine processes these local files
 # Access at http://localhost:8080
 ```
 

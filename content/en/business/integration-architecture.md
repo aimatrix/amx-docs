@@ -24,7 +24,7 @@ graph TB
         B3[Data Hub Integration]
     end
     
-    subgraph "Storage Layer - AMX Hub"
+    subgraph "Storage Layer - Workspaces"
         C1[Knowledge Capsules]
         C2[Knowledge Volumes]
         C3[Knowledge Libraries]
@@ -74,25 +74,40 @@ graph TB
 
 ### AIMatrix CLI: The Developer Command Center
 
-The CLI orchestrates the entire knowledge pipeline from the command line:
+The CLI manages workspaces and knowledge artifacts (like git manages repositories):
 
 ```bash
-# Initialize knowledge processing environment
-aimatrix init --project=customer-service
+# Initialize a new workspace (like git init)
+aimatrix init customer-service
 
-# Configure Knowledge Pipeline service
+# Clone existing workspace from Hub (like git clone)
+aimatrix clone hub.aimatrix.com/company/customer-service
+
+# Configure Knowledge Pipeline in workspace
 aimatrix pipeline create \
   --source=bigledger \
   --source=support-tickets \
   --source=call-recordings
 
-# Deploy MCP server from knowledge
-aimatrix mcp deploy \
-  --knowledge=customer-service-library \
-  --endpoint=api.company.com/support
+# Commit knowledge changes (like git commit)
+aimatrix commit -m "Update customer service knowledge"
 
-# Push knowledge updates to Hub
-aimatrix push --library=customer-service
+# Push workspace to Hub (like git push)
+aimatrix push origin main
+
+# Work with issues
+aimatrix issue list
+aimatrix issue create "Missing customer refund policy capsule"
+aimatrix issue close 42 --comment "Added in commit abc123"
+
+# Manage workspace actions
+aimatrix action list
+aimatrix action run quality-check
+aimatrix action logs deploy-mcp
+
+# Configure workspace settings
+aimatrix config set quality.min_confidence 0.9
+aimatrix config add team engineers --permission write
 ```
 
 **Service Integration:**
@@ -175,30 +190,117 @@ Console provides universal access across all platforms with critical human-in-th
 
 ### AMX Hub: The Collaboration Platform
 
-Hub serves as the central repository and orchestration layer:
+Hub hosts and manages workspaces (like GitHub hosts git repositories):
 
-**Knowledge Management:**
+**AMX Workspace Structure:**
 ```
-Knowledge Artifacts Storage:
-├── Capsules (Atomic Knowledge Units)
-│   ├── Version control
-│   ├── Metadata tracking
-│   └── Access permissions
-├── Volumes (Topic Collections)
-│   ├── 10-20 capsules each
-│   ├── Coherent narratives
-│   └── Cross-references
-└── Libraries (Complete Knowledge Bases)
-    ├── Organized by domain
-    ├── Full-text search
-    └── API access
+customer-service-workspace/
+├── .aimatrix/              # Workspace configuration (like .git)
+│   ├── config.yaml        # Workspace settings
+│   ├── pipelines/         # Knowledge pipeline definitions
+│   ├── hooks/             # Automation hooks
+│   ├── issues/            # Issue tracker database
+│   └── settings.yaml      # Workspace-specific settings
+├── .aimatrix-actions/     # Automated workflows (like GitHub Actions)
+│   ├── on-push.yaml       # Trigger on knowledge push
+│   ├── on-capsule.yaml    # Trigger on new capsule
+│   ├── quality-check.yaml # Automated quality validation
+│   └── deploy-mcp.yaml    # Auto-deploy MCP servers
+├── knowledge/             # Knowledge artifacts
+│   ├── capsules/          # Atomic knowledge units (200-600 tokens)
+│   │   ├── issues/        # Customer issue capsules
+│   │   ├── solutions/     # Resolution capsules
+│   │   └── policies/      # Policy capsules
+│   ├── volumes/           # Topic collections (10-20 capsules)
+│   │   ├── onboarding.vol # Onboarding procedures
+│   │   └── escalation.vol # Escalation processes
+│   └── libraries/         # Complete knowledge bases
+│       └── support.lib    # Full support knowledge library
+├── agents/                # Agent configurations
+│   ├── support-bot.yaml   # Customer support agent
+│   └── escalation.yaml    # Escalation agent
+├── workflows/             # Business process definitions
+├── integrations/          # Third-party connections
+├── models/               # Fine-tuned model configs
+└── WORKSPACE.md          # Workspace documentation
 ```
 
-**Service Orchestration:**
-- **Workspace Management**: Isolated environments for different projects
+**Workspace Features (via AMX Hub):**
+
+*Issue Tracking:*
+```yaml
+Issue Types:
+  - Knowledge Gap: Missing knowledge capsules
+  - Quality Issue: Low confidence scores
+  - Agent Error: Incorrect agent behavior
+  - Integration Bug: Connection failures
+  - Enhancement: Feature requests
+
+Issue Workflow:
+  1. Create: aimatrix issue create "Agent giving wrong responses"
+  2. Assign: Auto-assign to knowledge engineer
+  3. Track: Link to specific capsules/volumes
+  4. Resolve: Update knowledge and close
+  5. Verify: Automated testing confirms fix
+```
+
+*Workspace Automation (AIMatrix Actions):*
+```yaml
+# .aimatrix-actions/quality-check.yaml
+name: Knowledge Quality Check
+on:
+  push:
+    paths:
+      - 'knowledge/capsules/**'
+jobs:
+  validate:
+    runs-on: amx-engine
+    steps:
+      - name: Check capsule format
+        run: aimatrix validate capsules
+      - name: Run confidence scoring
+        run: aimatrix score --threshold=0.8
+      - name: Test against examples
+        run: aimatrix test knowledge/tests/
+      - name: Deploy if passing
+        if: success()
+        run: aimatrix deploy --stage=production
+```
+
+*Workspace Settings:*
+```yaml
+# .aimatrix/settings.yaml
+workspace:
+  visibility: private  # private/internal/public
+  default_branch: main
+  protected_branches: [main, production]
+  
+access:
+  teams:
+    - engineers: write
+    - reviewers: read
+    - admins: admin
+  
+integrations:
+  bigledger: enabled
+  slack: webhook_url
+  
+quality:
+  min_confidence: 0.85
+  require_review: true
+  auto_deploy: false
+```
+
+**Hub Platform Services:**
+- **Workspace Hosting**: Hosts workspaces like GitHub hosts repos
+- **Issue Tracking**: Built-in issue management per workspace
+- **Workspace Actions**: Automated workflows and CI/CD
+- **Version Control**: Full history and branching for workspaces
+- **Collaboration**: Teams work together on shared workspaces
 - **Webhook Reservoir**: Central integration point for external services
 - **Engine Orchestration**: Spin up processing capacity on demand
-- **Collaboration Tools**: Share knowledge across teams
+- **Access Control**: Fine-grained permissions per workspace
+- **Settings Management**: Per-workspace configuration
 
 ## Service-to-Product Mapping
 
@@ -206,27 +308,28 @@ Knowledge Artifacts Storage:
 
 #### Knowledge Pipeline
 ```
-Flow: Raw Data → AMX Engine → AMX Hub → AMX Console
+Flow: Raw Data → AMX Engine → Workspaces → AMX Console
 ```
 - **AMX Engine**: Processes documents using AI models
-- **AMX Hub**: Stores versioned knowledge capsules
+- **Workspaces**: Store versioned knowledge capsules (hosted on AMX Hub)
 - **AMX Console**: Human validation interface
 - **AIMatrix CLI**: Pipeline configuration and management
 
 #### Video Intelligence
 ```
-Flow: Videos → AMX Engine → Knowledge → AMX Hub → Services
+Flow: Videos → AMX Engine → Knowledge → Workspaces → Services
 ```
 - **AMX Engine**: Multi-modal processing (audio + visual)
-- **AMX Hub**: Stores extracted knowledge
+- **Workspaces**: Store extracted knowledge artifacts
 - **AMX Console**: Review and edit summaries
 - **AIMatrix CLI**: Batch processing setup
 
 #### Knowledge Library
 ```
-Flow: Capsules → Organization → AMX Hub → API Access
+Flow: Capsules → Organization → Workspaces → API Access
 ```
-- **AMX Hub**: Primary storage and version control
+- **Workspaces**: Primary storage of knowledge artifacts
+- **AMX Hub**: Hosts and manages workspaces (like GitHub)
 - **AMX Console**: Browse and search interface
 - **AMX Engine**: Indexing and retrieval
 - **AIMatrix CLI**: Library management commands
@@ -237,7 +340,7 @@ Flow: Capsules → Organization → AMX Hub → API Access
 ```
 Flow: Knowledge Library → AMX Engine → Courses → LMS
 ```
-- **AMX Hub**: Source knowledge repository
+- **Workspaces**: Source knowledge libraries
 - **AMX Engine**: Content generation and structuring
 - **AMX Console**: Course review and approval
 - **AIMatrix CLI**: Bulk course generation
@@ -246,7 +349,7 @@ Flow: Knowledge Library → AMX Engine → Courses → LMS
 ```
 Flow: Knowledge → AMX Engine → Content → Social Platforms
 ```
-- **AMX Hub**: Knowledge source
+- **Workspaces**: Knowledge source
 - **AMX Engine**: Content transformation
 - **AMX Console**: Publishing calendar and approval
 - **AIMatrix CLI**: Automation scripts
@@ -256,7 +359,7 @@ Flow: Knowledge → AMX Engine → Content → Social Platforms
 Flow: Knowledge → MCP Server → AMX Engine → API Endpoints
 ```
 - **AMX Engine**: Hosts MCP servers
-- **AMX Hub**: Knowledge retrieval
+- **Workspaces**: Knowledge retrieval source
 - **AMX Console**: Test and monitor APIs
 - **AIMatrix CLI**: Server deployment
 
@@ -266,7 +369,7 @@ Flow: Code → AMX Engine → Analysis → AMX Console → Feedback
 ```
 - **AMX Engine**: Code analysis and testing
 - **AMX Console**: Review suggestions
-- **AMX Hub**: Store code patterns
+- **Workspaces**: Store code patterns and knowledge
 - **AIMatrix CLI**: CI/CD integration
 
 ## Data Flow Examples
@@ -284,7 +387,7 @@ Flow: Code → AMX Engine → Analysis → AMX Console → Feedback
    - Best practices (library)
    
 3. STORAGE
-   Knowledge → AMX Hub (version control)
+   Knowledge → Workspaces (hosted on AMX Hub)
    
 4. VALIDATION
    AMX Console → Human review → Approval
@@ -308,7 +411,7 @@ Flow: Code → AMX Engine → Analysis → AMX Console → Feedback
    - Key concepts (capsules)
    
 3. ORGANIZATION
-   Capsules → Volumes → Training Library (AMX Hub)
+   Capsules → Volumes → Training Library (in Workspaces)
    
 4. COURSE CREATION
    Library → AMX Engine (Course Generation)
@@ -333,13 +436,120 @@ Flow: Code → AMX Engine → Analysis → AMX Console → Feedback
    - Customer preferences
    
 3. STORAGE & INDEXING
-   Real-time Updates → AMX Hub
+   Real-time Updates → Workspaces
    
 4. AGENT ACCESS
    MCP Servers → Query knowledge → Intelligent responses
    
 5. MONITORING
    AMX Console → Track agent performance
+```
+
+## Workspace Automation Examples
+
+### Auto-Deploy on Knowledge Update
+```yaml
+# .aimatrix-actions/auto-deploy.yaml
+name: Auto Deploy MCP Server
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'knowledge/libraries/**'
+
+jobs:
+  deploy:
+    runs-on: amx-engine
+    steps:
+      - name: Checkout workspace
+        uses: actions/checkout@v2
+      
+      - name: Validate knowledge quality
+        run: aimatrix validate --min-confidence=0.85
+      
+      - name: Run integration tests
+        run: aimatrix test integration/
+      
+      - name: Deploy MCP server
+        run: |
+          aimatrix mcp build --library=knowledge/libraries/support.lib
+          aimatrix mcp deploy --env=production
+      
+      - name: Notify team
+        if: success()
+        run: aimatrix notify slack "MCP server updated with latest knowledge"
+```
+
+### Issue-Driven Knowledge Updates
+```yaml
+# .aimatrix-actions/issue-to-capsule.yaml
+name: Convert Issue to Knowledge Capsule
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  process:
+    if: github.event.label.name == 'knowledge-gap'
+    runs-on: amx-engine
+    steps:
+      - name: Extract issue content
+        id: extract
+        run: |
+          echo "::set-output name=title::${{ github.event.issue.title }}"
+          echo "::set-output name=body::${{ github.event.issue.body }}"
+      
+      - name: Generate capsule
+        run: |
+          aimatrix capsule generate \
+            --title="${{ steps.extract.outputs.title }}" \
+            --content="${{ steps.extract.outputs.body }}" \
+            --output=knowledge/capsules/issues/
+      
+      - name: Create pull request
+        run: |
+          aimatrix checkout -b issue-${{ github.event.issue.number }}
+          aimatrix add knowledge/capsules/issues/
+          aimatrix commit -m "Add capsule for issue #${{ github.event.issue.number }}"
+          aimatrix push origin issue-${{ github.event.issue.number }}
+          aimatrix pr create --title="Knowledge capsule for issue #${{ github.event.issue.number }}"
+```
+
+### Quality Gate Enforcement
+```yaml
+# .aimatrix-actions/quality-gate.yaml
+name: Knowledge Quality Gate
+on:
+  pull_request:
+    paths:
+      - 'knowledge/**'
+
+jobs:
+  quality_check:
+    runs-on: amx-engine
+    steps:
+      - name: Check capsule format
+        run: aimatrix lint knowledge/capsules/
+      
+      - name: Validate confidence scores
+        run: |
+          SCORE=$(aimatrix score knowledge/ --format=json | jq .average)
+          if (( $(echo "$SCORE < 0.85" | bc -l) )); then
+            echo "Quality score $SCORE is below threshold"
+            exit 1
+          fi
+      
+      - name: Check for duplicates
+        run: aimatrix dedupe check knowledge/
+      
+      - name: Test with examples
+        run: aimatrix test examples/ --knowledge=knowledge/
+      
+      - name: Post results
+        if: always()
+        run: |
+          aimatrix pr comment \
+            --body="Quality check results: Score: $SCORE, Tests: ${{ steps.test.outcome }}"
 ```
 
 ## Deployment Architectures
