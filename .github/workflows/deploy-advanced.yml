@@ -57,10 +57,10 @@ jobs:
         
         echo "✅ Build completed successfully"
         echo "📊 Build statistics:"
-        find public -type f -name "*.html" | wc -l | xargs echo "HTML files:"
-        find public -type f -name "*.css" | wc -l | xargs echo "CSS files:"
-        find public -type f -name "*.js" | wc -l | xargs echo "JS files:"
-        du -sh public/ | cut -f1 | xargs echo "Total size:"
+        find build/public -type f -name "*.html" | wc -l | xargs echo "HTML files:"
+        find build/public -type f -name "*.css" | wc -l | xargs echo "CSS files:"
+        find build/public -type f -name "*.js" | wc -l | xargs echo "JS files:"
+        du -sh build/public/ | cut -f1 | xargs echo "Total size:"
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
@@ -100,7 +100,7 @@ jobs:
         
         # Sync with optimized settings for different file types
         # HTML files - short cache (1 hour)
-        aws s3 sync public/ s3://docs.aimatrix.com/ \
+        aws s3 sync build/public/ s3://docs.aimatrix.com/ \
           --exclude "*" --include "*.html" \
           --cache-control "public, max-age=3600, must-revalidate" \
           --content-type "text/html; charset=utf-8" \
@@ -108,19 +108,19 @@ jobs:
           --delete
         
         # CSS and JS files - long cache (1 week)
-        aws s3 sync public/ s3://docs.aimatrix.com/ \
+        aws s3 sync build/public/ s3://docs.aimatrix.com/ \
           --exclude "*" --include "*.css" --include "*.js" \
           --cache-control "public, max-age=604800, immutable" \
           --metadata-directive REPLACE
         
         # Images and fonts - very long cache (1 month)
-        aws s3 sync public/ s3://docs.aimatrix.com/ \
+        aws s3 sync build/public/ s3://docs.aimatrix.com/ \
           --exclude "*" --include "*.png" --include "*.jpg" --include "*.jpeg" --include "*.gif" --include "*.svg" --include "*.webp" --include "*.woff*" --include "*.ttf" --include "*.eot" \
           --cache-control "public, max-age=2592000, immutable" \
           --metadata-directive REPLACE
         
         # Other files - medium cache (1 day)
-        aws s3 sync public/ s3://docs.aimatrix.com/ \
+        aws s3 sync build/public/ s3://docs.aimatrix.com/ \
           --exclude "*.html" --exclude "*.css" --exclude "*.js" --exclude "*.png" --exclude "*.jpg" --exclude "*.jpeg" --exclude "*.gif" --exclude "*.svg" --exclude "*.webp" --exclude "*.woff*" --exclude "*.ttf" --exclude "*.eot" \
           --cache-control "public, max-age=86400" \
           --metadata-directive REPLACE
@@ -160,6 +160,16 @@ jobs:
               }
             ]
           }'
+
+    - name: Invalidate CloudFront
+      run: |
+        echo "Creating CloudFront invalidation..."
+        aws cloudfront create-invalidation \
+          --distribution-id E18XNULEWFKQ3P \
+          --paths "/*" \
+          --query 'Invalidation.Id' \
+          --output text
+        echo "CloudFront invalidation created successfully"
 
     - name: Verify deployment
       run: |
