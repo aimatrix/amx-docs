@@ -48,6 +48,17 @@ Discover how AIMatrix transforms businesses with intelligent automation and AI-p
   </div>
 
   <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🛠️ Services</h3>
+    <p>Knowledge transformation services</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/business/services/">All Services</a></li>
+      <li>→ <a href="/business/services/knowledge-pipeline/">Knowledge Pipeline</a></li>
+      <li>→ <a href="/business/services/video-intelligence/">Video Intelligence</a></li>
+      <li>→ <a href="/business/services/knowledge-library/">Knowledge Library</a></li>
+    </ul>
+  </div>
+
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
     <h3>🤝 Partnership</h3>
     <p>Risk-free engagement model</p>
     <ul style="list-style: none; padding: 0;">
