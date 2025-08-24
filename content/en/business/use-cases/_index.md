@@ -1,7 +1,7 @@
 ---
 title: "Use Cases"
 description: "Industry-specific AI solutions designed to revolutionize business operations across multiple sectors"
-weight: 4
+weight: 5
 cascade:
   type: docs
 ---

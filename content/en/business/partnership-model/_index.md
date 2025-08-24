@@ -1,6 +1,6 @@
 ---
 title: Partnership Model
-weight: 5
+weight: 6
 description: Risk-free, outcome-based AI implementation that aligns our success with yours
 ---
 
