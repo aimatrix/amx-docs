@@ -170,17 +170,26 @@ outputs:
 # Menu configuration
 menu:
   main:
-    - name: Business
-      pageRef: /business
+    - name: Get Started
+      pageRef: /get-started
       weight: 1
-    - name: Technical
-      pageRef: /technical
+    - name: Products
+      pageRef: /products
       weight: 2
-    - name: Blogs
-      pageRef: /blogs
+    - name: Build
+      pageRef: /build
       weight: 3
-    - name: Search
+    - name: Solutions
+      pageRef: /solutions
       weight: 4
+    - name: Reference
+      pageRef: /reference
+      weight: 5
+    - name: Resources
+      pageRef: /resources
+      weight: 6
+    - name: Search
+      weight: 7
       params:
         type: search
       
