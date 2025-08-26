@@ -59,6 +59,14 @@ Understanding the fundamental concepts that power AIMatrix's intelligent busines
     </ul>
   </div>
 
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🧬 NeuroSymbolic AI</h3>
+    <p>Fusion of learning and reasoning</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/get-started/concepts/neurosymbolic-ai/">NeuroSymbolic AI Architecture</a></li>
+    </ul>
+  </div>
+
 </div>
 
 ## How These Concepts Work Together
@@ -97,6 +105,9 @@ Intelligent Digital Twins simulate your entire business, enabling risk-free test
 ### 🔄 Adaptive AI: The Evolution
 Through RAG, Knowledge Graphs, and feedback loops, the system continuously learns, adapts, and improves based on real-world outcomes.
 
+### 🧬 NeuroSymbolic AI: The Intelligence Architecture
+Combines neural networks' learning capabilities with symbolic AI's logical reasoning, enabling agents and twins to work together with both adaptability and reliability.
+
 ## Why Understanding These Matters
 
 For business leaders, understanding these concepts helps you:
@@ -112,7 +123,8 @@ Begin with any concept that interests you most, or follow our recommended learni
 1. **[Language Models](/get-started/concepts/language-models/)** - Understand the foundation
 2. **[AI Agents](/get-started/concepts/ai-agents/)** - Learn about digital workers
 3. **[Digital Twins](/get-started/concepts/intelligent-digital-twins/)** - Explore business simulation
-4. **[Adaptive AI](/get-started/concepts/adaptive-ai-systems/)** - Discover continuous improvement
+4. **[NeuroSymbolic AI](/get-started/concepts/neurosymbolic-ai/)** - Discover how agents and twins converge
+5. **[Adaptive AI](/get-started/concepts/adaptive-ai-systems/)** - Master continuous improvement
 
 ---
 
