@@ -186,12 +186,12 @@
     
     // Draw function - using original algorithm with fade
     function draw() {
-      // Fade effect with semi-transparent black
-      context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      // Fade effect with slightly more opacity for better dimming
+      context.fillStyle = 'rgba(0, 0, 0, 0.06)';
       context.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Full brightness green for maximum visibility
-      context.fillStyle = 'rgba(0, 255, 0, 1.0)';
+      // Dimmed green (80% opacity) for better readability
+      context.fillStyle = 'rgba(0, 255, 0, 0.8)';
       context.font = fontSize + 'px monospace';
       
       // Ensure we have the right number of columns after resize
