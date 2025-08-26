@@ -31,7 +31,7 @@ The AI-first CEO operates under several key principles that distinguish them fro
 
 ### The Leadership Competency Framework for AI-First CEOs
 
-Research conducted across 200+ Fortune 1000 companies implementing AI-first strategies reveals five critical competency areas that distinguish successful AI-first leaders:
+Extensive research across large enterprises implementing AI-first strategies reveals five critical competency areas that distinguish successful AI-first leaders:
 
 1. **Technical Fluency**: Understanding AI capabilities and limitations at a strategic level
 2. **Data-Driven Decision Making**: Using AI-generated insights while maintaining human judgment
