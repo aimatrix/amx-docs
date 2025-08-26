@@ -1,7 +1,7 @@
 ---
 title: "Prompt Engineering at Scale: Systematic Approaches for Production Systems"
 description: "Advanced techniques for designing, testing, and deploying prompt systems in production environments with thousands of concurrent users"
-date: 2025-01-18
+date: 2025-07-08
 draft: false
 tags: ["Prompt Engineering", "Production AI", "Scalability", "LLM Operations", "Systematic Design"]
 categories: ["Technical Deep Dive", "AI/ML"]

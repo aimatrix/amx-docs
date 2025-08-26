@@ -1,7 +1,7 @@
 ---
 title: "High-Performance Vector Search at Billion-Scale Operations"
 description: "A comprehensive technical analysis of billion-scale vector search systems, exploring advanced indexing algorithms, distributed architectures, optimization strategies, and production deployment patterns for high-performance similarity search applications."
-date: 2025-01-26
+date: 2025-06-17
 author: "Dr. Kevin Zhang"
 authorTitle: "Vector Systems Architect"
 readTime: "20 min read"

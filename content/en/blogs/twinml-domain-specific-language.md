@@ -1,7 +1,7 @@
 ---
 title: "TwinML: A Domain-Specific Language for Digital Twin Development"
 description: "An in-depth exploration of TwinML, a specialized programming language designed for digital twin development, including syntax design, runtime architecture, and practical applications in industrial and IoT environments."
-date: 2025-01-26
+date: 2025-05-27
 author: "Dr. Maria Gonzalez"
 authorTitle: "Digital Twin Systems Architect"
 readTime: "21 min read"

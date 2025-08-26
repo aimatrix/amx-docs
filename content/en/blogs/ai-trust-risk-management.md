@@ -1,7 +1,7 @@
 ---
 title: "Building AI Trust: Risk Management for Intelligent Systems"
 description: "A comprehensive framework for managing risks in AI systems, from algorithmic bias and data privacy to operational resilience and regulatory compliance in enterprise AI deployments."
-date: 2025-01-26
+date: 2025-04-22
 author: "Dr. Michael Torres"
 authorTitle: "AI Risk Management Specialist"
 readTime: "18 min read"

@@ -1,7 +1,7 @@
 ---
 title: "Healthcare's Intelligent Revolution: Clinical Decision Support at Massachusetts General"
 description: "An in-depth case study of Massachusetts General Hospital's implementation of intelligent clinical decision support systems, revealing transformational impacts on patient care, operational efficiency, and clinical outcomes"
-date: 2025-08-26
+date: 2025-03-11
 author: "AIMatrix Research Team"
 tags: ["healthcare-AI", "clinical-decision-support", "patient-outcomes", "medical-AI", "massachusetts-general", "healthcare-innovation", "clinical-intelligence"]
 categories: ["Healthcare Innovation", "Case Study"]

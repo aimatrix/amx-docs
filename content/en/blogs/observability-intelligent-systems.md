@@ -1,7 +1,7 @@
 ---
 title: "Observability for Intelligent Systems: Monitoring AI Agent Behavior"
 description: "Comprehensive guide to building observability infrastructure for AI agent systems, including behavior tracking, performance monitoring, and anomaly detection"
-date: 2025-01-21
+date: 2025-07-29
 draft: false
 tags: ["AI Observability", "Agent Monitoring", "System Metrics", "Anomaly Detection", "Performance Monitoring"]
 categories: ["Technical Deep Dive", "Infrastructure"]

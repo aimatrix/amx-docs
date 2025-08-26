@@ -1,7 +1,7 @@
 ---
 title: "Distributed Agent Orchestration: Building Kubernetes for AI Agents"
 description: "A comprehensive technical analysis of distributed agent orchestration systems, exploring the architecture, implementation strategies, and operational challenges of building production-grade platforms for managing thousands of AI agents at scale."
-date: 2025-01-26
+date: 2025-05-20
 author: "Dr. Alex Chen"
 authorTitle: "Distributed Systems Architect"
 readTime: "22 min read"

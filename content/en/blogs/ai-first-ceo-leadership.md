@@ -1,7 +1,7 @@
 ---
 title: "The AI-First CEO: Leadership Principles for the Intelligent Enterprise"
 description: "A comprehensive guide to executive leadership in the age of artificial intelligence, exploring the strategic, operational, and cultural transformations required to build truly intelligent enterprises."
-date: 2025-01-26
+date: 2025-04-15
 author: "Dr. Sarah Chen"
 authorTitle: "Executive Leadership Researcher"
 readTime: "15 min read"

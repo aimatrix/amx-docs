@@ -1,7 +1,7 @@
 ---
 title: "The Future of Work: Preparing Your Workforce for AI Collaboration"
 description: "An in-depth analysis of how organizations can successfully prepare their workforce for AI collaboration, including skill development, cultural transformation, and strategic workforce planning for the AI-augmented future."
-date: 2025-01-26
+date: 2025-04-29
 author: "Lisa Chen"
 authorTitle: "Future of Work Strategist"
 readTime: "17 min read"

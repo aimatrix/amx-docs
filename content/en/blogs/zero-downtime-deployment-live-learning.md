@@ -1,7 +1,7 @@
 ---
 title: "Zero-Downtime Deployment Patterns for Live Learning Systems"
 description: "Advanced deployment strategies for AI systems that continuously learn and adapt, including blue-green deployments, canary releases, and gradual model rollouts with live traffic"
-date: 2025-01-23
+date: 2025-08-12
 draft: false
 tags: ["Zero-Downtime Deployment", "Live Learning", "AI Deployment", "Canary Release", "Blue-Green Deployment", "Model Rollout"]
 categories: ["Technical Deep Dive", "DevOps"]

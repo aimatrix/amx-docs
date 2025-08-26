@@ -1,7 +1,7 @@
 ---
 title: "Edge Computing for Intelligent Agents: Latency-Optimized AI Deployment"
 description: "Complete guide to deploying AI agents at the edge for ultra-low latency applications, including architecture patterns, optimization techniques, and real-world implementation strategies"
-date: 2025-01-25
+date: 2025-08-26
 draft: false
 tags: ["Edge Computing", "AI Deployment", "Low Latency", "Distributed AI", "Edge Intelligence", "Real-Time AI"]
 categories: ["Technical Deep Dive", "Infrastructure"]

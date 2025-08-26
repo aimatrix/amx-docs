@@ -1,7 +1,7 @@
 ---
 title: "Neural-Symbolic Integration for Interpretable AI Decision Making"
 description: "Combining neural networks with symbolic reasoning systems to create interpretable, reliable AI that can explain its decisions and handle complex logical constraints"
-date: 2025-01-20
+date: 2025-07-22
 draft: false
 tags: ["Neural-Symbolic AI", "Interpretable AI", "Symbolic Reasoning", "Explainable AI", "Hybrid Systems"]
 categories: ["Technical Deep Dive", "AI/ML"]

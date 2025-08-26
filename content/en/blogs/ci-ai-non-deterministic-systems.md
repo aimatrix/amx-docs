@@ -1,7 +1,7 @@
 ---
 title: "Continuous Integration for AI: Testing Strategies for Non-Deterministic Systems"
 description: "Comprehensive guide to building CI/CD pipelines for AI systems, including strategies for testing non-deterministic behaviors, model validation, and automated quality assurance"
-date: 2025-01-22
+date: 2025-08-05
 draft: false
 tags: ["CI/CD", "AI Testing", "Non-Deterministic Systems", "Model Validation", "DevOps", "MLOps"]
 categories: ["Technical Deep Dive", "DevOps"]

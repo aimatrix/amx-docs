@@ -1,7 +1,7 @@
 ---
 title: "Event-Driven Architecture for Intelligent Agent Communication"
 description: "A deep technical exploration of event-driven architectures for intelligent agent systems, covering message patterns, distributed coordination, fault tolerance, and scalable communication protocols for large-scale multi-agent environments."
-date: 2025-01-26
+date: 2025-06-10
 author: "Dr. Sarah Kim"
 authorTitle: "Distributed Systems Engineer"
 readTime: "18 min read"

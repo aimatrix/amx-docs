@@ -1,7 +1,7 @@
 ---
 title: "Security Architecture for Multi-Tenant AI Platforms"
 description: "Comprehensive guide to designing secure multi-tenant AI platforms with tenant isolation, data protection, and threat mitigation strategies for enterprise environments"
-date: 2025-01-24
+date: 2025-08-19
 draft: false
 tags: ["Security Architecture", "Multi-Tenant AI", "Data Protection", "Tenant Isolation", "AI Security", "Enterprise Security"]
 categories: ["Technical Deep Dive", "Security"]

@@ -1,7 +1,7 @@
 ---
 title: "Venture Capital's AI Thesis: Investment Patterns in Intelligent Automation"
 description: "An in-depth analysis of venture capital investment strategies in AI and intelligent automation, examining market trends, valuation methodologies, and the evolution of investment thesis in the age of artificial intelligence."
-date: 2025-01-26
+date: 2025-05-13
 author: "Jonathan Park"
 authorTitle: "Venture Capital Analyst"
 readTime: "16 min read"

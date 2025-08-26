@@ -1,7 +1,7 @@
 ---
 title: "Global AI Strategy: Navigating Regulatory Landscapes Across Jurisdictions"
 description: "A comprehensive analysis of global AI regulatory frameworks, strategic compliance approaches, and best practices for organizations operating AI systems across multiple jurisdictions."
-date: 2025-01-26
+date: 2025-05-06
 author: "Prof. Elena Rodriguez"
 authorTitle: "International AI Policy Expert"
 readTime: "20 min read"

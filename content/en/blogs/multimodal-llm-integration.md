@@ -1,7 +1,7 @@
 ---
 title: "Multi-Modal LLM Integration: Beyond Text in Enterprise Applications"
 description: "Comprehensive guide to integrating vision, audio, and structured data capabilities into production LLM systems for enterprise use cases"
-date: 2025-01-17
+date: 2025-07-01
 draft: false
 tags: ["Multi-Modal AI", "LLM Integration", "Computer Vision", "Enterprise AI", "Production Systems"]
 categories: ["Technical Deep Dive", "AI/ML"]

@@ -1,7 +1,7 @@
 ---
 title: "Model Context Protocol (MCP): Building Extensible AI Tool Ecosystems"
 description: "Deep dive into implementing the Model Context Protocol for building scalable, interoperable AI tool ecosystems in production environments"
-date: 2025-01-19
+date: 2025-07-15
 draft: false
 tags: ["MCP", "Model Context Protocol", "AI Tools", "Extensibility", "Interoperability", "Production AI"]
 categories: ["Technical Deep Dive", "AI/ML"]

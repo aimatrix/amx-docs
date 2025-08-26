@@ -1,7 +1,7 @@
 ---
 title: "Reinforcement Learning from Human Feedback in Production Agent Systems"
 description: "Deep dive into implementing RLHF for production agent systems, including reward modeling, preference learning, and continuous alignment"
-date: 2025-01-16
+date: 2025-06-24
 draft: false
 tags: ["RLHF", "Production AI", "Agent Systems", "Reinforcement Learning", "Human Feedback"]
 categories: ["Technical Deep Dive", "AI/ML"]

@@ -1,7 +1,7 @@
 ---
 title: "The Hidden Costs of Manual Decision-Making: A McKinsey-Style Analysis"
 description: "A comprehensive analysis revealing the true economic impact of manual decision-making processes, quantifying hidden costs that drain organizational value and competitive advantage"
-date: 2025-08-26
+date: 2025-02-18
 author: "AIMatrix Research Team"
 tags: ["decision-making", "cost-analysis", "operational-efficiency", "mckinsey-framework", "business-intelligence", "hidden-costs", "strategic-analysis"]
 categories: ["Business Analysis", "Operational Excellence"]

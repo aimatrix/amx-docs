@@ -67,6 +67,14 @@ Understanding the fundamental concepts that power AIMatrix's intelligent busines
     </ul>
   </div>
 
+  <div style="border: 1px solid #00ff00; padding: 20px; border-radius: 8px;">
+    <h3>🔀 Unified RAG-Reasoning</h3>
+    <p>Adaptive retrieval and reasoning fusion</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>→ <a href="/get-started/concepts/unified-rag-reasoning/">Unified RAG-Reasoning Framework</a></li>
+    </ul>
+  </div>
+
 </div>
 
 ## How These Concepts Work Together
@@ -108,6 +116,9 @@ Through RAG, Knowledge Graphs, and feedback loops, the system continuously learn
 ### 🧬 NeuroSymbolic AI: The Intelligence Architecture
 Combines neural networks' learning capabilities with symbolic AI's logical reasoning, enabling agents and twins to work together with both adaptability and reliability.
 
+### 🔀 Unified RAG-Reasoning: The Adaptive Intelligence
+Merges retrieval-augmented generation with reasoning through reinforcement learning, enabling systems to dynamically decide when to retrieve information versus reason directly.
+
 ## Why Understanding These Matters
 
 For business leaders, understanding these concepts helps you:
@@ -124,7 +135,8 @@ Begin with any concept that interests you most, or follow our recommended learni
 2. **[AI Agents](/get-started/concepts/ai-agents/)** - Learn about digital workers
 3. **[Digital Twins](/get-started/concepts/intelligent-digital-twins/)** - Explore business simulation
 4. **[NeuroSymbolic AI](/get-started/concepts/neurosymbolic-ai/)** - Discover how agents and twins converge
-5. **[Adaptive AI](/get-started/concepts/adaptive-ai-systems/)** - Master continuous improvement
+5. **[Unified RAG-Reasoning](/get-started/concepts/unified-rag-reasoning/)** - Learn adaptive intelligence strategies
+6. **[Adaptive AI](/get-started/concepts/adaptive-ai-systems/)** - Master continuous improvement
 
 ---
 
