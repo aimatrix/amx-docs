@@ -24,15 +24,16 @@ Welcome to AIMatrix - The Business Operating System powered by AI.
   </div>
 
   <div style="border: 2px solid #00ff00; padding: 20px; border-radius: 10px; background: rgba(0, 255, 0, 0.05);">
-    <h3>🔧 Build</h3>
-    <p>Technical guides for building agents, digital twins, and integrations with AIMatrix.</p>
+    <h3>🔧 Technical</h3>
+    <p>Comprehensive technical documentation for building with AIMatrix platform.</p>
     <ul style="list-style: none; padding: 0; margin: 15px 0;">
       <li>→ AI Agents & Digital Twins</li>
+      <li>→ APIs & Architecture</li>
       <li>→ Data & Knowledge Management</li>
       <li>→ Platform Integrations</li>
     </ul>
-    <a href="/build/" style="display: inline-block; padding: 10px 20px; background: #00ff00; color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">
-      Start Building →
+    <a href="/technical/" style="display: inline-block; padding: 10px 20px; background: #00ff00; color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">
+      Technical Documentation →
     </a>
   </div>
 
@@ -50,28 +51,15 @@ Welcome to AIMatrix - The Business Operating System powered by AI.
   </div>
 
   <div style="border: 2px solid #00ff00; padding: 20px; border-radius: 10px; background: rgba(0, 255, 0, 0.05);">
-    <h3>📚 Reference</h3>
-    <p>Complete technical reference for APIs, architectures, SDKs, and specifications.</p>
+    <h3>💼 Business</h3>
+    <p>Business-focused information, products, services, and use cases for decision makers.</p>
     <ul style="list-style: none; padding: 0; margin: 15px 0;">
-      <li>→ API Documentation & SDKs</li>
-      <li>→ Architecture Specifications</li>
-      <li>→ Technical Reference</li>
+      <li>→ Products & Services</li>
+      <li>→ Business Use Cases</li>
+      <li>→ Partnership Information</li>
     </ul>
-    <a href="/reference/" style="display: inline-block; padding: 10px 20px; background: #00ff00; color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">
-      View Reference →
-    </a>
-  </div>
-
-  <div style="border: 2px solid #00ff00; padding: 20px; border-radius: 10px; background: rgba(0, 255, 0, 0.05);">
-    <h3>🛠️ Resources</h3>
-    <p>Additional resources including tutorials, best practices, and troubleshooting guides.</p>
-    <ul style="list-style: none; padding: 0; margin: 15px 0;">
-      <li>→ Tutorials & Best Practices</li>
-      <li>→ Troubleshooting Guides</li>
-      <li>→ Community Resources</li>
-    </ul>
-    <a href="/resources/" style="display: inline-block; padding: 10px 20px; background: #00ff00; color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">
-      Explore Resources →
+    <a href="/business/" style="display: inline-block; padding: 10px 20px; background: #00ff00; color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">
+      Business Overview →
     </a>
   </div>
 
