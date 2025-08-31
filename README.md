@@ -5,6 +5,8 @@
 Comprehensive documentation for AIMatrix - The Business Operating System for Modern Enterprises.
 
 ## Overview 
+![aimatrix com_green_black](https://github.com/user-attachments/assets/b90eabdf-223f-4950-a4dd-a089b7494dd0)
+
 
 
 This repository contains the source files for the AIMatrix documentation website, built with Hugo and the Docsy theme. The documentation is designed to be:
