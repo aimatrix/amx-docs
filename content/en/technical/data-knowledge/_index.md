@@ -121,9 +121,9 @@ Seamless integration with machine learning workflows:
 ## Getting Started
 
 1. **[Quick Start Guide](/technical/data-knowledge/getting-started/)** - Set up your first data pipeline
-2. **[Architecture Patterns](/technical/data-knowledge/architecture-patterns/)** - Learn common implementation patterns
-3. **[Best Practices](/technical/data-knowledge/best-practices/)** - Follow proven methodologies
-4. **[Performance Optimization](/technical/data-knowledge/performance-optimization/)** - Maximize system efficiency
+2. **[Best Practices](/technical/data-knowledge/best-practices/)** - Follow proven methodologies
+3. **[RAG & GraphRAG](/technical/data-knowledge/rag-graphrag/)** - Advanced retrieval-augmented generation
+4. **[ML/AI Integration](/technical/data-knowledge/ml-ai-integration/)** - Machine learning workflows
 
 ## Use Cases
 

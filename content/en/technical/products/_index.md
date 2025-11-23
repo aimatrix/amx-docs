@@ -92,7 +92,7 @@ Full SDK support available for:
 1. **[Install AIMatrix CLI](aimatrix-cli-technical/#installation)** - Set up your development environment
 2. **[Deploy AMX Engine](amx-engine-technical/#deployment)** - Launch your first runtime instance  
 3. **[Choose Your SDK](amx-engine-technical/#sdk-documentation)** - Select your preferred programming language
-4. **[Build Your First Agent](../tutorials/)** - Follow step-by-step implementation guides
+4. **[Build Your First Agent](/technical/tutorials/)** - Follow step-by-step implementation guides
 
 ## Developer Resources
 

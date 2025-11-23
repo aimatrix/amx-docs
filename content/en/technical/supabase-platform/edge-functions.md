@@ -1307,9 +1307,9 @@ serve(async (req) => {
 
 With Edge Functions set up, you can now:
 
-1. **[Configure Storage & CDN](storage-cdn/)** - Handle file uploads and processing
-2. **[Set up Monitoring](monitoring-observability/)** - Track function performance
-3. **[Implement Real-time Features](realtime-features/)** - Connect functions to real-time events
-4. **[Enhance Vector AI](vector-ai/)** - Use functions for AI processing pipelines
+1. **[Configure Storage & CDN](/technical/supabase-platform/storage-cdn/)** - Handle file uploads and processing
+2. **[Set up Monitoring](/technical/supabase-platform/monitoring-observability/)** - Track function performance
+3. **[Implement Real-time Features](/technical/supabase-platform/realtime-features/)** - Connect functions to real-time events
+4. **[Enhance Vector AI](/technical/supabase-platform/vector-ai/)** - Use functions for AI processing pipelines
 
 Your serverless API layer is now ready to handle AI processing, webhooks, background jobs, and third-party integrations at global scale.
