@@ -7,6 +7,14 @@ cascade:
 
 Discover how AIMatrix transforms businesses with intelligent automation and AI-powered solutions. Perfect for decision makers, business users, and anyone looking to understand the business value of AIMatrix.
 
+## The Enterprise Agentic Twin Vision
+
+AIMatrix is evolving toward **Enterprise Agentic Twin**—a vision where your organization has a fully autonomous digital counterpart. Our evolution path:
+
+**Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin**
+
+We're currently delivering robust capabilities in the **Agents** and **Intelligent Twin** phases, with active research and development toward more advanced DTO capabilities. This honest, deliberate evolution ensures each step delivers measurable business value while building toward the ultimate vision.
+
 ## Quick Navigation
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">

@@ -10,7 +10,9 @@ author: "Dr. James Liu"
 
 Prompt engineering has evolved from individual experimentation to systematic practice for production systems. When serving many concurrent users with critical applications, ad-hoc prompt crafting must give way to structured approaches involving version control, testing, and quality assurance.
 
-This exploration examines the practical challenges and solutions for building robust prompt systems at scale, based on real-world experience with production AI applications.
+As organizations evolve from Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin, prompt engineering becomes increasingly sophisticated. Enterprise Agentic Twins require prompts that can guide autonomous decision-making across complex organizational scenarios while maintaining consistency, safety, and alignment with organizational values at scale.
+
+This exploration examines the practical challenges and solutions for building robust prompt systems at scale, based on real-world experience with production AI applications and the evolution toward Enterprise Agentic Twin deployments.
 
 ## The Production Prompt Engineering Challenge
 

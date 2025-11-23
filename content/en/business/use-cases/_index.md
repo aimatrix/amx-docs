@@ -6,7 +6,7 @@ cascade:
   type: docs
 ---
 
-AIMatrix Vertical Solutions represent the pinnacle of industry-specific AI applications, delivering transformative capabilities that automate complex business processes with unprecedented accuracy and efficiency. Our vertical solutions are purpose-built to address the unique challenges and requirements of specific industries, providing deep domain expertise combined with cutting-edge artificial intelligence.
+AIMatrix Vertical Solutions represent practical applications on the evolution path toward Enterprise Agentic Twin. Each use case demonstrates how AI transforms from simple assistance (Copilot) through autonomous execution (Agents) toward intelligent organizational modeling (Digital Twin for Organization). Our vertical solutions are purpose-built to address specific business challenges while advancing your organization's journey to self-evolving enterprise intelligence.
 
 ## Overview of Solutions
 
@@ -59,6 +59,18 @@ Our ERP/POS AI solution transforms traditional business management systems into 
 - 90% faster order processing
 - 25% increase in operational efficiency
 - Real-time business intelligence and insights
+
+## Evolution Framework: Building Enterprise Agentic Twin
+
+Each vertical solution advances through distinct evolution stages:
+
+**Copilot Stage**: AI assists users with recommendations and insights
+**Agents Stage**: Autonomous AI executes decisions within defined parameters
+**Intelligent Twin Stage**: Digital simulation predicts and optimizes outcomes
+**DTO Stage**: Complete functional area modeled as organizational twin
+**Enterprise Agentic Twin**: Self-evolving intelligence across the entire organization
+
+Every use case implementation brings your organization closer to the ultimate vision - an Enterprise Agentic Twin that continuously learns, adapts, and optimizes all operations autonomously.
 
 ## Architecture Foundation
 

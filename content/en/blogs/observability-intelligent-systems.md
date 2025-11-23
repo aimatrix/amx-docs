@@ -10,7 +10,9 @@ author: "Dr. Marcus Chen"
 
 Observability for intelligent systems presents unique challenges that go beyond traditional software monitoring. Unlike deterministic applications, AI agents exhibit emergent behaviors, make probabilistic decisions, and adapt their strategies over time. Traditional metrics like CPU usage and response time, while important, provide an incomplete picture of an AI system's health and effectiveness.
 
-This comprehensive guide explores the specialized observability requirements for AI agent systems, covering behavioral monitoring, performance tracking, anomaly detection, and the infrastructure needed to maintain visibility into complex, autonomous systems at scale.
+As organizations evolve from Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin, observability requirements become progressively more sophisticated. Enterprise Agentic Twins—comprehensive digital representations that autonomously perceive, reason, and act on behalf of organizations—require observability systems that can track not just performance metrics but behavioral coherence, decision quality, and alignment with organizational values across complex multi-agent interactions.
+
+This comprehensive guide explores the specialized observability requirements for AI agent systems, covering behavioral monitoring, performance tracking, anomaly detection, and the infrastructure needed to maintain visibility into complex, autonomous systems at scale, with particular emphasis on the observability challenges unique to Enterprise Agentic Twin deployments.
 
 ## The AI Observability Challenge
 

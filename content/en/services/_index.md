@@ -6,6 +6,14 @@ weight: 3
 
 Beyond our core products, AIMatrix offers specialized services that transform raw business data into structured, actionable knowledge. These services bridge the gap between information chaos and intelligent automation, supported by robust technical architecture and enterprise-grade implementation.
 
+## Building the Foundation for Enterprise Agentic Twin
+
+Our services play a critical role in AIMatrix's evolution toward **Enterprise Agentic Twin** capabilities:
+
+**Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin**
+
+Each service contributes to building the knowledge infrastructure required for advanced organizational intelligence. While we're currently focused on delivering robust Agent and Intelligent Twin capabilities, our service architecture is designed with the future DTO and Enterprise Agentic Twin vision in mind.
+
 ## Service Portfolio
 
 ### Knowledge Creation Services

@@ -15,9 +15,11 @@ Real-time knowledge graphs sounded simple in theory: take a knowledge graph, hoo
 
 We started with traditional knowledge graphs that worked well for static data - customer relationships, product catalogs, organizational hierarchies. But when we tried to make them update in real-time from operational systems, we hit problems we hadn't anticipated. Schema changes broke running queries, inconsistent updates caused logical contradictions, and the performance overhead of maintaining graph integrity at high update rates was significant.
 
+As we work toward Enterprise Agentic Twins—comprehensive digital representations that must maintain a continuously updated understanding of organizational state—real-time knowledge graphs become essential infrastructure. The evolution from Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin requires knowledge systems that can track relationships, dependencies, and state changes in real-time while supporting autonomous reasoning and decision-making.
+
 This isn't a story of perfect solutions. It's about the practical challenges we've encountered building knowledge graphs that can handle live, changing data, and the compromises we've made to get them working in production.
 
-We'll cover what actually works, what doesn't, and the trade-offs you'll face if you're considering real-time knowledge graphs. The technology has promise, but it's harder and messier than the academic papers suggest.
+We'll cover what actually works, what doesn't, and the trade-offs you'll face if you're considering real-time knowledge graphs for supporting advanced AI systems like Enterprise Agentic Twins. The technology has promise, but it's harder and messier than the academic papers suggest.
 
 ## The Core Problem: Consistency vs. Speed
 

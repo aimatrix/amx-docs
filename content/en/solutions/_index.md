@@ -5,7 +5,15 @@ date: 2024-12-06
 weight: 30
 ---
 
-Discover how AIMatrix solves real business challenges across industries and functions.
+Discover how AIMatrix solves real business challenges across industries and functions as we evolve toward **Enterprise Agentic Twin** capabilities.
+
+## The Intelligence Evolution Journey
+
+Our solutions reflect AIMatrix's progression along the intelligence evolution path:
+
+**Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin**
+
+Current solutions primarily leverage **AI Agents** and **Intelligent Twin** capabilities, with ongoing development toward more advanced Digital Twin for Organization (DTO) features. Each implementation represents a step forward in this evolution.
 
 ## Solution Categories
 

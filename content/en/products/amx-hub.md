@@ -10,6 +10,10 @@ AMX Hub serves as your organization's central command center for AI initiatives,
 
 Built with modern Kotlin/Spring Boot architecture, AMX Hub provides Git-like repository management, multi-format package registry capabilities, real-time collaboration features, and comprehensive enterprise security - all designed specifically for AI development workflows and organizational governance needs.
 
+### Role in Enterprise Agentic Twin Evolution
+
+AMX Hub is essential for managing the collaborative development and organizational knowledge that will power Enterprise Agentic Twins. Just as enterprises need centralized source code management, they need centralized agent and twin management. AMX Hub provides the collaboration infrastructure for teams to collectively build, refine, and govern the intelligent agents that will evolve into organizational twins. The platform manages not just code, but the **organizational knowledge, behavioral patterns, and decision frameworks** that will define future Enterprise Agentic Twins.
+
 ## Business Value Proposition
 
 ### Business Challenge it Solves
@@ -552,6 +556,32 @@ enum class Permission {
 - **Compliance Documentation**: Security and regulatory compliance certifications
 - **Reference Customers**: Connect with executives who have successfully deployed AMX Hub
 
+## Evolution Toward Organizational Intelligence Management
+
+### Current Capabilities: Collaborative Agent Development
+AMX Hub currently provides enterprise-grade collaboration for AI development teams, enabling them to share workspaces, manage dependencies, govern deployments, and coordinate complex multi-team initiatives. This centralized approach ensures quality, consistency, and compliance across all AI initiatives.
+
+### Future Direction: Twin Governance Platform
+As we progress toward Enterprise Agentic Twins, AMX Hub will evolve to support:
+
+- **Twin lifecycle management**: Track the evolution of agents into increasingly autonomous twins
+- **Organizational knowledge curation**: Centralize and version control the knowledge that defines organizational intelligence
+- **Behavioral governance**: Ensure twin behaviors align with organizational values and strategy
+- **Cross-twin coordination**: Manage interactions between multiple organizational twins
+- **Evolution tracking**: Monitor and govern the progression from agents to fully autonomous twins
+
+### The Governance Evolution
+
+**Current State**: Manage agent development, deployment, and collaboration across enterprise teams
+
+**Near Term**: Govern intelligent twins with semi-autonomous capabilities and increasing organizational knowledge
+
+**Long Term**: Oversee Digital Twins for Organization with comprehensive governance frameworks
+
+**Vision**: Manage a portfolio of Enterprise Agentic Twins that collectively embody organizational intelligence
+
+AMX Hub provides the governance and collaboration foundation that ensures the responsible development of increasingly autonomous organizational intelligence. As agents evolve into twins, the governance becomes more critical, not less.
+
 ---
 
-*AMX Hub: Where Enterprise AI Collaboration Meets Governance and Scale*
+*AMX Hub: Governing the Journey from Agents to Enterprise Agentic Twins*

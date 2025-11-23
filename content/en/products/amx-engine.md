@@ -10,6 +10,10 @@ AMX Engine is the comprehensive AI automation platform that transforms how busin
 
 Built on a sophisticated distributed computing platform that combines cloud-native architecture with specialized AI and digital twin processing capabilities, AMX Engine provides enterprise-grade scalability, reliability, and performance for production AI applications.
 
+### Role in Enterprise Agentic Twin Evolution
+
+AMX Engine is a critical foundation on the path toward Enterprise Agentic Twins. While we're currently focused on robust agent orchestration and intelligent automation, the platform is designed to support increasingly autonomous behaviors as AI capabilities mature. Today's agents handle complex workflows with supervision; tomorrow's organizational twins will make autonomous decisions aligned with business strategy. AMX Engine provides the runtime infrastructure for this evolutionary journey from **copilots to agents to intelligent twins**.
+
 ## Business Value Proposition
 
 ### Business Challenge it Solves
@@ -307,6 +311,31 @@ graph TB
 - **Enterprise**: 24/7 dedicated support with technical account manager
 - **Premium**: White-glove service with on-site consulting
 
+## Evolution Toward Organizational Intelligence
+
+### Current Capabilities: Intelligent Agents
+AMX Engine currently enables organizations to deploy sophisticated AI agents capable of autonomous workflow execution, real-time decision-making, and complex multi-agent orchestration. These agents operate with clear boundaries and human oversight, delivering measurable business value today.
+
+### Future Direction: Enterprise Agentic Twins
+As AI capabilities advance, AMX Engine is architected to support the evolution toward Enterprise Agentic Twins - autonomous organizational intelligence that:
+
+- **Learns organizational context**: Understands business strategy, culture, and decision-making patterns
+- **Operates independently**: Makes complex decisions without constant human intervention
+- **Adapts dynamically**: Continuously improves based on outcomes and changing conditions
+- **Maintains alignment**: Stays true to organizational values and strategic objectives
+
+### The Evolutionary Path
+
+**Current State**: Agents handle defined workflows with supervision and explicit boundaries
+
+**Near Term**: Intelligent twins that replicate human decision-making patterns with increasing autonomy
+
+**Long Term**: Digital Twins for Organization (DTO) that represent complete organizational intelligence
+
+**Vision**: Enterprise Agentic Twins that autonomously manage operations while maintaining strategic alignment
+
+AMX Engine provides the foundational infrastructure for this journey, with each capability we build today serving as a stepping stone toward more autonomous organizational intelligence.
+
 ---
 
-*AMX Engine: The Intelligent Business Operating System That Delivers Measurable Results*
+*AMX Engine: Building the Runtime for Tomorrow's Enterprise Agentic Twins*

@@ -132,6 +132,12 @@ Transform your business operations and gain competitive advantage with AMX Engin
 
 **Ready to Get Started?** Request your complimentary business automation assessment today and discover how AMX Engine can deliver measurable ROI within 90 days.
 
+## Evolution Toward Enterprise Intelligence
+
+AMX Engine is evolving from an intelligent automation platform toward the runtime infrastructure for Enterprise Agentic Twins. Today's agents handle complex workflows with supervision; tomorrow's organizational twins will make autonomous strategic decisions. Each deployment brings us closer to the vision of **Digital Twins for Organization (DTO)** that embody complete organizational intelligence.
+
+**Evolution Path**: Copilot → Agents → Intelligent Twin → DTO → Enterprise Agentic Twin
+
 ---
 
-*AMX Engine: The Intelligent Business Operating System That Works While You Sleep*
+*AMX Engine: Powering the Journey from Automation to Enterprise Agentic Twins*

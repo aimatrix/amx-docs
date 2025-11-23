@@ -382,7 +382,7 @@ button:hover {
 /* Footer - Fix duplicates and improve design */
 footer {
   background: #000000 !important;
-  border-top: 1px solid rgba(0, 255, 0, 0.2) !important;
+  border-top: 1px solid rgba(255, 0, 0, 0.2) !important;
   color: #b0b0b0 !important;
   padding: 20px 0 !important;
 }

@@ -6,6 +6,10 @@ weight: 2
 
 Four integrated products that create a complete AI ecosystem for businesses, developers, and end users.
 
+## Building the Foundation for Enterprise Agentic Twins
+
+Our product suite represents the evolutionary path from **copilots to agents to intelligent twins**. While we're not yet at full Enterprise Agentic Twins, each product contributes essential capabilities for this journey: autonomous decision-making (AMX Engine), human-AI interfaces (AMX Console), development tools (AIMatrix CLI), collaboration infrastructure (AMX Hub), and organizational knowledge (AMX Workspace). Together, they form the foundation for future Digital Twins for Organization (DTO) and Enterprise Agentic Twins.
+
 ## Product Portfolio
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 40px 0;">
@@ -93,6 +97,16 @@ Four integrated products that create a complete AI ecosystem for businesses, dev
 - CLI development → Cloud Engine cluster → Global Console deployment → Hub orchestration
 - **Cost**: Custom pricing based on requirements
 
+## The Evolution Journey
+
+### Where We Are
+Our products enable sophisticated AI automation, intelligent agent orchestration, and organizational knowledge management. Organizations are deploying autonomous agents that deliver real business value today.
+
+### Where We're Going
+We're building toward Enterprise Agentic Twins - autonomous organizational intelligence that operates independently while aligned with business strategy. Each product enhancement moves us closer to this vision.
+
+**Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin**
+
 ---
 
-*AIMatrix - Four Products, One Vision: Complete Business Automation*
+*AIMatrix - Four Products, One Vision: Building the Foundation for Enterprise Agentic Twins*

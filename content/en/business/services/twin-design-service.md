@@ -6,7 +6,15 @@ weight: 11
 
 ## Executive Summary
 
-AIMatrix Twin Design Service creates digital twins of your critical business processes, enabling you to predict outcomes, identify bottlenecks, and optimize operations before implementing changes in the real world. Reduce risk, eliminate costly mistakes, and achieve operational excellence through predictive simulation.
+AIMatrix Twin Design Service creates digital twins of your critical business processes, enabling you to predict outcomes, identify bottlenecks, and optimize operations before implementing changes in the real world. This service advances your organization toward Digital Twin for Organization (DTO) and ultimately Enterprise Agentic Twin. Reduce risk, eliminate costly mistakes, and achieve operational excellence through predictive simulation.
+
+## The Evolution Stage: From Agents to Intelligent Twins
+
+Twin Design Service advances your organization through critical evolution stages:
+
+**Copilot → Agents → Intelligent Twin** ← *You are here* → **DTO → Enterprise Agentic Twin**
+
+At this stage, individual process optimization through digital twins evolves toward comprehensive organizational modeling. As twin coverage expands across all business processes, you approach Digital Twin for Organization (DTO) - a complete operational mirror. The ultimate vision: Enterprise Agentic Twin that autonomously simulates, learns, and optimizes your entire enterprise.
 
 ## Business Problem
 

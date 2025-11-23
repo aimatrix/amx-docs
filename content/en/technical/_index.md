@@ -5,9 +5,15 @@ cascade:
   type: docs
 ---
 
-# AIMatrix Technical Documentation
-
 Comprehensive technical resources for developers, system administrators, and technical teams building with AIMatrix. From APIs to deployment guides.
+
+## Technical Evolution Roadmap
+
+AIMatrix's technical architecture is designed to support our evolution toward **Enterprise Agentic Twin**:
+
+**Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin**
+
+Current technical capabilities focus on the **Agents** and **Intelligent Twin** phases. Our architecture is intentionally designed to scale toward DTO and Enterprise Agentic Twin capabilities as we continue development and research.
 
 ## Quick Navigation
 

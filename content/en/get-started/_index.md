@@ -7,6 +7,14 @@ weight: 10
 
 Welcome to AIMatrix! This section provides everything you need to get up and running quickly with our AI-powered platform.
 
+## Understanding Our Evolution
+
+AIMatrix is on a deliberate journey toward **Enterprise Agentic Twin** capabilities:
+
+**Copilot → Agents → Intelligent Twin → Digital Twin for Organization (DTO) → Enterprise Agentic Twin**
+
+As you get started, you'll primarily work with our current **AI Agents** and **Intelligent Twin** capabilities. Understanding this evolution helps contextualize our architecture and roadmap.
+
 ## Quick Navigation
 
 ### [Concepts](/get-started/concepts/)
