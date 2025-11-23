@@ -375,7 +375,7 @@ weight: 3
     <ul style="list-style: none; padding: 0;">
       <li style="margin: 10px 0;">📄 <a href="/technical/" style="color: #00ff00;">Technical Documentation</a></li>
       <li style="margin: 10px 0;">📄 <a href="/technical/developers/" style="color: #00ff00;">API Reference</a></li>
-      <li style="margin: 10px 0;">📄 <a href="/specs" style="color: #00ff00;">Specifications</a></li>
+      <li style="margin: 10px 0;">📄 <a href="/technical/specs/" style="color: #00ff00;">Specifications</a></li>
     </ul>
   </div>
   
@@ -413,8 +413,8 @@ weight: 3
     <a href="https://github.com/aimatrix/community/discussions" style="padding: 15px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 8px; font-weight: 600;">
       💭 GitHub Discussions
     </a>
-    <a href="/community" style="padding: 15px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 8px; font-weight: 600;">
-      👥 Community Forum
+    <a href="/business/" style="padding: 15px 30px; border: 2px solid #00ff00; color: #00ff00; text-decoration: none; border-radius: 8px; font-weight: 600;">
+      👥 Business Resources
     </a>
   </div>
 </div>

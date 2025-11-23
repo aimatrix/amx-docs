@@ -503,9 +503,9 @@ class OptimizedRAG:
 ## Resources
 
 ### Documentation
-- [Data Repositories](../data-repositories/) - Deep dive into storage systems
-- [RAG & GraphRAG](../rag-graphrag/) - Advanced retrieval techniques
-- [ML/AI Integration](../ml-ai-integration/) - Complete MLOps workflows
+- [Data Repositories](/technical/data-knowledge/data-repositories/) - Deep dive into storage systems
+- [RAG & GraphRAG](/technical/data-knowledge/rag-graphrag/) - Advanced retrieval techniques
+- [ML/AI Integration](/technical/data-knowledge/ml-ai-integration/) - Complete MLOps workflows
 
 ### Support
 - GitHub Issues: [Report bugs and feature requests](https://github.com/aimatrix/platform/issues)
@@ -515,6 +515,6 @@ class OptimizedRAG:
 ### Examples
 - [Sample Applications](https://github.com/aimatrix/examples)
 - [Integration Templates](https://github.com/aimatrix/templates) 
-- [Best Practices Guide](../best-practices/)
+- [Best Practices Guide](/technical/data-knowledge/best-practices/)
 
 You're now ready to build intelligent knowledge systems with the AIMatrix Data & Knowledge Layer! Start with the quick setup, experiment with the patterns, and gradually implement more advanced features as your needs grow.

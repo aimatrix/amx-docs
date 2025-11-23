@@ -1172,8 +1172,8 @@ print(f"Cluster efficiency: {performance_metrics.overall_efficiency:.2%}")
 
 ### Next Steps
 
-- **[Explore Digital Twin Integration](../intelligent-digital-twin/)** - Connect agents with business process models
-- **[Learn LLM OS Orchestration](../llm-os/)** - Centralized AI model management
-- **[Review Integration Patterns](../../integration/)** - Enterprise system connectivity
+- **[Explore Digital Twin Integration](/technical/intelligent-systems/intelligent-digital-twin/)** - Connect agents with business process models
+- **[Learn LLM OS Orchestration](/technical/intelligent-systems/llm-os/)** - Centralized AI model management
+- **[Review Integration Patterns](/technical/data-knowledge/ml-ai-integration/)** - Enterprise system connectivity
 
 AI Agents Architecture represents the future of business automation—intelligent, adaptive, and collaborative systems that augment human capabilities while operating with unprecedented autonomy and intelligence.

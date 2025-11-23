@@ -1537,9 +1537,9 @@ This integration ensures that the AIMatrix platform can continuously learn, adap
 
 ### Related Documentation
 
-- **[Core Platform](../../core-platform/)** - Platform infrastructure and services
-- **[AI Core](../../ai-core/)** - AI agents and orchestration systems  
-- **[Architecture](../../architecture/)** - System architecture patterns
-- **[Best Practices](../../best-practices/)** - Implementation guidelines
+- **[Core Platform](/technical/core-platform/)** - Platform infrastructure and services
+- **[Intelligent Systems](/technical/intelligent-systems/)** - AI agents and orchestration systems
+- **[Architecture](/technical/architecture/)** - System architecture patterns
+- **[Best Practices](/technical/data-knowledge/best-practices/)** - Implementation guidelines
 
 The ML/AI Integration component bridges the gap between raw data and intelligent action, making the AIMatrix platform a truly adaptive and learning system that evolves with your business needs.

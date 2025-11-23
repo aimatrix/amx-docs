@@ -1238,9 +1238,8 @@ class KnowledgeQualityMonitor:
 
 ## Next Steps
 
-- **[ML/AI Integration](../ml-ai-integration/)** - Connect with machine learning workflows
-- **[Performance Optimization](../performance-optimization/)** - Advanced optimization techniques
-- **[Security & Privacy](../security-privacy/)** - Implement security best practices
-- **[Integration Patterns](../integration-patterns/)** - Connect with business systems
+- **[ML/AI Integration](/technical/data-knowledge/ml-ai-integration/)** - Connect with machine learning workflows
+- **[RAG & GraphRAG](/technical/data-knowledge/rag-graphrag/)** - Implement advanced retrieval systems
+- **[Data Pipelines](/technical/data-knowledge/data-pipelines/)** - Set up real-time data processing
 
 The Knowledge Management component transforms raw data into validated, structured knowledge that powers intelligent decision-making throughout the AIMatrix platform. It ensures that your AI systems have access to accurate, up-to-date, and relevant knowledge for any business scenario.

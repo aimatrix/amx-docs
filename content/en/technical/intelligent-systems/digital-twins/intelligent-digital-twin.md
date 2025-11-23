@@ -806,8 +806,8 @@ paths:
 
 ### Next Steps
 
-- **[Explore AI Agents Architecture](../ai-agents-architecture/)** - Learn how agents interact with digital twins
-- **[Understand LLM OS Integration](../llm-os/)** - See how AI models orchestrate twin operations  
-- **[Check Integration Patterns](../../applications/)** - Connect IDT with your existing systems
+- **[Explore AI Agents Architecture](/technical/intelligent-systems/ai-agents-architecture/)** - Learn how agents interact with digital twins
+- **[Understand LLM OS Integration](/technical/intelligent-systems/llm-os/)** - See how AI models orchestrate twin operations
+- **[Check Integration Patterns](/technical/applications/)** - Connect IDT with your existing systems
 
 The Intelligent Digital Twin represents the foundation of truly intelligent business operations—where every process, relationship, and decision can be modeled, predicted, and optimized in real-time.

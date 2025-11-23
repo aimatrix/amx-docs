@@ -1928,9 +1928,8 @@ $$ LANGUAGE plpgsql;
 
 ## Next Steps
 
-- **[RAG & GraphRAG](../rag-graphrag/)** - Implement advanced retrieval systems with Supabase
-- **[ML/AI Integration](../ml-ai-integration/)** - Connect ML workflows with Supabase feature stores
-- **[Data Pipelines](../data-pipelines/)** - Set up real-time data processing with Supabase
-- **[Performance Optimization](../performance-optimization/)** - Advanced Supabase optimization techniques
+- **[RAG & GraphRAG](/technical/data-knowledge/rag-graphrag/)** - Implement advanced retrieval systems with Supabase
+- **[ML/AI Integration](/technical/data-knowledge/ml-ai-integration/)** - Connect ML workflows with Supabase feature stores
+- **[Data Pipelines](/technical/data-knowledge/data-pipelines/)** - Set up real-time data processing with Supabase
 
 Supabase provides a unified, scalable foundation for all AIMatrix data needs, eliminating the complexity of managing multiple specialized databases while providing enterprise-grade performance and features.

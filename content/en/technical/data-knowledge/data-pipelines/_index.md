@@ -1300,9 +1300,8 @@ class PipelineMonitoring:
 
 ## Next Steps
 
-- **[RAG & GraphRAG](../rag-graphrag/)** - Implement advanced retrieval systems
-- **[Knowledge Management](../knowledge-management/)** - Set up automated knowledge extraction
-- **[ML/AI Integration](../ml-ai-integration/)** - Connect with machine learning workflows
-- **[Performance Optimization](../performance-optimization/)** - Advanced optimization techniques
+- **[RAG & GraphRAG](/technical/data-knowledge/rag-graphrag/)** - Implement advanced retrieval systems
+- **[Knowledge Management](/technical/data-knowledge/knowledge-management/)** - Set up automated knowledge extraction
+- **[ML/AI Integration](/technical/data-knowledge/ml-ai-integration/)** - Connect with machine learning workflows
 
 The Data Pipelines component ensures reliable, scalable, and high-quality data flow throughout the AIMatrix platform, enabling real-time insights and automated decision-making.

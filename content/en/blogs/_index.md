@@ -364,18 +364,9 @@ weight: 5
   </div>
 </div>
 
-## 🏷️ Browse by Category
+## 🏷️ Featured Articles
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 40px 0;">
-  <a href="/blogs/category/technical-analysis" class="category-badge" style="font-size: 1em; text-decoration: none;">Technical Analysis</a>
-  <a href="/blogs/category/business-strategy" class="category-badge" style="font-size: 1em; text-decoration: none;">Business Strategy</a>
-  <a href="/blogs/category/industry-insights" class="category-badge" style="font-size: 1em; text-decoration: none;">Industry Insights</a>
-  <a href="/blogs/category/ai-ml" class="category-badge" style="font-size: 1em; text-decoration: none;">AI/ML</a>
-  <a href="/blogs/category/automation" class="category-badge" style="font-size: 1em; text-decoration: none;">Automation</a>
-  <a href="/blogs/category/enterprise" class="category-badge" style="font-size: 1em; text-decoration: none;">Enterprise</a>
-  <a href="/blogs/category/innovation" class="category-badge" style="font-size: 1em; text-decoration: none;">Innovation</a>
-  <a href="/blogs/category/leadership" class="category-badge" style="font-size: 1em; text-decoration: none;">Leadership</a>
-</div>
+<p style="color: #ccc; margin: 20px 0;">Browse our collection of articles on AI automation, business transformation, and technology innovation.</p>
 
 ## 📬 Subscribe to Our Newsletter
 
@@ -400,14 +391,12 @@ weight: 5
   </form>
 </div>
 
-## 🔗 Quick Links
+## 📚 More Resources
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0;">
-  <a href="/blogs/rss.xml" style="color: #ff0000; text-decoration: none;">📡 RSS Feed</a>
-  <a href="/blogs/archive" style="color: #ff0000; text-decoration: none;">📚 Archive</a>
-  <a href="/blogs/authors" style="color: #ff0000; text-decoration: none;">✍️ Authors</a>
-  <a href="/blogs/topics" style="color: #ff0000; text-decoration: none;">🏷️ Topics</a>
-  <a href="/blogs/search" style="color: #ff0000; text-decoration: none;">🔍 Search</a>
+  <a href="/blogs/" style="color: #ff0000; text-decoration: none;">🔗 All Articles</a>
+  <a href="/technical/" style="color: #ff0000; text-decoration: none;">📖 Documentation</a>
+  <a href="/business/" style="color: #ff0000; text-decoration: none;">💼 Business</a>
 </div>
 
 ---

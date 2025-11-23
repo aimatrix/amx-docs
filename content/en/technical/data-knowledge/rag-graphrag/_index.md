@@ -1360,9 +1360,8 @@ class RAGAnalytics:
 
 ## Next Steps
 
-- **[Knowledge Management](../knowledge-management/)** - Set up automated knowledge extraction and curation
-- **[ML/AI Integration](../ml-ai-integration/)** - Connect with machine learning workflows  
-- **[Performance Optimization](../performance-optimization/)** - Advanced optimization techniques
-- **[Security & Privacy](../security-privacy/)** - Implement security best practices
+- **[Knowledge Management](/technical/data-knowledge/knowledge-management/)** - Set up automated knowledge extraction and curation
+- **[ML/AI Integration](/technical/data-knowledge/ml-ai-integration/)** - Connect with machine learning workflows
+- **[Data Repositories](/technical/data-knowledge/data-repositories/)** - Leverage Supabase for vector storage
 
 The RAG & GraphRAG component provides the intelligence layer that transforms static knowledge into dynamic, contextual responses, enabling your AI systems to provide accurate, relevant, and up-to-date information to users.

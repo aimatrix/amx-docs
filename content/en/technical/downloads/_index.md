@@ -360,8 +360,6 @@ weight: 18
       </ul>
     </div>
   </div>
-  
-  <a href="/changelog" style="color: #00ff00;">View Full Changelog →</a>
 </div>
 
 ## 🔑 License Keys

@@ -1462,8 +1462,8 @@ await cluster.start_intelligent_operations()
 
 ### Next Steps
 
-- **[Connect with Digital Twins](../intelligent-digital-twin/)** - Integrate with business process models
-- **[Deploy AI Agents](../ai-agents-architecture/)** - Add autonomous agent capabilities
-- **[Explore Integration Patterns](../../integration/)** - Connect with enterprise systems
+- **[Connect with Digital Twins](/technical/intelligent-systems/intelligent-digital-twin/)** - Integrate with business process models
+- **[Deploy AI Agents](/technical/intelligent-systems/ai-agents-architecture/)** - Add autonomous agent capabilities
+- **[Explore Integration Patterns](/technical/data-knowledge/ml-ai-integration/)** - Connect with enterprise systems
 
 The LLM OS represents the central nervous system of intelligent business operations—orchestrating AI models, ensuring safety and compliance, and enabling truly autonomous business intelligence that learns, adapts, and optimizes continuously.

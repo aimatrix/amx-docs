@@ -754,6 +754,6 @@ This architecture overview provides the foundation for understanding how AIMatri
 
 ### Next Steps
 
-- **[Explore Implementation Examples](../implementation-examples/)** - See practical implementation patterns
-- **[Review Performance Benchmarks](../performance-benchmarks/)** - Understand system capabilities
-- **[Check Integration Patterns](../../integration/)** - Connect with existing systems
+- **[Explore Implementation Examples](/technical/intelligent-systems/implementation-examples/)** - See practical implementation patterns
+- **[Review AI Agents Architecture](/technical/intelligent-systems/ai-agents-architecture/)** - Understand agent capabilities
+- **[Check Integration Patterns](/technical/data-knowledge/ml-ai-integration/)** - Connect with existing systems
