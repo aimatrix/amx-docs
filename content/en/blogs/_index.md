@@ -379,7 +379,7 @@ weight: 5
 
 ## 📬 Subscribe to Our Newsletter
 
-<div style="background: linear-gradient(135deg, #001100, #003300); border-radius: 16px; padding: 60px 40px; margin: 60px 0; text-align: center;">
+<div style="background: linear-gradient(135deg, #110000, #330000); border-radius: 16px; padding: 60px 40px; margin: 60px 0; text-align: center;">
   <h2 style="color: #ff0000; font-size: 2em; margin-bottom: 20px;">Never Miss an Update</h2>
   <p style="color: #cccccc; margin-bottom: 30px;">
     Get weekly insights on AI automation, business transformation, and technology trends
