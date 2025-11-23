@@ -154,13 +154,13 @@ WHERE p.active = true
 
 ## Getting Started
 
-1. **[Quick Start Guide](quick-start/)** - Set up your first Supabase project
-2. **[Authentication](authentication/)** - Implement user management and security
-3. **[Real-time Features](realtime-features/)** - Add live data synchronization
-4. **[Vector AI](vector-ai/)** - Build AI-powered search and recommendations
-5. **[Edge Functions](edge-functions/)** - Deploy serverless API endpoints
-6. **[Storage & CDN](storage-cdn/)** - Handle files and media assets
-7. **[Monitoring](monitoring-observability/)** - Ensure production reliability
+1. **[Quick Start Guide](/technical/supabase-platform/quick-start/)** - Set up your first Supabase project
+2. **[Authentication](/technical/supabase-platform/authentication/)** - Implement user management and security
+3. **[Real-time Features](/technical/supabase-platform/realtime-features/)** - Add live data synchronization
+4. **[Vector AI](/technical/supabase-platform/vector-ai/)** - Build AI-powered search and recommendations
+5. **[Edge Functions](/technical/supabase-platform/edge-functions/)** - Deploy serverless API endpoints
+6. **[Storage & CDN](/technical/supabase-platform/storage-cdn/)** - Handle files and media assets
+7. **[Monitoring](/technical/supabase-platform/monitoring-observability/)** - Ensure production reliability
 
 ## Core Components
 
@@ -224,11 +224,11 @@ WHERE p.active = true
 
 Choose your implementation path based on your specific requirements:
 
-- **New to Supabase?** Start with the [Quick Start Guide](quick-start/)
-- **Need Authentication?** Jump to [Authentication Implementation](authentication/)
-- **Building AI Features?** Check out [Vector AI](vector-ai/)
-- **Real-time Requirements?** Explore [Real-time Features](realtime-features/)
-- **API Development?** Learn about [Edge Functions](edge-functions/)
-- **Production Deployment?** Review [Monitoring & Observability](monitoring-observability/)
+- **New to Supabase?** Start with the [Quick Start Guide](/technical/supabase-platform/quick-start/)
+- **Need Authentication?** Jump to [Authentication Implementation](/technical/supabase-platform/authentication/)
+- **Building AI Features?** Check out [Vector AI](/technical/supabase-platform/vector-ai/)
+- **Real-time Requirements?** Explore [Real-time Features](/technical/supabase-platform/realtime-features/)
+- **API Development?** Learn about [Edge Functions](/technical/supabase-platform/edge-functions/)
+- **Production Deployment?** Review [Monitoring & Observability](/technical/supabase-platform/monitoring-observability/)
 
 Each guide includes complete code examples, best practices, and production-ready patterns specifically designed for AIMatrix applications.

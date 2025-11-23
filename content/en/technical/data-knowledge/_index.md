@@ -49,35 +49,35 @@ graph TB
 
 ## Key Components
 
-### 🗂️ [Data Repositories](./data-repositories/)
+### 🗂️ [Data Repositories](/technical/data-knowledge/data-repositories/)
 Advanced storage systems optimized for different data types and access patterns:
 - **Knowledge Graphs** - Neo4j, Amazon Neptune for complex relationships
 - **Vector Databases** - Pinecone, Weaviate, Chroma, Qdrant for semantic search
 - **Time-series Databases** - For metrics, monitoring, and temporal data
 - **Document Stores & Data Lakes** - Scalable unstructured data storage
 
-### 🔄 [Data Pipelines](./data-pipelines/)
+### 🔄 [Data Pipelines](/technical/data-knowledge/data-pipelines/)
 Robust data processing infrastructure for real-time and batch operations:
 - **Real-time Ingestion** - Multi-source data streaming and processing
 - **ETL/ELT Processes** - Apache Airflow orchestrated workflows
 - **Stream Processing** - Kafka, Pulsar for high-throughput data streams
 - **Data Quality & Validation** - Automated quality assurance and governance
 
-### 🧠 [RAG & GraphRAG](./rag-graphrag/)
+### 🧠 [RAG & GraphRAG](/technical/data-knowledge/rag-graphrag/)
 Advanced retrieval-augmented generation systems:
 - **Hybrid Search** - Combining semantic and keyword search strategies
 - **Context Optimization** - Intelligent context window management
 - **Multi-hop Reasoning** - Complex query resolution across knowledge graphs
 - **Adaptive RAG** - Self-improving retrieval based on usage patterns
 
-### 📚 [Knowledge Management](./knowledge-management/)
+### 📚 [Knowledge Management](/technical/data-knowledge/knowledge-management/)
 Automated knowledge extraction and curation:
 - **Entity Recognition & Linking** - Advanced NLP for information extraction
 - **Relationship Mapping** - Dynamic knowledge graph construction
 - **Knowledge Validation** - Automated fact verification and curation
 - **Temporal Knowledge Graphs** - Time-aware knowledge representation
 
-### 🤖 [ML/AI Integration](./ml-ai-integration/)
+### 🤖 [ML/AI Integration](/technical/data-knowledge/ml-ai-integration/)
 Seamless integration with machine learning workflows:
 - **Fine-tuning Pipelines** - Automated model adaptation
 - **Model Registry & Versioning** - MLOps best practices
@@ -120,10 +120,10 @@ Seamless integration with machine learning workflows:
 
 ## Getting Started
 
-1. **[Quick Start Guide](./getting-started/)** - Set up your first data pipeline
-2. **[Architecture Patterns](./architecture-patterns/)** - Learn common implementation patterns
-3. **[Best Practices](./best-practices/)** - Follow proven methodologies
-4. **[Performance Optimization](./performance-optimization/)** - Maximize system efficiency
+1. **[Quick Start Guide](/technical/data-knowledge/getting-started/)** - Set up your first data pipeline
+2. **[Architecture Patterns](/technical/data-knowledge/architecture-patterns/)** - Learn common implementation patterns
+3. **[Best Practices](/technical/data-knowledge/best-practices/)** - Follow proven methodologies
+4. **[Performance Optimization](/technical/data-knowledge/performance-optimization/)** - Maximize system efficiency
 
 ## Use Cases
 

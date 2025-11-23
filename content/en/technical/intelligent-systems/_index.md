@@ -19,13 +19,13 @@ We're advancing along this path by combining three foundational technologies tha
 
 These three technologies form the building blocks of our Enterprise Agentic Twin vision:
 
-### [Intelligent Digital Twin (IDT)](intelligent-digital-twin)
+### [Intelligent Digital Twin (IDT)](/technical/intelligent-systems/intelligent-digital-twin/)
 **Foundation Layer**: Create living digital replicas of your business processes, supply chains, and organizational structures. IDTs provide the simulation and modeling capabilities that let us understand and predict business behavior—the first step toward an organization that can reason about itself.
 
-### [AI Agents Architecture](ai-agents-architecture)
+### [AI Agents Architecture](/technical/intelligent-systems/ai-agents-architecture/)
 **Action Layer**: Deploy autonomous agents with specialized roles, swarm intelligence, and emergent behaviors. Agents transform insights from digital twins into intelligent actions—moving from passive observation to active optimization.
 
-### [LLM OS / LLM Lite](llm-os)
+### [LLM OS / LLM Lite](/technical/intelligent-systems/llm-os/)
 **Intelligence Layer**: Centralized orchestration platform for AI models with fine-tuning, guardrails, and distributed inference. LLM OS provides the reasoning and language capabilities that enable human-like understanding and communication.
 
 ## The Enterprise Agentic Twin Vision
@@ -104,9 +104,9 @@ Apply predictive maintenance concepts to business operations:
 
 Ready to transform your organization into an intelligent enterprise? Choose your entry point:
 
-1. **[Start with Digital Twins](intelligent-digital-twin/)** - Begin by modeling your core business processes
-2. **[Deploy AI Agents](ai-agents-architecture/)** - Implement specialized agents for specific functions
-3. **[Orchestrate with LLM OS](llm-os/)** - Centralize AI model management and deployment
+1. **[Start with Digital Twins](/technical/intelligent-systems/intelligent-digital-twin/)** - Begin by modeling your core business processes
+2. **[Deploy AI Agents](/technical/intelligent-systems/ai-agents-architecture/)** - Implement specialized agents for specific functions
+3. **[Orchestrate with LLM OS](/technical/intelligent-systems/llm-os/)** - Centralize AI model management and deployment
 
 ## Architecture Overview
 
