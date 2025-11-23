@@ -3,8 +3,8 @@
 <style>
 /* Clean, modern design system */
 :root {
-  --matrix-green: #00ff00;
-  --matrix-dark-green: #00cc00;
+  --matrix-red: #ff0000;
+  --matrix-dark-red: #cc0000;
   --matrix-bg: #0a0a0a;
   --matrix-card: rgba(0, 20, 0, 0.6);
   --text-primary: #ffffff;
@@ -79,7 +79,7 @@
 .btn-primary {
   display: inline-block;
   padding: 16px 32px;
-  background: linear-gradient(135deg, var(--matrix-green), var(--matrix-dark-green));
+  background: linear-gradient(135deg, var(--matrix-red), var(--matrix-dark-green));
   color: #000000;
   text-decoration: none;
   border-radius: 8px;
@@ -91,7 +91,7 @@
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
   background: linear-gradient(135deg, #00ff44, #00ff00);
 }
 
@@ -99,19 +99,19 @@
   display: inline-block;
   padding: 16px 32px;
   background: transparent;
-  color: var(--matrix-green);
+  color: var(--matrix-red);
   text-decoration: none;
-  border: 2px solid var(--matrix-green);
+  border: 2px solid var(--matrix-red);
   border-radius: 8px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background: var(--matrix-green);
+  background: var(--matrix-red);
   color: #000000;
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
 }
 
 /* Sections */
@@ -160,7 +160,7 @@
 /* Cards */
 .card {
   background: var(--matrix-card);
-  border: 1px solid rgba(0, 255, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.2);
   border-radius: 12px;
   padding: 40px;
   transition: all 0.3s ease;
@@ -168,14 +168,14 @@
 
 .card:hover {
   transform: translateY(-10px);
-  border-color: var(--matrix-green);
-  box-shadow: 0 20px 40px rgba(0, 255, 0, 0.1);
+  border-color: var(--matrix-red);
+  box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
 }
 
 .card-icon {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: var(--matrix-green);
+  color: var(--matrix-red);
 }
 
 .card-title {
@@ -208,16 +208,16 @@
 .stat-card {
   text-align: center;
   padding: 30px;
-  background: rgba(0, 255, 0, 0.05);
+  background: rgba(255, 0, 0, 0.05);
   border-radius: 12px;
-  border: 1px solid rgba(0, 255, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.2);
   min-width: 200px;
 }
 
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--matrix-green);
+  color: var(--matrix-red);
   display: block;
   margin-bottom: 10px;
 }
@@ -438,7 +438,7 @@
 <!-- Call to Action -->
 <section class="section">
   <div class="container">
-    <div style="text-align: center; background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 100, 0, 0.1)); padding: 80px 40px; border-radius: 20px; border: 2px solid rgba(0, 255, 0, 0.3);">
+    <div style="text-align: center; background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 100, 0, 0.1)); padding: 80px 40px; border-radius: 20px; border: 2px solid rgba(255, 0, 0, 0.3);">
       <h2 style="font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(135deg, #ffffff, #00ff00); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
         Ready to Enter the Matrix?
       </h2>

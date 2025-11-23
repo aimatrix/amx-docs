@@ -5,9 +5,9 @@ weight: 5
 ---
 
 <div style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); border-radius: 16px; padding: 60px 40px; margin: 40px 0; text-align: center; position: relative; overflow: hidden;">
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, #00ff0010 10px, #00ff0010 20px); animation: slide-diagonal 20s linear infinite;"></div>
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, #ff000010 10px, #ff000010 20px); animation: slide-diagonal 20s linear infinite;"></div>
   <div style="position: relative; z-index: 1;">
-    <h1 style="font-size: 3em; background: linear-gradient(135deg, #ffffff, #00ff00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">Insights & Innovation</h1>
+    <h1 style="font-size: 3em; background: linear-gradient(135deg, #ffffff, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;">Insights & Innovation</h1>
     <p style="font-size: 1.3em; color: #cccccc;">Stay updated with the latest in AI automation and business transformation</p>
   </div>
 </div>
@@ -20,7 +20,7 @@ weight: 5
 
 .blog-card {
   background: rgba(0, 0, 0, 0.4);
-  border: 2px solid #00ff00;
+  border: 2px solid #ff0000;
   border-radius: 12px;
   padding: 30px;
   margin: 30px 0;
@@ -29,7 +29,7 @@ weight: 5
 
 .blog-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
 }
 
 .blog-meta {
@@ -39,7 +39,7 @@ weight: 5
 }
 
 .read-more {
-  color: #00ff00;
+  color: #ff0000;
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
@@ -53,10 +53,10 @@ weight: 5
 .category-badge {
   display: inline-block;
   padding: 5px 15px;
-  background: rgba(0, 255, 0, 0.2);
-  border: 1px solid #00ff00;
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid #ff0000;
   border-radius: 20px;
-  color: #00ff00;
+  color: #ff0000;
   font-size: 0.8em;
   margin: 5px;
 }
@@ -68,10 +68,10 @@ weight: 5
 }
 
 .month-header {
-  color: #00ff00;
+  color: #ff0000;
   font-size: 1.8em;
   margin-bottom: 25px;
-  border-left: 4px solid #00ff00;
+  border-left: 4px solid #ff0000;
   padding-left: 15px;
 }
 
@@ -85,8 +85,8 @@ weight: 5
 }
 
 .blog-entry:hover {
-  border-color: #00ff00;
-  background: rgba(0, 255, 0, 0.1);
+  border-color: #ff0000;
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .blog-title {
@@ -103,7 +103,7 @@ weight: 5
 }
 
 .blog-link {
-  color: #00ff00;
+  color: #ff0000;
   text-decoration: none;
   font-weight: 600;
 }
@@ -380,7 +380,7 @@ weight: 5
 ## 📬 Subscribe to Our Newsletter
 
 <div style="background: linear-gradient(135deg, #001100, #003300); border-radius: 16px; padding: 60px 40px; margin: 60px 0; text-align: center;">
-  <h2 style="color: #00ff00; font-size: 2em; margin-bottom: 20px;">Never Miss an Update</h2>
+  <h2 style="color: #ff0000; font-size: 2em; margin-bottom: 20px;">Never Miss an Update</h2>
   <p style="color: #cccccc; margin-bottom: 30px;">
     Get weekly insights on AI automation, business transformation, and technology trends
   </p>
@@ -388,8 +388,8 @@ weight: 5
   <form style="max-width: 500px; margin: 0 auto;">
     <div style="display: flex; gap: 10px; margin-bottom: 20px;">
       <input type="email" placeholder="Enter your email" required 
-             style="flex: 1; padding: 15px; background: rgba(0, 0, 0, 0.6); border: 1px solid #00ff00; border-radius: 4px; color: #fff;">
-      <button type="submit" style="padding: 15px 30px; background: linear-gradient(135deg, #00ff00, #00cc00); color: #000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">
+             style="flex: 1; padding: 15px; background: rgba(0, 0, 0, 0.6); border: 1px solid #ff0000; border-radius: 4px; color: #fff;">
+      <button type="submit" style="padding: 15px 30px; background: linear-gradient(135deg, #ff0000, #cc0000); color: #000; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">
         Subscribe →
       </button>
     </div>
@@ -403,11 +403,11 @@ weight: 5
 ## 🔗 Quick Links
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0;">
-  <a href="/blogs/rss.xml" style="color: #00ff00; text-decoration: none;">📡 RSS Feed</a>
-  <a href="/blogs/archive" style="color: #00ff00; text-decoration: none;">📚 Archive</a>
-  <a href="/blogs/authors" style="color: #00ff00; text-decoration: none;">✍️ Authors</a>
-  <a href="/blogs/topics" style="color: #00ff00; text-decoration: none;">🏷️ Topics</a>
-  <a href="/blogs/search" style="color: #00ff00; text-decoration: none;">🔍 Search</a>
+  <a href="/blogs/rss.xml" style="color: #ff0000; text-decoration: none;">📡 RSS Feed</a>
+  <a href="/blogs/archive" style="color: #ff0000; text-decoration: none;">📚 Archive</a>
+  <a href="/blogs/authors" style="color: #ff0000; text-decoration: none;">✍️ Authors</a>
+  <a href="/blogs/topics" style="color: #ff0000; text-decoration: none;">🏷️ Topics</a>
+  <a href="/blogs/search" style="color: #ff0000; text-decoration: none;">🔍 Search</a>
 </div>
 
 ---

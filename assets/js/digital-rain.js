@@ -38,8 +38,8 @@
       context.fillStyle = 'rgba(0, 0, 0, 0.05)';
       context.fillRect(0, 0, canvas.width, canvas.height);
       
-      // Green color with 0.48 opacity (20% brighter than 0.4)
-      context.fillStyle = 'rgba(0, 255, 0, 0.48)';
+      // Red color with 0.48 opacity (20% brighter than 0.4)
+      context.fillStyle = 'rgba(255, 0, 0, 0.48)';
       context.font = fontSize + 'px monospace';
       
       for(let i = 0; i < rainDrops.length; i++) {
@@ -62,7 +62,7 @@
       canvas.height = window.innerHeight;
     });
     
-    console.log('Digital rain effect initialized with Greek letters - bright green');
+    console.log('Digital rain effect initialized with Greek letters - bright red');
   }
   
   // Initialize when DOM is ready
